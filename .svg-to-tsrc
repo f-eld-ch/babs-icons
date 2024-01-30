@@ -1,0 +1,25 @@
+{
+  "conversionType": "files",
+  "srcFiles": [
+    "./svg-icons/**/*.svg"
+  ],
+  "outputDirectory": "./dist/icons",
+  "interfaceName": "BabsIcon",
+  "typeName": "ba",
+  "prefix": "ba",
+  "tsx": true,
+  "generateType": true,
+  "exportCompleteIconSet": true,
+  "optimizeForLazyLoading": true,
+  "modelFileName": "babs-icon.model.model",
+  "delimiter": "CAMEL",
+  "svgoConfig": {
+    "plugins": [
+      "cleanupAttrs",
+      "removeUnusedNS",
+      "removeUselessDefs",
+      "removeUselessStrokeAndFill"
+    ]
+  },
+  "compileSources": true
+}

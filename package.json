@@ -1,5 +1,5 @@
 {
-  "name": "REPLACE_ME",
+  "name": "@f-eld-ch/babs-icons",
   "private": true,
   "version": "0.1.0",
   "type": "module",
@@ -13,12 +13,12 @@
   },
   "devDependencies": {
     "cpx": "^1.5.0",
-    "svg-to-ts": "^10.0.0",
-    "vite": "^4.1.0"
+    "svg-to-ts": "^11.0.1",
+    "vite": "^5.0.12"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/kreuzerk/svg-icon-library-starter.git"
+    "url": "https://github.com/f-eld-ch/babs-icons.git"
   },
   "keywords": [
     "SVG",
@@ -26,10 +26,11 @@
     "library",
     "starter"
   ],
-  "author": "Kevin Kreuzer",
-  "license": "ISC",
+  "author": "F-ELD",
+  "license": "MIT",
   "bugs": {
-    "url": "https://github.com/kreuzerk/svg-icon-library-starter/issues"
+    "url": "https://github.com/f-eld-ch/babs-icons/issues"
   },
-  "homepage": "https://github.com/kreuzerk/svg-icon-library-starter#readme"
+  "homepage": "https://github.com/f-eld-ch/babs-icons",
+  "packageManager": "yarn@4.0.2"
 }
