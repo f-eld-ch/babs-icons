@@ -1,0 +1,35 @@
+{
+  "name": "REPLACE_ME",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "npm run transform-icons && vite",
+    "build": "npm run build:lib && vite build",
+    "build:lib": "npm run transform-icons && npm run copy-library-assets",
+    "preview": "npm run build && vite preview",
+    "transform-icons": "svg-to-ts-files",
+    "copy-library-assets": "cpx package.json dist/icons && cpx README.md dist/icons"
+  },
+  "devDependencies": {
+    "cpx": "^1.5.0",
+    "svg-to-ts": "^10.0.0",
+    "vite": "^4.1.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kreuzerk/svg-icon-library-starter.git"
+  },
+  "keywords": [
+    "SVG",
+    "icons",
+    "library",
+    "starter"
+  ],
+  "author": "Kevin Kreuzer",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kreuzerk/svg-icon-library-starter/issues"
+  },
+  "homepage": "https://github.com/kreuzerk/svg-icon-library-starter#readme"
+}
