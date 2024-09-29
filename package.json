@@ -1,6 +1,5 @@
 {
   "name": "@f-eld-ch/babs-icons",
-  "private": false,
   "version": "0.2.0",
   "type": "module",
   "scripts": {
@@ -13,8 +12,12 @@
   },
   "devDependencies": {
     "cpx": "^1.5.0",
-    "svg-to-ts": "^11.0.1",
-    "vite": "^5.0.12"
+    "svg-to-ts": "^12.0.0",
+    "vite": "^5.4.8"
+  },
+  "resolutions": {
+    "braces": "^3.0.3",
+    "rollup": "^4.22.4"
   },
   "repository": {
     "type": "git",
@@ -32,5 +35,5 @@
     "url": "https://github.com/f-eld-ch/babs-icons/issues"
   },
   "homepage": "https://github.com/f-eld-ch/babs-icons",
-  "packageManager": "yarn@4.0.2"
+  "packageManager": "yarn@4.5.0"
 }
