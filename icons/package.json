@@ -1,0 +1,45 @@
+{
+  "name": "@f-eld-ch/babs-icons",
+  "version": "0.2.0",
+  "type": "module",
+  "scripts": {
+    "dev": "yarn run transform-icons && vite",
+    "build": "yarn run build:lib && vite build",
+    "build:lib": "yarn run transform-icons && npm run copy-library-assets",
+    "preview": "yarn run build && vite preview",
+    "transform-icons": "svg-to-ts-files",
+    "copy-library-assets": "cpx package.json dist/icons && cpx README.md dist/icons",
+    "publish": "yarn build && gh-pages -d dist"
+  },
+  "devDependencies": {
+    "@types/gh-pages": "^6",
+    "cpx": "^1.5.0",
+    "gh-pages": "^6.3.0",
+    "svg-to-ts": "^12.0.0",
+    "vite": "^5.4.8"
+  },
+  "resolutions": {
+    "braces": "^3.0.3",
+    "ip": "^2.0.1",
+    "tar": "^6.2.1",
+    "micromatch": "^4.0.8",
+    "rollup": "^4.22.4"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/f-eld-ch/babs-icons.git"
+  },
+  "keywords": [
+    "SVG",
+    "icons",
+    "library",
+    "starter"
+  ],
+  "author": "F-ELD",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/f-eld-ch/babs-icons/issues"
+  },
+  "homepage": "https://github.com/f-eld-ch/babs-icons",
+  "packageManager": "yarn@4.5.0"
+}
