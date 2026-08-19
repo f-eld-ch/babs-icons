@@ -1,8 +1,6 @@
 {
   "files": [],
   "references": [
-    { "path": "packages/pipeline" },
-    { "path": "packages/svg" },
     { "path": "packages/core" },
     { "path": "packages/react" },
     { "path": "packages/assets" },

@@ -313,6 +313,25 @@
                 "de": "Brandzone Flächenbrand",
                 "fr": "Zone en feu",
                 "it": "Zona toccata dall’incendio"
+              },
+              "patterns": {
+                "a": {
+                  "files": {
+                    "de": {
+                      "lang": "de/1110-BrandzoneFlaechenbrand-pattern.svg",
+                      "svg": "svg/1110-BrandzoneFlaechenbrand-pattern.svg"
+                    },
+                    "fr": {
+                      "lang": "fr/1110-BrandzoneFlaechenbrand-pattern.svg",
+                      "svg": "svg/1110-BrandzoneFlaechenbrand-pattern.svg"
+                    },
+                    "it": {
+                      "lang": "it/1110-BrandzoneFlaechenbrand-pattern.svg",
+                      "svg": "svg/1110-BrandzoneFlaechenbrand-pattern.svg"
+                    }
+                  },
+                  "identical": true
+                }
               }
             },
             {
@@ -382,6 +401,25 @@
                 "de": "Zerstörte Zone einer Ortschaft",
                 "fr": "Zone sinistrée impraticable",
                 "it": "Zona sinistrata impraticabile"
+              },
+              "patterns": {
+                "a": {
+                  "files": {
+                    "de": {
+                      "lang": "de/1112-ZerstoerteZoneeinerOrtschaft-pattern.svg",
+                      "svg": "svg/1112-ZerstoerteZoneeinerOrtschaft-pattern.svg"
+                    },
+                    "fr": {
+                      "lang": "fr/1112-ZerstoerteZoneeinerOrtschaft-pattern.svg",
+                      "svg": "svg/1112-ZerstoerteZoneeinerOrtschaft-pattern.svg"
+                    },
+                    "it": {
+                      "lang": "it/1112-ZerstoerteZoneeinerOrtschaft-pattern.svg",
+                      "svg": "svg/1112-ZerstoerteZoneeinerOrtschaft-pattern.svg"
+                    }
+                  },
+                  "identical": true
+                }
               }
             },
             {
@@ -405,6 +443,42 @@
                 "de": "Rutschgebiet",
                 "fr": "Glissement de terrain avec direction",
                 "it": "Zona colpita da frana con indicazione della direzione"
+              },
+              "patterns": {
+                "a": {
+                  "files": {
+                    "de": {
+                      "lang": "de/1113-Rutschgebiet-pattern.svg",
+                      "svg": "svg/1113-Rutschgebiet-pattern.svg"
+                    },
+                    "fr": {
+                      "lang": "fr/1113-Rutschgebiet-pattern.svg",
+                      "svg": "svg/1113-Rutschgebiet-pattern.svg"
+                    },
+                    "it": {
+                      "lang": "it/1113-Rutschgebiet-pattern.svg",
+                      "svg": "svg/1113-Rutschgebiet-pattern.svg"
+                    }
+                  },
+                  "identical": true
+                },
+                "b": {
+                  "files": {
+                    "de": {
+                      "lang": "de/1113-Rutschgebiet-pattern-b.svg",
+                      "svg": "svg/1113-Rutschgebiet-pattern-b.svg"
+                    },
+                    "fr": {
+                      "lang": "fr/1113-Rutschgebiet-pattern-b.svg",
+                      "svg": "svg/1113-Rutschgebiet-pattern-b.svg"
+                    },
+                    "it": {
+                      "lang": "it/1113-Rutschgebiet-pattern-b.svg",
+                      "svg": "svg/1113-Rutschgebiet-pattern-b.svg"
+                    }
+                  },
+                  "identical": true
+                }
               }
             },
             {
@@ -576,6 +650,25 @@
                 "de": "Str unpassierbar - gesperrt",
                 "fr": "Route impraticable-barrée",
                 "it": "Strada impraticabile-sbarrata"
+              },
+              "patterns": {
+                "a": {
+                  "files": {
+                    "de": {
+                      "lang": "de/1203-Strunpassierbar-gesperrt-pattern.svg",
+                      "svg": "svg/1203-Strunpassierbar-gesperrt-pattern.svg"
+                    },
+                    "fr": {
+                      "lang": "fr/1203-Strunpassierbar-gesperrt-pattern.svg",
+                      "svg": "svg/1203-Strunpassierbar-gesperrt-pattern.svg"
+                    },
+                    "it": {
+                      "lang": "it/1203-Strunpassierbar-gesperrt-pattern.svg",
+                      "svg": "svg/1203-Strunpassierbar-gesperrt-pattern.svg"
+                    }
+                  },
+                  "identical": true
+                }
               }
             }
           ]
@@ -3810,6 +3903,25 @@
             "de": "Beabsichtigte-Erkundung",
             "fr": "Reconnaissance-prevue",
             "it": "Ricognizione pianificata"
+          },
+          "patterns": {
+            "a": {
+              "files": {
+                "de": {
+                  "lang": "de/6103a-Beabsichtigte-Erkundung-pattern.svg",
+                  "svg": "svg/6103a-Beabsichtigte-Erkundung-pattern.svg"
+                },
+                "fr": {
+                  "lang": "fr/6103a-Beabsichtigte-Erkundung-pattern.svg",
+                  "svg": "svg/6103a-Beabsichtigte-Erkundung-pattern.svg"
+                },
+                "it": {
+                  "lang": "it/6103a-Beabsichtigte-Erkundung-pattern.svg",
+                  "svg": "svg/6103a-Beabsichtigte-Erkundung-pattern.svg"
+                }
+              },
+              "identical": true
+            }
           }
         },
         {
@@ -3833,6 +3945,25 @@
             "de": "Durchgefuehrte-Erkundung",
             "fr": "Reconnaissance-executee",
             "it": "Ricognizione eseguita"
+          },
+          "patterns": {
+            "a": {
+              "files": {
+                "de": {
+                  "lang": "de/6103b-Durchgefuehrte-Erkundung-pattern.svg",
+                  "svg": "svg/6103b-Durchgefuehrte-Erkundung-pattern.svg"
+                },
+                "fr": {
+                  "lang": "fr/6103b-Durchgefuehrte-Erkundung-pattern.svg",
+                  "svg": "svg/6103b-Durchgefuehrte-Erkundung-pattern.svg"
+                },
+                "it": {
+                  "lang": "it/6103b-Durchgefuehrte-Erkundung-pattern.svg",
+                  "svg": "svg/6103b-Durchgefuehrte-Erkundung-pattern.svg"
+                }
+              },
+              "identical": true
+            }
           }
         },
         {
@@ -3902,6 +4033,25 @@
             "de": "Rettungsachse",
             "fr": "Axe de sauvetage",
             "it": "Asse di salvataggio"
+          },
+          "patterns": {
+            "a": {
+              "files": {
+                "de": {
+                  "lang": "de/6106-Rettungsachse-pattern.svg",
+                  "svg": "svg/6106-Rettungsachse-pattern-D.svg"
+                },
+                "fr": {
+                  "lang": "fr/6106-Rettungsachse-pattern.svg",
+                  "svg": "svg/6106-Rettungsachse-pattern-F.svg"
+                },
+                "it": {
+                  "lang": "it/6106-Rettungsachse-pattern.svg",
+                  "svg": "svg/6106-Rettungsachse-pattern-I.svg"
+                }
+              },
+              "identical": false
+            }
           }
         },
         {

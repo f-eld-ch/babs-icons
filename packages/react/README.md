@@ -34,9 +34,22 @@ function App() {
 
 ## Consumption modes
 
-### Static import (recommended)
+### Named import (recommended)
 
-Import the icon definition directly. No registry call needed; fully tree-shakeable.
+Import by human-readable name from `./named`. Same definition object as `./icons`, fully tree-shakeable. Look up the export name for any icon in [docs/icons.md](../../docs/icons.md).
+
+```tsx
+import { BabsIcon } from "@f-eld-ch/babs-react";
+import { babsBeschaedigung } from "@f-eld-ch/babs-react/named";
+
+<BabsIcon icon={babsBeschaedigung} size={32} />
+```
+
+Named exports are derived from the German label and frozen in `corrections/names.lock.json` on first generation. They are stable across patch and minor versions; only a major version may rename them (and then only with a one-major deprecation cycle). The numeric form `babs<id>` from `./icons` is permanently stable.
+
+### Static import (numeric)
+
+Import by catalogue number. Useful when you know the ID but not the name, or want guaranteed long-term stability.
 
 ```tsx
 import { BabsIcon } from "@f-eld-ch/babs-react";
@@ -147,7 +160,8 @@ The registry is a module-level map; call `registerBabsIcons` before any `<BabsIc
 | Entry point | Contents | Use when |
 |---|---|---|
 | `.` | `BabsIcon`, `BabsIconProvider`, `BabsLangContext`, `useBabsLang`, `registerBabsIcons`, types | Always |
-| `./icons` | Individual tree-shakeable definitions (one per ID) | Static or string-form usage |
+| `./named` | 257 definitions under human-readable names (`babsBeschaedigung`, …) | Hand-written usage where readability matters |
+| `./icons` | 257 definitions under numeric names (`babs1101`, …) | When stability > readability, or the numeric ID is all you have |
 | `./all` | All 257 definitions as a default-exported array | Icon pickers |
 
 ## Color and recolorable

@@ -15,7 +15,8 @@
 import { readFileSync, writeFileSync, mkdirSync, readdirSync, statSync } from "node:fs";
 import { join, relative, dirname } from "node:path";
 import { spawnSync } from "node:child_process";
-import { optimize, type Config, type Plugin } from "svgo";
+import { optimize, type Config, type CustomPlugin, type XastElement } from "svgo";
+import { PATTERN_RE } from "./naming.ts";
 
 // ── Config ────────────────────────────────────────────────────────────────────
 
@@ -55,7 +56,7 @@ function cropToDrawing(svgPath: string): string | null {
  * the exact drawn content bounds), computes a uniform-scale + centering transform,
  * wraps all drawable children in a <g>, and sets a square viewBox.
  */
-function makeCenterPlugin(targetSize: number, paddingRatio: number): Plugin {
+function makeCenterPlugin(targetSize: number, paddingRatio: number): CustomPlugin {
   return {
     name: "centerAndNormalize",
     fn: () => ({
@@ -68,7 +69,7 @@ function makeCenterPlugin(targetSize: number, paddingRatio: number): Plugin {
 
           let vbX = 0, vbY = 0, vbW = 0, vbH = 0;
           if (parts.length === 4 && parts.every(isFinite)) {
-            [vbX, vbY, vbW, vbH] = parts;
+            [vbX, vbY, vbW, vbH] = parts as [number, number, number, number];
           } else {
             vbW = parseFloat(node.attributes["width"] ?? String(targetSize));
             vbH = parseFloat(node.attributes["height"] ?? String(targetSize));
@@ -83,10 +84,10 @@ function makeCenterPlugin(targetSize: number, paddingRatio: number): Plugin {
           const ty = padding + (contentSize - vbH * scale) / 2 - vbY * scale;
 
           const defs = node.children.filter(
-            (c) => c.type === "element" && c.name === "defs"
+            (c) => c.type === "element" && (c as XastElement).name === "defs"
           );
           const drawables = node.children.filter(
-            (c) => !(c.type === "element" && c.name === "defs")
+            (c) => !(c.type === "element" && (c as XastElement).name === "defs")
           );
 
           const g = {
@@ -145,7 +146,7 @@ function makeSvgoConfig(targetSize: number, paddingRatio: number): Config {
             },
           },
         }),
-      } satisfies Plugin,
+      } satisfies CustomPlugin,
       makeCenterPlugin(targetSize, paddingRatio),
     ],
   };
@@ -167,7 +168,8 @@ function* walkSvgs(dir: string): Generator<string> {
 // ── Main ──────────────────────────────────────────────────────────────────────
 
 const files = [...walkSvgs(ROOT_DIR)];
-const svgoConfig = makeSvgoConfig(TARGET_SIZE, PADDING_RATIO);
+const svgoConfig        = makeSvgoConfig(TARGET_SIZE, PADDING_RATIO);
+const svgoPatternConfig = makeSvgoConfig(TARGET_SIZE, 0);
 
 console.log(`Found ${files.length} SVG files`);
 console.log(`Canvas: ${TARGET_SIZE}×${TARGET_SIZE}, padding: ${PADDING_RATIO * 100}%`);
@@ -180,20 +182,29 @@ for (const [i, file] of files.entries()) {
   const rel = relative(ROOT_DIR, file);
   const label = `[${i + 1}/${files.length}] ${rel}`;
 
-  // Step 1: Inkscape crops the SVG to its actual drawn content bounds.
-  // This eliminates artboard whitespace that would otherwise cause symbols
-  // with large artboards to appear tiny after normalization.
-  const cropped = cropToDrawing(file);
-  if (!cropped) {
-    console.log(`${label}  ✗ Inkscape failed`);
-    failed++;
-    continue;
+  const isPattern = PATTERN_RE.test(file);
+
+  // Patterns already tile edge-to-edge and must not be cropped or inset.
+  // For regular symbols, Inkscape crops the SVG to actual drawn content bounds
+  // to eliminate artboard whitespace that would otherwise cause them to appear tiny.
+  let svgInput: string;
+  if (isPattern) {
+    svgInput = readFileSync(file, "utf-8");
+  } else {
+    const cropped = cropToDrawing(file);
+    if (!cropped) {
+      console.log(`${label}  ✗ Inkscape failed`);
+      failed++;
+      continue;
+    }
+    svgInput = cropped;
   }
 
-  // Step 2: SVGO cleans up and centers the cropped content in a square canvas.
+  // Step 2: SVGO cleans up and centers the content in a square canvas.
+  const cfg = isPattern ? svgoPatternConfig : svgoConfig;
   let result: { data: string };
   try {
-    result = optimize(cropped, { ...svgoConfig, path: file });
+    result = optimize(svgInput, { ...cfg, path: file });
   } catch (e) {
     console.log(`${label}  ✗ optimize error: ${(e as Error).message}`);
     failed++;

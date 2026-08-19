@@ -10,7 +10,8 @@
 import { readdirSync, statSync, readFileSync } from "node:fs";
 import { join } from "node:path";
 import { createHash } from "node:crypto";
-import { dirNum, fileNum, type Lang, LANGS, compareNumeric } from "./naming.ts";
+import { dirNum, fileNum, type Lang, LANGS, compareNumeric, PATTERN_RE, type PatternVariant, patternVariant } from "./naming.ts";
+export type { PatternVariant };
 
 export type { Lang };
 
@@ -33,14 +34,16 @@ export interface IndexOptions {
   categories?: Set<string>;
 }
 
-/**
- * Walk one language directory and return a composite-id → SourceEntry map.
- * Finding 5 note: indexLang itself does not check for ID collisions; that is
- * the responsibility of buildWriteEntries() after all indices are built.
- */
-export function indexLang(lang: Lang, opts: IndexOptions): Map<string, SourceEntry> {
+interface RawEntry {
+  id: string;
+  file: string;
+  path: string;
+  relPath: string;
+}
+
+/** Walk one language tree and yield every .svg entry with its composite ID. */
+function* walkLang(lang: Lang, opts: IndexOptions): Generator<RawEntry> {
   const root = join(opts.srcRoot, lang);
-  const out  = new Map<string, SourceEntry>();
 
   for (const top of readdirSync(root).sort()) {
     const tp = join(root, top);
@@ -53,13 +56,10 @@ export function indexLang(lang: Lang, opts: IndexOptions): Map<string, SourceEnt
     const subs = ents.filter(e => statSync(join(tp, e)).isDirectory());
 
     if (subs.length === 0) {
-      // Flat category: subDirNum = "1"
       for (const f of ents.filter(e => e.endsWith(".svg"))) {
         const fn = fileNum(f);
         if (!fn) continue;
-        const id = tn + "1" + fn;
-        const path = join(tp, f);
-        out.set(id, { path, file: f, relPath: join(lang, top, f) });
+        yield { id: tn + "1" + fn, file: f, path: join(tp, f), relPath: join(lang, top, f) };
       }
     } else {
       for (const sd of subs) {
@@ -68,14 +68,52 @@ export function indexLang(lang: Lang, opts: IndexOptions): Map<string, SourceEnt
         for (const f of readdirSync(join(tp, sd)).sort().filter(e => e.endsWith(".svg"))) {
           const fn = fileNum(f);
           if (!fn) continue;
-          const id = tn + sn + fn;
-          const path = join(tp, sd, f);
-          out.set(id, { path, file: f, relPath: join(lang, top, sd, f) });
+          yield { id: tn + sn + fn, file: f, path: join(tp, sd, f), relPath: join(lang, top, sd, f) };
         }
       }
     }
   }
+}
+
+/**
+ * Walk one language directory and return a composite-id → SourceEntry map.
+ * Pattern files (-pattern.svg, -pattern-b.svg) are excluded — use indexPatterns().
+ * Finding 5 note: indexLang itself does not check for ID collisions; that is
+ * the responsibility of buildWriteEntries() after all indices are built.
+ */
+export function indexLang(lang: Lang, opts: IndexOptions): Map<string, SourceEntry> {
+  const out = new Map<string, SourceEntry>();
+  for (const e of walkLang(lang, opts)) {
+    if (PATTERN_RE.test(e.file)) continue;
+    out.set(e.id, { path: e.path, file: e.file, relPath: e.relPath });
+  }
   return out;
+}
+
+/**
+ * Walk one language directory and return a map of
+ * composite-id → { "a"?: SourceEntry, "b"?: SourceEntry }
+ * containing only pattern files.
+ */
+export function indexPatterns(lang: Lang, opts: IndexOptions): Map<string, Partial<Record<PatternVariant, SourceEntry>>> {
+  const out = new Map<string, Partial<Record<PatternVariant, SourceEntry>>>();
+  for (const e of walkLang(lang, opts)) {
+    const variant = patternVariant(e.file);
+    if (!variant) continue;
+    const existing = out.get(e.id) ?? {};
+    existing[variant] = { path: e.path, file: e.file, relPath: e.relPath };
+    out.set(e.id, existing);
+  }
+  return out;
+}
+
+/** Build pattern indices for all three languages in one call. */
+export function indexPatternsAll(opts: IndexOptions): Record<Lang, Map<string, Partial<Record<PatternVariant, SourceEntry>>>> {
+  return {
+    de: indexPatterns("de", opts),
+    fr: indexPatterns("fr", opts),
+    it: indexPatterns("it", opts),
+  };
 }
 
 /** Build indices for all three languages in one call. */

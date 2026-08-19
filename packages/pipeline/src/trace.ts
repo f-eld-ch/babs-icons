@@ -177,9 +177,9 @@ function findPalette(decoded: DecodedPng): RgbColor[] {
 
   return [...counts.values()]
     .filter(e => e.count >= minPx)
-    .map(e => e.color)
     // Lightest first → darkest last: white background renders first, black outlines on top.
-    .sort((a, b) => luminance(b.color) - luminance(a.color));
+    .sort((a, b) => luminance(b.color) - luminance(a.color))
+    .map(e => e.color);
 }
 
 // ── Per-color masking ─────────────────────────────────────────────────────────

@@ -60,7 +60,15 @@ All commands are run from the monorepo root with `yarn`.
 
 The `note` field is optional but recommended. The pipeline (`icons:verify`) checks for orphaned entries — IDs in `corrections/labels.json` that no longer exist in `index.json`. A failing orphan check means an icon was removed or renamed without updating the corrections file.
 
-`corrections/aliases.json` maps icon IDs to human-readable export aliases used in `babs-react` (e.g. `"1101"` → `"babsBeschaedigung"`). Aliases may change across major versions; the canonical export name (`babs1101`) is always stable.
+`corrections/aliases.json` provides manual overrides for the human-readable export alias of specific icons (e.g. `"4701": "babsPartnerP"`). Use it when the auto-derived name is weak or incorrect. The file is a flat `id → name` map.
+
+`corrections/names.lock.json` is the **append-only record** of every assigned alias. `gen-core.ts` reads it on every run: if an id already has a locked entry, that name is used verbatim regardless of the current label — so fixing a German label never silently renames a published export. New ids are assigned and appended automatically. The lock must be committed alongside the generated files.
+
+Resolution order (highest priority first): locked name → `aliases.json` manual override → name derived from the German label.
+
+**Renaming a published alias** requires a two-step edit: (1) note the old name in `corrections/names.lock.json` under `retired`, (2) add the new name to `corrections/aliases.json`, then re-run `yarn icons:gen-core`.
+
+The numeric export (`babs<id>`, from `@f-eld-ch/babs-react/icons`) is permanently stable. Human-readable aliases (from `@f-eld-ch/babs-react/named`) are frozen on first publication and may only change on a major version.
 
 ## rebuild vs ingest vs check
 

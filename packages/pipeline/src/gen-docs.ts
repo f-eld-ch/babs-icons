@@ -8,6 +8,7 @@ import { fileURLToPath } from "node:url";
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), "../../../");
 const SVG_PKG = join(ROOT, "packages/svg");
+const NAMES_LOCK = join(ROOT, "corrections/names.lock.json");
 const OUT = join(ROOT, "docs/icons.md");
 
 // ── Load data ─────────────────────────────────────────────────────────────────
@@ -16,16 +17,21 @@ const index = JSON.parse(readFileSync(join(SVG_PKG, "index.json"), "utf8")) as I
 const corrections = existsSync(join(ROOT, "corrections/labels.json"))
   ? JSON.parse(readFileSync(join(ROOT, "corrections/labels.json"), "utf8")) as Record<string, { de?: string; fr?: string; it?: string; note?: string }>
   : {};
+const aliasLock: { aliases?: Record<string, string> } = existsSync(NAMES_LOCK)
+  ? JSON.parse(readFileSync(NAMES_LOCK, "utf8")) as { aliases?: Record<string, string> }
+  : {};
 
 // ── Types ─────────────────────────────────────────────────────────────────────
 
 interface LangMap { de: string; fr: string; it: string }
 interface FileRef { lang: string; svg: string }
+interface PatternVariant { identical: boolean; files: { de?: FileRef; fr?: FileRef; it?: FileRef } }
 interface Symbol {
   id: string;
   identical: boolean;
   label: LangMap;
   files: { de?: FileRef; fr?: FileRef; it?: FileRef };
+  patterns?: { a?: PatternVariant; b?: PatternVariant };
 }
 interface Subcategory { number: string; name: LangMap; symbols: Symbol[] }
 interface Category {
@@ -63,12 +69,10 @@ function symbolRow(sym: Symbol): string {
 
   let iconCell: string;
   if (sym.identical) {
-    // One canonical graphic for all languages — use real svg/ path (not symlink)
     const file = sym.files.de ?? sym.files.fr ?? sym.files.it;
     const src = file ? imgSrc(file.svg) : "";
     iconCell = src ? img(src, de) : "";
   } else {
-    // Distinct graphics per language — show all three side by side, using real svg/ paths
     const parts: string[] = [];
     for (const lang of ["de", "fr", "it"] as const) {
       const file = sym.files[lang];
@@ -80,7 +84,22 @@ function symbolRow(sym: Symbol): string {
     iconCell = parts.join("&nbsp;");
   }
 
-  return `| ${iconCell} | \`${sym.id}\` | ${de} | ${fr} | ${it} |`;
+  let patternCell = "";
+  if (sym.patterns?.a) {
+    const pv = sym.patterns.a;
+    const pFile = pv.files.de ?? pv.files.fr ?? pv.files.it;
+    if (pFile) patternCell = img(imgSrc(pFile.svg), `${de} pattern`, 36);
+    if (sym.patterns.b) {
+      const pvb = sym.patterns.b;
+      const pbFile = pvb.files.de ?? pvb.files.fr ?? pvb.files.it;
+      if (pbFile) patternCell += "&nbsp;" + img(imgSrc(pbFile.svg), `${de} pattern-b`, 36);
+    }
+  }
+
+  const alias = aliasLock.aliases?.[sym.id];
+  const aliasCell = alias ? `\`${alias}\`` : "";
+
+  return `| ${iconCell} | \`${sym.id}\` | ${aliasCell} | ${de} | ${fr} | ${it} | ${patternCell} |`;
 }
 
 // Min-width for the icon column: widest case is 3×48px images side by side (~160px).
@@ -90,7 +109,7 @@ const ICON_COL_HEADER =
   `Icon<img width="160" height="1" src="spacer.svg" alt="">`;
 
 function symbolsTable(symbols: Symbol[]): string {
-  const header = `| ${ICON_COL_HEADER} | ID | DE | FR | IT |\n|---|---|---|---|---|`;
+  const header = `| ${ICON_COL_HEADER} | ID | Export | DE | FR | IT | Pattern |\n|---|---|---|---|---|---|---|`;
   const rows = symbols.map(symbolRow);
   return `${header}\n${rows.join("\n")}`;
 }

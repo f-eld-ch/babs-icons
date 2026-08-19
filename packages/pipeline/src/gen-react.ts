@@ -9,6 +9,7 @@ import { optimize } from "svgo";
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), "../../../");
 const SVG_INDEX = join(ROOT, "packages/svg/index.json");
 const CORRECTIONS = join(ROOT, "corrections/labels.json");
+const NAMES_LOCK = join(ROOT, "corrections/names.lock.json");
 const SVG_DIR = join(ROOT, "packages/svg/svg");
 const REACT_ICONS = join(ROOT, "packages/react/src/icons");
 const REACT_SRC = join(ROOT, "packages/react/src");
@@ -27,6 +28,7 @@ interface IndexJson { categories: CatEntry[] }
 
 const index = JSON.parse(readFileSync(SVG_INDEX, "utf8")) as IndexJson;
 const corrections = JSON.parse(readFileSync(CORRECTIONS, "utf8")) as Record<string, Partial<Record<Lang, string>> & { note?: string }>;
+const namesLock = JSON.parse(readFileSync(NAMES_LOCK, "utf8")) as { aliases: Record<string, string> };
 
 // Collect all symbols
 const allSymbols: SymEntry[] = [];
@@ -392,6 +394,15 @@ function genIconsBarrel(syms: SymEntry[]): string {
   return `${HEADER}${imports}\n`;
 }
 
+function genNamedBarrel(syms: SymEntry[]): string {
+  const lines = syms.map(s => {
+    const alias = namesLock.aliases[s.id];
+    if (!alias) throw new Error(`gen-react: no alias in names.lock.json for icon ${s.id} — run yarn icons:gen-core first`);
+    return `export { babs${s.id} as ${alias} } from "./icons/${s.id}.js";`;
+  }).join("\n");
+  return `${HEADER}${lines}\n`;
+}
+
 function genAllBarrel(syms: SymEntry[]): string {
   const imports = syms.map(s => `import { babs${s.id} } from "./icons/${s.id}.js";`).join("\n");
   const exports = syms.map(s => `  babs${s.id}`).join(",\n");
@@ -437,6 +448,7 @@ for (const sym of allSymbols) {
 }
 
 ok = writeOrCheck(join(REACT_SRC, "icons.ts"), genIconsBarrel(allSymbols), "icons.ts") && ok;
+ok = writeOrCheck(join(REACT_SRC, "named.ts"), genNamedBarrel(allSymbols), "named.ts") && ok;
 ok = writeOrCheck(join(REACT_SRC, "all.ts"), genAllBarrel(allSymbols), "all.ts") && ok;
 
 if (CHECK) {

@@ -77,6 +77,10 @@ export function spriteName(requested?: string): "babs-de" | "babs-fr" | "babs-it
   return `babs-${l}` as "babs-de" | "babs-fr" | "babs-it";
 }
 
+export function patternSpriteKey(id: BabsIconId, variant?: "a" | "b"): string {
+  return variant === "b" ? `${id}-pattern-b` : `${id}-pattern`;
+}
+
 // ── Category / group / icon queries ──────────────────────────────────────────
 
 export function listCategories(): readonly BabsCategory[] {
@@ -106,6 +110,7 @@ export interface ListIconsFilter {
   group?: BabsGroupNumber | readonly BabsGroupNumber[];
   lang?: BabsLang;
   raster?: boolean;
+  hasPattern?: boolean;
 }
 
 export function listIcons(filter?: ListIconsFilter): readonly BabsIconMeta[] {
@@ -126,6 +131,7 @@ export function listIcons(filter?: ListIconsFilter): readonly BabsIconMeta[] {
         if (!meta) continue;
         if (filter?.lang !== undefined && !meta.graphicLangs.includes(filter.lang)) continue;
         if (filter?.raster !== undefined && meta.raster !== filter.raster) continue;
+        if (filter?.hasPattern !== undefined && meta.hasPattern !== filter.hasPattern) continue;
         results.push(meta);
       }
     }

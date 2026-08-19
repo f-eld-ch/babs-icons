@@ -18,7 +18,7 @@
     "icons:source:copy-de": "node packages/pipeline/src/copy-de.ts",
     "icons:docs": "node packages/pipeline/src/gen-docs.ts",
     "build": "yarn workspaces foreach -A -pt run build",
-    "typecheck": "yarn workspaces foreach -A -pt exec tsc --noEmit"
+    "typecheck": "yarn workspaces foreach -Apt exec tsc --noEmit"
   },
   "packageManager": "yarn@4.18.0",
   "devDependencies": {

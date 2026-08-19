@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   width="150px"
+   height="150px"
+   version="1.2"
+   viewBox="0 0 1160 1160"
+   id="svg3"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs3" />
+  <g
+     id="g3">
+    <path
+       d="m -574.76804,320.62097 q 69.73862,0 114.40268,18.02235 45.44764,17.23876 67.38789,52.49986 21.94024,35.2611 21.94024,88.54454 0,44.66406 -16.45518,74.4401 -16.45519,29.77604 -42.31333,47.79838 -25.07456,17.23876 -53.28344,27.4253 l 153.58169,250.74561 H -411.7834 L -547.34274,648.941 H -658.6111 v 231.15611 h -70.5222 V 320.62097 Z m -3.9179,61.11925 h -79.92516 v 207.6487 h 83.84306 q 68.17146,0 99.51466,-26.64172 31.3432,-27.4253 31.3432,-79.92516 0,-36.82826 -14.88802,-58.7685 -14.10444,-21.94024 -43.88048,-32.12678 -29.77604,-10.18654 -76.00726,-10.18654 z"
+       id="text2"
+       style="font-size:783.58px;line-height:1.25;fill:#0000ff;stroke-width:19.59"
+       transform="scale(-1.0436,0.95826)"
+       aria-label="R" />
+    <rect
+       transform="scale(-1,1)"
+       x="-1361.2"
+       y="436.98"
+       width="407.28"
+       height="309.56"
+       fill="#00f"
+       style="paint-order:stroke fill markers"
+       id="rect2" />
+    <rect
+       transform="scale(-1,1)"
+       x="-198.91"
+       y="436.84"
+       width="407.28"
+       height="309.56"
+       fill="#00f"
+       style="paint-order:stroke fill markers"
+       id="rect3" />
+  </g>
+</svg>

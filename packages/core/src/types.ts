@@ -18,6 +18,8 @@ export interface BabsIconMeta {
   readonly recolorable: boolean;
   readonly displaySize: 32 | 48;
   readonly viewBox: "0 0 100 100";
+  readonly hasPattern: boolean;
+  readonly hasPatternB: boolean;
 }
 
 export interface BabsGroup {

@@ -5,7 +5,7 @@ export const babs9101d: BabsIconDefinition = {
   id: "9101d",
   viewBox: "0 0 100 100",
   canonicalLang: "de",
-  labels: { de: "Autobahn", fr: "Autoroute", it: "Autostrada" },
+  labels: { de: "Autobahn, einspurig gesperrt rechte Spur", fr: "Autoroute, une voie fermée côté droit", it: "Autostrada, corsia destra chiusa" },
   recolorable: false,
   displaySize: 32,
   graphics: {

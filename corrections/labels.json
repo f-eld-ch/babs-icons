@@ -7,5 +7,10 @@
   "8110":  { "de": "Wasserstand gestiegen",      "note": "source filename had no spaces" },
   "8202":  { "de": "Explosion",                  "note": "source label was 'Explosion-pikt'" },
   "8206":  { "de": "Bach ausgetrocknet",         "note": "source typo: 'ausgetroknet'" },
-  "8318":  { "de": "Entführung",                 "note": "source typo: 'Entfürung'" }
+  "8318":  { "de": "Entführung",                 "note": "source typo: 'Entfürung'" },
+  "1105b": { "de": "Explosionsherd-Beispiel",    "note": "source typo: missing 's' in 'Explosionsherd'" },
+  "9101a": { "de": "Autobahn offen",                          "fr": "Autoroute ouverte",                          "it": "Autostrada aperta",              "note": "source label 'Autobahn' was ambiguous; disambiguated by state" },
+  "9101b": { "de": "Autobahn gesperrt",                       "fr": "Autoroute fermée",                           "it": "Autostrada chiusa",              "note": "source label 'Autobahn' was ambiguous; disambiguated by state" },
+  "9101c": { "de": "Autobahn, einspurig gesperrt linke Spur", "fr": "Autoroute, une voie fermée côté gauche",     "it": "Autostrada, corsia sinistra chiusa",  "note": "source label 'Autobahn' was ambiguous; disambiguated by state" },
+  "9101d": { "de": "Autobahn, einspurig gesperrt rechte Spur","fr": "Autoroute, une voie fermée côté droit",      "it": "Autostrada, corsia destra chiusa",    "note": "source label 'Autobahn' was ambiguous; disambiguated by state" }
 }

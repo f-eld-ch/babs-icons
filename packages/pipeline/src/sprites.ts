@@ -10,6 +10,7 @@ import { join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 import { Resvg } from "@resvg/resvg-js";
 import sharp from "sharp";
+import { compareNumeric } from "./naming.ts";
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), "../../../");
 const SVG_INDEX = join(ROOT, "packages/svg/index.json");
@@ -32,7 +33,14 @@ type Lang = (typeof LANGS)[number];
 const CHECK = process.argv.includes("--check");
 
 // ── Load index ───────────────────────────────────────────────────────────────
-interface SymEntry { id: string; identical: boolean; files: Record<Lang, { lang: string; svg: string }> }
+interface SymFiles { lang: string; svg: string }
+interface PatternVariantEntry { identical: boolean; files: Partial<Record<Lang, SymFiles>> }
+interface SymEntry {
+  id:        string;
+  identical: boolean;
+  files:     Partial<Record<Lang, SymFiles>>;
+  patterns?: Partial<Record<"a" | "b", PatternVariantEntry>>;
+}
 interface IndexJson { categories: Array<{ number: string; symbols?: SymEntry[]; subcategories?: Array<{ number: string; symbols: SymEntry[] }> }> }
 
 const index = JSON.parse(readFileSync(SVG_INDEX, "utf8")) as IndexJson;
@@ -42,7 +50,17 @@ for (const cat of index.categories) {
   for (const sub of cat.subcategories ?? []) for (const sym of sub.symbols) allSymbols.push(sym);
 }
 
-const allIds = allSymbols.map((s) => s.id);
+const allSymbolIds = allSymbols.map((s) => s.id);
+
+// Pattern keys: "<id>-pattern" and "<id>-pattern-b", sorted and appended after symbol IDs.
+const allPatternKeys: string[] = [];
+for (const sym of allSymbols) {
+  if (sym.patterns?.a) allPatternKeys.push(`${sym.id}-pattern`);
+  if (sym.patterns?.b) allPatternKeys.push(`${sym.id}-pattern-b`);
+}
+allPatternKeys.sort(compareNumeric);
+
+const allKeys = [...allSymbolIds, ...allPatternKeys];
 
 // ── Layout lock ───────────────────────────────────────────────────────────────
 interface LayoutLock { version: number; cell: number; cols: number; keys: string[] }
@@ -50,15 +68,15 @@ interface LayoutLock { version: number; cell: number; cols: number; keys: string
 let layoutLock: LayoutLock;
 if (existsSync(LAYOUT_LOCK)) {
   layoutLock = JSON.parse(readFileSync(LAYOUT_LOCK, "utf8")) as LayoutLock;
-  // Append any new ids not yet in the lock
+  // Append any new keys (symbols or patterns) not yet in the lock
   const locked = new Set(layoutLock.keys);
-  for (const id of allIds) {
-    if (!locked.has(id)) layoutLock.keys.push(id);
+  for (const key of allKeys) {
+    if (!locked.has(key)) layoutLock.keys.push(key);
   }
 } else {
-  const n = allIds.length;
+  const n = allKeys.length;
   const cols = Math.ceil(Math.sqrt(n));
-  layoutLock = { version: 1, cell: GRID_1X, cols, keys: [...allIds] };
+  layoutLock = { version: 1, cell: GRID_1X, cols, keys: [...allKeys] };
 }
 
 const { cols, keys } = layoutLock;
@@ -111,6 +129,15 @@ function getSvgPath(sym: SymEntry, lang: Lang): string {
   return join(SVG_DIR, rel.replace(/^svg\//, ""));
 }
 
+function getPatternSvgPath(sym: SymEntry, variant: "a" | "b", lang: Lang): string {
+  const pv = sym.patterns?.[variant];
+  if (!pv) return "";
+  const rel = pv.files[lang]?.svg ?? pv.files.de?.svg ?? pv.files.fr?.svg ?? pv.files.it?.svg ?? "";
+  return join(SVG_DIR, rel.replace(/^svg\//, ""));
+}
+
+const PATTERN_KEY_RE = /^(.+)-pattern(-b)?$/;
+
 // ── Generate one sprite sheet ─────────────────────────────────────────────────
 async function genSheet(lang: Lang): Promise<{ spriteJson: Record<string, unknown>; pixelHashes: Record<string, string> }> {
   const sheet1X = Buffer.alloc(sheetW1X * sheetH1X * 4, 0);
@@ -121,14 +148,28 @@ async function genSheet(lang: Lang): Promise<{ spriteJson: Record<string, unknow
   const symMap = new Map(allSymbols.map((s) => [s.id, s]));
 
   for (let idx = 0; idx < keys.length; idx++) {
-    const id = keys[idx]!;
-    const sym = symMap.get(id);
+    const key = keys[idx]!;
+
+    // Detect pattern key vs symbol key
+    const pm = key.match(PATTERN_KEY_RE);
+    const symId    = pm ? pm[1]! : key;
+    const patVariant: "a" | "b" | null = pm ? (pm[2] ? "b" : "a") : null;
+
+    const sym = symMap.get(symId);
     if (!sym) continue; // removed icon — leave transparent hole
 
-    // Find the actual lang file to use (identical icons use canonical file)
-    const svgPath = getSvgPath(sym, lang);
-    if (!existsSync(svgPath)) {
-      console.warn(`  MISSING svg: ${svgPath}`);
+    // Patterns use full grid cell (pad=0) so they tile seam-free.
+    const cellW1 = patVariant ? GRID_1X : CELL_1X;
+    const pad1   = patVariant ? 0       : PAD_1X;
+    const cellW2 = patVariant ? GRID_2X : CELL_2X;
+    const pad2   = patVariant ? 0       : PAD_2X;
+
+    const svgPath = patVariant
+      ? getPatternSvgPath(sym, patVariant, lang)
+      : getSvgPath(sym, lang);
+
+    if (!svgPath || !existsSync(svgPath)) {
+      console.warn(`  MISSING svg: ${svgPath || key}`);
       continue;
     }
     const svgContent = readFileSync(svgPath, "utf8");
@@ -136,18 +177,18 @@ async function genSheet(lang: Lang): Promise<{ spriteJson: Record<string, unknow
     const col = idx % cols;
     const row = Math.floor(idx / cols);
 
-    const [cell1X, cell2X] = await Promise.all([
-      rasterize(svgContent, CELL_1X, PAD_1X),
-      rasterize(svgContent, CELL_2X, PAD_2X),
+    const [buf1X, buf2X] = await Promise.all([
+      rasterize(svgContent, cellW1, pad1),
+      rasterize(svgContent, cellW2, pad2),
     ]);
 
-    blit(sheet1X, cell1X, col, row, GRID_1X, CELL_1X, PAD_1X, sheetW1X);
-    blit(sheet2X, cell2X, col, row, GRID_2X, CELL_2X, PAD_2X, sheetW2X);
+    blit(sheet1X, buf1X, col, row, GRID_1X, cellW1, pad1, sheetW1X);
+    blit(sheet2X, buf2X, col, row, GRID_2X, cellW2, pad2, sheetW2X);
 
-    const hash = createHash("sha256").update(cell1X).digest("hex");
-    pixelHashes[id] = hash;
+    const hash = createHash("sha256").update(buf1X).digest("hex");
+    pixelHashes[key] = hash;
 
-    spriteJson[id] = { width: CELL_1X, height: CELL_1X, x: col * GRID_1X + PAD_1X, y: row * GRID_1X + PAD_1X, pixelRatio: 1 };
+    spriteJson[key] = { width: cellW1, height: cellW1, x: col * GRID_1X + pad1, y: row * GRID_1X + pad1, pixelRatio: 1 };
   }
 
   // Encode PNGs
@@ -163,14 +204,12 @@ async function genSheet(lang: Lang): Promise<{ spriteJson: Record<string, unknow
   const name = `babs-${lang}`;
   // @1x JSON: keys already populated above
   const json1X = JSON.stringify(sortKeys(spriteJson), null, 2) + "\n";
-  // @2x JSON: same keys, doubled dimensions
+  // @2x JSON: same keys, doubled dimensions (derived from 1x to handle per-entry sizes)
   const json2X = JSON.stringify(sortKeys(Object.fromEntries(
-    Object.entries(spriteJson).map(([k, v]) => [k, {
-      width: CELL_2X, height: CELL_2X,
-      x: (v as { x: number }).x * 2,
-      y: (v as { y: number }).y * 2,
-      pixelRatio: 2,
-    }])
+    Object.entries(spriteJson).map(([k, v]) => {
+      const v1 = v as { width: number; height: number; x: number; y: number };
+      return [k, { width: v1.width * 2, height: v1.height * 2, x: v1.x * 2, y: v1.y * 2, pixelRatio: 2 }];
+    })
   )), null, 2) + "\n";
 
   if (CHECK) {
@@ -198,7 +237,7 @@ function sortKeys<T>(obj: Record<string, T>): Record<string, T> {
 // ── Main ──────────────────────────────────────────────────────────────────────
 mkdirSync(SPRITES_DIST, { recursive: true });
 
-console.log(`sprites: generating ${allIds.length} icons, ${cols}×${rows} grid (${sheetW1X}×${sheetH1X} @1x)`);
+console.log(`sprites: generating ${allSymbolIds.length} icons + ${allPatternKeys.length} patterns, ${cols}×${rows} grid (${sheetW1X}×${sheetH1X} @1x)`);
 
 const pixelHashesByLang: Partial<Record<Lang, Record<string, string>>> = {};
 

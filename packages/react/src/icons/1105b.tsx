@@ -5,7 +5,7 @@ export const babs1105b: BabsIconDefinition = {
   id: "1105b",
   viewBox: "0 0 100 100",
   canonicalLang: "de",
-  labels: { de: "Explosionherd-Beispiel", fr: "Foyer-d-explosion-exemple", it: "Focolaio-esplosione-esempio" },
+  labels: { de: "Explosionsherd-Beispiel", fr: "Foyer-d-explosion-exemple", it: "Focolaio-esplosione-esempio" },
   recolorable: false,
   displaySize: 32,
   graphics: {

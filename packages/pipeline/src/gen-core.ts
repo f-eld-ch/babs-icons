@@ -4,10 +4,14 @@
 import { readFileSync, writeFileSync, mkdirSync, existsSync } from "node:fs";
 import { join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
+import { buildAliases } from "./aliases.ts";
+import { compareNumeric } from "./naming.ts";
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), "../../../");
 const SVG_INDEX = join(ROOT, "packages/svg/index.json");
 const CORRECTIONS = join(ROOT, "corrections/labels.json");
+const ALIAS_PINS = join(ROOT, "corrections/aliases.json");
+const NAMES_LOCK = join(ROOT, "corrections/names.lock.json");
 const SVG_DIR = join(ROOT, "packages/svg/svg");
 const CORE_GEN = join(ROOT, "packages/core/src/generated");
 const LANGS = ["de", "fr", "it"] as const;
@@ -22,6 +26,7 @@ interface SymbolEntry {
   identical: boolean;
   label: Record<Lang, string>;
   files: Record<Lang, { lang: string; svg: string }>;
+  patterns?: Partial<Record<"a" | "b", unknown>>;
 }
 interface SubcatEntry {
   number: string;
@@ -43,6 +48,14 @@ const corrections = JSON.parse(readFileSync(CORRECTIONS, "utf8")) as Record<
   string,
   Partial<Record<Lang, string>> & { note?: string }
 >;
+const pins = JSON.parse(readFileSync(ALIAS_PINS, "utf8")) as Record<string, string>;
+interface NamesLock {
+  _comment?: string;
+  canonical: Record<string, string>;
+  aliases: Record<string, string>;
+  retired: Record<string, string[]>;
+}
+const namesLock: NamesLock = JSON.parse(readFileSync(NAMES_LOCK, "utf8")) as NamesLock;
 
 // ── Flatten symbols with category/group context ───────────────────────────────
 interface RichSymbol extends SymbolEntry {
@@ -92,55 +105,43 @@ function isRaster(svgRelPath: string): boolean {
 }
 
 // ── Alias computation ─────────────────────────────────────────────────────────
-function transliterate(s: string): string {
-  return s
-    .replace(/ä/g, "ae").replace(/ö/g, "oe").replace(/ü/g, "ue")
-    .replace(/Ä/g, "Ae").replace(/Ö/g, "Oe").replace(/Ü/g, "Ue")
-    .replace(/ß/g, "ss")
-    .normalize("NFD").replace(/[̀-ͯ]/g, "");
-}
-
-function labelToAlias(label: string): string {
-  const t = transliterate(label);
-  // PascalCase: capitalise first letter of each word, remove non-alnum
-  const pascal = t
-    .replace(/[^A-Za-z0-9]+([A-Za-z])/g, (_, c: string) => (c as string).toUpperCase())
-    .replace(/[^A-Za-z0-9]/g, "");
-  const upper = pascal.charAt(0).toUpperCase() + pascal.slice(1);
-  return "babs" + upper;
-}
-
-// Build alias table; detect and resolve collisions by suffixing with id
-function buildAliases(syms: RichSymbol[]): Map<string, string> {
-  const map = new Map<string, string>(); // id → alias
-  const usedAliases = new Map<string, string>(); // alias → first id
-
-  for (const sym of syms) {
-    const deLabel = (corrections[sym.id]?.de ?? sym.label.de) || sym.id;
-    const raw = labelToAlias(deLabel);
-    map.set(sym.id, raw);
-    const existing = usedAliases.get(raw);
-    if (existing !== undefined) {
-      // Mark both as colliding — they'll get id suffix
-      usedAliases.set(raw, "__COLLISION__");
-    } else {
-      usedAliases.set(raw, sym.id);
+// Validate pins: every id in aliases.json must exist in index.json (orphan guard run early
+// so errors are reported before we write anything).
+{
+  const idSet = new Set(richSymbols.map((s) => s.id));
+  for (const id of Object.keys(pins)) {
+    if (!idSet.has(id)) {
+      console.error(`ERROR: corrections/aliases.json: "${id}" not found in index.json — orphaned entry`);
+      process.exit(1);
     }
   }
-
-  // Resolve collisions
-  for (const sym of syms) {
-    const raw = map.get(sym.id)!;
-    if (usedAliases.get(raw) === "__COLLISION__") {
-      const idPart = sym.id.replace(/[^A-Za-z0-9]/g, "");
-      map.set(sym.id, raw + idPart);
+  // Detect conflict: aliases.json requests a rename that the lock has already frozen.
+  for (const [id, requestedName] of Object.entries(pins)) {
+    const lockedName = namesLock.aliases[id];
+    if (lockedName !== undefined && lockedName !== requestedName) {
+      console.error(
+        `ERROR: "${id}" is locked as "${lockedName}" but corrections/aliases.json requests "${requestedName}".\n` +
+        `Renaming a frozen export name is a breaking change. To proceed, add the old name to\n` +
+        `corrections/names.lock.json "retired" and then re-run yarn icons:gen-core.`,
+      );
+      process.exit(1);
     }
   }
-
-  return map;
 }
 
-const aliases = buildAliases(richSymbols);
+const aliases = buildAliases(richSymbols, corrections, namesLock.aliases, pins);
+
+// Update lock: assign canonical and alias entries for any new ids.
+const newLockEntries: string[] = [];
+for (const sym of richSymbols) {
+  if (!namesLock.canonical[sym.id]) {
+    namesLock.canonical[sym.id] = `babs${sym.id}`;
+    newLockEntries.push(sym.id);
+  }
+  if (!namesLock.aliases[sym.id]) {
+    namesLock.aliases[sym.id] = aliases.get(sym.id)!;
+  }
+}
 
 // ── Determine graphicLangs for each symbol ────────────────────────────────────
 // identical=true → ["de"]; identical=false → check fr vs it content
@@ -178,6 +179,8 @@ interface IconData extends RichSymbol {
   canonicalGraphicLang: Lang;
   raster: boolean;
   correctedLabels: Record<Lang, string>;
+  hasPattern: boolean;
+  hasPatternB: boolean;
 }
 
 const icons: IconData[] = richSymbols.map((sym) => {
@@ -197,6 +200,8 @@ const icons: IconData[] = richSymbols.map((sym) => {
     canonicalGraphicLang,
     raster,
     correctedLabels,
+    hasPattern: !!sym.patterns?.a,
+    hasPatternB: !!sym.patterns?.b,
   };
 });
 
@@ -252,6 +257,8 @@ function genMeta(): string {
     recolorable: false,
     displaySize: 32,
     viewBox: "0 0 100 100",
+    hasPattern: ${ic.hasPattern},
+    hasPatternB: ${ic.hasPatternB},
   }`;
   });
 
@@ -371,15 +378,41 @@ for (const lang of LANGS) {
 }
 
 if (CHECK) {
+  if (newLockEntries.length > 0) {
+    console.error(
+      `DRIFT:   corrections/names.lock.json (${newLockEntries.length} unassigned name(s): ${newLockEntries.join(", ")} — run yarn icons:gen-core)`,
+    );
+    ok = false;
+  }
   if (ok) {
     console.log("gen-core: OK (no drift)");
   } else {
     process.exit(1);
   }
 } else {
+  // Write names.lock.json — append-only, sorted by id.
+  const sortedCanonical: Record<string, string> = {};
+  const sortedAliases: Record<string, string> = {};
+  for (const id of [...Object.keys(namesLock.canonical)].sort(compareNumeric)) {
+    sortedCanonical[id] = namesLock.canonical[id]!;
+  }
+  for (const id of [...Object.keys(namesLock.aliases)].sort(compareNumeric)) {
+    sortedAliases[id] = namesLock.aliases[id]!;
+  }
+  const lockOut: NamesLock = {
+    _comment: namesLock._comment,
+    canonical: sortedCanonical,
+    aliases: sortedAliases,
+    retired: namesLock.retired,
+  };
+  writeFileSync(NAMES_LOCK, JSON.stringify(lockOut, null, 2) + "\n");
+
   console.log(
     `gen-core: wrote ${icons.length} icons across ${catNumbers.length} categories, ${groupNumbers.length} groups`,
   );
+  if (newLockEntries.length > 0) {
+    console.log(`  names.lock.json: assigned ${newLockEntries.length} new name(s)`);
+  }
   console.log(`  raster: ${icons.filter((i) => i.raster).length}, vector: ${icons.filter((i) => !i.raster).length}`);
   console.log(
     `  identical: ${icons.filter((i) => i.identical).length}, divergent: ${icons.filter((i) => !i.identical).length}`,

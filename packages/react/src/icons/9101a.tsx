@@ -5,7 +5,7 @@ export const babs9101a: BabsIconDefinition = {
   id: "9101a",
   viewBox: "0 0 100 100",
   canonicalLang: "de",
-  labels: { de: "Autobahn", fr: "Autoroute", it: "Autostrada" },
+  labels: { de: "Autobahn offen", fr: "Autoroute ouverte", it: "Autostrada aperta" },
   recolorable: false,
   displaySize: 32,
   graphics: {

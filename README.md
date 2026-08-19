@@ -26,24 +26,19 @@ yarn add @f-eld-ch/babs-core @f-eld-ch/babs-react @f-eld-ch/babs-sprites @f-eld-
 ### React
 
 ```tsx
-import { BabsIconProvider, BabsIcon, registerBabsIcons } from "@f-eld-ch/babs-react";
-import { babs1101 } from "@f-eld-ch/babs-react/icons";
-
-// For string-form usage, register definitions once at startup.
-registerBabsIcons([babs1101]);
+import { BabsIconProvider, BabsIcon } from "@f-eld-ch/babs-react";
+import { babsBeschaedigung } from "@f-eld-ch/babs-react/named";
 
 function App() {
   return (
     <BabsIconProvider lang={i18n.resolvedLanguage}>
-      {/* Static import — zero registry lookup */}
-      <BabsIcon icon={babs1101} size={32} />
-
-      {/* String form — requires prior registerBabsIcons call */}
-      <BabsIcon icon="1101" size={32} />
+      <BabsIcon icon={babsBeschaedigung} size={32} />
     </BabsIconProvider>
   );
 }
 ```
+
+Human-readable names come from `./named`; the numeric form (`babs1101`) remains available from `./icons` for permanent stability. Find the export name for any icon in [docs/icons.md](docs/icons.md).
 
 ### Vite config (sprite sheets)
 

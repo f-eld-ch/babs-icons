@@ -31,7 +31,9 @@ import {
   LANGS, LANG_SUFFIX, type Lang,
   dirNum, dirLabel, symLabel, stem, compareNumeric,
 } from "./naming.ts";
-import { indexAll, allIds, hashOf, type SourceEntry } from "./source-index.ts";
+import { indexAll, indexPatternsAll, allIds, hashOf, type SourceEntry, type PatternVariant } from "./source-index.ts";
+
+const PATTERN_VARIANTS = ["a", "b"] as const;
 
 // ── CLI ───────────────────────────────────────────────────────────────────────
 
@@ -60,6 +62,11 @@ interface LangEntry {
   sourceEntry:    SourceEntry;
 }
 
+interface PatternVariantEntry {
+  identical: boolean;
+  langs:     Partial<Record<Lang, LangEntry>>;
+}
+
 interface WriteEntry {
   id:           string;
   stemName:     string;
@@ -68,10 +75,12 @@ interface WriteEntry {
   hashes:       Partial<Record<Lang, string>>;
   sources:      Partial<Record<Lang, SourceEntry>>;
   langs:        Partial<Record<Lang, LangEntry>>;
+  patterns:     Partial<Record<PatternVariant, PatternVariantEntry>>;
 }
 
 function buildWriteEntries(): WriteEntry[] {
-  const indices = indexAll({ srcRoot: SRC_ROOT, categories: ALLOWED });
+  const indices        = indexAll({ srcRoot: SRC_ROOT, categories: ALLOWED });
+  const patternIndices = indexPatternsAll({ srcRoot: SRC_ROOT, categories: ALLOWED });
   // Finding 6 fix: allIds() uses compareNumeric — no localeCompare
   const ids     = allIds(indices);
   const entries: WriteEntry[] = [];
@@ -96,7 +105,7 @@ function buildWriteEntries(): WriteEntry[] {
     const unique   = new Set(presentLangs.map(l => hashes[l]));
     const identical = unique.size === 1;
 
-    const we: WriteEntry = { id, stemName: s, identical, presentLangs, hashes, sources, langs: {} };
+    const we: WriteEntry = { id, stemName: s, identical, presentLangs, hashes, sources, langs: {}, patterns: {} };
 
     if (identical) {
       const base = hasNum ? `${id}${s}.svg` : `${id}-${s}.svg`;
@@ -129,6 +138,57 @@ function buildWriteEntries(): WriteEntry[] {
       }
     }
 
+    // Collect pattern variants (if any) for this symbol ID.
+    for (const variant of PATTERN_VARIANTS) {
+      const varSuffix = variant === "b" ? "-pattern-b" : "-pattern";
+      const psrc: Partial<Record<Lang, SourceEntry>> = {};
+      const phsh: Partial<Record<Lang, string>>      = {};
+
+      for (const lang of LANGS) {
+        const pe = patternIndices[lang].get(id)?.[variant];
+        if (!pe) continue;
+        psrc[lang] = pe;
+        phsh[lang] = hashOf(pe.path);
+      }
+
+      const presentPatternLangs = LANGS.filter(l => !!phsh[l]);
+      if (!presentPatternLangs.length) continue;
+
+      const pUnique    = new Set(presentPatternLangs.map(l => phsh[l]));
+      const pIdentical = pUnique.size === 1;
+      const pLangs: Partial<Record<Lang, LangEntry>> = {};
+
+      if (pIdentical) {
+        const base = hasNum ? `${id}${s}${varSuffix}.svg` : `${id}-${s}${varSuffix}.svg`;
+        for (const lang of presentPatternLangs) {
+          pLangs[lang] = { svgFileName: base, langDirName: base, isSymlinkInSvg: false, sourceEntry: psrc[lang]! };
+        }
+      } else {
+        const realLang = new Map<Lang, Lang>();
+        for (const lang of presentPatternLangs) {
+          const first = presentPatternLangs.find(l2 => phsh[l2] === phsh[lang])!;
+          realLang.set(lang, first);
+        }
+        for (const lang of presentPatternLangs) {
+          const suf     = LANG_SUFFIX[lang];
+          const rl      = realLang.get(lang)!;
+          const realSuf = LANG_SUFFIX[rl];
+          const svgFn   = hasNum ? `${id}${s}${varSuffix}-${suf}.svg`    : `${id}-${s}${varSuffix}-${suf}.svg`;
+          const realFn  = hasNum ? `${id}${s}${varSuffix}-${realSuf}.svg` : `${id}-${s}${varSuffix}-${realSuf}.svg`;
+          const langDir = hasNum ? `${id}${s}${varSuffix}.svg`            : `${id}-${s}${varSuffix}.svg`;
+          pLangs[lang] = {
+            svgFileName:    svgFn,
+            langDirName:    langDir,
+            isSymlinkInSvg: rl !== lang && !NO_DEDUPE,
+            symlinkTarget:  rl !== lang && !NO_DEDUPE ? realFn : undefined,
+            sourceEntry:    psrc[lang]!,
+          };
+        }
+      }
+
+      we.patterns[variant] = { identical: pIdentical, langs: pLangs };
+    }
+
     entries.push(we);
   }
 
@@ -145,6 +205,19 @@ function buildWriteEntries(): WriteEntry[] {
         throw new Error(`Target collision: svg/${le.svgFileName} from both ${prev} and ${e.id}`);
       }
       seen.set(le.svgFileName, e.id);
+    }
+    for (const variant of PATTERN_VARIANTS) {
+      const pv = e.patterns[variant];
+      if (!pv) continue;
+      for (const lang of LANGS) {
+        const le = pv.langs[lang];
+        if (!le || le.isSymlinkInSvg) continue;
+        const prev = seen.get(le.svgFileName);
+        if (prev !== undefined && prev !== e.id) {
+          throw new Error(`Pattern target collision: svg/${le.svgFileName} from both ${prev} and ${e.id}`);
+        }
+        seen.set(le.svgFileName, e.id);
+      }
     }
   }
 
@@ -230,7 +303,21 @@ function buildIndex(entries: WriteEntry[]): object {
       // Finding 7 fix: symLabel strips both prefix [DFI]- and suffix -[DFI]
       labels[lang] = symLabel(le.sourceEntry.file);
     }
-    return { id: e.id, label: labels, identical: e.identical, files };
+    const patternsOut: Partial<Record<PatternVariant, { identical: boolean; files: Partial<Record<Lang, { lang: string; svg: string }>> }>> = {};
+    for (const variant of PATTERN_VARIANTS) {
+      const pv = e.patterns[variant];
+      if (!pv) continue;
+      const pvFiles: Partial<Record<Lang, { lang: string; svg: string }>> = {};
+      for (const lang of LANGS) {
+        const le = pv.langs[lang];
+        if (!le) continue;
+        pvFiles[lang] = { lang: `${lang}/${le.langDirName}`, svg: `svg/${le.svgFileName}` };
+      }
+      patternsOut[variant] = { identical: pv.identical, files: pvFiles };
+    }
+    const result: Record<string, unknown> = { id: e.id, label: labels, identical: e.identical, files };
+    if (Object.keys(patternsOut).length > 0) result.patterns = patternsOut;
+    return result;
   }
 
   const categories = tops
@@ -398,23 +485,32 @@ function main() {
   let written = 0, symlinked = 0;
   const svgDir = join(OUT_ROOT, "svg");
 
+  function writeLangEntry(lang: Lang, le: LangEntry) {
+    const svgPath = join(svgDir, le.svgFileName);
+    if (!le.isSymlinkInSvg) {
+      if (!existsSync(svgPath)) { copyFileSync(le.sourceEntry.path, svgPath); written++; }
+    } else {
+      if (!existsSync(svgPath)) {
+        if (COPY_MODE) { copyFileSync(le.sourceEntry.path, svgPath); written++; }
+        else           { symlinkSync(le.symlinkTarget!, svgPath);    symlinked++; }
+      }
+    }
+    const langPath = join(OUT_ROOT, lang, le.langDirName);
+    if (COPY_MODE) copyFileSync(le.sourceEntry.path, langPath);
+    else           symlinkSync(`../svg/${le.svgFileName}`, langPath);
+  }
+
   for (const e of entries) {
     for (const lang of e.presentLangs) {
-      const le      = e.langs[lang]!;
-      const svgPath = join(svgDir, le.svgFileName);
-
-      if (!le.isSymlinkInSvg) {
-        if (!existsSync(svgPath)) { copyFileSync(le.sourceEntry.path, svgPath); written++; }
-      } else {
-        if (!existsSync(svgPath)) {
-          if (COPY_MODE) { copyFileSync(le.sourceEntry.path, svgPath); written++; }
-          else           { symlinkSync(le.symlinkTarget!, svgPath);    symlinked++; }
-        }
+      writeLangEntry(lang, e.langs[lang]!);
+    }
+    for (const variant of PATTERN_VARIANTS) {
+      const pv = e.patterns[variant];
+      if (!pv) continue;
+      for (const lang of LANGS) {
+        const le = pv.langs[lang];
+        if (le) writeLangEntry(lang, le);
       }
-
-      const langPath = join(OUT_ROOT, lang, le.langDirName);
-      if (COPY_MODE) copyFileSync(le.sourceEntry.path, langPath);
-      else           symlinkSync(`../svg/${le.svgFileName}`, langPath);
     }
   }
 
