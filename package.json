@@ -7,7 +7,7 @@
   ],
   "scripts": {
     "icons:flatten": "node packages/pipeline/src/flatten.ts",
-    "icons:rebuild": "yarn icons:flatten && yarn icons:sprites && yarn icons:gen-core && yarn icons:gen-react && yarn icons:verify",
+    "icons:rebuild": "yarn icons:flatten && yarn icons:sprites && yarn icons:gen-core && yarn icons:gen-react && yarn icons:verify && yarn icons:docs",
     "icons:ingest": "node packages/pipeline/src/normalize.ts --inplace && yarn icons:rebuild",
     "icons:check": "yarn icons:flatten && yarn icons:sprites --check && yarn icons:gen-core --check && yarn icons:gen-react --check && yarn icons:verify",
     "icons:sprites": "node packages/pipeline/src/sprites.ts",

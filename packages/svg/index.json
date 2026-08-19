@@ -1309,19 +1309,19 @@
               "files": {
                 "de": {
                   "lang": "de/4101-Trupp-P.svg",
-                  "svg": "svg/4101-Trupp-P-D.svg"
+                  "svg": "svg/4101-Trupp-P.svg"
                 },
                 "fr": {
                   "lang": "fr/4101-Trupp-P.svg",
-                  "svg": "svg/4101-Trupp-P-F.svg"
+                  "svg": "svg/4101-Trupp-P.svg"
                 },
                 "it": {
                   "lang": "it/4101-Trupp-P.svg",
-                  "svg": "svg/4101-Trupp-P-I.svg"
+                  "svg": "svg/4101-Trupp-P.svg"
                 }
               },
               "id": "4101",
-              "identical": false,
+              "identical": true,
               "label": {
                 "de": "Trupp-P",
                 "fr": "Equipe-P",
@@ -1332,19 +1332,19 @@
               "files": {
                 "de": {
                   "lang": "de/4102-Gruppe-P.svg",
-                  "svg": "svg/4102-Gruppe-P-D.svg"
+                  "svg": "svg/4102-Gruppe-P.svg"
                 },
                 "fr": {
                   "lang": "fr/4102-Gruppe-P.svg",
-                  "svg": "svg/4102-Gruppe-P-F.svg"
+                  "svg": "svg/4102-Gruppe-P.svg"
                 },
                 "it": {
                   "lang": "it/4102-Gruppe-P.svg",
-                  "svg": "svg/4102-Gruppe-P-I.svg"
+                  "svg": "svg/4102-Gruppe-P.svg"
                 }
               },
               "id": "4102",
-              "identical": false,
+              "identical": true,
               "label": {
                 "de": "Gruppe-P",
                 "fr": "Groupe-P",
@@ -1355,19 +1355,19 @@
               "files": {
                 "de": {
                   "lang": "de/4103-Zug-P.svg",
-                  "svg": "svg/4103-Zug-P-D.svg"
+                  "svg": "svg/4103-Zug-P.svg"
                 },
                 "fr": {
                   "lang": "fr/4103-Zug-P.svg",
-                  "svg": "svg/4103-Zug-P-F.svg"
+                  "svg": "svg/4103-Zug-P.svg"
                 },
                 "it": {
                   "lang": "it/4103-Zug-P.svg",
-                  "svg": "svg/4103-Zug-P-I.svg"
+                  "svg": "svg/4103-Zug-P.svg"
                 }
               },
               "id": "4103",
-              "identical": false,
+              "identical": true,
               "label": {
                 "de": "Zug-P",
                 "fr": "Section-P",
@@ -1378,19 +1378,19 @@
               "files": {
                 "de": {
                   "lang": "de/4104-Kompanie-P.svg",
-                  "svg": "svg/4104-Kompanie-P-D.svg"
+                  "svg": "svg/4104-Kompanie-P.svg"
                 },
                 "fr": {
                   "lang": "fr/4104-Kompanie-P.svg",
-                  "svg": "svg/4104-Kompanie-P-F.svg"
+                  "svg": "svg/4104-Kompanie-P.svg"
                 },
                 "it": {
                   "lang": "it/4104-Kompanie-P.svg",
-                  "svg": "svg/4104-Kompanie-P-I.svg"
+                  "svg": "svg/4104-Kompanie-P.svg"
                 }
               },
               "id": "4104",
-              "identical": false,
+              "identical": true,
               "label": {
                 "de": "Kompanie-P",
                 "fr": "Companie-P",
@@ -1401,19 +1401,19 @@
               "files": {
                 "de": {
                   "lang": "de/4105-Bataillon-P.svg",
-                  "svg": "svg/4105-Bataillon-P-D.svg"
+                  "svg": "svg/4105-Bataillon-P.svg"
                 },
                 "fr": {
                   "lang": "fr/4105-Bataillon-P.svg",
-                  "svg": "svg/4105-Bataillon-P-F.svg"
+                  "svg": "svg/4105-Bataillon-P.svg"
                 },
                 "it": {
                   "lang": "it/4105-Bataillon-P.svg",
-                  "svg": "svg/4105-Bataillon-P-I.svg"
+                  "svg": "svg/4105-Bataillon-P.svg"
                 }
               },
               "id": "4105",
-              "identical": false,
+              "identical": true,
               "label": {
                 "de": "Bataillon-P",
                 "fr": "Bataillon-P",
@@ -1424,19 +1424,19 @@
               "files": {
                 "de": {
                   "lang": "de/4106-Einsatzleiter-P.svg",
-                  "svg": "svg/4106-Einsatzleiter-P-D.svg"
+                  "svg": "svg/4106-Einsatzleiter-P.svg"
                 },
                 "fr": {
                   "lang": "fr/4106-Einsatzleiter-P.svg",
-                  "svg": "svg/4106-Einsatzleiter-P-F.svg"
+                  "svg": "svg/4106-Einsatzleiter-P.svg"
                 },
                 "it": {
                   "lang": "it/4106-Einsatzleiter-P.svg",
-                  "svg": "svg/4106-Einsatzleiter-P-I.svg"
+                  "svg": "svg/4106-Einsatzleiter-P.svg"
                 }
               },
               "id": "4106",
-              "identical": false,
+              "identical": true,
               "label": {
                 "de": "Einsatzleiter-P",
                 "fr": "DI-P",
@@ -1447,19 +1447,19 @@
               "files": {
                 "de": {
                   "lang": "de/4107-Gruppenfuehrer-P.svg",
-                  "svg": "svg/4107-Gruppenfuehrer-P-D.svg"
+                  "svg": "svg/4107-Gruppenfuehrer-P.svg"
                 },
                 "fr": {
                   "lang": "fr/4107-Gruppenfuehrer-P.svg",
-                  "svg": "svg/4107-Gruppenfuehrer-P-F.svg"
+                  "svg": "svg/4107-Gruppenfuehrer-P.svg"
                 },
                 "it": {
                   "lang": "it/4107-Gruppenfuehrer-P.svg",
-                  "svg": "svg/4107-Gruppenfuehrer-P-I.svg"
+                  "svg": "svg/4107-Gruppenfuehrer-P.svg"
                 }
               },
               "id": "4107",
-              "identical": false,
+              "identical": true,
               "label": {
                 "de": "Gruppenführer-P",
                 "fr": "Chef de groupe-P",
@@ -1470,19 +1470,19 @@
               "files": {
                 "de": {
                   "lang": "de/4108-Offizier-Zugfuehrer-P.svg",
-                  "svg": "svg/4108-Offizier-Zugfuehrer-P-D.svg"
+                  "svg": "svg/4108-Offizier-Zugfuehrer-P.svg"
                 },
                 "fr": {
                   "lang": "fr/4108-Offizier-Zugfuehrer-P.svg",
-                  "svg": "svg/4108-Offizier-Zugfuehrer-P-F.svg"
+                  "svg": "svg/4108-Offizier-Zugfuehrer-P.svg"
                 },
                 "it": {
                   "lang": "it/4108-Offizier-Zugfuehrer-P.svg",
-                  "svg": "svg/4108-Offizier-Zugfuehrer-P-I.svg"
+                  "svg": "svg/4108-Offizier-Zugfuehrer-P.svg"
                 }
               },
               "id": "4108",
-              "identical": false,
+              "identical": true,
               "label": {
                 "de": "Offizier-Zugführer-P",
                 "fr": "Officier-Chef de section-P",
@@ -1697,19 +1697,19 @@
               "files": {
                 "de": {
                   "lang": "de/4301-Trupp-San.svg",
-                  "svg": "svg/4301-Trupp-San-D.svg"
+                  "svg": "svg/4301-Trupp-San.svg"
                 },
                 "fr": {
                   "lang": "fr/4301-Trupp-San.svg",
-                  "svg": "svg/4301-Trupp-San-F.svg"
+                  "svg": "svg/4301-Trupp-San.svg"
                 },
                 "it": {
                   "lang": "it/4301-Trupp-San.svg",
-                  "svg": "svg/4301-Trupp-San-I.svg"
+                  "svg": "svg/4301-Trupp-San.svg"
                 }
               },
               "id": "4301",
-              "identical": false,
+              "identical": true,
               "label": {
                 "de": "Trupp-San",
                 "fr": "Equipe-San",
@@ -1720,19 +1720,19 @@
               "files": {
                 "de": {
                   "lang": "de/4302-Gruppe-San.svg",
-                  "svg": "svg/4302-Gruppe-San-D.svg"
+                  "svg": "svg/4302-Gruppe-San.svg"
                 },
                 "fr": {
                   "lang": "fr/4302-Gruppe-San.svg",
-                  "svg": "svg/4302-Gruppe-San-F.svg"
+                  "svg": "svg/4302-Gruppe-San.svg"
                 },
                 "it": {
                   "lang": "it/4302-Gruppe-San.svg",
-                  "svg": "svg/4302-Gruppe-San-I.svg"
+                  "svg": "svg/4302-Gruppe-San.svg"
                 }
               },
               "id": "4302",
-              "identical": false,
+              "identical": true,
               "label": {
                 "de": "Gruppe-San",
                 "fr": "Groupe-San",
@@ -1743,19 +1743,19 @@
               "files": {
                 "de": {
                   "lang": "de/4303-Zug-San.svg",
-                  "svg": "svg/4303-Zug-San-D.svg"
+                  "svg": "svg/4303-Zug-San.svg"
                 },
                 "fr": {
                   "lang": "fr/4303-Zug-San.svg",
-                  "svg": "svg/4303-Zug-San-F.svg"
+                  "svg": "svg/4303-Zug-San.svg"
                 },
                 "it": {
                   "lang": "it/4303-Zug-San.svg",
-                  "svg": "svg/4303-Zug-San-I.svg"
+                  "svg": "svg/4303-Zug-San.svg"
                 }
               },
               "id": "4303",
-              "identical": false,
+              "identical": true,
               "label": {
                 "de": "Zug-San",
                 "fr": "Section-San",
@@ -1766,19 +1766,19 @@
               "files": {
                 "de": {
                   "lang": "de/4304-Kompanie-San.svg",
-                  "svg": "svg/4304-Kompanie-San-D.svg"
+                  "svg": "svg/4304-Kompanie-San.svg"
                 },
                 "fr": {
                   "lang": "fr/4304-Kompanie-San.svg",
-                  "svg": "svg/4304-Kompanie-San-F.svg"
+                  "svg": "svg/4304-Kompanie-San.svg"
                 },
                 "it": {
                   "lang": "it/4304-Kompanie-San.svg",
-                  "svg": "svg/4304-Kompanie-San-I.svg"
+                  "svg": "svg/4304-Kompanie-San.svg"
                 }
               },
               "id": "4304",
-              "identical": false,
+              "identical": true,
               "label": {
                 "de": "Kompanie-San",
                 "fr": "Companie-San",
@@ -1789,19 +1789,19 @@
               "files": {
                 "de": {
                   "lang": "de/4305-Bataillon-San.svg",
-                  "svg": "svg/4305-Bataillon-San-D.svg"
+                  "svg": "svg/4305-Bataillon-San.svg"
                 },
                 "fr": {
                   "lang": "fr/4305-Bataillon-San.svg",
-                  "svg": "svg/4305-Bataillon-San-F.svg"
+                  "svg": "svg/4305-Bataillon-San.svg"
                 },
                 "it": {
                   "lang": "it/4305-Bataillon-San.svg",
-                  "svg": "svg/4305-Bataillon-San-I.svg"
+                  "svg": "svg/4305-Bataillon-San.svg"
                 }
               },
               "id": "4305",
-              "identical": false,
+              "identical": true,
               "label": {
                 "de": "Bataillon-San",
                 "fr": "Bataillon-San",
@@ -1812,19 +1812,19 @@
               "files": {
                 "de": {
                   "lang": "de/4306-Einsatzleiter-San.svg",
-                  "svg": "svg/4306-Einsatzleiter-San-D.svg"
+                  "svg": "svg/4306-Einsatzleiter-San.svg"
                 },
                 "fr": {
                   "lang": "fr/4306-Einsatzleiter-San.svg",
-                  "svg": "svg/4306-Einsatzleiter-San-F.svg"
+                  "svg": "svg/4306-Einsatzleiter-San.svg"
                 },
                 "it": {
                   "lang": "it/4306-Einsatzleiter-San.svg",
-                  "svg": "svg/4306-Einsatzleiter-San-I.svg"
+                  "svg": "svg/4306-Einsatzleiter-San.svg"
                 }
               },
               "id": "4306",
-              "identical": false,
+              "identical": true,
               "label": {
                 "de": "Einsatzleiter-San",
                 "fr": "DI-San",
@@ -1835,19 +1835,19 @@
               "files": {
                 "de": {
                   "lang": "de/4307-Gruppenfuehrer-San.svg",
-                  "svg": "svg/4307-Gruppenfuehrer-San-D.svg"
+                  "svg": "svg/4307-Gruppenfuehrer-San.svg"
                 },
                 "fr": {
                   "lang": "fr/4307-Gruppenfuehrer-San.svg",
-                  "svg": "svg/4307-Gruppenfuehrer-San-F.svg"
+                  "svg": "svg/4307-Gruppenfuehrer-San.svg"
                 },
                 "it": {
                   "lang": "it/4307-Gruppenfuehrer-San.svg",
-                  "svg": "svg/4307-Gruppenfuehrer-San-I.svg"
+                  "svg": "svg/4307-Gruppenfuehrer-San.svg"
                 }
               },
               "id": "4307",
-              "identical": false,
+              "identical": true,
               "label": {
                 "de": "Gruppenführer-San",
                 "fr": "Chef de groupe-San",
@@ -1858,19 +1858,19 @@
               "files": {
                 "de": {
                   "lang": "de/4308-Offizier-Zugfuehrer-San.svg",
-                  "svg": "svg/4308-Offizier-Zugfuehrer-San-D.svg"
+                  "svg": "svg/4308-Offizier-Zugfuehrer-San.svg"
                 },
                 "fr": {
                   "lang": "fr/4308-Offizier-Zugfuehrer-San.svg",
-                  "svg": "svg/4308-Offizier-Zugfuehrer-San-F.svg"
+                  "svg": "svg/4308-Offizier-Zugfuehrer-San.svg"
                 },
                 "it": {
                   "lang": "it/4308-Offizier-Zugfuehrer-San.svg",
-                  "svg": "svg/4308-Offizier-Zugfuehrer-San-I.svg"
+                  "svg": "svg/4308-Offizier-Zugfuehrer-San.svg"
                 }
               },
               "id": "4308",
-              "identical": false,
+              "identical": true,
               "label": {
                 "de": "Offizier-Zugführer-San",
                 "fr": "Officier-Chef de section-San",
@@ -2473,19 +2473,19 @@
               "files": {
                 "de": {
                   "lang": "de/4701-P.svg",
-                  "svg": "svg/4701-P-D.svg"
+                  "svg": "svg/4701-P.svg"
                 },
                 "fr": {
                   "lang": "fr/4701-P.svg",
-                  "svg": "svg/4701-P-F.svg"
+                  "svg": "svg/4701-P.svg"
                 },
                 "it": {
                   "lang": "it/4701-P.svg",
-                  "svg": "svg/4701-P-I.svg"
+                  "svg": "svg/4701-P.svg"
                 }
               },
               "id": "4701",
-              "identical": false,
+              "identical": true,
               "label": {
                 "de": "P",
                 "fr": "P",
@@ -2519,19 +2519,19 @@
               "files": {
                 "de": {
                   "lang": "de/4703-San.svg",
-                  "svg": "svg/4703-San-D.svg"
+                  "svg": "svg/4703-San.svg"
                 },
                 "fr": {
                   "lang": "fr/4703-San.svg",
-                  "svg": "svg/4703-San-F.svg"
+                  "svg": "svg/4703-San.svg"
                 },
                 "it": {
                   "lang": "it/4703-San.svg",
-                  "svg": "svg/4703-San-I.svg"
+                  "svg": "svg/4703-San.svg"
                 }
               },
               "id": "4703",
-              "identical": false,
+              "identical": true,
               "label": {
                 "de": "San",
                 "fr": "San",
@@ -2621,19 +2621,19 @@
               "files": {
                 "de": {
                   "lang": "de/4801-Trupp.svg",
-                  "svg": "svg/4801-Trupp-D.svg"
+                  "svg": "svg/4801-Trupp.svg"
                 },
                 "fr": {
                   "lang": "fr/4801-Trupp.svg",
-                  "svg": "svg/4801-Trupp-F.svg"
+                  "svg": "svg/4801-Trupp.svg"
                 },
                 "it": {
                   "lang": "it/4801-Trupp.svg",
-                  "svg": "svg/4801-Trupp-I.svg"
+                  "svg": "svg/4801-Trupp.svg"
                 }
               },
               "id": "4801",
-              "identical": false,
+              "identical": true,
               "label": {
                 "de": "Trupp",
                 "fr": "Equipe",
@@ -2644,19 +2644,19 @@
               "files": {
                 "de": {
                   "lang": "de/4802-Gruppe.svg",
-                  "svg": "svg/4802-Gruppe-D.svg"
+                  "svg": "svg/4802-Gruppe.svg"
                 },
                 "fr": {
                   "lang": "fr/4802-Gruppe.svg",
-                  "svg": "svg/4802-Gruppe-F.svg"
+                  "svg": "svg/4802-Gruppe.svg"
                 },
                 "it": {
                   "lang": "it/4802-Gruppe.svg",
-                  "svg": "svg/4802-Gruppe-I.svg"
+                  "svg": "svg/4802-Gruppe.svg"
                 }
               },
               "id": "4802",
-              "identical": false,
+              "identical": true,
               "label": {
                 "de": "Gruppe",
                 "fr": "Groupe",
@@ -2667,19 +2667,19 @@
               "files": {
                 "de": {
                   "lang": "de/4803-Zug.svg",
-                  "svg": "svg/4803-Zug-D.svg"
+                  "svg": "svg/4803-Zug.svg"
                 },
                 "fr": {
                   "lang": "fr/4803-Zug.svg",
-                  "svg": "svg/4803-Zug-F.svg"
+                  "svg": "svg/4803-Zug.svg"
                 },
                 "it": {
                   "lang": "it/4803-Zug.svg",
-                  "svg": "svg/4803-Zug-I.svg"
+                  "svg": "svg/4803-Zug.svg"
                 }
               },
               "id": "4803",
-              "identical": false,
+              "identical": true,
               "label": {
                 "de": "Zug",
                 "fr": "Section",
@@ -2690,19 +2690,19 @@
               "files": {
                 "de": {
                   "lang": "de/4804-Kompanie.svg",
-                  "svg": "svg/4804-Kompanie-D.svg"
+                  "svg": "svg/4804-Kompanie.svg"
                 },
                 "fr": {
                   "lang": "fr/4804-Kompanie.svg",
-                  "svg": "svg/4804-Kompanie-F.svg"
+                  "svg": "svg/4804-Kompanie.svg"
                 },
                 "it": {
                   "lang": "it/4804-Kompanie.svg",
-                  "svg": "svg/4804-Kompanie-I.svg"
+                  "svg": "svg/4804-Kompanie.svg"
                 }
               },
               "id": "4804",
-              "identical": false,
+              "identical": true,
               "label": {
                 "de": "Kompanie",
                 "fr": "Companie",
@@ -2713,19 +2713,19 @@
               "files": {
                 "de": {
                   "lang": "de/4805-Bataillon.svg",
-                  "svg": "svg/4805-Bataillon-D.svg"
+                  "svg": "svg/4805-Bataillon.svg"
                 },
                 "fr": {
                   "lang": "fr/4805-Bataillon.svg",
-                  "svg": "svg/4805-Bataillon-F.svg"
+                  "svg": "svg/4805-Bataillon.svg"
                 },
                 "it": {
                   "lang": "it/4805-Bataillon.svg",
-                  "svg": "svg/4805-Bataillon-I.svg"
+                  "svg": "svg/4805-Bataillon.svg"
                 }
               },
               "id": "4805",
-              "identical": false,
+              "identical": true,
               "label": {
                 "de": "Bataillon",
                 "fr": "Bataillon",
@@ -2736,19 +2736,19 @@
               "files": {
                 "de": {
                   "lang": "de/4806-Einsatzleiter.svg",
-                  "svg": "svg/4806-Einsatzleiter-D.svg"
+                  "svg": "svg/4806-Einsatzleiter.svg"
                 },
                 "fr": {
                   "lang": "fr/4806-Einsatzleiter.svg",
-                  "svg": "svg/4806-Einsatzleiter-F.svg"
+                  "svg": "svg/4806-Einsatzleiter.svg"
                 },
                 "it": {
                   "lang": "it/4806-Einsatzleiter.svg",
-                  "svg": "svg/4806-Einsatzleiter-I.svg"
+                  "svg": "svg/4806-Einsatzleiter.svg"
                 }
               },
               "id": "4806",
-              "identical": false,
+              "identical": true,
               "label": {
                 "de": "Einsatzleiter",
                 "fr": "DI",
@@ -2759,19 +2759,19 @@
               "files": {
                 "de": {
                   "lang": "de/4807-Gruppenfuehrer.svg",
-                  "svg": "svg/4807-Gruppenfuehrer-D.svg"
+                  "svg": "svg/4807-Gruppenfuehrer.svg"
                 },
                 "fr": {
                   "lang": "fr/4807-Gruppenfuehrer.svg",
-                  "svg": "svg/4807-Gruppenfuehrer-F.svg"
+                  "svg": "svg/4807-Gruppenfuehrer.svg"
                 },
                 "it": {
                   "lang": "it/4807-Gruppenfuehrer.svg",
-                  "svg": "svg/4807-Gruppenfuehrer-I.svg"
+                  "svg": "svg/4807-Gruppenfuehrer.svg"
                 }
               },
               "id": "4807",
-              "identical": false,
+              "identical": true,
               "label": {
                 "de": "Gruppenführer",
                 "fr": "Chef de groupe",
@@ -2782,19 +2782,19 @@
               "files": {
                 "de": {
                   "lang": "de/4808-Offizier-Zugfuehrer.svg",
-                  "svg": "svg/4808-Offizier-Zugfuehrer-D.svg"
+                  "svg": "svg/4808-Offizier-Zugfuehrer.svg"
                 },
                 "fr": {
                   "lang": "fr/4808-Offizier-Zugfuehrer.svg",
-                  "svg": "svg/4808-Offizier-Zugfuehrer-F.svg"
+                  "svg": "svg/4808-Offizier-Zugfuehrer.svg"
                 },
                 "it": {
                   "lang": "it/4808-Offizier-Zugfuehrer.svg",
-                  "svg": "svg/4808-Offizier-Zugfuehrer-I.svg"
+                  "svg": "svg/4808-Offizier-Zugfuehrer.svg"
                 }
               },
               "id": "4808",
-              "identical": false,
+              "identical": true,
               "label": {
                 "de": "Offizier-Zugführer",
                 "fr": "Officier-Chef de section",
@@ -3793,19 +3793,19 @@
           "files": {
             "de": {
               "lang": "de/6103a-Beabsichtigte-Erkundung.svg",
-              "svg": "svg/6103a-Beabsichtigte-Erkundung-D.svg"
+              "svg": "svg/6103a-Beabsichtigte-Erkundung.svg"
             },
             "fr": {
               "lang": "fr/6103a-Beabsichtigte-Erkundung.svg",
-              "svg": "svg/6103a-Beabsichtigte-Erkundung-F.svg"
+              "svg": "svg/6103a-Beabsichtigte-Erkundung.svg"
             },
             "it": {
               "lang": "it/6103a-Beabsichtigte-Erkundung.svg",
-              "svg": "svg/6103a-Beabsichtigte-Erkundung-I.svg"
+              "svg": "svg/6103a-Beabsichtigte-Erkundung.svg"
             }
           },
           "id": "6103a",
-          "identical": false,
+          "identical": true,
           "label": {
             "de": "Beabsichtigte-Erkundung",
             "fr": "Reconnaissance-prevue",
@@ -3816,19 +3816,19 @@
           "files": {
             "de": {
               "lang": "de/6103b-Durchgefuehrte-Erkundung.svg",
-              "svg": "svg/6103b-Durchgefuehrte-Erkundung-D.svg"
+              "svg": "svg/6103b-Durchgefuehrte-Erkundung.svg"
             },
             "fr": {
               "lang": "fr/6103b-Durchgefuehrte-Erkundung.svg",
-              "svg": "svg/6103b-Durchgefuehrte-Erkundung-F.svg"
+              "svg": "svg/6103b-Durchgefuehrte-Erkundung.svg"
             },
             "it": {
               "lang": "it/6103b-Durchgefuehrte-Erkundung.svg",
-              "svg": "svg/6103b-Durchgefuehrte-Erkundung-I.svg"
+              "svg": "svg/6103b-Durchgefuehrte-Erkundung.svg"
             }
           },
           "id": "6103b",
-          "identical": false,
+          "identical": true,
           "label": {
             "de": "Durchgefuehrte-Erkundung",
             "fr": "Reconnaissance-executee",

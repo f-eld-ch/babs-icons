@@ -11,12 +11,6 @@ export const babs4703: BabsIconDefinition = {
   graphics: {
     "de": { kind: "vector", body: (_ns: (localId: string) => string) => (
       <><g transform="translate(5 5.1299) scale(21.32386) translate(-39.1163 -23.3916)scale(.04688)"><path fill="#0000FF" d="M879.5 588.8c-24.82 0-45.02-20.14-45.02-44.89s20.2-44.89 45.02-44.89 45.02 20.14 45.02 44.89-20.19 44.89-45.02 44.89m0-79.77a35 35 0 0 0-35.02 34.89 35 35 0 0 0 35.02 34.89 35 35 0 0 0 35.02-34.89 35 35 0 0 0-35.02-34.89"/><text x="844.87" y="556.17" fill="#0000ff" strokeWidth="1" direction="ltr" fontFamily="FreeSans" fontSize="40.02" fontWeight="bold" letterSpacing="-2.75" wordSpacing="0" writingMode="lr-tb"><tspan x="844.87" y="556.17" strokeWidth="1" fontSize="40.02" letterSpacing="-2.75">San</tspan></text></g></>
-    ) },
-    "fr": { kind: "vector", body: (_ns: (localId: string) => string) => (
-      <><g transform="translate(5 5.1299) scale(21.32386) translate(-39.1163 -23.3916)scale(.04688)"><path fill="#0000FF" d="M879.5 588.8c-24.82 0-45.02-20.14-45.02-44.89s20.2-44.89 45.02-44.89 45.02 20.14 45.02 44.89-20.19 44.89-45.02 44.89m0-79.77a35 35 0 0 0-35.02 34.89 35 35 0 0 0 35.02 34.89 35 35 0 0 0 35.02-34.89 35 35 0 0 0-35.02-34.89"/><text x="844.87" y="556.17" fill="#0000ff" strokeWidth="1" direction="ltr" fontFamily="FreeSans" fontSize="40.02" fontWeight="bold" letterSpacing="-2.75" wordSpacing="0" writingMode="lr-tb"><tspan x="844.87" y="556.17" strokeWidth="1" fontSize="40.02" letterSpacing="-2.75">San</tspan></text></g></>
-    ) },
-    "it": { kind: "vector", body: (_ns: (localId: string) => string) => (
-      <><g transform="translate(5 5.1299) scale(21.32386) translate(-39.1163 -23.3916)scale(.04688)"><path fill="#0000FF" d="M879.5 588.8c-24.82 0-45.02-20.14-45.02-44.89s20.2-44.89 45.02-44.89 45.02 20.14 45.02 44.89-20.19 44.89-45.02 44.89m0-79.77a35 35 0 0 0-35.02 34.89 35 35 0 0 0 35.02 34.89 35 35 0 0 0 35.02-34.89 35 35 0 0 0-35.02-34.89"/><text x="844.87" y="556.17" fill="#0000ff" strokeWidth="1" direction="ltr" fontFamily="FreeSans" fontSize="40.02" fontWeight="bold" letterSpacing="-2.75" wordSpacing="0" writingMode="lr-tb"><tspan x="844.87" y="556.17" strokeWidth="1" fontSize="40.02" letterSpacing="-2.75">San</tspan></text></g></>
     ) }
   },
 };

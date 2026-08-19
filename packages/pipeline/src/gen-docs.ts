@@ -42,10 +42,10 @@ function correctedLabel(id: string, lang: "de" | "fr" | "it", raw: string): stri
   return corrections[id]?.[lang] ?? raw;
 }
 
-// Relative path from docs/ to packages/svg/{lang}/{filename}
-function imgSrc(langFile: string): string {
-  // langFile is like "de/1101-Beschaedigung.svg" (relative to packages/svg)
-  return `../packages/svg/${langFile}`;
+// Relative path from docs/ to packages/svg/svg/{filename} (real files, no symlinks)
+function imgSrc(svgFile: string): string {
+  // svgFile is like "svg/1101-Beschaedigung.svg" (relative to packages/svg)
+  return `../packages/svg/${svgFile}`;
 }
 
 function img(src: string, alt: string, size = 48): string {
@@ -59,18 +59,18 @@ function symbolRow(sym: Symbol): string {
 
   let iconCell: string;
   if (sym.identical) {
-    // One canonical graphic for all languages — use whichever file is present
+    // One canonical graphic for all languages — use real svg/ path (not symlink)
     const file = sym.files.de ?? sym.files.fr ?? sym.files.it;
-    const src = file ? imgSrc(file.lang) : "";
+    const src = file ? imgSrc(file.svg) : "";
     iconCell = src ? img(src, de) : "";
   } else {
-    // Distinct graphics per language — show all three side by side
+    // Distinct graphics per language — show all three side by side, using real svg/ paths
     const parts: string[] = [];
     for (const lang of ["de", "fr", "it"] as const) {
       const file = sym.files[lang];
       if (file) {
         const label = lang === "de" ? de : lang === "fr" ? fr : it;
-        parts.push(img(imgSrc(file.lang), `${label} (${lang})`));
+        parts.push(img(imgSrc(file.svg), `${label} (${lang})`));
       }
     }
     iconCell = parts.join(" ");
