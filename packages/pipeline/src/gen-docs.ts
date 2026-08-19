@@ -2,8 +2,8 @@
 // Generate docs/icons.md — full icon reference grouped by category/subcategory.
 // Run: node packages/pipeline/src/gen-docs.ts
 
-import { readFileSync, writeFileSync, existsSync } from "node:fs";
-import { join, dirname } from "node:path";
+import { readFileSync, writeFileSync, existsSync, realpathSync } from "node:fs";
+import { join, dirname, relative } from "node:path";
 import { fileURLToPath } from "node:url";
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), "../../../");
@@ -42,10 +42,14 @@ function correctedLabel(id: string, lang: "de" | "fr" | "it", raw: string): stri
   return corrections[id]?.[lang] ?? raw;
 }
 
-// Relative path from docs/ to packages/svg/svg/{filename} (real files, no symlinks)
+// Resolve a svg-relative path (e.g. "svg/4501-Trupp-TechnB-I.svg") to its real
+// on-disk file (following any symlinks within svg/), then return a path relative
+// to docs/ suitable for use in an <img src>.
 function imgSrc(svgFile: string): string {
-  // svgFile is like "svg/1101-Beschaedigung.svg" (relative to packages/svg)
-  return `../packages/svg/${svgFile}`;
+  const abs = join(SVG_PKG, svgFile);
+  const real = realpathSync(abs);                   // follow symlinks
+  const rel = relative(join(ROOT, "docs"), real);   // relative from docs/
+  return rel;
 }
 
 function img(src: string, alt: string, size = 48): string {
