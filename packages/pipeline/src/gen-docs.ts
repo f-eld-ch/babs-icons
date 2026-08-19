@@ -77,14 +77,20 @@ function symbolRow(sym: Symbol): string {
         parts.push(img(imgSrc(file.svg), `${label} (${lang})`));
       }
     }
-    iconCell = parts.join(" ");
+    iconCell = parts.join("&nbsp;");
   }
 
   return `| ${iconCell} | \`${sym.id}\` | ${de} | ${fr} | ${it} |`;
 }
 
+// Min-width for the icon column: widest case is 3×48px images side by side (~160px).
+// GitHub preserves img width/height attributes, so a transparent spacer in the header
+// forces the column to at least that width.
+const ICON_COL_HEADER =
+  `Icon<img width="160" height="1" src="spacer.svg" alt="">`;
+
 function symbolsTable(symbols: Symbol[]): string {
-  const header = "| Icon | ID | DE | FR | IT |\n|---|---|---|---|---|";
+  const header = `| ${ICON_COL_HEADER} | ID | DE | FR | IT |\n|---|---|---|---|---|`;
   const rows = symbols.map(symbolRow);
   return `${header}\n${rows.join("\n")}`;
 }

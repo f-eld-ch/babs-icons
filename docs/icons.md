@@ -28,7 +28,7 @@ For divergent icons (different graphic per language) all three variants are show
 
 *Auswirkungen von Schadenereignissen auf Gebiete / Effets d'événements dommageables sur le terrain et les objectifs / Effetti provocati da sinistri sul territorio e sugli obiettivi*
 
-| Icon | ID | DE | FR | IT |
+| Icon<img width="160" height="1" src="spacer.svg" alt=""> | ID | DE | FR | IT |
 |---|---|---|---|---|
 | <img src="../packages/svg/svg/1101-Beschaedigung.svg" alt="Beschaedigung" width="48" height="48"> | `1101` | Beschaedigung | Degat | Danneggiamento |
 | <img src="../packages/svg/svg/1102-Teilzerstoerung.svg" alt="Teilzerstoerung" width="48" height="48"> | `1102` | Teilzerstoerung | Destruction-partielle | Distruzione-parziale |
@@ -56,7 +56,7 @@ For divergent icons (different graphic per language) all three variants are show
 
 *Auswirkungen von Schadenereignissen auf Verkehrswege / Effets d'événements dommageables sur les voies de communication / Effetti provocati da sinistri sulle vie di comunicazione*
 
-| Icon | ID | DE | FR | IT |
+| Icon<img width="160" height="1" src="spacer.svg" alt=""> | ID | DE | FR | IT |
 |---|---|---|---|---|
 | <img src="../packages/svg/svg/1201-Strerschwertbefahrbar-begehbar.svg" alt="Str erschwert befahrbar - begehbar" width="48" height="48"> | `1201` | Str erschwert befahrbar - begehbar | Route difficilement praticable | Strada percorribile |
 | <img src="../packages/svg/svg/1202-Strnichtbefahrbar-schwerbegehbar.svg" alt="Str nicht befahrbar - schwer begehbar" width="48" height="48"> | `1202` | Str nicht befahrbar - schwer begehbar | Route impraticable pour les vhc | Strada non percorribile per i veicoli |
@@ -66,7 +66,7 @@ For divergent icons (different graphic per language) all three variants are show
 
 *Auswirkungen von Schadenereignissen auf Personen / Effets d'événements dommageables sur les personnes / Effetti provocati da sinistri sulle persone*
 
-| Icon | ID | DE | FR | IT |
+| Icon<img width="160" height="1" src="spacer.svg" alt=""> | ID | DE | FR | IT |
 |---|---|---|---|---|
 | <img src="../packages/svg/svg/1301-Verletzte.svg" alt="Verletzte" width="48" height="48"> | `1301` | Verletzte | Blesses | Feriti |
 | <img src="../packages/svg/svg/1302-Vermisste.svg" alt="Vermisste" width="48" height="48"> | `1302` | Vermisste | Disparus | Dispersi |
@@ -78,7 +78,7 @@ For divergent icons (different graphic per language) all three variants are show
 
 *Auswirkungen von Schadenereignissen auf Gebiete Gelb / Effets d'événements dommageables sur le terrain / Effetti provocati da sinistri sul territorio*
 
-| Icon | ID | DE | FR | IT |
+| Icon<img width="160" height="1" src="spacer.svg" alt=""> | ID | DE | FR | IT |
 |---|---|---|---|---|
 | <img src="../packages/svg/svg/1401-BiologischverseuchtesGebiet.svg" alt="Biologisch verseuchtes Gebiet" width="48" height="48"> | `1401` | Biologisch verseuchtes Gebiet | Zone biologiquement contaminée | Zona infettata |
 | <img src="../packages/svg/svg/1402-ChemievergifteteZonefluessig-sesshaft.svg" alt="Chemievergiftete Zone flüssig - sesshaft" width="48" height="48"> | `1402` | Chemievergiftete Zone flüssig - sesshaft | Zone chimiquement contaminée sous forme liquide | Zona intossicata liquido-persistente |
@@ -91,13 +91,13 @@ For divergent icons (different graphic per language) all three variants are show
 
 **Gefahren** / Dangers / Pericoli
 
-| Icon | ID | DE | FR | IT |
+| Icon<img width="160" height="1" src="spacer.svg" alt=""> | ID | DE | FR | IT |
 |---|---|---|---|---|
 | <img src="../packages/svg/svg/2101-ChemikalienGefahr.svg" alt="Chemikalien Gefahr" width="48" height="48"> | `2101` | Chemikalien Gefahr | Danger chimique | Pericolo sostanze chimiche |
 | <img src="../packages/svg/svg/2102-ElektrizitaetGefahr.svg" alt="Elektrizität Gefahr" width="48" height="48"> | `2102` | Elektrizität Gefahr | Danger électrique | Pericolo ellettricità |
 | <img src="../packages/svg/svg/2103-ExplosionGefahr.svg" alt="Explosion Gefahr" width="48" height="48"> | `2103` | Explosion Gefahr | Danger d'explosion | Pericolo esplosione |
 | <img src="../packages/svg/svg/2104-GasGefahr.svg" alt="Gas Gefahr" width="48" height="48"> | `2104` | Gas Gefahr | Danger de gaz | Pericolo gas |
-| <img src="../packages/svg/svg/2105-UnfallGefahr-D.svg" alt="Unfall Gefahr (de)" width="48" height="48"> <img src="../packages/svg/svg/2105-UnfallGefahr-F.svg" alt="Danger d'accident (fr)" width="48" height="48"> <img src="../packages/svg/svg/2105-UnfallGefahr-I.svg" alt="Pericolo Incidente (it)" width="48" height="48"> | `2105` | Unfall Gefahr | Danger d'accident | Pericolo Incidente |
+| <img src="../packages/svg/svg/2105-UnfallGefahr-D.svg" alt="Unfall Gefahr (de)" width="48" height="48">&nbsp;<img src="../packages/svg/svg/2105-UnfallGefahr-F.svg" alt="Danger d'accident (fr)" width="48" height="48">&nbsp;<img src="../packages/svg/svg/2105-UnfallGefahr-I.svg" alt="Pericolo Incidente (it)" width="48" height="48"> | `2105` | Unfall Gefahr | Danger d'accident | Pericolo Incidente |
 | <img src="../packages/svg/svg/2106-GefahrdurchLoeschenmitWasser.svg" alt="Gefahr durch Löschen mit Wasser" width="48" height="48"> | `2106` | Gefahr durch Löschen mit Wasser | Danger-si-extinction-avec-eau | Pericolo in caso di spegnimento con acqua |
 | <img src="../packages/svg/svg/2107-RadioaktiveStoffeGefahr.svg" alt="Radioaktive Stoffe Gefahr" width="48" height="48"> | `2107` | Radioaktive Stoffe Gefahr | Danger substances-radioactives | Pericolo sostanze radioattive |
 | <img src="../packages/svg/svg/2108-GefahrfuerGrundwasser.svg" alt="Gefahr für Grundwasser" width="48" height="48"> | `2108` | Gefahr für Grundwasser | Danger-pour-les-eaux de surface | Pericolo per le acque in superficie |
@@ -110,18 +110,18 @@ For divergent icons (different graphic per language) all three variants are show
 
 **Zivile Führungsstandorte** / Emplacements de conduite civils / Ubicazioni di condotta civili
 
-| Icon | ID | DE | FR | IT |
+| Icon<img width="160" height="1" src="spacer.svg" alt=""> | ID | DE | FR | IT |
 |---|---|---|---|---|
-| <img src="../packages/svg/svg/3101-Einsatzleitung-D.svg" alt="Einsatzleitung (de)" width="48" height="48"> <img src="../packages/svg/svg/3101-Einsatzleitung-F.svg" alt="Direction d'intervention (fr)" width="48" height="48"> <img src="../packages/svg/svg/3101-Einsatzleitung-I.svg" alt="Direzione d'intervento (it)" width="48" height="48"> | `3101` | Einsatzleitung | Direction d'intervention | Direzione d'intervento |
-| <img src="../packages/svg/svg/3102-MobileEinsatzzentrale-D.svg" alt="Mobile Einsatzzentrale (de)" width="48" height="48"> <img src="../packages/svg/svg/3102-MobileEinsatzzentrale-F.svg" alt="Centrale d'engagement mobile (fr)" width="48" height="48"> <img src="../packages/svg/svg/3102-MobileEinsatzzentrale-I.svg" alt="Centrale d'intervento mobile (it)" width="48" height="48"> | `3102` | Mobile Einsatzzentrale | Centrale d'engagement mobile | Centrale d'intervento mobile |
-| <img src="../packages/svg/svg/3103-KommandopostenFront-D.svg" alt="Kommandoposten Front (de)" width="48" height="48"> <img src="../packages/svg/svg/3103-KommandopostenFront-F.svg" alt="PC engagement (fr)" width="48" height="48"> <img src="../packages/svg/svg/3103-KommandopostenFront-I.svg" alt="Posto di comando fronte (it)" width="48" height="48"> | `3103` | Kommandoposten Front | PC engagement | Posto di comando fronte |
-| <img src="../packages/svg/svg/3104-KommandopostenRueckwaertiges-D.svg" alt="Kommandoposten Rückwärtiges (de)" width="48" height="48"> <img src="../packages/svg/svg/3104-KommandopostenRueckwaertiges-F.svg" alt="PC opérations (fr)" width="48" height="48"> <img src="../packages/svg/svg/3104-KommandopostenRueckwaertiges-I.svg" alt="Posto di comando retrovie (it)" width="48" height="48"> | `3104` | Kommandoposten Rückwärtiges | PC opérations | Posto di comando retrovie |
-| <img src="../packages/svg/svg/3105-Einsatzzentrale-D.svg" alt="Einsatzzentrale (de)" width="48" height="48"> <img src="../packages/svg/svg/3105-Einsatzzentrale-F.svg" alt="Centrale d'engagement (fr)" width="48" height="48"> <img src="../packages/svg/svg/3105-Einsatzzentrale-I.svg" alt="Centrale d'intervento (it)" width="48" height="48"> | `3105` | Einsatzzentrale | Centrale d'engagement | Centrale d'intervento |
-| <img src="../packages/svg/svg/3106-ZivilesFuehrungsorgan-D.svg" alt="Ziviles Führungsorgan (de)" width="48" height="48"> <img src="../packages/svg/svg/3106-ZivilesFuehrungsorgan-F.svg" alt="Organe de conduite civile (fr)" width="48" height="48"> <img src="../packages/svg/svg/3106-ZivilesFuehrungsorgan-F.svg" alt="Organo di condotta civile (it)" width="48" height="48"> | `3106` | Ziviles Führungsorgan | Organe de conduite civile | Organo di condotta civile |
-| <img src="../packages/svg/svg/3107-Gemeindefuehrungsorgan-D.svg" alt="Gemeindeführungsorgan (de)" width="48" height="48"> <img src="../packages/svg/svg/3107-Gemeindefuehrungsorgan-F.svg" alt="Organe de conduite communal (fr)" width="48" height="48"> <img src="../packages/svg/svg/3107-Gemeindefuehrungsorgan-I.svg" alt="Organo di condotta comunale (it)" width="48" height="48"> | `3107` | Gemeindeführungsorgan | Organe de conduite communal | Organo di condotta comunale |
-| <img src="../packages/svg/svg/3108-RegionalesFuehrungsorgan-D.svg" alt="Regionales Führungsorgan (de)" width="48" height="48"> <img src="../packages/svg/svg/3108-RegionalesFuehrungsorgan-F.svg" alt="Organe de conduite régional (fr)" width="48" height="48"> <img src="../packages/svg/svg/3108-RegionalesFuehrungsorgan-I.svg" alt="Organo di condotta regionale (it)" width="48" height="48"> | `3108` | Regionales Führungsorgan | Organe de conduite régional | Organo di condotta regionale |
-| <img src="../packages/svg/svg/3109-Bezirksfuehrungsorgan-D.svg" alt="Bezirksführungsorgan (de)" width="48" height="48"> <img src="../packages/svg/svg/3109-Bezirksfuehrungsorgan-F.svg" alt="Organe de conduite de district (fr)" width="48" height="48"> <img src="../packages/svg/svg/3109-Bezirksfuehrungsorgan-I.svg" alt="Organo di condotta distrettuale (it)" width="48" height="48"> | `3109` | Bezirksführungsorgan | Organe de conduite de district | Organo di condotta distrettuale |
-| <img src="../packages/svg/svg/3110-KantonalesFuehrungsorgan-D.svg" alt="Kantonales Führungsorgan (de)" width="48" height="48"> <img src="../packages/svg/svg/3110-KantonalesFuehrungsorgan-F.svg" alt="Organe de conduite cantonal (fr)" width="48" height="48"> <img src="../packages/svg/svg/3110-KantonalesFuehrungsorgan-F.svg" alt="Organo di condotta cantonale (it)" width="48" height="48"> | `3110` | Kantonales Führungsorgan | Organe de conduite cantonal | Organo di condotta cantonale |
+| <img src="../packages/svg/svg/3101-Einsatzleitung-D.svg" alt="Einsatzleitung (de)" width="48" height="48">&nbsp;<img src="../packages/svg/svg/3101-Einsatzleitung-F.svg" alt="Direction d'intervention (fr)" width="48" height="48">&nbsp;<img src="../packages/svg/svg/3101-Einsatzleitung-I.svg" alt="Direzione d'intervento (it)" width="48" height="48"> | `3101` | Einsatzleitung | Direction d'intervention | Direzione d'intervento |
+| <img src="../packages/svg/svg/3102-MobileEinsatzzentrale-D.svg" alt="Mobile Einsatzzentrale (de)" width="48" height="48">&nbsp;<img src="../packages/svg/svg/3102-MobileEinsatzzentrale-F.svg" alt="Centrale d'engagement mobile (fr)" width="48" height="48">&nbsp;<img src="../packages/svg/svg/3102-MobileEinsatzzentrale-I.svg" alt="Centrale d'intervento mobile (it)" width="48" height="48"> | `3102` | Mobile Einsatzzentrale | Centrale d'engagement mobile | Centrale d'intervento mobile |
+| <img src="../packages/svg/svg/3103-KommandopostenFront-D.svg" alt="Kommandoposten Front (de)" width="48" height="48">&nbsp;<img src="../packages/svg/svg/3103-KommandopostenFront-F.svg" alt="PC engagement (fr)" width="48" height="48">&nbsp;<img src="../packages/svg/svg/3103-KommandopostenFront-I.svg" alt="Posto di comando fronte (it)" width="48" height="48"> | `3103` | Kommandoposten Front | PC engagement | Posto di comando fronte |
+| <img src="../packages/svg/svg/3104-KommandopostenRueckwaertiges-D.svg" alt="Kommandoposten Rückwärtiges (de)" width="48" height="48">&nbsp;<img src="../packages/svg/svg/3104-KommandopostenRueckwaertiges-F.svg" alt="PC opérations (fr)" width="48" height="48">&nbsp;<img src="../packages/svg/svg/3104-KommandopostenRueckwaertiges-I.svg" alt="Posto di comando retrovie (it)" width="48" height="48"> | `3104` | Kommandoposten Rückwärtiges | PC opérations | Posto di comando retrovie |
+| <img src="../packages/svg/svg/3105-Einsatzzentrale-D.svg" alt="Einsatzzentrale (de)" width="48" height="48">&nbsp;<img src="../packages/svg/svg/3105-Einsatzzentrale-F.svg" alt="Centrale d'engagement (fr)" width="48" height="48">&nbsp;<img src="../packages/svg/svg/3105-Einsatzzentrale-I.svg" alt="Centrale d'intervento (it)" width="48" height="48"> | `3105` | Einsatzzentrale | Centrale d'engagement | Centrale d'intervento |
+| <img src="../packages/svg/svg/3106-ZivilesFuehrungsorgan-D.svg" alt="Ziviles Führungsorgan (de)" width="48" height="48">&nbsp;<img src="../packages/svg/svg/3106-ZivilesFuehrungsorgan-F.svg" alt="Organe de conduite civile (fr)" width="48" height="48">&nbsp;<img src="../packages/svg/svg/3106-ZivilesFuehrungsorgan-F.svg" alt="Organo di condotta civile (it)" width="48" height="48"> | `3106` | Ziviles Führungsorgan | Organe de conduite civile | Organo di condotta civile |
+| <img src="../packages/svg/svg/3107-Gemeindefuehrungsorgan-D.svg" alt="Gemeindeführungsorgan (de)" width="48" height="48">&nbsp;<img src="../packages/svg/svg/3107-Gemeindefuehrungsorgan-F.svg" alt="Organe de conduite communal (fr)" width="48" height="48">&nbsp;<img src="../packages/svg/svg/3107-Gemeindefuehrungsorgan-I.svg" alt="Organo di condotta comunale (it)" width="48" height="48"> | `3107` | Gemeindeführungsorgan | Organe de conduite communal | Organo di condotta comunale |
+| <img src="../packages/svg/svg/3108-RegionalesFuehrungsorgan-D.svg" alt="Regionales Führungsorgan (de)" width="48" height="48">&nbsp;<img src="../packages/svg/svg/3108-RegionalesFuehrungsorgan-F.svg" alt="Organe de conduite régional (fr)" width="48" height="48">&nbsp;<img src="../packages/svg/svg/3108-RegionalesFuehrungsorgan-I.svg" alt="Organo di condotta regionale (it)" width="48" height="48"> | `3108` | Regionales Führungsorgan | Organe de conduite régional | Organo di condotta regionale |
+| <img src="../packages/svg/svg/3109-Bezirksfuehrungsorgan-D.svg" alt="Bezirksführungsorgan (de)" width="48" height="48">&nbsp;<img src="../packages/svg/svg/3109-Bezirksfuehrungsorgan-F.svg" alt="Organe de conduite de district (fr)" width="48" height="48">&nbsp;<img src="../packages/svg/svg/3109-Bezirksfuehrungsorgan-I.svg" alt="Organo di condotta distrettuale (it)" width="48" height="48"> | `3109` | Bezirksführungsorgan | Organe de conduite de district | Organo di condotta distrettuale |
+| <img src="../packages/svg/svg/3110-KantonalesFuehrungsorgan-D.svg" alt="Kantonales Führungsorgan (de)" width="48" height="48">&nbsp;<img src="../packages/svg/svg/3110-KantonalesFuehrungsorgan-F.svg" alt="Organe de conduite cantonal (fr)" width="48" height="48">&nbsp;<img src="../packages/svg/svg/3110-KantonalesFuehrungsorgan-F.svg" alt="Organo di condotta cantonale (it)" width="48" height="48"> | `3110` | Kantonales Führungsorgan | Organe de conduite cantonal | Organo di condotta cantonale |
 
 ---
 
@@ -133,7 +133,7 @@ For divergent icons (different graphic per language) all three variants are show
 
 *Polizei / Police / Polizia*
 
-| Icon | ID | DE | FR | IT |
+| Icon<img width="160" height="1" src="spacer.svg" alt=""> | ID | DE | FR | IT |
 |---|---|---|---|---|
 | <img src="../packages/svg/svg/4101-Trupp-P.svg" alt="Trupp-P" width="48" height="48"> | `4101` | Trupp-P | Equipe-P | Squadra-P |
 | <img src="../packages/svg/svg/4102-Gruppe-P.svg" alt="Gruppe-P" width="48" height="48"> | `4102` | Gruppe-P | Groupe-P | Gruppo-P |
@@ -148,22 +148,22 @@ For divergent icons (different graphic per language) all three variants are show
 
 *Feuerwehr / Pompier / Pompieri*
 
-| Icon | ID | DE | FR | IT |
+| Icon<img width="160" height="1" src="spacer.svg" alt=""> | ID | DE | FR | IT |
 |---|---|---|---|---|
-| <img src="../packages/svg/svg/4201-Trupp-FW-D.svg" alt="Trupp-FW (de)" width="48" height="48"> <img src="../packages/svg/svg/4201-Trupp-FW-F.svg" alt="Equipe-SP (fr)" width="48" height="48"> <img src="../packages/svg/svg/4201-Trupp-FW-I.svg" alt="Squadra-CP (it)" width="48" height="48"> | `4201` | Trupp-FW | Equipe-SP | Squadra-CP |
-| <img src="../packages/svg/svg/4202-Gruppe-FW-D.svg" alt="Gruppe-FW (de)" width="48" height="48"> <img src="../packages/svg/svg/4202-Gruppe-FW-F.svg" alt="Groupe-SP (fr)" width="48" height="48"> <img src="../packages/svg/svg/4202-Gruppe-FW-I.svg" alt="Gruppo-CP (it)" width="48" height="48"> | `4202` | Gruppe-FW | Groupe-SP | Gruppo-CP |
-| <img src="../packages/svg/svg/4203-Zug-FW-D.svg" alt="Zug-FW (de)" width="48" height="48"> <img src="../packages/svg/svg/4203-Zug-FW-F.svg" alt="Section-SP (fr)" width="48" height="48"> <img src="../packages/svg/svg/4203-Zug-FW-I.svg" alt="Sezione-CP (it)" width="48" height="48"> | `4203` | Zug-FW | Section-SP | Sezione-CP |
-| <img src="../packages/svg/svg/4204-Kompanie-FW-D.svg" alt="Kompanie-FW (de)" width="48" height="48"> <img src="../packages/svg/svg/4204-Kompanie-FW-F.svg" alt="Companie-SP (fr)" width="48" height="48"> <img src="../packages/svg/svg/4204-Kompanie-FW-I.svg" alt="Compania-CP (it)" width="48" height="48"> | `4204` | Kompanie-FW | Companie-SP | Compania-CP |
-| <img src="../packages/svg/svg/4205-Bataillon-FW-D.svg" alt="Bataillon-FW (de)" width="48" height="48"> <img src="../packages/svg/svg/4205-Bataillon-FW-F.svg" alt="Bataillon-SP (fr)" width="48" height="48"> <img src="../packages/svg/svg/4205-Bataillon-FW-I.svg" alt="Bataillone-CP (it)" width="48" height="48"> | `4205` | Bataillon-FW | Bataillon-SP | Bataillone-CP |
-| <img src="../packages/svg/svg/4206-Einsatzleiter-FW-D.svg" alt="Einsatzleiter-FW (de)" width="48" height="48"> <img src="../packages/svg/svg/4206-Einsatzleiter-FW-F.svg" alt="DI-SP (fr)" width="48" height="48"> <img src="../packages/svg/svg/4206-Einsatzleiter-FW-I.svg" alt="Capointervento-CP (it)" width="48" height="48"> | `4206` | Einsatzleiter-FW | DI-SP | Capointervento-CP |
-| <img src="../packages/svg/svg/4207-Gruppenfuehrer-FW-D.svg" alt="Gruppenführer-FW (de)" width="48" height="48"> <img src="../packages/svg/svg/4207-Gruppenfuehrer-FW-F.svg" alt="Chef de groupe-SP (fr)" width="48" height="48"> <img src="../packages/svg/svg/4207-Gruppenfuehrer-FW-I.svg" alt="Cappogruppo-CP (it)" width="48" height="48"> | `4207` | Gruppenführer-FW | Chef de groupe-SP | Cappogruppo-CP |
-| <img src="../packages/svg/svg/4208-Offizier-Zugfuehrer-FW-D.svg" alt="Offizier-Zugführer-FW (de)" width="48" height="48"> <img src="../packages/svg/svg/4208-Offizier-Zugfuehrer-FW-F.svg" alt="Officier-Chef de section-SP (fr)" width="48" height="48"> <img src="../packages/svg/svg/4208-Offizier-Zugfuehrer-FW-I.svg" alt="Uffiziale-Caposezione-CP (it)" width="48" height="48"> | `4208` | Offizier-Zugführer-FW | Officier-Chef de section-SP | Uffiziale-Caposezione-CP |
+| <img src="../packages/svg/svg/4201-Trupp-FW-D.svg" alt="Trupp-FW (de)" width="48" height="48">&nbsp;<img src="../packages/svg/svg/4201-Trupp-FW-F.svg" alt="Equipe-SP (fr)" width="48" height="48">&nbsp;<img src="../packages/svg/svg/4201-Trupp-FW-I.svg" alt="Squadra-CP (it)" width="48" height="48"> | `4201` | Trupp-FW | Equipe-SP | Squadra-CP |
+| <img src="../packages/svg/svg/4202-Gruppe-FW-D.svg" alt="Gruppe-FW (de)" width="48" height="48">&nbsp;<img src="../packages/svg/svg/4202-Gruppe-FW-F.svg" alt="Groupe-SP (fr)" width="48" height="48">&nbsp;<img src="../packages/svg/svg/4202-Gruppe-FW-I.svg" alt="Gruppo-CP (it)" width="48" height="48"> | `4202` | Gruppe-FW | Groupe-SP | Gruppo-CP |
+| <img src="../packages/svg/svg/4203-Zug-FW-D.svg" alt="Zug-FW (de)" width="48" height="48">&nbsp;<img src="../packages/svg/svg/4203-Zug-FW-F.svg" alt="Section-SP (fr)" width="48" height="48">&nbsp;<img src="../packages/svg/svg/4203-Zug-FW-I.svg" alt="Sezione-CP (it)" width="48" height="48"> | `4203` | Zug-FW | Section-SP | Sezione-CP |
+| <img src="../packages/svg/svg/4204-Kompanie-FW-D.svg" alt="Kompanie-FW (de)" width="48" height="48">&nbsp;<img src="../packages/svg/svg/4204-Kompanie-FW-F.svg" alt="Companie-SP (fr)" width="48" height="48">&nbsp;<img src="../packages/svg/svg/4204-Kompanie-FW-I.svg" alt="Compania-CP (it)" width="48" height="48"> | `4204` | Kompanie-FW | Companie-SP | Compania-CP |
+| <img src="../packages/svg/svg/4205-Bataillon-FW-D.svg" alt="Bataillon-FW (de)" width="48" height="48">&nbsp;<img src="../packages/svg/svg/4205-Bataillon-FW-F.svg" alt="Bataillon-SP (fr)" width="48" height="48">&nbsp;<img src="../packages/svg/svg/4205-Bataillon-FW-I.svg" alt="Bataillone-CP (it)" width="48" height="48"> | `4205` | Bataillon-FW | Bataillon-SP | Bataillone-CP |
+| <img src="../packages/svg/svg/4206-Einsatzleiter-FW-D.svg" alt="Einsatzleiter-FW (de)" width="48" height="48">&nbsp;<img src="../packages/svg/svg/4206-Einsatzleiter-FW-F.svg" alt="DI-SP (fr)" width="48" height="48">&nbsp;<img src="../packages/svg/svg/4206-Einsatzleiter-FW-I.svg" alt="Capointervento-CP (it)" width="48" height="48"> | `4206` | Einsatzleiter-FW | DI-SP | Capointervento-CP |
+| <img src="../packages/svg/svg/4207-Gruppenfuehrer-FW-D.svg" alt="Gruppenführer-FW (de)" width="48" height="48">&nbsp;<img src="../packages/svg/svg/4207-Gruppenfuehrer-FW-F.svg" alt="Chef de groupe-SP (fr)" width="48" height="48">&nbsp;<img src="../packages/svg/svg/4207-Gruppenfuehrer-FW-I.svg" alt="Cappogruppo-CP (it)" width="48" height="48"> | `4207` | Gruppenführer-FW | Chef de groupe-SP | Cappogruppo-CP |
+| <img src="../packages/svg/svg/4208-Offizier-Zugfuehrer-FW-D.svg" alt="Offizier-Zugführer-FW (de)" width="48" height="48">&nbsp;<img src="../packages/svg/svg/4208-Offizier-Zugfuehrer-FW-F.svg" alt="Officier-Chef de section-SP (fr)" width="48" height="48">&nbsp;<img src="../packages/svg/svg/4208-Offizier-Zugfuehrer-FW-I.svg" alt="Uffiziale-Caposezione-CP (it)" width="48" height="48"> | `4208` | Offizier-Zugführer-FW | Officier-Chef de section-SP | Uffiziale-Caposezione-CP |
 
 ### 43 · Sanitätsdienst
 
 *Sanitätsdienst / Santé publique / Sanità pubblica*
 
-| Icon | ID | DE | FR | IT |
+| Icon<img width="160" height="1" src="spacer.svg" alt=""> | ID | DE | FR | IT |
 |---|---|---|---|---|
 | <img src="../packages/svg/svg/4301-Trupp-San.svg" alt="Trupp-San" width="48" height="48"> | `4301` | Trupp-San | Equipe-San | Squadra-San |
 | <img src="../packages/svg/svg/4302-Gruppe-San.svg" alt="Gruppe-San" width="48" height="48"> | `4302` | Gruppe-San | Groupe-San | Gruppo-San |
@@ -178,65 +178,65 @@ For divergent icons (different graphic per language) all three variants are show
 
 *Zivilschutz / PCi / PCi*
 
-| Icon | ID | DE | FR | IT |
+| Icon<img width="160" height="1" src="spacer.svg" alt=""> | ID | DE | FR | IT |
 |---|---|---|---|---|
-| <img src="../packages/svg/svg/4401-Trupp-ZS-D.svg" alt="Trupp-ZS (de)" width="48" height="48"> <img src="../packages/svg/svg/4401-Trupp-ZS-F.svg" alt="Equipe-PCi (fr)" width="48" height="48"> <img src="../packages/svg/svg/4401-Trupp-ZS-F.svg" alt="Squadra-PCi (it)" width="48" height="48"> | `4401` | Trupp-ZS | Equipe-PCi | Squadra-PCi |
-| <img src="../packages/svg/svg/4402-Gruppe-ZS-D.svg" alt="Gruppe-ZS (de)" width="48" height="48"> <img src="../packages/svg/svg/4402-Gruppe-ZS-F.svg" alt="Groupe-PCi (fr)" width="48" height="48"> <img src="../packages/svg/svg/4402-Gruppe-ZS-F.svg" alt="Gruppo-PCi (it)" width="48" height="48"> | `4402` | Gruppe-ZS | Groupe-PCi | Gruppo-PCi |
-| <img src="../packages/svg/svg/4403-Zug-ZS-D.svg" alt="Zug-ZS (de)" width="48" height="48"> <img src="../packages/svg/svg/4403-Zug-ZS-F.svg" alt="Section-PCi (fr)" width="48" height="48"> <img src="../packages/svg/svg/4403-Zug-ZS-F.svg" alt="Sezione-PCi (it)" width="48" height="48"> | `4403` | Zug-ZS | Section-PCi | Sezione-PCi |
-| <img src="../packages/svg/svg/4404-Kompanie-ZS-D.svg" alt="Kompanie-ZS (de)" width="48" height="48"> <img src="../packages/svg/svg/4404-Kompanie-ZS-F.svg" alt="Companie-PCi (fr)" width="48" height="48"> <img src="../packages/svg/svg/4404-Kompanie-ZS-F.svg" alt="Compania-PCi (it)" width="48" height="48"> | `4404` | Kompanie-ZS | Companie-PCi | Compania-PCi |
-| <img src="../packages/svg/svg/4405-Bataillon-ZS-D.svg" alt="Bataillon-ZS (de)" width="48" height="48"> <img src="../packages/svg/svg/4405-Bataillon-ZS-F.svg" alt="Bataillon-PCi (fr)" width="48" height="48"> <img src="../packages/svg/svg/4405-Bataillon-ZS-F.svg" alt="Bataillone-PCi (it)" width="48" height="48"> | `4405` | Bataillon-ZS | Bataillon-PCi | Bataillone-PCi |
-| <img src="../packages/svg/svg/4406-Einsatzleiter-ZS-D.svg" alt="Einsatzleiter-ZS (de)" width="48" height="48"> <img src="../packages/svg/svg/4406-Einsatzleiter-ZS-F.svg" alt="DI-PCi (fr)" width="48" height="48"> <img src="../packages/svg/svg/4406-Einsatzleiter-ZS-F.svg" alt="Capointervento-PCi (it)" width="48" height="48"> | `4406` | Einsatzleiter-ZS | DI-PCi | Capointervento-PCi |
-| <img src="../packages/svg/svg/4407-Gruppenfuehrer-ZS-D.svg" alt="Gruppenführer-ZS (de)" width="48" height="48"> <img src="../packages/svg/svg/4407-Gruppenfuehrer-ZS-F.svg" alt="Chef de groupe-PCi (fr)" width="48" height="48"> <img src="../packages/svg/svg/4407-Gruppenfuehrer-ZS-F.svg" alt="Cappogruppo-PCi (it)" width="48" height="48"> | `4407` | Gruppenführer-ZS | Chef de groupe-PCi | Cappogruppo-PCi |
-| <img src="../packages/svg/svg/4408-Offizier-Zugfuehrer-ZS-D.svg" alt="Offizier-Zugführer-ZS (de)" width="48" height="48"> <img src="../packages/svg/svg/4408-Offizier-Zugfuehrer-ZS-F.svg" alt="Officier-Chef de section-PCi (fr)" width="48" height="48"> <img src="../packages/svg/svg/4408-Offizier-Zugfuehrer-ZS-F.svg" alt="Uffiziale-Caposezione-PCi (it)" width="48" height="48"> | `4408` | Offizier-Zugführer-ZS | Officier-Chef de section-PCi | Uffiziale-Caposezione-PCi |
+| <img src="../packages/svg/svg/4401-Trupp-ZS-D.svg" alt="Trupp-ZS (de)" width="48" height="48">&nbsp;<img src="../packages/svg/svg/4401-Trupp-ZS-F.svg" alt="Equipe-PCi (fr)" width="48" height="48">&nbsp;<img src="../packages/svg/svg/4401-Trupp-ZS-F.svg" alt="Squadra-PCi (it)" width="48" height="48"> | `4401` | Trupp-ZS | Equipe-PCi | Squadra-PCi |
+| <img src="../packages/svg/svg/4402-Gruppe-ZS-D.svg" alt="Gruppe-ZS (de)" width="48" height="48">&nbsp;<img src="../packages/svg/svg/4402-Gruppe-ZS-F.svg" alt="Groupe-PCi (fr)" width="48" height="48">&nbsp;<img src="../packages/svg/svg/4402-Gruppe-ZS-F.svg" alt="Gruppo-PCi (it)" width="48" height="48"> | `4402` | Gruppe-ZS | Groupe-PCi | Gruppo-PCi |
+| <img src="../packages/svg/svg/4403-Zug-ZS-D.svg" alt="Zug-ZS (de)" width="48" height="48">&nbsp;<img src="../packages/svg/svg/4403-Zug-ZS-F.svg" alt="Section-PCi (fr)" width="48" height="48">&nbsp;<img src="../packages/svg/svg/4403-Zug-ZS-F.svg" alt="Sezione-PCi (it)" width="48" height="48"> | `4403` | Zug-ZS | Section-PCi | Sezione-PCi |
+| <img src="../packages/svg/svg/4404-Kompanie-ZS-D.svg" alt="Kompanie-ZS (de)" width="48" height="48">&nbsp;<img src="../packages/svg/svg/4404-Kompanie-ZS-F.svg" alt="Companie-PCi (fr)" width="48" height="48">&nbsp;<img src="../packages/svg/svg/4404-Kompanie-ZS-F.svg" alt="Compania-PCi (it)" width="48" height="48"> | `4404` | Kompanie-ZS | Companie-PCi | Compania-PCi |
+| <img src="../packages/svg/svg/4405-Bataillon-ZS-D.svg" alt="Bataillon-ZS (de)" width="48" height="48">&nbsp;<img src="../packages/svg/svg/4405-Bataillon-ZS-F.svg" alt="Bataillon-PCi (fr)" width="48" height="48">&nbsp;<img src="../packages/svg/svg/4405-Bataillon-ZS-F.svg" alt="Bataillone-PCi (it)" width="48" height="48"> | `4405` | Bataillon-ZS | Bataillon-PCi | Bataillone-PCi |
+| <img src="../packages/svg/svg/4406-Einsatzleiter-ZS-D.svg" alt="Einsatzleiter-ZS (de)" width="48" height="48">&nbsp;<img src="../packages/svg/svg/4406-Einsatzleiter-ZS-F.svg" alt="DI-PCi (fr)" width="48" height="48">&nbsp;<img src="../packages/svg/svg/4406-Einsatzleiter-ZS-F.svg" alt="Capointervento-PCi (it)" width="48" height="48"> | `4406` | Einsatzleiter-ZS | DI-PCi | Capointervento-PCi |
+| <img src="../packages/svg/svg/4407-Gruppenfuehrer-ZS-D.svg" alt="Gruppenführer-ZS (de)" width="48" height="48">&nbsp;<img src="../packages/svg/svg/4407-Gruppenfuehrer-ZS-F.svg" alt="Chef de groupe-PCi (fr)" width="48" height="48">&nbsp;<img src="../packages/svg/svg/4407-Gruppenfuehrer-ZS-F.svg" alt="Cappogruppo-PCi (it)" width="48" height="48"> | `4407` | Gruppenführer-ZS | Chef de groupe-PCi | Cappogruppo-PCi |
+| <img src="../packages/svg/svg/4408-Offizier-Zugfuehrer-ZS-D.svg" alt="Offizier-Zugführer-ZS (de)" width="48" height="48">&nbsp;<img src="../packages/svg/svg/4408-Offizier-Zugfuehrer-ZS-F.svg" alt="Officier-Chef de section-PCi (fr)" width="48" height="48">&nbsp;<img src="../packages/svg/svg/4408-Offizier-Zugfuehrer-ZS-F.svg" alt="Uffiziale-Caposezione-PCi (it)" width="48" height="48"> | `4408` | Offizier-Zugführer-ZS | Officier-Chef de section-PCi | Uffiziale-Caposezione-PCi |
 
 ### 45 · Techn B
 
 *Techn B / Services techn / Servizi tecnici*
 
-| Icon | ID | DE | FR | IT |
+| Icon<img width="160" height="1" src="spacer.svg" alt=""> | ID | DE | FR | IT |
 |---|---|---|---|---|
-| <img src="../packages/svg/svg/4501-Trupp-TechnB-D.svg" alt="Trupp-TechnB (de)" width="48" height="48"> <img src="../packages/svg/svg/4501-Trupp-TechnB-F.svg" alt="Equipe-S tec (fr)" width="48" height="48"> <img src="../packages/svg/svg/4501-Trupp-TechnB-F.svg" alt="Squadra-S tec (it)" width="48" height="48"> | `4501` | Trupp-TechnB | Equipe-S tec | Squadra-S tec |
-| <img src="../packages/svg/svg/4502-Gruppe-TechnB-D.svg" alt="Gruppe-TechnB (de)" width="48" height="48"> <img src="../packages/svg/svg/4502-Gruppe-TechnB-F.svg" alt="Groupe-S tec (fr)" width="48" height="48"> <img src="../packages/svg/svg/4502-Gruppe-TechnB-F.svg" alt="Gruppo-S tec (it)" width="48" height="48"> | `4502` | Gruppe-TechnB | Groupe-S tec | Gruppo-S tec |
-| <img src="../packages/svg/svg/4503-Zug-Techn-D.svg" alt="Zug-Techn (de)" width="48" height="48"> <img src="../packages/svg/svg/4503-Zug-Techn-F.svg" alt="Section-S tec (fr)" width="48" height="48"> <img src="../packages/svg/svg/4503-Zug-Techn-F.svg" alt="Sezione-S tec (it)" width="48" height="48"> | `4503` | Zug-Techn | Section-S tec | Sezione-S tec |
-| <img src="../packages/svg/svg/4504-Kompanie-TechnB-D.svg" alt="Kompanie-TechnB (de)" width="48" height="48"> <img src="../packages/svg/svg/4504-Kompanie-TechnB-F.svg" alt="Companie-S tec (fr)" width="48" height="48"> <img src="../packages/svg/svg/4504-Kompanie-TechnB-F.svg" alt="Compania-S tec (it)" width="48" height="48"> | `4504` | Kompanie-TechnB | Companie-S tec | Compania-S tec |
-| <img src="../packages/svg/svg/4505-Bataillon-TechnB-D.svg" alt="Bataillon-TechnB (de)" width="48" height="48"> <img src="../packages/svg/svg/4505-Bataillon-TechnB-F.svg" alt="Bataillon-S tec (fr)" width="48" height="48"> <img src="../packages/svg/svg/4505-Bataillon-TechnB-F.svg" alt="Bataillone-S tec (it)" width="48" height="48"> | `4505` | Bataillon-TechnB | Bataillon-S tec | Bataillone-S tec |
-| <img src="../packages/svg/svg/4506-Einsatzleiter-TechB-D.svg" alt="Einsatzleiter-TechB (de)" width="48" height="48"> <img src="../packages/svg/svg/4506-Einsatzleiter-TechB-F.svg" alt="DI-S tec (fr)" width="48" height="48"> <img src="../packages/svg/svg/4506-Einsatzleiter-TechB-F.svg" alt="Capointervento-S tec (it)" width="48" height="48"> | `4506` | Einsatzleiter-TechB | DI-S tec | Capointervento-S tec |
-| <img src="../packages/svg/svg/4507-Gruppenfuehrer-TechnB-D.svg" alt="Gruppenführer-TechnB (de)" width="48" height="48"> <img src="../packages/svg/svg/4507-Gruppenfuehrer-TechnB-F.svg" alt="Chef de groupe-S tec (fr)" width="48" height="48"> <img src="../packages/svg/svg/4507-Gruppenfuehrer-TechnB-F.svg" alt="Cappogruppo-S tec (it)" width="48" height="48"> | `4507` | Gruppenführer-TechnB | Chef de groupe-S tec | Cappogruppo-S tec |
-| <img src="../packages/svg/svg/4508-Offizier-Zugfuehrer-TechnB-D.svg" alt="Offizier-Zugführer-TechnB (de)" width="48" height="48"> <img src="../packages/svg/svg/4508-Offizier-Zugfuehrer-TechnB-F.svg" alt="Officier-Chef de section-S tec (fr)" width="48" height="48"> <img src="../packages/svg/svg/4508-Offizier-Zugfuehrer-TechnB-F.svg" alt="Uffiziale-Caposezione-S tec (it)" width="48" height="48"> | `4508` | Offizier-Zugführer-TechnB | Officier-Chef de section-S tec | Uffiziale-Caposezione-S tec |
+| <img src="../packages/svg/svg/4501-Trupp-TechnB-D.svg" alt="Trupp-TechnB (de)" width="48" height="48">&nbsp;<img src="../packages/svg/svg/4501-Trupp-TechnB-F.svg" alt="Equipe-S tec (fr)" width="48" height="48">&nbsp;<img src="../packages/svg/svg/4501-Trupp-TechnB-F.svg" alt="Squadra-S tec (it)" width="48" height="48"> | `4501` | Trupp-TechnB | Equipe-S tec | Squadra-S tec |
+| <img src="../packages/svg/svg/4502-Gruppe-TechnB-D.svg" alt="Gruppe-TechnB (de)" width="48" height="48">&nbsp;<img src="../packages/svg/svg/4502-Gruppe-TechnB-F.svg" alt="Groupe-S tec (fr)" width="48" height="48">&nbsp;<img src="../packages/svg/svg/4502-Gruppe-TechnB-F.svg" alt="Gruppo-S tec (it)" width="48" height="48"> | `4502` | Gruppe-TechnB | Groupe-S tec | Gruppo-S tec |
+| <img src="../packages/svg/svg/4503-Zug-Techn-D.svg" alt="Zug-Techn (de)" width="48" height="48">&nbsp;<img src="../packages/svg/svg/4503-Zug-Techn-F.svg" alt="Section-S tec (fr)" width="48" height="48">&nbsp;<img src="../packages/svg/svg/4503-Zug-Techn-F.svg" alt="Sezione-S tec (it)" width="48" height="48"> | `4503` | Zug-Techn | Section-S tec | Sezione-S tec |
+| <img src="../packages/svg/svg/4504-Kompanie-TechnB-D.svg" alt="Kompanie-TechnB (de)" width="48" height="48">&nbsp;<img src="../packages/svg/svg/4504-Kompanie-TechnB-F.svg" alt="Companie-S tec (fr)" width="48" height="48">&nbsp;<img src="../packages/svg/svg/4504-Kompanie-TechnB-F.svg" alt="Compania-S tec (it)" width="48" height="48"> | `4504` | Kompanie-TechnB | Companie-S tec | Compania-S tec |
+| <img src="../packages/svg/svg/4505-Bataillon-TechnB-D.svg" alt="Bataillon-TechnB (de)" width="48" height="48">&nbsp;<img src="../packages/svg/svg/4505-Bataillon-TechnB-F.svg" alt="Bataillon-S tec (fr)" width="48" height="48">&nbsp;<img src="../packages/svg/svg/4505-Bataillon-TechnB-F.svg" alt="Bataillone-S tec (it)" width="48" height="48"> | `4505` | Bataillon-TechnB | Bataillon-S tec | Bataillone-S tec |
+| <img src="../packages/svg/svg/4506-Einsatzleiter-TechB-D.svg" alt="Einsatzleiter-TechB (de)" width="48" height="48">&nbsp;<img src="../packages/svg/svg/4506-Einsatzleiter-TechB-F.svg" alt="DI-S tec (fr)" width="48" height="48">&nbsp;<img src="../packages/svg/svg/4506-Einsatzleiter-TechB-F.svg" alt="Capointervento-S tec (it)" width="48" height="48"> | `4506` | Einsatzleiter-TechB | DI-S tec | Capointervento-S tec |
+| <img src="../packages/svg/svg/4507-Gruppenfuehrer-TechnB-D.svg" alt="Gruppenführer-TechnB (de)" width="48" height="48">&nbsp;<img src="../packages/svg/svg/4507-Gruppenfuehrer-TechnB-F.svg" alt="Chef de groupe-S tec (fr)" width="48" height="48">&nbsp;<img src="../packages/svg/svg/4507-Gruppenfuehrer-TechnB-F.svg" alt="Cappogruppo-S tec (it)" width="48" height="48"> | `4507` | Gruppenführer-TechnB | Chef de groupe-S tec | Cappogruppo-S tec |
+| <img src="../packages/svg/svg/4508-Offizier-Zugfuehrer-TechnB-D.svg" alt="Offizier-Zugführer-TechnB (de)" width="48" height="48">&nbsp;<img src="../packages/svg/svg/4508-Offizier-Zugfuehrer-TechnB-F.svg" alt="Officier-Chef de section-S tec (fr)" width="48" height="48">&nbsp;<img src="../packages/svg/svg/4508-Offizier-Zugfuehrer-TechnB-F.svg" alt="Uffiziale-Caposezione-S tec (it)" width="48" height="48"> | `4508` | Offizier-Zugführer-TechnB | Officier-Chef de section-S tec | Uffiziale-Caposezione-S tec |
 
 ### 46 · Armee
 
 *Armee / Armée / Esercito*
 
-| Icon | ID | DE | FR | IT |
+| Icon<img width="160" height="1" src="spacer.svg" alt=""> | ID | DE | FR | IT |
 |---|---|---|---|---|
-| <img src="../packages/svg/svg/4601-Trupp-A-D.svg" alt="Trupp-A (de)" width="48" height="48"> <img src="../packages/svg/svg/4601-Trupp-A-F.svg" alt="Equipe-A (fr)" width="48" height="48"> <img src="../packages/svg/svg/4601-Trupp-A-I.svg" alt="Squadra-Es (it)" width="48" height="48"> | `4601` | Trupp-A | Equipe-A | Squadra-Es |
-| <img src="../packages/svg/svg/4602-Gruppe-A-D.svg" alt="Gruppe-A (de)" width="48" height="48"> <img src="../packages/svg/svg/4602-Gruppe-A-F.svg" alt="Groupe-A (fr)" width="48" height="48"> <img src="../packages/svg/svg/4602-Gruppe-A-I.svg" alt="Gruppo-Es (it)" width="48" height="48"> | `4602` | Gruppe-A | Groupe-A | Gruppo-Es |
-| <img src="../packages/svg/svg/4603-Zug-A-D.svg" alt="Zug-A (de)" width="48" height="48"> <img src="../packages/svg/svg/4603-Zug-A-F.svg" alt="Section-A (fr)" width="48" height="48"> <img src="../packages/svg/svg/4603-Zug-A-I.svg" alt="Sezione-Es (it)" width="48" height="48"> | `4603` | Zug-A | Section-A | Sezione-Es |
-| <img src="../packages/svg/svg/4604-Kompanie-A-D.svg" alt="Kompanie-A (de)" width="48" height="48"> <img src="../packages/svg/svg/4604-Kompanie-A-F.svg" alt="Companie-A (fr)" width="48" height="48"> <img src="../packages/svg/svg/4604-Kompanie-A-I.svg" alt="Compania-Es (it)" width="48" height="48"> | `4604` | Kompanie-A | Companie-A | Compania-Es |
-| <img src="../packages/svg/svg/4605-Bataillon-A-D.svg" alt="Bataillon-A (de)" width="48" height="48"> <img src="../packages/svg/svg/4605-Bataillon-A-F.svg" alt="Bataillon-A (fr)" width="48" height="48"> <img src="../packages/svg/svg/4605-Bataillon-A-I.svg" alt="Bataillone-Es (it)" width="48" height="48"> | `4605` | Bataillon-A | Bataillon-A | Bataillone-Es |
-| <img src="../packages/svg/svg/4606-Einsatzleiter-A-D.svg" alt="Einsatzleiter-A (de)" width="48" height="48"> <img src="../packages/svg/svg/4606-Einsatzleiter-A-F.svg" alt="DI-A (fr)" width="48" height="48"> <img src="../packages/svg/svg/4606-Einsatzleiter-A-I.svg" alt="Capointervento-Es (it)" width="48" height="48"> | `4606` | Einsatzleiter-A | DI-A | Capointervento-Es |
-| <img src="../packages/svg/svg/4607-Gruppenfuehrer-A-D.svg" alt="Gruppenführer-A (de)" width="48" height="48"> <img src="../packages/svg/svg/4607-Gruppenfuehrer-A-F.svg" alt="Chef de groupe-A (fr)" width="48" height="48"> <img src="../packages/svg/svg/4607-Gruppenfuehrer-A-I.svg" alt="Cappogruppo-Es (it)" width="48" height="48"> | `4607` | Gruppenführer-A | Chef de groupe-A | Cappogruppo-Es |
-| <img src="../packages/svg/svg/4608-Offizier-Zugfuehrer-A-D.svg" alt="Offizier - Zugführer-A (de)" width="48" height="48"> <img src="../packages/svg/svg/4608-Offizier-Zugfuehrer-A-F.svg" alt="Officier-Chef de section-A (fr)" width="48" height="48"> <img src="../packages/svg/svg/4608-Offizier-Zugfuehrer-A-I.svg" alt="Uffiziale-Caposezione-Es (it)" width="48" height="48"> | `4608` | Offizier - Zugführer-A | Officier-Chef de section-A | Uffiziale-Caposezione-Es |
+| <img src="../packages/svg/svg/4601-Trupp-A-D.svg" alt="Trupp-A (de)" width="48" height="48">&nbsp;<img src="../packages/svg/svg/4601-Trupp-A-F.svg" alt="Equipe-A (fr)" width="48" height="48">&nbsp;<img src="../packages/svg/svg/4601-Trupp-A-I.svg" alt="Squadra-Es (it)" width="48" height="48"> | `4601` | Trupp-A | Equipe-A | Squadra-Es |
+| <img src="../packages/svg/svg/4602-Gruppe-A-D.svg" alt="Gruppe-A (de)" width="48" height="48">&nbsp;<img src="../packages/svg/svg/4602-Gruppe-A-F.svg" alt="Groupe-A (fr)" width="48" height="48">&nbsp;<img src="../packages/svg/svg/4602-Gruppe-A-I.svg" alt="Gruppo-Es (it)" width="48" height="48"> | `4602` | Gruppe-A | Groupe-A | Gruppo-Es |
+| <img src="../packages/svg/svg/4603-Zug-A-D.svg" alt="Zug-A (de)" width="48" height="48">&nbsp;<img src="../packages/svg/svg/4603-Zug-A-F.svg" alt="Section-A (fr)" width="48" height="48">&nbsp;<img src="../packages/svg/svg/4603-Zug-A-I.svg" alt="Sezione-Es (it)" width="48" height="48"> | `4603` | Zug-A | Section-A | Sezione-Es |
+| <img src="../packages/svg/svg/4604-Kompanie-A-D.svg" alt="Kompanie-A (de)" width="48" height="48">&nbsp;<img src="../packages/svg/svg/4604-Kompanie-A-F.svg" alt="Companie-A (fr)" width="48" height="48">&nbsp;<img src="../packages/svg/svg/4604-Kompanie-A-I.svg" alt="Compania-Es (it)" width="48" height="48"> | `4604` | Kompanie-A | Companie-A | Compania-Es |
+| <img src="../packages/svg/svg/4605-Bataillon-A-D.svg" alt="Bataillon-A (de)" width="48" height="48">&nbsp;<img src="../packages/svg/svg/4605-Bataillon-A-F.svg" alt="Bataillon-A (fr)" width="48" height="48">&nbsp;<img src="../packages/svg/svg/4605-Bataillon-A-I.svg" alt="Bataillone-Es (it)" width="48" height="48"> | `4605` | Bataillon-A | Bataillon-A | Bataillone-Es |
+| <img src="../packages/svg/svg/4606-Einsatzleiter-A-D.svg" alt="Einsatzleiter-A (de)" width="48" height="48">&nbsp;<img src="../packages/svg/svg/4606-Einsatzleiter-A-F.svg" alt="DI-A (fr)" width="48" height="48">&nbsp;<img src="../packages/svg/svg/4606-Einsatzleiter-A-I.svg" alt="Capointervento-Es (it)" width="48" height="48"> | `4606` | Einsatzleiter-A | DI-A | Capointervento-Es |
+| <img src="../packages/svg/svg/4607-Gruppenfuehrer-A-D.svg" alt="Gruppenführer-A (de)" width="48" height="48">&nbsp;<img src="../packages/svg/svg/4607-Gruppenfuehrer-A-F.svg" alt="Chef de groupe-A (fr)" width="48" height="48">&nbsp;<img src="../packages/svg/svg/4607-Gruppenfuehrer-A-I.svg" alt="Cappogruppo-Es (it)" width="48" height="48"> | `4607` | Gruppenführer-A | Chef de groupe-A | Cappogruppo-Es |
+| <img src="../packages/svg/svg/4608-Offizier-Zugfuehrer-A-D.svg" alt="Offizier - Zugführer-A (de)" width="48" height="48">&nbsp;<img src="../packages/svg/svg/4608-Offizier-Zugfuehrer-A-F.svg" alt="Officier-Chef de section-A (fr)" width="48" height="48">&nbsp;<img src="../packages/svg/svg/4608-Offizier-Zugfuehrer-A-I.svg" alt="Uffiziale-Caposezione-Es (it)" width="48" height="48"> | `4608` | Offizier - Zugführer-A | Officier-Chef de section-A | Uffiziale-Caposezione-Es |
 
 ### 47 · Partner ohne Hierarchiestufe
 
 *Partner ohne Hierarchiestufe / Partenaires sans hiérarchie / Partner non gerarchiche*
 
-| Icon | ID | DE | FR | IT |
+| Icon<img width="160" height="1" src="spacer.svg" alt=""> | ID | DE | FR | IT |
 |---|---|---|---|---|
 | <img src="../packages/svg/svg/4701-P.svg" alt="P" width="48" height="48"> | `4701` | P | P | P |
-| <img src="../packages/svg/svg/4702-FW-D.svg" alt="FW (de)" width="48" height="48"> <img src="../packages/svg/svg/4702-FW-F.svg" alt="SP (fr)" width="48" height="48"> <img src="../packages/svg/svg/4702-FW-I.svg" alt="CP (it)" width="48" height="48"> | `4702` | FW | SP | CP |
+| <img src="../packages/svg/svg/4702-FW-D.svg" alt="FW (de)" width="48" height="48">&nbsp;<img src="../packages/svg/svg/4702-FW-F.svg" alt="SP (fr)" width="48" height="48">&nbsp;<img src="../packages/svg/svg/4702-FW-I.svg" alt="CP (it)" width="48" height="48"> | `4702` | FW | SP | CP |
 | <img src="../packages/svg/svg/4703-San.svg" alt="San" width="48" height="48"> | `4703` | San | San | San |
-| <img src="../packages/svg/svg/4704-ZS-D.svg" alt="ZS (de)" width="48" height="48"> <img src="../packages/svg/svg/4704-ZS-F.svg" alt="PCi (fr)" width="48" height="48"> <img src="../packages/svg/svg/4704-ZS-F.svg" alt="PCi (it)" width="48" height="48"> | `4704` | ZS | PCi | PCi |
-| <img src="../packages/svg/svg/4705-TechnB-D.svg" alt="TechnB (de)" width="48" height="48"> <img src="../packages/svg/svg/4705-TechnB-F.svg" alt="S tec (fr)" width="48" height="48"> <img src="../packages/svg/svg/4705-TechnB-F.svg" alt="S tec (it)" width="48" height="48"> | `4705` | TechnB | S tec | S tec |
-| <img src="../packages/svg/svg/4706-A-D.svg" alt="A (de)" width="48" height="48"> <img src="../packages/svg/svg/4706-A-F.svg" alt="A (fr)" width="48" height="48"> <img src="../packages/svg/svg/4706-A-I.svg" alt="Es (it)" width="48" height="48"> | `4706` | A | A | Es |
+| <img src="../packages/svg/svg/4704-ZS-D.svg" alt="ZS (de)" width="48" height="48">&nbsp;<img src="../packages/svg/svg/4704-ZS-F.svg" alt="PCi (fr)" width="48" height="48">&nbsp;<img src="../packages/svg/svg/4704-ZS-F.svg" alt="PCi (it)" width="48" height="48"> | `4704` | ZS | PCi | PCi |
+| <img src="../packages/svg/svg/4705-TechnB-D.svg" alt="TechnB (de)" width="48" height="48">&nbsp;<img src="../packages/svg/svg/4705-TechnB-F.svg" alt="S tec (fr)" width="48" height="48">&nbsp;<img src="../packages/svg/svg/4705-TechnB-F.svg" alt="S tec (it)" width="48" height="48"> | `4705` | TechnB | S tec | S tec |
+| <img src="../packages/svg/svg/4706-A-D.svg" alt="A (de)" width="48" height="48">&nbsp;<img src="../packages/svg/svg/4706-A-F.svg" alt="A (fr)" width="48" height="48">&nbsp;<img src="../packages/svg/svg/4706-A-I.svg" alt="Es (it)" width="48" height="48"> | `4706` | A | A | Es |
 
 ### 48 · Hierarchiestufe ohne Partner
 
 *Hierarchiestufe ohne Partner / Hiérarchies sans partenaire / Gerarchie senza partner*
 
-| Icon | ID | DE | FR | IT |
+| Icon<img width="160" height="1" src="spacer.svg" alt=""> | ID | DE | FR | IT |
 |---|---|---|---|---|
 | <img src="../packages/svg/svg/4801-Trupp.svg" alt="Trupp" width="48" height="48"> | `4801` | Trupp | Equipe | Squadra |
 | <img src="../packages/svg/svg/4802-Gruppe.svg" alt="Gruppe" width="48" height="48"> | `4802` | Gruppe | Groupe | Gruppo |
@@ -253,7 +253,7 @@ For divergent icons (different graphic per language) all three variants are show
 
 **Einrichtungen im Einsatzraum** / Installations temporaires / Installazioni nel settore d'intervento - nella zona sinistrata
 
-| Icon | ID | DE | FR | IT |
+| Icon<img width="160" height="1" src="spacer.svg" alt=""> | ID | DE | FR | IT |
 |---|---|---|---|---|
 | <img src="../packages/svg/svg/5101-Verkehrsposten.svg" alt="Verkehrsposten" width="48" height="48"> | `5101` | Verkehrsposten | Poste de circulation | Posto di circolazione |
 | <img src="../packages/svg/svg/5102-StandortmobileFuehrungsstelle.svg" alt="Standort mobile Führungsstelle" width="48" height="48"> | `5102` | Standort mobile Führungsstelle | Poste de conduite mobile | Ubicazione posto di condotta mobile |
@@ -261,7 +261,7 @@ For divergent icons (different graphic per language) all three variants are show
 | <img src="../packages/svg/svg/5104-Betreuungsstelle.svg" alt="Betreuungsstelle" width="48" height="48"> | `5104` | Betreuungsstelle | Poste-d-assistance | Posto-d-assistenza |
 | <img src="../packages/svg/svg/5105-Patientensammelstelle.svg" alt="Patientensammelstelle" width="48" height="48"> | `5105` | Patientensammelstelle | Poste-collecteur-de-patients | Posto-collettore-dei-pazienti |
 | <img src="../packages/svg/svg/5106-Sanitaetshilfsstelle.svg" alt="Sanitaetshilfsstelle" width="48" height="48"> | `5106` | Sanitaetshilfsstelle | Poste-medical-avance | Posto-di-soccorso-sanitario |
-| <img src="../packages/svg/svg/5107-Fahrzeugplatz-D.svg" alt="Fahrzeugplatz (de)" width="48" height="48"> <img src="../packages/svg/svg/5107-Fahrzeugplatz-F.svg" alt="Place pour véhicules (fr)" width="48" height="48"> <img src="../packages/svg/svg/5107-Fahrzeugplatz-I.svg" alt="Posteggio veicoli (it)" width="48" height="48"> | `5107` | Fahrzeugplatz | Place pour véhicules | Posteggio veicoli |
+| <img src="../packages/svg/svg/5107-Fahrzeugplatz-D.svg" alt="Fahrzeugplatz (de)" width="48" height="48">&nbsp;<img src="../packages/svg/svg/5107-Fahrzeugplatz-F.svg" alt="Place pour véhicules (fr)" width="48" height="48">&nbsp;<img src="../packages/svg/svg/5107-Fahrzeugplatz-I.svg" alt="Posteggio veicoli (it)" width="48" height="48"> | `5107` | Fahrzeugplatz | Place pour véhicules | Posteggio veicoli |
 | <img src="../packages/svg/svg/5108-BLaboratorium.svg" alt="B Laboratorium" width="48" height="48"> | `5108` | B Laboratorium | Laboratoire B | Laboratorio B |
 | <img src="../packages/svg/svg/5109-ABCDekontaminationsstelle.svg" alt="ABC Dekontaminationsstelle" width="48" height="48"> | `5109` | ABC Dekontaminationsstelle | Poste de décontamination ABC | Posto di decontaminazione NBC |
 | <img src="../packages/svg/svg/5110-Haftstrasse.svg" alt="Haftstrasse" width="48" height="48"> | `5110` | Haftstrasse | Poste ou zone de rétention | Posto (zone) di ritenzione |
@@ -300,7 +300,7 @@ For divergent icons (different graphic per language) all three variants are show
 
 **Bewegungen** / Mouvements / Spostamenti
 
-| Icon | ID | DE | FR | IT |
+| Icon<img width="160" height="1" src="spacer.svg" alt=""> | ID | DE | FR | IT |
 |---|---|---|---|---|
 | <img src="../packages/svg/svg/6101a-BeabsichtigteVerschiebung.svg" alt="Beabsichtigte Verschiebung" width="48" height="48"> | `6101a` | Beabsichtigte Verschiebung | mouvement prevu | Spostamento pianificato |
 | <img src="../packages/svg/svg/6101b-DurchgefuehrteVerschiebung.svg" alt="Durchgeführte Verschiebung" width="48" height="48"> | `6101b` | Durchgeführte Verschiebung | mouvement exécuté | Spostamento eseguito |
@@ -310,7 +310,7 @@ For divergent icons (different graphic per language) all three variants are show
 | <img src="../packages/svg/svg/6103b-Durchgefuehrte-Erkundung.svg" alt="Durchgeführte Erkundung" width="48" height="48"> | `6103b` | Durchgeführte Erkundung | Reconnaissance-executee | Ricognizione eseguita |
 | <img src="../packages/svg/svg/6104-Durchsuchen.svg" alt="Durchsuchen" width="48" height="48"> | `6104` | Durchsuchen | Fouiller | Perquisire |
 | <img src="../packages/svg/svg/6105-MotorisierteVerschiebung.svg" alt="Motorisierte Verschiebung" width="48" height="48"> | `6105` | Motorisierte Verschiebung | Déplacement motorisé | Spostamento motorizzato |
-| <img src="../packages/svg/svg/6106-Rettungsachse-D.svg" alt="Rettungsachse (de)" width="48" height="48"> <img src="../packages/svg/svg/6106-Rettungsachse-F.svg" alt="Axe de sauvetage (fr)" width="48" height="48"> <img src="../packages/svg/svg/6106-Rettungsachse-F.svg" alt="Asse di salvataggio (it)" width="48" height="48"> | `6106` | Rettungsachse | Axe de sauvetage | Asse di salvataggio |
+| <img src="../packages/svg/svg/6106-Rettungsachse-D.svg" alt="Rettungsachse (de)" width="48" height="48">&nbsp;<img src="../packages/svg/svg/6106-Rettungsachse-F.svg" alt="Axe de sauvetage (fr)" width="48" height="48">&nbsp;<img src="../packages/svg/svg/6106-Rettungsachse-F.svg" alt="Asse di salvataggio (it)" width="48" height="48"> | `6106` | Rettungsachse | Axe de sauvetage | Asse di salvataggio |
 | <img src="../packages/svg/svg/6107-Ueberwachen.svg" alt="Überwachen" width="48" height="48"> | `6107` | Überwachen | Surveiller | Sorvegliare |
 | <img src="../packages/svg/svg/6108-Bergen.svg" alt="Bergen" width="48" height="48"> | `6108` | Bergen | Secourir | Soccorrere |
 
@@ -320,7 +320,7 @@ For divergent icons (different graphic per language) all three variants are show
 
 **Fahrzeuge** / Véhicules / Veicoli
 
-| Icon | ID | DE | FR | IT |
+| Icon<img width="160" height="1" src="spacer.svg" alt=""> | ID | DE | FR | IT |
 |---|---|---|---|---|
 | <img src="../packages/svg/svg/7101-Motorrad.svg" alt="Motorrad" width="48" height="48"> | `7101` | Motorrad | Motocycle | Motociclo |
 | <img src="../packages/svg/svg/7102-Boot.svg" alt="Boot" width="48" height="48"> | `7102` | Boot | Embarcation | Imbarcazione |
@@ -339,7 +339,7 @@ For divergent icons (different graphic per language) all three variants are show
 | <img src="../packages/svg/svg/7115-Wasserwerfer.svg" alt="Wasserwerfer" width="48" height="48"> | `7115` | Wasserwerfer | Canon-a-eau | Lanciaacqua |
 | <img src="../packages/svg/svg/7116-Hubrettungsfahrzeug.svg" alt="Hubrettungsfahrzeug" width="48" height="48"> | `7116` | Hubrettungsfahrzeug | Elevateur-a-nacelle | Elevatore-a-navicella |
 | <img src="../packages/svg/svg/7117-Autodrehleiter.svg" alt="Autodrehleiter" width="48" height="48"> | `7117` | Autodrehleiter | Echelle pivotante aérienne | Scala-motorizzata |
-| <img src="../packages/svg/svg/7118-Tankloeschfahrzeug-D.svg" alt="Tanklöschfahrzeug (de)" width="48" height="48"> <img src="../packages/svg/svg/7118-Tankloeschfahrzeug-F.svg" alt="Fourgon-Tonne-pompe (fr)" width="48" height="48"> <img src="../packages/svg/svg/7118-Tankloeschfahrzeug-I.svg" alt="Autobotte (it)" width="48" height="48"> | `7118` | Tanklöschfahrzeug | Fourgon-Tonne-pompe | Autobotte |
+| <img src="../packages/svg/svg/7118-Tankloeschfahrzeug-D.svg" alt="Tanklöschfahrzeug (de)" width="48" height="48">&nbsp;<img src="../packages/svg/svg/7118-Tankloeschfahrzeug-F.svg" alt="Fourgon-Tonne-pompe (fr)" width="48" height="48">&nbsp;<img src="../packages/svg/svg/7118-Tankloeschfahrzeug-I.svg" alt="Autobotte (it)" width="48" height="48"> | `7118` | Tanklöschfahrzeug | Fourgon-Tonne-pompe | Autobotte |
 | <img src="../packages/svg/svg/7119-Luftaufklaerungleicht.svg" alt="Luftaufklärung leicht" width="48" height="48"> | `7119` | Luftaufklärung leicht | Reconnaissance aérienne légère | Ricognizione aerea leggera |
 
 ---
@@ -352,7 +352,7 @@ For divergent icons (different graphic per language) all three variants are show
 
 *Naturbedingte Lagen / Evénements naturels / Eventi naturali*
 
-| Icon | ID | DE | FR | IT |
+| Icon<img width="160" height="1" src="spacer.svg" alt=""> | ID | DE | FR | IT |
 |---|---|---|---|---|
 | <img src="../packages/svg/svg/8101-Sturm.svg" alt="Sturm" width="48" height="48"> | `8101` | Sturm | Tempete | Tempesta |
 | <img src="../packages/svg/svg/8102-Starkniederschlag.svg" alt="Starkniederschlag" width="48" height="48"> | `8102` | Starkniederschlag | Fortes-precipitations | Piogge-intense |
@@ -372,7 +372,7 @@ For divergent icons (different graphic per language) all three variants are show
 
 *Technisch bedingte Lagen / Evénements techniques / Eventi tecnici*
 
-| Icon | ID | DE | FR | IT |
+| Icon<img width="160" height="1" src="spacer.svg" alt=""> | ID | DE | FR | IT |
 |---|---|---|---|---|
 | <img src="../packages/svg/svg/8201-Brand.svg" alt="Brand" width="48" height="48"> | `8201` | Brand | Incendie | Incendio |
 | <img src="../packages/svg/svg/8202-Explosion-pikt.svg" alt="Explosion" width="48" height="48"> | `8202` | Explosion | Explosion | Esplosione |
@@ -401,10 +401,10 @@ For divergent icons (different graphic per language) all three variants are show
 
 *Gesellschaftlich bedingte Lagen / Evénements sociaux / Eventi sociali*
 
-| Icon | ID | DE | FR | IT |
+| Icon<img width="160" height="1" src="spacer.svg" alt=""> | ID | DE | FR | IT |
 |---|---|---|---|---|
 | <img src="../packages/svg/svg/8301-Pluenderung.svg" alt="Pluenderung" width="48" height="48"> | `8301` | Pluenderung | Pillage | Saccheggi |
-| <img src="../packages/svg/svg/8302-Dieb-D.svg" alt="Dieb (de)" width="48" height="48"> <img src="../packages/svg/svg/8302-Dieb-F.svg" alt="Vol (fr)" width="48" height="48"> <img src="../packages/svg/svg/8302-Dieb-I.svg" alt="Furto (it)" width="48" height="48"> | `8302` | Dieb | Vol | Furto |
+| <img src="../packages/svg/svg/8302-Dieb-D.svg" alt="Dieb (de)" width="48" height="48">&nbsp;<img src="../packages/svg/svg/8302-Dieb-F.svg" alt="Vol (fr)" width="48" height="48">&nbsp;<img src="../packages/svg/svg/8302-Dieb-I.svg" alt="Furto (it)" width="48" height="48"> | `8302` | Dieb | Vol | Furto |
 | <img src="../packages/svg/svg/8303-RaubDrohung.svg" alt="Raub, Drohung" width="48" height="48"> | `8303` | Raub, Drohung | Vol, menaces | Rapina, minaccia |
 | <img src="../packages/svg/svg/8304-ZwischenfallmitExtremisten.svg" alt="Zwischenfall mit Extremisten" width="48" height="48"> | `8304` | Zwischenfall mit Extremisten | Incident avec des extrémistes | Incidente con estremisti |
 | <img src="../packages/svg/svg/8305-Demo-gewaltlos.svg" alt="Demo-gewaltlos" width="48" height="48"> | `8305` | Demo-gewaltlos | Manifestation | Dimostrazioni |
@@ -442,7 +442,7 @@ For divergent icons (different graphic per language) all three variants are show
 
 **Spezial** / Spéciaux / Speciali
 
-| Icon | ID | DE | FR | IT |
+| Icon<img width="160" height="1" src="spacer.svg" alt=""> | ID | DE | FR | IT |
 |---|---|---|---|---|
 | <img src="../packages/svg/svg/9101a-Autobahn.svg" alt="Autobahn" width="48" height="48"> | `9101a` | Autobahn | Autoroute | Autostrada |
 | <img src="../packages/svg/svg/9101b-Autobahn.svg" alt="Autobahn" width="48" height="48"> | `9101b` | Autobahn | Autoroute | Autostrada |
