@@ -19,6 +19,8 @@ jobs:
         with:
           node-version-file: .node-version
 
+      - run: corepack enable
+
       - run: yarn install --frozen-lockfile
 
       - name: Rebuild icons

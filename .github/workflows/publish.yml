@@ -24,6 +24,8 @@ jobs:
           registry-url: https://npm.pkg.github.com
           scope: "@f-eld-ch"
 
+      - run: corepack enable
+
       - name: Extract version from tag
         id: version
         # GITHUB_REF_NAME is e.g. "v1.2.3"; strip the leading "v" for npm
