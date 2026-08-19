@@ -1,0 +1,33 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+jobs:
+  icons-check:
+    runs-on: ubuntu-24.04
+    env:
+      TZ: UTC
+      LANG: C.UTF-8
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .node-version
+
+      - run: yarn install --frozen-lockfile
+
+      - name: Rebuild icons
+        run: yarn icons:rebuild
+
+      - name: Check for uncommitted changes
+        run: |
+          git diff --exit-code || {
+            echo "Generated files are out of date. Run 'yarn icons:rebuild' locally and commit the result."
+            git diff --name-only
+            exit 1
+          }
