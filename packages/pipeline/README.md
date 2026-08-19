@@ -48,6 +48,24 @@ All commands are run from the monorepo root with `yarn`.
 
 7. Run `yarn build` and `yarn typecheck` before committing.
 
+## Markers
+
+`markers/markers.json` is a hand-authored manifest of sprite-only graphics that appear in the sprite sheets (`babs-de`, `babs-fr`, `babs-it`) but never as React components, exported SVGs, or catalogue entries. Each marker has a bare id (describing shape and colour, not use-case), a source SVG in `markers/svg/`, a mode (`icon` or `pattern`), and an optional `recolor` map for colour variants derived in-memory with no duplicate file.
+
+```
+markers/
+  markers.json          manifest — id, src, mode, optional recolour rules
+  svg/
+    chevron-blue.svg    vendored source geometry (not processed by normalize.ts)
+    double-chevron-blue.svg
+```
+
+Sprite keys are `marker-<id>` (e.g. `marker-chevron-blue`). Build keys with `markerSpriteKey(id)` from `@f-eld-ch/babs-core` rather than string concatenation. See [docs/markers.md](../../docs/markers.md) for the full reference.
+
+**Adding a marker:** add 3–7 lines to `markers/markers.json` (plus an SVG if the geometry is new), then run `yarn icons:rebuild && yarn icons:verify`. A colour-derived variant (like `chevron-red`) needs only the manifest entry — no SVG.
+
+**`markers/` is intentionally not under `sources/`** — `normalize.ts`/`icons:ingest` would overwrite the authored viewBox geometry. It is also not under `packages/svg/` — `flatten.ts` deletes subdirectories. Root `markers/` is a hand-maintained pipeline input like `corrections/`.
+
 ## Corrections layer
 
 `corrections/labels.json` contains manual overrides for German labels where the upstream source had typos, hyphens, or missing umlauts. Each entry is:

@@ -10,7 +10,7 @@ export const babs2103: BabsIconDefinition = {
   displaySize: 32,
   graphics: {
     "de": { kind: "vector", body: (_ns: (localId: string) => string) => (
-      <><g transform="translate(5 11.6359) scale(1.03687)"><path fill="#FFFFFF" d="M43.4 6.7 80.9 70.6 5.9 70.6z"/><path fill="#FF9900" d="M86.8 74H0L43.4 0Zm-75-6.8H75L43.4 13.3Z"/><g enableBackground="new"><path fill="#FF9900" d="M31.4 62.2v-16h11.9v2.7h-8.6v3.5h8v2.7h-8v4.4h8.9v2.7zM44.8 62.2l4.2-6-4-5.6h3.7l2.1 3.2 2.2-3.2h3.6l-3.9 5.5 4.3 6.1h-3.8l-2.4-3.6-2.4 3.6z"/></g></g></>
+      <><g transform="translate(5 11.6359) scale(1.03687)"><path fill="#FFFFFF" d="M5.9 70.6 43.4 6.7 80.9 70.6z"/><path fill="#FF9900" d="M86.8 74H0L43.4 0Zm-75-6.8H75L43.4 13.3Z"/><g enableBackground="new"><path fill="#FF9900" d="M31.4 62.2v-16h11.9v2.7h-8.6v3.5h8v2.7h-8v4.4h8.9v2.7zM44.8 62.2l4.2-6-4-5.6h3.7l2.1 3.2 2.2-3.2h3.6l-3.9 5.5 4.3 6.1h-3.8l-2.4-3.6-2.4 3.6z"/></g></g></>
     ) }
   },
 };

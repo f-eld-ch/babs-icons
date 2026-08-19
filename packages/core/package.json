@@ -20,6 +20,7 @@
     "./labels/de": "./dist/labels/de.js",
     "./labels/fr": "./dist/labels/fr.js",
     "./labels/it": "./dist/labels/it.js",
+    "./markers": "./dist/generated/markers.js",
     "./package.json": "./package.json"
   },
   "files": [

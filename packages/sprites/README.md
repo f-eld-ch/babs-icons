@@ -17,7 +17,7 @@ dist/
 layout.lock.json
 ```
 
-Each sheet covers all 257 icons. @1x icons are 32 px; @2x icons are 64 px. Sprite JSON keys are bare IDs (`"1101"`, `"7118"`, `"9101d"`). Sprites are not SDF — do not set `"sdf": true` in layer paint properties.
+Each sheet covers all 257 icons plus 8 pattern keys and 3 sprite-only markers. @1x icons are 32 px; @2x icons are 64 px. Icon keys are bare catalogue IDs (`"1101"`, `"7118"`, `"9101d"`); pattern keys are `"<id>-pattern"` / `"<id>-pattern-b"`; marker keys are `"marker-<id>"` (e.g. `"marker-chevron-blue"`). Sprites are not SDF — do not set `"sdf": true` in layer paint properties.
 
 ## Install
 
@@ -137,7 +137,7 @@ const style = withBabsSprite(
 new maplibregl.Map({ container: "map", style });
 ```
 
-Sprite keys match bare icon IDs. Use a `coalesce` expression to render a fallback when the feature's `symbol` property is not a valid BABS ID or the sprite entry is missing.
+Icon keys match bare catalogue IDs. Marker keys (`marker-chevron-blue`, `marker-chevron-red`, `marker-double-chevron-blue`) are consumed as `icon-image` on `type: "symbol"` layers with `icon-rotate` for arrowhead caps. Use a `coalesce` expression to render a fallback when the feature's property is not a valid key. See [docs/markers.md](../../docs/markers.md) for the full marker reference.
 
 ## react-map-gl
 

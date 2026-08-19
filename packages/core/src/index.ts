@@ -15,6 +15,8 @@ export { BABS_TREE } from "./generated/tree.js";
 export { BABS_LABELS_DE } from "./generated/labels/de.js";
 export { BABS_LABELS_FR } from "./generated/labels/fr.js";
 export { BABS_LABELS_IT } from "./generated/labels/it.js";
+export type { BabsMarkerId, BabsMarkerMode } from "./generated/markers.js";
+export { BABS_MARKER_IDS, BABS_MARKER_MODES } from "./generated/markers.js";
 
 import type {
   BabsIconId,
@@ -25,8 +27,10 @@ import type {
   BabsGroup,
   BabsCategory,
 } from "./types.js";
+import type { BabsMarkerId } from "./generated/markers.js";
 import { BABS_ICONS } from "./generated/meta.js";
 import { BABS_TREE } from "./generated/tree.js";
+import { BABS_MARKER_IDS, BABS_MARKER_MODES } from "./generated/markers.js";
 import { BABS_LABELS_DE } from "./generated/labels/de.js";
 import { BABS_LABELS_FR } from "./generated/labels/fr.js";
 import { BABS_LABELS_IT } from "./generated/labels/it.js";
@@ -79,6 +83,25 @@ export function spriteName(requested?: string): "babs-de" | "babs-fr" | "babs-it
 
 export function patternSpriteKey(id: BabsIconId, variant?: "a" | "b"): string {
   return variant === "b" ? `${id}-pattern-b` : `${id}-pattern`;
+}
+
+/** Returns the sprite key for a marker: "marker-" + id.
+ *  The narrow return type lets the consumer use the string directly in icon-image expressions. */
+export function markerSpriteKey(id: BabsMarkerId): `marker-${BabsMarkerId}` {
+  return `marker-${id}`;
+}
+
+export function isBabsMarkerId(v: unknown): v is BabsMarkerId {
+  return typeof v === "string" && (BABS_MARKER_IDS as readonly string[]).includes(v);
+}
+
+export function listMarkers(): readonly BabsMarkerId[] {
+  return BABS_MARKER_IDS;
+}
+
+/** Returns the mode (icon or pattern) for a marker id. */
+export function getBabsMarkerMode(id: BabsMarkerId): "icon" | "pattern" {
+  return BABS_MARKER_MODES[id];
 }
 
 // ── Category / group / icon queries ──────────────────────────────────────────

@@ -10,7 +10,13 @@ export const babs5131: BabsIconDefinition = {
   displaySize: 32,
   graphics: {
     "de": { kind: "vector", body: (_ns: (localId: string) => string) => (
-      <><g transform="translate(5.1136 5) scale(1.13636)"><path fill="#FFFFFF" d="M2 39.6C2 18.8 18.8 2 39.5 2S77 18.8 77 39.6 60.2 77.2 39.5 77.2 2 60.4 2 39.6"/><path fill="#0000FF" d="M39.5 79.2a39.6 39.6 0 0 1 0-79.2A39.6 39.6 0 0 1 79 39.6c0 21.8-17.8 39.6-39.5 39.6m0-75.3C19.9 3.9 4 19.9 4 39.6s15.9 35.7 35.5 35.7S75 59.3 75 39.6 59.1 3.9 39.5 3.9"/><path fill="#0000FF" d="M29.7 49.1v-19h5.8l3.5 13 3.4-13h5.8v19.1h-3.6v-15l-3.8 15h-3.7l-3.8-15v15h-3.6z" enableBackground="new"/></g></>
+      <><g transform="translate(5.1136 5) scale(1.13636)"><path fill="#0000FF" d="M39.5 79.2a39.6 39.6 0 0 1 0-79.2A39.6 39.6 0 0 1 79 39.6c0 21.8-17.8 39.6-39.5 39.6m0-75.3C19.9 3.9 4 19.9 4 39.6s15.9 35.7 35.5 35.7S75 59.3 75 39.6 59.1 3.9 39.5 3.9"/><path fill="#0000FF" d="M29.7 49.1v-19h5.8l3.5 13 3.4-13h5.8v19.1h-3.6v-15l-3.8 15h-3.7l-3.8-15v15h-3.6z" enableBackground="new"/></g></>
+    ) },
+    "fr": { kind: "vector", body: (_ns: (localId: string) => string) => (
+      <><g transform="translate(5.1136 5) scale(1.13636)"><path fill="#0000FF" d="M39.5 79.2a39.6 39.6 0 0 1 0-79.2A39.6 39.6 0 0 1 79 39.6c0 21.8-17.8 39.6-39.5 39.6m0-75.3C19.9 3.9 4 19.9 4 39.6s15.9 35.7 35.5 35.7S75 59.3 75 39.6 59.1 3.9 39.5 3.9"/><path fill="#0000FF" d="M29.7 49.1v-19h5.8l3.5 13 3.4-13h5.8v19.1h-3.6v-15l-3.8 15h-3.7l-3.8-15v15h-3.6z" enableBackground="new"/></g></>
+    ) },
+    "it": { kind: "vector", body: (_ns: (localId: string) => string) => (
+      <><g transform="translate(5.1136 5) scale(1.13636)"><path fill="#0000FF" d="M39.5 79.2a39.6 39.6 0 0 1 0-79.2A39.6 39.6 0 0 1 79 39.6c0 21.8-17.8 39.6-39.5 39.6m0-75.3C19.9 3.9 4 19.9 4 39.6s15.9 35.7 35.5 35.7S75 59.3 75 39.6 59.1 3.9 39.5 3.9"/><path fill="#0000FF" d="M29.7 49.1v-19h5.8l3.5 13 3.4-13h5.8v19.1h-3.6v-15l-3.8 15h-3.7l-3.8-15v15h-3.6z" enableBackground="new"/></g></>
     ) }
   },
 };

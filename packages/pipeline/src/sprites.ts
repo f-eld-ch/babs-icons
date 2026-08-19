@@ -11,6 +11,7 @@ import { fileURLToPath } from "node:url";
 import { Resvg } from "@resvg/resvg-js";
 import sharp from "sharp";
 import { compareNumeric } from "./naming.ts";
+import { loadMarkers, markerSvg, type Marker } from "./markers.ts";
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), "../../../");
 const SVG_INDEX = join(ROOT, "packages/svg/index.json");
@@ -60,7 +61,12 @@ for (const sym of allSymbols) {
 }
 allPatternKeys.sort(compareNumeric);
 
-const allKeys = [...allSymbolIds, ...allPatternKeys];
+// Markers — sprite-only, language-neutral, must never reach packages/react or packages/svg
+const markers = loadMarkers();
+const allMarkerKeys = markers.map((m) => m.key);
+const markerByKey = new Map<string, Marker>(markers.map((m) => [m.key, m]));
+
+const allKeys = [...allSymbolIds, ...allPatternKeys, ...allMarkerKeys];
 
 // ── Layout lock ───────────────────────────────────────────────────────────────
 interface LayoutLock { version: number; cell: number; cols: number; keys: string[] }
@@ -139,7 +145,7 @@ function getPatternSvgPath(sym: SymEntry, variant: "a" | "b", lang: Lang): strin
 const PATTERN_KEY_RE = /^(.+)-pattern(-b)?$/;
 
 // ── Generate one sprite sheet ─────────────────────────────────────────────────
-async function genSheet(lang: Lang): Promise<{ spriteJson: Record<string, unknown>; pixelHashes: Record<string, string> }> {
+async function genSheet(lang: Lang): Promise<{ spriteJson: Record<string, unknown>; pixelHashes: Record<string, string>; ok: boolean }> {
   const sheet1X = Buffer.alloc(sheetW1X * sheetH1X * 4, 0);
   const sheet2X = Buffer.alloc(sheetW2X * sheetH2X * 4, 0);
   const spriteJson: Record<string, unknown> = {};
@@ -150,29 +156,42 @@ async function genSheet(lang: Lang): Promise<{ spriteJson: Record<string, unknow
   for (let idx = 0; idx < keys.length; idx++) {
     const key = keys[idx]!;
 
-    // Detect pattern key vs symbol key
-    const pm = key.match(PATTERN_KEY_RE);
-    const symId    = pm ? pm[1]! : key;
-    const patVariant: "a" | "b" | null = pm ? (pm[2] ? "b" : "a") : null;
+    // Markers are checked FIRST: an exact manifest lookup cannot false-positive,
+    // whereas PATTERN_KEY_RE is greedy and would claim a future "marker-…-pattern" key.
+    let svgContent: string;
+    let seamless: boolean;
 
-    const sym = symMap.get(symId);
-    if (!sym) continue; // removed icon — leave transparent hole
+    const marker = markerByKey.get(key);
+    if (marker) {
+      // Language-neutral: use the pre-cached (possibly recoloured) SVG for all sheets.
+      svgContent = markerSvgCache.get(key)!;
+      seamless = marker.mode === "pattern";
+    } else {
+      // Detect pattern key vs symbol key
+      const pm = key.match(PATTERN_KEY_RE);
+      const symId    = pm ? pm[1]! : key;
+      const patVariant: "a" | "b" | null = pm ? (pm[2] ? "b" : "a") : null;
 
-    // Patterns use full grid cell (pad=0) so they tile seam-free.
-    const cellW1 = patVariant ? GRID_1X : CELL_1X;
-    const pad1   = patVariant ? 0       : PAD_1X;
-    const cellW2 = patVariant ? GRID_2X : CELL_2X;
-    const pad2   = patVariant ? 0       : PAD_2X;
+      const sym = symMap.get(symId);
+      if (!sym) continue; // removed icon — leave transparent hole
 
-    const svgPath = patVariant
-      ? getPatternSvgPath(sym, patVariant, lang)
-      : getSvgPath(sym, lang);
+      const svgPath = patVariant
+        ? getPatternSvgPath(sym, patVariant, lang)
+        : getSvgPath(sym, lang);
 
-    if (!svgPath || !existsSync(svgPath)) {
-      console.warn(`  MISSING svg: ${svgPath || key}`);
-      continue;
+      if (!svgPath || !existsSync(svgPath)) {
+        console.warn(`  MISSING svg: ${svgPath || key}`);
+        continue;
+      }
+      svgContent = readFileSync(svgPath, "utf8");
+      seamless = patVariant !== null;
     }
-    const svgContent = readFileSync(svgPath, "utf8");
+
+    // Patterns and pattern-mode markers tile seam-free (pad=0, full grid cell).
+    const cellW1 = seamless ? GRID_1X : CELL_1X;
+    const pad1   = seamless ? 0       : PAD_1X;
+    const cellW2 = seamless ? GRID_2X : CELL_2X;
+    const pad2   = seamless ? 0       : PAD_2X;
 
     const col = idx % cols;
     const row = Math.floor(idx / cols);
@@ -220,13 +239,13 @@ async function genSheet(lang: Lang): Promise<{ spriteJson: Record<string, unknow
       const existing = readFileSync(p);
       if (Buffer.compare(Buffer.from(data), existing) !== 0) { console.error(`DRIFT:   ${fn}`); ok = false; }
     }
-    return { spriteJson, pixelHashes };
+    return { spriteJson, pixelHashes, ok };
   } else {
     writeFileSync(join(SPRITES_DIST, `${name}.json`), json1X);
     writeFileSync(join(SPRITES_DIST, `${name}@2x.json`), json2X);
     writeFileSync(join(SPRITES_DIST, `${name}.png`), png1X);
     writeFileSync(join(SPRITES_DIST, `${name}@2x.png`), png2X);
-    return { spriteJson, pixelHashes };
+    return { spriteJson, pixelHashes, ok: true };
   }
 }
 
@@ -237,13 +256,20 @@ function sortKeys<T>(obj: Record<string, T>): Record<string, T> {
 // ── Main ──────────────────────────────────────────────────────────────────────
 mkdirSync(SPRITES_DIST, { recursive: true });
 
-console.log(`sprites: generating ${allSymbolIds.length} icons + ${allPatternKeys.length} patterns, ${cols}×${rows} grid (${sheetW1X}×${sheetH1X} @1x)`);
+console.log(`sprites: generating ${allSymbolIds.length} icons + ${allPatternKeys.length} patterns + ${allMarkerKeys.length} markers, ${cols}×${rows} grid (${sheetW1X}×${sheetH1X} @1x)`);
+
+// Pre-read and recolour all marker SVGs once, outside the per-language loop.
+// This guarantees all three sheets are pixel-identical for markers, and throws
+// on a stale recolour rule before any rasterising begins.
+const markerSvgCache = new Map<string, string>(markers.map((m) => [m.key, markerSvg(m)]));
 
 const pixelHashesByLang: Partial<Record<Lang, Record<string, string>>> = {};
+let overallOk = true;
 
 for (const lang of LANGS) {
   process.stdout.write(`  babs-${lang}...`);
-  const { pixelHashes } = await genSheet(lang);
+  const { pixelHashes, ok: sheetOk } = await genSheet(lang);
+  if (!sheetOk) overallOk = false;
   pixelHashesByLang[lang] = pixelHashes;
   process.stdout.write(" done\n");
 }
@@ -264,6 +290,8 @@ if (!CHECK) {
   writeFileSync(PIXEL_HASH, JSON.stringify({ algorithm: "sha256", cell: CELL_1X, langs: pixOut }, null, 2) + "\n");
 
   console.log(`sprites: done — layout.lock.json + pixels.sha256.json written`);
-} else {
+} else if (overallOk) {
   console.log("sprites: OK (no drift)");
+} else {
+  process.exitCode = 1;
 }

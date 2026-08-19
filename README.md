@@ -77,6 +77,9 @@ babs-icons/
   corrections/          manual label fixes and alias overrides
     labels.json         corrected German labels; pipeline detects orphans
     aliases.json        human-readable export aliases
+  markers/              sprite-only marker graphics (not in the catalogue)
+    markers.json        manifest: id, mode, optional recolour rule
+    svg/                source SVGs for markers (not processed by normalize.ts)
   packages/
     core/               types, metadata, language helpers
     react/              BabsIcon component, BabsIconProvider context
@@ -88,6 +91,8 @@ babs-icons/
 ```
 
 The `packages/svg/` directory is the single source of truth consumed by `pipeline`. Everything under `packages/core/src/generated/` and `packages/react/src/icons/` is generated — do not edit by hand.
+
+Markers (`markers/`) are sprite-only graphics that appear in the sprite sheets but never as React components or exported SVG assets. See [docs/markers.md](docs/markers.md).
 
 ## Pipeline commands
 

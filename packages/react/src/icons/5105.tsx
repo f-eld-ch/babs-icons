@@ -10,7 +10,13 @@ export const babs5105: BabsIconDefinition = {
   displaySize: 32,
   graphics: {
     "de": { kind: "vector", body: (_ns: (localId: string) => string) => (
-      <><g transform="translate(20.5908 5) scale(.72347)"><path fill="#FFFFFF" d="M3.1 3.1 78.1 3.1 78.1 121.2 3.1 121.2z"/><path fill="#0000FF" d="M81.3 124.4H0V0h81.3zm-75-6.3H75V6.3H6.3Z"/><path fill="#0000FF" d="M37.9 3.6H42.1V121.8H37.9z"/><path fill="#0000FF" d="M4.9 60.3H77.30000000000001V64.5H4.9z"/></g></>
+      <><g transform="translate(20.5908 5) scale(.72347)"><path fill="#0000FF" d="M81.3 124.4H0V0h81.3zm-75-6.3H75V6.3H6.3Z"/><path fill="#0000FF" d="M37.9 3.6H42.1V121.8H37.9z"/><path fill="#0000FF" d="M4.9 60.3H77.30000000000001V64.5H4.9z"/></g></>
+    ) },
+    "fr": { kind: "vector", body: (_ns: (localId: string) => string) => (
+      <><g transform="translate(20.5908 5) scale(.72347)"><path fill="#0000FF" d="M81.3 124.4H0V0h81.3zm-75-6.3H75V6.3H6.3Z"/><path fill="#0000FF" d="M37.9 3.6H42.1V121.8H37.9z"/><path fill="#0000FF" d="M4.9 60.3H77.30000000000001V64.5H4.9z"/></g></>
+    ) },
+    "it": { kind: "vector", body: (_ns: (localId: string) => string) => (
+      <><g transform="translate(20.5908 5) scale(.72347)"><path fill="#0000FF" d="M81.3 124.4H0V0h81.3zm-75-6.3H75V6.3H6.3Z"/><path fill="#0000FF" d="M37.9 3.6H42.1V121.8H37.9z"/><path fill="#0000FF" d="M4.9 60.3H77.30000000000001V64.5H4.9z"/></g></>
     ) }
   },
 };

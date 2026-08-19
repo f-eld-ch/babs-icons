@@ -1,0 +1,22 @@
+{
+  "_comment": "Sprite-only marker graphics. The sprite key is \"marker-\" + the object key; the prefix is owned by markerSpriteKey() in packages/core, never written here. Ids describe shape and colour, never use-case — no marker is tied to a catalogue symbol or line type. Markers have no BABS id, no de/fr/it label and no parent symbol, and never reach babs-react or babs-assets. Loader + recolour: packages/pipeline/src/markers.ts.",
+  "version": 1,
+  "markers": {
+    "chevron-blue": {
+      "src": "chevron-blue.svg",
+      "mode": "icon",
+      "note": "Single chevron. Line-endpoint cap, consumed with icon-rotate."
+    },
+    "chevron-red": {
+      "src": "chevron-blue.svg",
+      "mode": "icon",
+      "recolor": { "#00f": "#f00" },
+      "note": "Geometry shared with chevron-blue. Sprites are not SDF, so icon-color cannot recolour at runtime — colour variants must be baked."
+    },
+    "double-chevron-blue": {
+      "src": "double-chevron-blue.svg",
+      "mode": "icon",
+      "note": "Double chevron. Reads as a heavier weight than chevron-blue."
+    }
+  }
+}

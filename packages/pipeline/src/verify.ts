@@ -2,9 +2,10 @@
 // Semantic invariant checks over all generated outputs.
 // Run after icons:gen-core + icons:gen-react + icons:sprites.
 
-import { readFileSync, existsSync } from "node:fs";
-import { join, dirname } from "node:path";
+import { readFileSync, readdirSync, existsSync } from "node:fs";
+import { join, dirname, basename } from "node:path";
 import { fileURLToPath } from "node:url";
+import { loadMarkers, markerSvg } from "./markers.ts";
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), "../../../");
 const SVG_INDEX = join(ROOT, "packages/svg/index.json");
@@ -112,12 +113,16 @@ if (spriteKeySets.length === 3) {
 
 // ── Pattern invariants ────────────────────────────────────────────────────────
 const SVG_DIR = join(ROOT, "packages/svg/svg");
-const symbolsWithPattern = allSymbols.filter((s) => s.patterns?.a);
+
+// Collect symbols that have at least one pattern variant (a or b).
+// Bug fix: the old filter `s.patterns?.a` missed symbols with only a "b" variant.
+const symbolsWithAnyPattern = allSymbols.filter((s) => s.patterns?.a || s.patterns?.b);
 const symbolsWithPatternB = allSymbols.filter((s) => s.patterns?.b);
 
-// Every pattern SVG path must exist on disk
+// Every pattern SVG path must exist on disk.
+// Bug fix: iterate symbolsWithAnyPattern, not symbolsWithPattern, so b-only variants are covered.
 let patternPathsOk = true;
-for (const sym of symbolsWithPattern) {
+for (const sym of symbolsWithAnyPattern) {
   for (const variant of (["a", "b"] as const)) {
     const pv = sym.patterns?.[variant];
     if (!pv) continue;
@@ -131,23 +136,31 @@ for (const sym of symbolsWithPattern) {
     }
   }
 }
-if (patternPathsOk && symbolsWithPattern.length > 0) {
-  pass(`pattern svg paths exist (${symbolsWithPattern.length} symbols with patterns)`);
+if (patternPathsOk && symbolsWithAnyPattern.length > 0) {
+  pass(`pattern svg paths exist (${symbolsWithAnyPattern.length} symbols with patterns)`);
 }
 
-// Only 1113 should have a "b" variant
-const bIds = symbolsWithPatternB.map((s) => s.id);
-if (bIds.length > 0 && !(bIds.length === 1 && bIds[0] === "1113")) {
-  fail(`expected only "1113" to have pattern variant b, got: ${bIds.join(", ")}`);
-} else if (bIds.length > 0) {
-  pass(`only "1113" has pattern variant b`);
+// Bug fix: replace the hardcoded "1113-only" b-variant whitelist with a structural check.
+// Any symbol may gain a b variant in future; the check should enforce structural consistency,
+// not catalogue facts. We simply assert that b-variant symbols also have an a variant
+// (b is always an alternate to a, never the sole variant).
+let bVariantOk = true;
+for (const sym of symbolsWithPatternB) {
+  if (!sym.patterns?.a) {
+    fail(`symbol "${sym.id}" has pattern variant b but no variant a — b is always paired with a`);
+    bVariantOk = false;
+  }
+}
+if (bVariantOk && symbolsWithPatternB.length > 0) {
+  pass(`pattern b-variants all have a paired a-variant (${symbolsWithPatternB.length} symbols)`);
 }
 
-// Sprite JSON must contain all expected pattern keys
+// Sprite JSON must contain all expected pattern keys.
+// Bug fix: iterate symbolsWithAnyPattern so b-only keys are also asserted.
 if (spriteKeySets.length === 3) {
   const deKeys = spriteKeySets[0]!;
   const expectedPatternKeys: string[] = [];
-  for (const sym of symbolsWithPattern) {
+  for (const sym of symbolsWithAnyPattern) {
     if (sym.patterns?.a) expectedPatternKeys.push(`${sym.id}-pattern`);
     if (sym.patterns?.b) expectedPatternKeys.push(`${sym.id}-pattern-b`);
   }
@@ -161,6 +174,171 @@ if (spriteKeySets.length === 3) {
   if (patternKeysOk && expectedPatternKeys.length > 0) {
     pass(`sprite sheets contain all ${expectedPatternKeys.length} pattern keys`);
   }
+}
+
+// ── Marker invariants ─────────────────────────────────────────────────────────
+{
+  // Check 0 (implicit): loadMarkers() throws on a malformed manifest.
+  const markers = loadMarkers();
+  const markerIds = new Set(markers.map((m) => m.id));
+  const markerKeys = new Set(markers.map((m) => m.key));
+
+  // 1. Every marker's source SVG exists on disk.
+  let svgOk = true;
+  for (const m of markers) {
+    if (!existsSync(m.absPath)) {
+      fail(`marker "${m.id}": source SVG not found: ${m.absPath}`);
+      svgOk = false;
+    }
+  }
+  if (svgOk) pass(`marker source SVGs exist (${markers.length} markers)`);
+
+  // 2. Every declared recolour rule matches ≥1 attribute (also validates assertCanonicalColors).
+  let recolorOk = true;
+  for (const m of markers) {
+    if (m.recolor && Object.keys(m.recolor).length > 0) {
+      try {
+        markerSvg(m);
+      } catch (e) {
+        fail(`marker "${m.id}": ${(e as Error).message}`);
+        recolorOk = false;
+      }
+    }
+  }
+  if (recolorOk) pass("marker recolour rules all hit ≥1 attribute");
+
+  // 3. Every marker key present in all three sprite sheets.
+  if (spriteKeySets.length === 3) {
+    let presentOk = true;
+    for (const key of markerKeys) {
+      for (let i = 0; i < 3; i++) {
+        const lang = ["de", "fr", "it"][i]!;
+        if (!spriteKeySets[i]!.has(key)) {
+          fail(`marker key "${key}" not found in babs-${lang}.json`);
+          presentOk = false;
+        }
+      }
+    }
+    if (presentOk) pass(`all ${markers.length} marker keys present in all three sprite sheets`);
+  }
+
+  // 4. Closed set: no "marker-" prefixed key in the de sheet that isn't declared.
+  if (spriteKeySets.length > 0) {
+    const deKeys = spriteKeySets[0]!;
+    let closedOk = true;
+    for (const key of deKeys) {
+      if (key.startsWith("marker-") && !markerKeys.has(key)) {
+        fail(`sprite key "${key}" has "marker-" prefix but is not declared in markers/markers.json`);
+        closedOk = false;
+      }
+    }
+    if (closedOk) pass("sprite marker-prefix keys form a closed set (no undeclared extras)");
+  }
+
+  // 5. Language-neutral: pixel hashes for each marker key are identical across de/fr/it.
+  const PIXEL_HASH = join(ROOT, "packages/sprites/pixels.sha256.json");
+  if (existsSync(PIXEL_HASH)) {
+    const px = JSON.parse(readFileSync(PIXEL_HASH, "utf8")) as { langs: Record<string, Record<string, string>> };
+    let hashOk = true;
+    for (const m of markers) {
+      const de = px.langs["de"]?.[m.key];
+      const fr = px.langs["fr"]?.[m.key];
+      const it = px.langs["it"]?.[m.key];
+      if (!de) { fail(`marker "${m.key}": missing hash in pixels.sha256.json (de)`); hashOk = false; continue; }
+      if (de !== fr) { fail(`marker "${m.key}": de/fr pixel hashes differ — marker is not language-neutral`); hashOk = false; }
+      if (de !== it) { fail(`marker "${m.key}": de/it pixel hashes differ — marker is not language-neutral`); hashOk = false; }
+    }
+    if (hashOk) pass(`marker pixel hashes are identical across de/fr/it`);
+  }
+
+  // 6. Sheet geometry matches declared mode: width===32 for icon, 36 for pattern.
+  if (spriteKeySets.length > 0) {
+    const deJsonPath = join(SPRITES_DIST, "babs-de.json");
+    if (existsSync(deJsonPath)) {
+      const deSprite = JSON.parse(readFileSync(deJsonPath, "utf8")) as Record<string, { width: number }>;
+      let geomOk = true;
+      for (const m of markers) {
+        const entry = deSprite[m.key];
+        if (!entry) continue; // caught by check 3
+        const expectedW = m.mode === "pattern" ? 36 : 32;
+        if (entry.width !== expectedW) {
+          fail(`marker "${m.key}": mode="${m.mode}" expects width=${expectedW}, sprite has width=${entry.width}`);
+          geomOk = false;
+        }
+      }
+      if (geomOk) pass("marker sprite geometry matches declared mode");
+    }
+  }
+
+  // 7. Disjointness: no marker id overlaps with index.json ids, and no id ends in -pattern/-pattern-b.
+  let disjointOk = true;
+  for (const id of markerIds) {
+    if (allIds.has(id)) {
+      fail(`marker id "${id}" collides with a catalogue icon id in index.json`);
+      disjointOk = false;
+    }
+    if (/-pattern(-b)?$/.test(id)) {
+      fail(`marker id "${id}" ends with "-pattern" or "-pattern-b" — would collide with PATTERN_KEY_RE`);
+      disjointOk = false;
+    }
+  }
+  if (disjointOk) pass("marker ids are disjoint from catalogue ids and have no -pattern suffix");
+
+  // 8. Explicit exclusion from babs-react and babs-assets.
+
+  // 8a. packages/react/src/icons/*.tsx stems must equal index.json ids exactly
+  //     (closes the extra-export hole in general; catches markers as a special case).
+  const iconsDir2 = join(ROOT, "packages/react/src/icons");
+  if (existsSync(iconsDir2)) {
+    const stemSet = new Set(
+      readdirSync(iconsDir2)
+        .filter((f) => f.endsWith(".tsx"))
+        .map((f) => basename(f, ".tsx")),
+    );
+    const idSet = new Set(allIds);
+    let setEqOk = true;
+    for (const stem of stemSet) {
+      if (!idSet.has(stem)) {
+        fail(`packages/react/src/icons/${stem}.tsx exists but "${stem}" is not in index.json — stale or leaked file`);
+        setEqOk = false;
+      }
+    }
+    for (const id of idSet) {
+      if (!stemSet.has(id)) {
+        fail(`index.json id "${id}" has no corresponding packages/react/src/icons/${id}.tsx`);
+        setEqOk = false;
+      }
+    }
+    if (setEqOk) pass("packages/react/src/icons/ stems === index.json ids (exact set equality)");
+  }
+
+  // 8b. Scoped tripwire: none of named.ts/icons.ts/all.ts contains any concrete marker-<id> string.
+  const REACT_BARRELS = ["named.ts", "icons.ts", "all.ts"].map((f) => join(ROOT, "packages/react/src", f));
+  let barrelOk = true;
+  for (const m of markers) {
+    const concreteKey = m.key; // e.g. "marker-chevron-blue"
+    for (const barrelPath of REACT_BARRELS) {
+      if (!existsSync(barrelPath)) continue;
+      const src = readFileSync(barrelPath, "utf8");
+      if (src.includes(`"${concreteKey}"`) || src.includes(`'${concreteKey}'`)) {
+        fail(`marker key "${concreteKey}" found in ${basename(barrelPath)} — markers must not reach babs-react`);
+        barrelOk = false;
+      }
+    }
+  }
+  if (barrelOk) pass("no marker sprite keys found in react barrel files");
+
+  // 8c. No "marker-" key in packages/svg/index.json.
+  const SVG_INDEX2 = join(ROOT, "packages/svg/index.json");
+  const rawIndex = readFileSync(SVG_INDEX2, "utf8");
+  let indexCleanOk = true;
+  for (const m of markers) {
+    if (rawIndex.includes(`"${m.key}"`) || rawIndex.includes(`"${m.id}"`)) {
+      fail(`marker id/key "${m.id}" found in packages/svg/index.json — markers must not enter the catalogue`);
+      indexCleanOk = false;
+    }
+  }
+  if (indexCleanOk) pass("no marker ids/keys in packages/svg/index.json");
 }
 
 // ── Naming invariants ─────────────────────────────────────────────────────────
@@ -253,7 +431,6 @@ const iconsDir = join(ROOT, "packages/react/src/icons");
 if (!existsSync(iconsDir)) {
   fail("packages/react/src/icons/ is missing — run icons:gen-react");
 } else {
-  const { readdirSync } = await import("node:fs");
   const iconFiles = readdirSync(iconsDir).filter((f) => f.endsWith(".tsx"));
   if (iconFiles.length === 0) {
     fail("packages/react/src/icons/ is empty");

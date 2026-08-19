@@ -10,7 +10,7 @@ export const babs1105a: BabsIconDefinition = {
   displaySize: 32,
   graphics: {
     "de": { kind: "vector", body: (ns: (localId: string) => string) => (
-      <><g transform="translate(5 11.48) scale(1.2)"><defs><path id={ns("a")} d="M.2 64 74.8 64 74.8.2.2.2z"/></defs><clipPath id={ns("b")}><use href={`#${ns("a")}`} overflow="visible"/></clipPath><g clipPath={`url(#${ns("b")})`} display="inline"><path fill="#ff0000" fillRule="evenodd" d="m.2 64 26-10.7-19-23.5 24 14.3L18.9 4.8l18.4 27.4 4.5-32 6.7 35.4L64.4 3l-9.3 40.8 19.6-16.7L58.6 54l12.2 10Zm39.1-9.7-12.1-7.1 7.2 8.9-9.3 3.3h32.7l-5.4-4.2 3.9-6.4-8 6.9 4.1-18-5.7 11.9L42.5 28l-2.3 16.8-8.4-11.2Z" clipRule="evenodd"/></g></g></>
+      <><g transform="translate(5 11.4631)scale(1.00671) translate(-.24 -.24) scale(1.2)"><defs><path id={ns("a")} d="M74.8.2.2.2.2 64 74.8 64z"/></defs><clipPath id={ns("b")}><use href={`#${ns("a")}`} overflow="visible"/></clipPath><g clipPath={`url(#${ns("b")})`} display="inline"><path fill="#ff0000" fillRule="evenodd" d="m.2 64 26-10.7-19-23.5 24 14.3L18.9 4.8l18.4 27.4 4.5-32 6.7 35.4L64.4 3l-9.3 40.8 19.6-16.7L58.6 54l12.2 10Zm39.1-9.7-12.1-7.1 7.2 8.9-9.3 3.3h32.7l-5.4-4.2 3.9-6.4-8 6.9 4.1-18-5.7 11.9L42.5 28l-2.3 16.8-8.4-11.2Z" clipRule="evenodd"/></g></g></>
     ) }
   },
 };
