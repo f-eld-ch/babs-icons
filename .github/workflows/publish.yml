@@ -32,15 +32,12 @@ jobs:
         run: echo "version=${GITHUB_REF_NAME#v}" >> "$GITHUB_OUTPUT"
 
       - name: Install dependencies
-        run: yarn install --frozen-lockfile
+        run: yarn install --immutable
 
       - name: Set version in all publishable packages
         env:
           VERSION: ${{ steps.version.outputs.version }}
-        run: |
-          for pkg in packages/core packages/react packages/sprites packages/assets packages/svg; do
-            npm pkg set version="$VERSION" --prefix "$pkg"
-          done
+        run: yarn version "$VERSION" --all
 
       - name: Build
         run: yarn build
@@ -48,7 +45,4 @@ jobs:
       - name: Publish to GitHub Packages
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          for pkg in packages/core packages/react packages/sprites packages/assets packages/svg; do
-            (cd "$pkg" && npm publish)
-          done
+        run: yarn workspaces foreach -A --no-private exec npm publish

@@ -21,7 +21,7 @@ jobs:
 
       - run: corepack enable
 
-      - run: yarn install --frozen-lockfile
+      - run: yarn install --immutable
 
       - name: Rebuild icons
         run: yarn icons:rebuild
