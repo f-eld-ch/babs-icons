@@ -28,10 +28,16 @@ jobs:
 
       - name: Check for uncommitted changes
         run: |
-          # Exclude sprite PNGs — libvips produces different bytes across platforms/versions.
-          # Correctness is verified via pixels.sha256.json (pixel hashes) instead.
-          git diff --exit-code -- ':(exclude)*.png' || {
-            echo "Generated files are out of date. Run 'yarn icons:rebuild' locally and commit the result."
-            git diff --name-only -- ':(exclude)*.png'
-            exit 1
-          }
+          # Sprite PNGs and pixel hashes are excluded: resvg/libvips produce different
+          # bytes across platforms, so these cannot be compared in CI. The sprite JSON
+          # manifests and layout.lock.json are deterministic and are checked below.
+          git diff --exit-code \
+            -- ':(exclude)packages/sprites/dist/*.png' \
+               ':(exclude)packages/sprites/pixels.sha256.json' \
+            || {
+              echo "Generated files are out of date. Run 'yarn icons:rebuild' locally and commit the result."
+              git diff --name-only \
+                -- ':(exclude)packages/sprites/dist/*.png' \
+                   ':(exclude)packages/sprites/pixels.sha256.json'
+              exit 1
+            }
