@@ -16,13 +16,20 @@
     "vite": ">=5"
   },
   "peerDependenciesMeta": {
-    "vite": { "optional": true }
+    "vite": {
+      "optional": true
+    }
   },
   "exports": {
-    ".":        "./dist/index.js",
-    "./vite":   "./dist/vite.js",
+    ".": "./dist/index.js",
+    "./vite": "./dist/vite.js",
     "./dist/*": "./dist/*",
     "./package.json": "./package.json"
   },
-  "files": ["dist/"]
+  "files": [
+    "dist/"
+  ],
+  "devDependencies": {
+    "vite": "^8.2.1"
+  }
 }

@@ -19,20 +19,22 @@
   },
   "devDependencies": {
     "@f-eld-ch/babs-core": "workspace:*",
-    "react": "^19.0.0",
-    "@types/react": "^19.0.0"
+    "@types/react": "^19.0.0",
+    "react": "^19.0.0"
   },
   "exports": {
-    ".":        "./dist/index.js",
-    "./icons":  "./dist/icons.js",
-    "./all":    "./dist/all.js",
-    "./de":     "./dist/de/index.js",
-    "./fr":     "./dist/fr/index.js",
-    "./it":     "./dist/it/index.js",
+    ".": "./dist/index.js",
+    "./icons": "./dist/icons.js",
+    "./all": "./dist/all.js",
+    "./de": "./dist/de/index.js",
+    "./fr": "./dist/fr/index.js",
+    "./it": "./dist/it/index.js",
     "./all/de": "./dist/all/de.js",
     "./all/fr": "./dist/all/fr.js",
     "./all/it": "./dist/all/it.js",
     "./package.json": "./package.json"
   },
-  "files": ["dist/"]
+  "files": [
+    "dist/"
+  ]
 }

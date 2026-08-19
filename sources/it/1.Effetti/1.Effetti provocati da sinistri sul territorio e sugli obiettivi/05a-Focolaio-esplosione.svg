@@ -1,4 +1,57 @@
-<svg version="1.1" id="Ebene_1" viewBox="0 0 100 100" xml:space="preserve" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg"><g transform="translate(5.0000,11.4800) scale(1.000000)"><g transform="scale(1.2)" id="g6"><style type="text/css" id="style1">.st0{fill-rule:evenodd;clip-rule:evenodd;fill:#FFFFFF;fill-opacity:0;}
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   version="1.1"
+   id="Ebene_1"
+   viewBox="0 0 100 100"
+   xml:space="preserve"
+   sodipodi:docname="05a-Explosionsherd.svg"
+   inkscape:version="1.4.4 (dcaf3e7d9e, 2026-05-05)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"><defs
+     id="defs7" /><sodipodi:namedview
+     id="namedview7"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:zoom="11.18"
+     inkscape:cx="50"
+     inkscape:cy="50"
+     inkscape:window-width="2304"
+     inkscape:window-height="1371"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="g4" /><g
+     transform="translate(5.0000,11.4800) scale(1.000000)"
+     id="g7"><g
+       transform="scale(1.2)"
+       id="g6"><style
+         type="text/css"
+         id="style1">.st0{fill-rule:evenodd;clip-rule:evenodd;fill:#FFFFFF;fill-opacity:0;}
 	.st1{clip-path:url(#SVGID_00000119110507655605368990000018165147800709645999_);}
 	.st2{fill-rule:evenodd;clip-rule:evenodd;fill:#FF1415;}
-	.st3{fill:#FFFFFF;}</style><g id="g1"><polygon class="st0" points="0,0 75,0 75,64.2 0,64.2" id="polygon1"/></g><g id="g5"><defs id="defs1"><polygon id="SVGID_1_" points="0.2,64 74.8,64 74.8,0.2 0.2,0.2"/></defs><clipPath id="SVGID_00000001637179845609748860000017780713889717227948_"><use xlink:href="#SVGID_1_" style="overflow:visible" id="use1"/></clipPath><g clip-path="url(#SVGID_00000001637179845609748860000017780713889717227948_)" id="g4"><g id="g2"><path class="st2" d="M 0.2,64 26.2,53.3 7.2,29.8 31.2,44.1 18.9,4.8 37.3,32.2 41.8,0.2 48.5,35.6 64.4,3 55.1,43.8 74.7,27.1 58.6,54 70.8,64 Z m 39.1,-9.7 -12.1,-7.1 7.2,8.9 -9.3,3.3 h 32.7 l -5.4,-4.2 3.9,-6.4 -8,6.9 4.1,-18 L 46.7,49.6 42.5,28 40.2,44.8 31.8,33.6 Z" id="path1"/></g><g id="g3"><path class="st3" d="m 0.2,64.1 v 0 0 L 26.2,53.4 7.1,29.7 31.1,44 18.8,4.6 37.3,32.1 41.8,0.1 V 0.3 L 48.5,35.7 64.5,3 V 3.2 L 55.3,43.9 74.9,27 74.8,27.1 58.6,54 70.8,64 Z M 0.4,64 H 70.7 L 58.5,54 v 0 L 74.6,27.2 55.1,43.9 V 43.8 L 64.3,3.3 48.4,35.7 V 35.6 L 41.8,0.4 37.4,32.3 V 32.2 L 19,4.9 31.2,44.2 H 31.1 L 7.3,29.9 26.2,53.3 v 0 z M 57.8,59.3 H 24.9 25 L 34.2,56 27,47 l 0.1,0.1 12.1,7.1 -7.6,-20.8 0.1,0.1 8.4,11.2 2.3,-16.9 v 0.1 l 4.1,21.5 5.7,-12 v 0.2 l -4.1,18 8.1,-7 -0.1,0.1 -3.9,6.4 z m -32.6,0 h 32.4 l -5.4,-4.1 v 0 L 56,48.9 48,55.8 V 55.7 L 52,37.9 46.4,49.6 V 49.5 L 42.3,28.1 40,44.8 v 0 l -8.3,-11.1 7.5,20.7 -0.1,-0.1 -12,-7.1 7.1,8.8 v 0 z" id="path2"/></g></g></g></g></g></svg>
+	.st3{fill:#FFFFFF;}</style><g
+         id="g5"><defs
+           id="defs1"><polygon
+             id="SVGID_1_"
+             points="0.2,64 74.8,64 74.8,0.2 0.2,0.2" /></defs><clipPath
+           id="SVGID_00000001637179845609748860000017780713889717227948_"><use
+             xlink:href="#SVGID_1_"
+             style="overflow:visible"
+             id="use1" /></clipPath><g
+           clip-path="url(#SVGID_00000001637179845609748860000017780713889717227948_)"
+           id="g4"
+           style="display:inline"><g
+             id="g2"
+             style="fill:#ff0000"><path
+               class="st2"
+               d="M 0.2,64 26.2,53.3 7.2,29.8 31.2,44.1 18.9,4.8 37.3,32.2 41.8,0.2 48.5,35.6 64.4,3 55.1,43.8 74.7,27.1 58.6,54 70.8,64 Z m 39.1,-9.7 -12.1,-7.1 7.2,8.9 -9.3,3.3 h 32.7 l -5.4,-4.2 3.9,-6.4 -8,6.9 4.1,-18 L 46.7,49.6 42.5,28 40.2,44.8 31.8,33.6 Z"
+               id="path1"
+               style="fill:#ff0000" /></g></g></g></g></g></svg>

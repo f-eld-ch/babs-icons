@@ -16,5 +16,8 @@
     "./index.json": "./index.json",
     "./svg/*": "./svg/*"
   },
-  "files": ["index.json", "svg/"]
+  "files": [
+    "index.json",
+    "svg/"
+  ]
 }

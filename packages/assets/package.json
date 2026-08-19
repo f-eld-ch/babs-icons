@@ -16,5 +16,8 @@
     ".": "./dist/index.js",
     "./package.json": "./package.json"
   },
-  "files": ["dist/", "svg/"]
+  "files": [
+    "dist/",
+    "svg/"
+  ]
 }

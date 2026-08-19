@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   viewBox="0 0 100 100"
+   version="1.1"
+   id="svg1"
+   sodipodi:docname="10-Brandzone Flächenbrand.svg"
+   inkscape:version="1.4.4 (dcaf3e7d9e, 2026-05-05)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs5" />
+  <sodipodi:namedview
+     id="namedview5"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:zoom="11.18"
+     inkscape:cx="50"
+     inkscape:cy="50"
+     inkscape:window-width="2304"
+     inkscape:window-height="1371"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg1" />
+  <g
+     transform="translate(5.0000,25.8200) scale(1.000005)"
+     id="g5"
+     style="fill:#ff0000">
+    <g
+       transform="scale(0.062805)"
+       id="g1"
+       style="fill:#ff0000">
+      <g
+         transform="translate(0.000000,770.000000) scale(0.100000,-0.100000)"
+         fill="#000000"
+         stroke="none"
+         id="g4"
+         style="fill:#ff0000">
+        <path
+           d="M3580 3995 c-1933 -2033 -3528 -3711 -3544 -3730 l-29 -35 113 -107 c62 -60 116 -109 120 -111 5 -2 5890 6178 7020 7371 l82 87 -112 108 c-62 59 -118 108 -124 109 -6 2 -1593 -1660 -3526 -3692z"
+           id="path1"
+           style="fill:#ff0000" />
+        <path
+           d="M5876 3963 l-3547 -3728 118 -112 c65 -62 121 -112 124 -110 13 4 7089 7448 7089 7457 0 10 -220 220 -231 220 -4 0 -1603 -1677 -3553 -3727z"
+           id="path2"
+           style="fill:#ff0000" />
+        <path
+           d="M8240 4004 c-1928 -2026 -3522 -3704 -3544 -3729 l-38 -44 112 -108 c62 -59 116 -109 120 -111 5 -2 5831 6115 7030 7381 l73 78 -114 109 c-63 60 -118 109 -124 109 -5 0 -1587 -1658 -3515 -3685z"
+           id="path3"
+           style="fill:#ff0000" />
+        <path
+           d="M10526 3963 l-3546 -3728 117 -112 c65 -62 121 -112 125 -110 13 4 7088 7447 7088 7456 0 11 -219 221 -230 221 -4 0 -1603 -1677 -3554 -3727z"
+           id="path4"
+           style="fill:#ff0000" />
+      </g>
+    </g>
+  </g>
+</svg>

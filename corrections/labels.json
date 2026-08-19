@@ -1,10 +1,11 @@
 {
-  "6103a": { "de": "Beabsichtigte Erkundung",  "note": "source label leaked a 'D-' prefix" },
-  "6103b": { "de": "Beabsichtigter Einsatz",   "note": "source label leaked a 'D-' prefix" },
-  "6104a": { "de": "Durchgeführte Erkundung",  "note": "source label leaked a 'D-' prefix" },
-  "6104b": { "de": "Durchgeführter Einsatz",   "note": "source label leaked a 'D-' prefix" },
-  "8110":  { "de": "Wasserstand gestiegen",     "note": "source filename had no spaces" },
-  "8202":  { "de": "Explosion",                 "note": "source label was 'Explosion-pikt'" },
-  "8206":  { "de": "Bach ausgetrocknet",        "note": "source typo: 'ausgetroknet'" },
-  "8318":  { "de": "Entführung",                "note": "source typo: 'Entfürung'" }
+  "6102a": { "de": "Beabsichtigter Einsatz",    "note": "source label had hyphens: 'Beabsichtigter-Einsatz'" },
+  "6102b": { "de": "Durchgeführter Einsatz",    "note": "source label had hyphens and no umlaut: 'Durchgefuehrter-Einsatz'" },
+  "6103a": { "de": "Beabsichtigte Erkundung",   "note": "source label had hyphens: 'Beabsichtigte-Erkundung'" },
+  "6103b": { "de": "Durchgeführte Erkundung",   "note": "source label had hyphens and no umlaut: 'Durchgefuehrte-Erkundung'" },
+  "6107":  { "de": "Überwachen",                "note": "source label missing umlaut: 'Ueberwachen'" },
+  "8110":  { "de": "Wasserstand gestiegen",      "note": "source filename had no spaces" },
+  "8202":  { "de": "Explosion",                  "note": "source label was 'Explosion-pikt'" },
+  "8206":  { "de": "Bach ausgetrocknet",         "note": "source typo: 'ausgetroknet'" },
+  "8318":  { "de": "Entführung",                 "note": "source typo: 'Entfürung'" }
 }

@@ -3,7 +3,17 @@
     "allow": [
       "Bash(python3 -)",
       "Bash(ls -la /home/daa/Downloads/babs-2026/sitrep && ls -la /home/daa/Downloads/babs-2026/docs/ | head -5)",
-      "Read(//home/daa/develop/sitrep/ui/src/assets/babs/**)"
+      "Read(//home/daa/develop/sitrep/ui/src/assets/babs/**)",
+      "Bash(node_modules/.bin/tsc -p packages/react/tsconfig.json --noEmit)",
+      "Bash(node packages/pipeline/src/gen-react.ts)",
+      "Bash(echo \"exit: $?\")",
+      "Bash(yarn workspace *)",
+      "Bash(node_modules/.bin/tsc -p packages/sprites/tsconfig.json --noEmit)",
+      "Bash(echo \"exit=$?\")",
+      "Bash(node_modules/.bin/tsc -p packages/core/tsconfig.json --noEmit)",
+      "Bash(node_modules/.bin/tsc -p packages/assets/tsconfig.json --noEmit)",
+      "Bash(yarn icons:rebuild)",
+      "Bash(potrace --help)"
     ]
   }
 }
