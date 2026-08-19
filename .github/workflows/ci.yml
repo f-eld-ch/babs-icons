@@ -28,8 +28,10 @@ jobs:
 
       - name: Check for uncommitted changes
         run: |
-          git diff --exit-code || {
+          # Exclude sprite PNGs — libvips produces different bytes across platforms/versions.
+          # Correctness is verified via pixels.sha256.json (pixel hashes) instead.
+          git diff --exit-code -- ':(exclude)*.png' || {
             echo "Generated files are out of date. Run 'yarn icons:rebuild' locally and commit the result."
-            git diff --name-only
+            git diff --name-only -- ':(exclude)*.png'
             exit 1
           }

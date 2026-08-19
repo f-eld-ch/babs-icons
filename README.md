@@ -66,6 +66,15 @@ export default {
 | `@f-eld-ch/babs-assets` | Optimised SVG files for `<img>` / CSS | — | — |
 | `@f-eld-ch/babs-svg` | Raw SVGs + index.json for tooling | — | — |
 
+## Development setup
+
+Requires Node.js ≥ 16.9 (includes Corepack) and Yarn 4 via Corepack:
+
+```sh
+corepack enable
+yarn install
+```
+
 ## Repo layout
 
 ```

@@ -192,7 +192,7 @@ async function genSheet(lang: Lang): Promise<{ spriteJson: Record<string, unknow
 }
 
 function sortKeys<T>(obj: Record<string, T>): Record<string, T> {
-  return Object.fromEntries(Object.entries(obj).sort(([a], [b]) => a.localeCompare(b))) as Record<string, T>;
+  return Object.fromEntries(Object.entries(obj).sort(([a], [b]) => (a < b ? -1 : a > b ? 1 : 0))) as Record<string, T>;
 }
 
 // ── Main ──────────────────────────────────────────────────────────────────────
