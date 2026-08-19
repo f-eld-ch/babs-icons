@@ -1,0 +1,38 @@
+{
+  "name": "@f-eld-ch/babs-react",
+  "version": "0.0.0",
+  "type": "module",
+  "description": "BABS icon library — React components",
+  "sideEffects": false,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/f-eld-ch/babs-icons.git",
+    "directory": "packages/react"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com",
+    "access": "public"
+  },
+  "peerDependencies": {
+    "@f-eld-ch/babs-core": "workspace:*",
+    "react": ">=18"
+  },
+  "devDependencies": {
+    "@f-eld-ch/babs-core": "workspace:*",
+    "react": "^19.0.0",
+    "@types/react": "^19.0.0"
+  },
+  "exports": {
+    ".":        "./dist/index.js",
+    "./icons":  "./dist/icons.js",
+    "./all":    "./dist/all.js",
+    "./de":     "./dist/de/index.js",
+    "./fr":     "./dist/fr/index.js",
+    "./it":     "./dist/it/index.js",
+    "./all/de": "./dist/all/de.js",
+    "./all/fr": "./dist/all/fr.js",
+    "./all/it": "./dist/all/it.js",
+    "./package.json": "./package.json"
+  },
+  "files": ["dist/"]
+}

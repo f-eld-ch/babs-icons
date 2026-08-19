@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python3 -)",
+      "Bash(ls -la /home/daa/Downloads/babs-2026/sitrep && ls -la /home/daa/Downloads/babs-2026/docs/ | head -5)",
+      "Read(//home/daa/develop/sitrep/ui/src/assets/babs/**)"
+    ]
+  }
+}

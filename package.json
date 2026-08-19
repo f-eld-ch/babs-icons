@@ -1,0 +1,16 @@
+{
+  "name": "babs-icons",
+  "private": true,
+  "type": "module",
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "icons:rebuild": "babs-icons flatten && babs-icons sprites && babs-icons gen-core && babs-icons gen-react && babs-icons verify",
+    "icons:ingest":  "babs-icons normalize --inplace && yarn icons:rebuild",
+    "icons:check":   "babs-icons flatten && babs-icons sprites --check && babs-icons gen-core --check && babs-icons gen-react --check && babs-icons verify",
+    "build":         "yarn workspaces foreach -pt run build",
+    "typecheck":     "yarn workspaces foreach -pt exec tsc --noEmit"
+  },
+  "packageManager": "yarn@4.9.1"
+}

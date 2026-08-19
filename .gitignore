@@ -1,0 +1,8 @@
+node_modules/
+normalized/
+*.tsbuildinfo
+packages/*/dist/
+!packages/sprites/dist/
+packages/*/src/generated/
+!packages/svg/
+.changeset/

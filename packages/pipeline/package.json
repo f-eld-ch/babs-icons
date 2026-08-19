@@ -1,0 +1,12 @@
+{
+  "name": "@f-eld-ch/babs-pipeline",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "bin": {
+    "babs-icons": "./bin/babs-icons.ts"
+  },
+  "dependencies": {
+    "svgo": "^4.0.2"
+  }
+}

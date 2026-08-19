@@ -1,0 +1,4 @@
+{
+  "_comment": "sourceRelPath → id. Append-only. Flatten fails if a path would receive a different id.",
+  "entries": {}
+}

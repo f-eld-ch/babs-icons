@@ -1,0 +1,11 @@
+<svg id="Ebene_1" data-name="Ebene 1" viewBox="0 0 100 100" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg"><defs id="defs1"><style id="style1">.cls-1 {
+        fill: #fff;
+      }
+
+      .cls-1, .cls-2 {
+        stroke-width: 0px;
+      }
+
+      .cls-2 {
+        fill: blue;
+      }</style></defs><g transform="translate(5.0000,19.6484) scale(1.000001)"><g transform="scale(0.753516)" id="g1"><rect class="cls-1" x="2.78" y="2.78" width="113.89" height="75" id="rect1"/><g id="g3"><g id="g2"><path class="cls-2" d="M 40.94,53.44 V 27.87 H 58.46 V 32.2 H 46.1 v 6.05 h 10.67 v 4.32 H 46.1 v 10.87 z" id="path1"/><path class="cls-2" d="m 60.81,53.44 v -3.82 l 6.94,-7.97 c 1.14,-1.3 1.98,-2.23 2.53,-2.77 -0.57,0.04 -1.32,0.06 -2.25,0.07 l -6.54,0.04 V 34.93 H 76.8 v 3.47 l -7.08,8.16 -2.49,2.7 c 1.36,-0.08 2.2,-0.12 2.53,-0.12 h 7.58 v 4.31 H 60.81 Z" id="path2"/></g><path class="cls-2" d="M 119.44,80.56 H 0 V 0 H 119.44 Z M 5.55,75.01 H 113.88 V 5.56 H 5.56 V 75 Z" id="path3"/></g></g></g></svg>

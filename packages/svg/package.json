@@ -1,0 +1,20 @@
+{
+  "name": "@f-eld-ch/babs-svg",
+  "version": "0.0.0",
+  "type": "module",
+  "description": "BABS civil-protection symbol set — flat SVGs and index",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/f-eld-ch/babs-icons.git",
+    "directory": "packages/svg"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com",
+    "access": "public"
+  },
+  "exports": {
+    "./index.json": "./index.json",
+    "./svg/*": "./svg/*"
+  },
+  "files": ["index.json", "svg/"]
+}

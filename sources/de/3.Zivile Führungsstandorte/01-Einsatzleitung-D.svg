@@ -1,0 +1,11 @@
+<svg id="Ebene_1" data-name="Ebene 1" viewBox="0 0 100 100" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg"><defs id="defs1"><style id="style1">.cls-1 {
+        fill: #fff;
+      }
+
+      .cls-1, .cls-2 {
+        stroke-width: 0px;
+      }
+
+      .cls-2 {
+        fill: blue;
+      }</style></defs><g transform="translate(22.1773,5.0000) scale(1.000000)"><g transform="scale(0.697261)" id="g1"><ellipse class="cls-1" cx="45.475651" cy="33.150002" rx="31.48" ry="30.33" id="ellipse1"/><rect class="cls-2" x="11.175648" y="33.349998" width="5.6300001" height="80.349998" id="rect1"/><path class="cls-2" d="m 45.475648,66.29 c -18.93,0 -34.33,-14.87 -34.33,-33.15 v 0 c 0,-18.27 15.4,-33.14 34.33,-33.14 18.93,0 34.33,14.87 34.33,33.15 0,18.28 -15.4,33.15 -34.33,33.15 z m 0,-60.66 c -15.83,0 -28.7,12.34 -28.7,27.52 0,15.18 12.88,27.52 28.7,27.52 15.82,0 28.7,-12.34 28.7,-27.52 0,-15.18 -12.87,-27.52 -28.7,-27.52 z" id="path1"/><g id="g3" transform="translate(0.00564766)"><path class="cls-2" d="M 32.33,41.81 V 23.18 h 13.84 v 3.15 H 36.1 v 4.13 h 9.37 V 33.6 H 36.1 v 5.07 h 10.43 v 3.14 z" id="path2"/><path class="cls-2" d="M 49.82,41.81 V 23.33 h 3.77 v 15.34 h 9.37 v 3.14 z" id="path3"/></g><g id="g4" transform="translate(0.00564766)"><line class="cls-1" x1="1.99" y1="103.01" x2="25.98" y2="127.06" id="line3"/><rect class="cls-2" x="11.17" y="98.050003" width="5.6300001" height="33.970001" transform="rotate(-44.92,13.989626,115.04249)" id="rect3"/></g><g id="g5" transform="translate(0.00564766)"><line class="cls-1" x1="25.98" y1="102.99" x2="2" y2="127.08" id="line4"/><rect class="cls-2" x="-3.01" y="112.22" width="33.990002" height="5.6300001" transform="rotate(-45.13,13.99709,115.04312)" id="rect4"/></g></g></g></svg>

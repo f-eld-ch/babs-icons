@@ -1,0 +1,15 @@
+<svg id="Ebene_1" data-name="Ebene 1" viewBox="0 0 100 100" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg"><defs id="defs1"><style id="style1">.cls-1 {
+        fill: #fff;
+      }
+
+      .cls-1, .cls-2, .cls-3 {
+        stroke-width: 0px;
+      }
+
+      .cls-2 {
+        fill-rule: evenodd;
+      }
+
+      .cls-2, .cls-3 {
+        fill: blue;
+      }</style></defs><g transform="translate(22.1614,5.0000) scale(1.000001)"><g transform="scale(0.716104)" id="g1"><circle class="cls-1" cx="43.419998" cy="32.82" r="30.07" id="circle1"/><g id="g5"><path class="cls-2" d="m 0,113.65 c 0,-6.64 5.58,-12.03 12.45,-12.03 v 0 c 6.88,0 12.45,5.39 12.45,12.03 v 0 c 0,6.64 -5.58,12.03 -12.45,12.03 v 0 C 5.57,125.68 0,120.29 0,113.65 Z" id="path1"/><path class="cls-3" d="M 43.84,65.64 C 25.14,65.64 9.93,50.92 9.93,32.82 v 0 C 9.92,14.72 25.14,0 43.84,0 c 18.7,0 33.91,14.72 33.91,32.82 0,18.1 -15.21,32.82 -33.91,32.82 z m 0,-60.14 c -15.67,0 -28.42,12.26 -28.42,27.32 0,15.06 12.75,27.32 28.42,27.32 15.67,0 28.42,-12.26 28.42,-27.32 C 72.26,17.76 59.5,5.5 43.84,5.5 Z" id="path2"/><g id="g4"><path class="cls-3" d="M 30.48,41.35 V 23.16 h 13.45 v 3.08 h -9.79 v 4.03 h 9.1 v 3.07 h -9.1 v 4.95 h 10.13 v 3.06 z" id="path3"/><path class="cls-3" d="m 45.83,41.35 v -3.31 l 9.53,-11.8 h -8.45 v -3.08 h 13.27 v 2.85 l -9.93,12.27 h 10.32 v 3.06 H 45.84 Z" id="path4"/></g><rect class="cls-3" x="9.9200001" y="32.630001" width="5.5" height="75.110001" id="rect4"/></g></g></g></svg>

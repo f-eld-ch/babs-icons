@@ -1,0 +1,2889 @@
+{
+  "languages": [
+    "de",
+    "fr",
+    "it"
+  ],
+  "categories": [
+    {
+      "number": "1",
+      "name": {
+        "de": "Auswirkungen",
+        "fr": "Effets",
+        "it": "Effetti"
+      },
+      "subcategories": [
+        {
+          "number": "11",
+          "name": {
+            "de": "Auswirkungen von Schadenereignissen auf Gebiete",
+            "fr": "Effets d'événements dommageables sur le terrain et les objectifs",
+            "it": "Effetti provocati da sinistri sul territorio e sugli obiettivi"
+          },
+          "symbols": [
+            {
+              "id": "1101",
+              "label": {
+                "de": "Beschaedigung",
+                "fr": "Degat",
+                "it": "Danneggiamento"
+              },
+              "identical": true,
+              "files": {
+                "de": "de/1101-Beschaedigung.svg",
+                "fr": "fr/1101-Beschaedigung.svg",
+                "it": "it/1101-Beschaedigung.svg"
+              }
+            },
+            {
+              "id": "1102",
+              "label": {
+                "de": "Teilzerstoerung",
+                "fr": "Destruction-partielle",
+                "it": "Distruzione-parziale"
+              },
+              "identical": true,
+              "files": {
+                "de": "de/1102-Teilzerstoerung.svg",
+                "fr": "fr/1102-Teilzerstoerung.svg",
+                "it": "it/1102-Teilzerstoerung.svg"
+              }
+            },
+            {
+              "id": "1103",
+              "label": {
+                "de": "Totalzerstoerung",
+                "fr": "Destruction-totale",
+                "it": "Distruzione-totale"
+              },
+              "identical": true,
+              "files": {
+                "de": "de/1103-Totalzerstoerung.svg",
+                "fr": "fr/1103-Totalzerstoerung.svg",
+                "it": "it/1103-Totalzerstoerung.svg"
+              }
+            },
+            {
+              "id": "1104",
+              "label": {
+                "de": "Brand-einzelnes-Gebaeude-Flamme",
+                "fr": "Incendie-isole",
+                "it": "Incendio-di-un-singolo-edificio"
+              },
+              "identical": true,
+              "files": {
+                "de": "de/1104-Brand-einzelnes-Gebaeude-Flamme.svg",
+                "fr": "fr/1104-Brand-einzelnes-Gebaeude-Flamme.svg",
+                "it": "it/1104-Brand-einzelnes-Gebaeude-Flamme.svg"
+              }
+            },
+            {
+              "id": "1105a",
+              "label": {
+                "de": "Explosionsherd",
+                "fr": "Foyer-d-explosion",
+                "it": "Focolaio-esplosione"
+              },
+              "identical": true,
+              "files": {
+                "de": "de/1105a-Explosionsherd.svg",
+                "fr": "fr/1105a-Explosionsherd.svg",
+                "it": "it/1105a-Explosionsherd.svg"
+              }
+            },
+            {
+              "id": "1105b",
+              "label": {
+                "de": "Explosionherd-Beispiel",
+                "fr": "Foyer-d-explosion-exemple",
+                "it": "Focolaio-esplosione-esempio"
+              },
+              "identical": true,
+              "files": {
+                "de": "de/1105b-Explosionherd-Beispiel.svg",
+                "fr": "fr/1105b-Explosionherd-Beispiel.svg",
+                "it": "it/1105b-Explosionherd-Beispiel.svg"
+              }
+            },
+            {
+              "id": "1106a",
+              "label": {
+                "de": "Brand einzelnes Gebäude - Signatur",
+                "fr": "Incendie d'un bâtiment isolé",
+                "it": "Incendio di un singolo edificio"
+              },
+              "identical": true,
+              "files": {
+                "de": "de/1106a-BrandeinzelnesGebaeude-Signatur.svg",
+                "fr": "fr/1106a-BrandeinzelnesGebaeude-Signatur.svg",
+                "it": "it/1106a-BrandeinzelnesGebaeude-Signatur.svg"
+              }
+            },
+            {
+              "id": "1106b",
+              "label": {
+                "de": "Brand einzelnes Gebäude - Beispiel",
+                "fr": "Incendie d'un bâtiment isolé-exemple",
+                "it": "Incendio di un singolo edificio-esempio"
+              },
+              "identical": true,
+              "files": {
+                "de": "de/1106b-BrandeinzelnesGebaeude-Beispiel.svg",
+                "fr": "fr/1106b-BrandeinzelnesGebaeude-Beispiel.svg",
+                "it": "it/1106b-BrandeinzelnesGebaeude-Beispiel.svg"
+              }
+            },
+            {
+              "id": "1107a",
+              "label": {
+                "de": "Brand mehrerer Gebäude - Signatur",
+                "fr": "Incendie de plusieurs bâtiments",
+                "it": "Incendio di diversi edifici vicini"
+              },
+              "identical": true,
+              "files": {
+                "de": "de/1107a-BrandmehrererGebaeude-Signatur.svg",
+                "fr": "fr/1107a-BrandmehrererGebaeude-Signatur.svg",
+                "it": "it/1107a-BrandmehrererGebaeude-Signatur.svg"
+              }
+            },
+            {
+              "id": "1107b",
+              "label": {
+                "de": "Brand mehrerer Gebäude - Beispiel",
+                "fr": "Incendie de plusieurs bâtiments-exemple",
+                "it": "Incendio di diversi edifici vicini-esempio"
+              },
+              "identical": true,
+              "files": {
+                "de": "de/1107b-BrandmehrererGebaeude-Beispiel.svg",
+                "fr": "fr/1107b-BrandmehrererGebaeude-Beispiel.svg",
+                "it": "it/1107b-BrandmehrererGebaeude-Beispiel.svg"
+              }
+            },
+            {
+              "id": "1108",
+              "label": {
+                "de": "Brandübergriffsgefahr - Beispiel",
+                "fr": "Danger d'extension du feu-exemple",
+                "it": "Direzione della propagazione dell'incendio-esempio"
+              },
+              "identical": true,
+              "files": {
+                "de": "de/1108-Branduebergriffsgefahr-Beispiel.svg",
+                "fr": "fr/1108-Branduebergriffsgefahr-Beispiel.svg",
+                "it": "it/1108-Branduebergriffsgefahr-Beispiel.svg"
+              }
+            },
+            {
+              "id": "1109",
+              "label": {
+                "de": "Brandübergriff erfolgt - Beispiel",
+                "fr": "Extension du feu-exemple",
+                "it": "Propagazione avvenuta-esempio"
+              },
+              "identical": true,
+              "files": {
+                "de": "de/1109-Branduebergrifferfolgt-Beispiel.svg",
+                "fr": "fr/1109-Branduebergrifferfolgt-Beispiel.svg",
+                "it": "it/1109-Branduebergrifferfolgt-Beispiel.svg"
+              }
+            },
+            {
+              "id": "1110",
+              "label": {
+                "de": "Brandzone Flächenbrand",
+                "fr": "Zone en feu",
+                "it": "Zona toccata dall’incendio"
+              },
+              "identical": true,
+              "files": {
+                "de": "de/1110-BrandzoneFlaechenbrand.svg",
+                "fr": "fr/1110-BrandzoneFlaechenbrand.svg",
+                "it": "it/1110-BrandzoneFlaechenbrand.svg"
+              }
+            },
+            {
+              "id": "1111a",
+              "label": {
+                "de": "Brandübergriffsgefahr - Signatur",
+                "fr": "Danger d'extension du feu",
+                "it": "Pericolo di propagazione dell'incendio"
+              },
+              "identical": true,
+              "files": {
+                "de": "de/1111a-Branduebergriffsgefahr-Signatur.svg",
+                "fr": "fr/1111a-Branduebergriffsgefahr-Signatur.svg",
+                "it": "it/1111a-Branduebergriffsgefahr-Signatur.svg"
+              }
+            },
+            {
+              "id": "1111b",
+              "label": {
+                "de": "Brandübergriff erfolgt - Signatur",
+                "fr": "Extension du feu",
+                "it": "Propagazione avvenuta"
+              },
+              "identical": true,
+              "files": {
+                "de": "de/1111b-Branduebergrifferfolgt-Signatur.svg",
+                "fr": "fr/1111b-Branduebergrifferfolgt-Signatur.svg",
+                "it": "it/1111b-Branduebergrifferfolgt-Signatur.svg"
+              }
+            },
+            {
+              "id": "1112",
+              "label": {
+                "de": "Zerstörte Zone einer Ortschaft",
+                "fr": "Zone sinistrée impraticable",
+                "it": "Zona sinistrata impraticabile"
+              },
+              "identical": true,
+              "files": {
+                "de": "de/1112-ZerstoerteZoneeinerOrtschaft.svg",
+                "fr": "fr/1112-ZerstoerteZoneeinerOrtschaft.svg",
+                "it": "it/1112-ZerstoerteZoneeinerOrtschaft.svg"
+              }
+            },
+            {
+              "id": "1113",
+              "label": {
+                "de": "Rutschgebiet",
+                "fr": "Glissement de terrain avec direction",
+                "it": "Zona colpita da frana con indicazione della direzione"
+              },
+              "identical": true,
+              "files": {
+                "de": "de/1113-Rutschgebiet.svg",
+                "fr": "fr/1113-Rutschgebiet.svg",
+                "it": "it/1113-Rutschgebiet.svg"
+              }
+            },
+            {
+              "id": "1114",
+              "label": {
+                "de": "Schadengebiet - Schadenraum",
+                "fr": "Zone de dégâts",
+                "it": "Zona sinistrata"
+              },
+              "identical": true,
+              "files": {
+                "de": "de/1114-Schadengebiet-Schadenraum.svg",
+                "fr": "fr/1114-Schadengebiet-Schadenraum.svg",
+                "it": "it/1114-Schadengebiet-Schadenraum.svg"
+              }
+            },
+            {
+              "id": "1115",
+              "label": {
+                "de": "Überschwemmtes Gebiet",
+                "fr": "Zone inondée avec direction du flux",
+                "it": "Zona inondata con indicazione della direzione"
+              },
+              "identical": true,
+              "files": {
+                "de": "de/1115-UeberschwemmtesGebiet.svg",
+                "fr": "fr/1115-UeberschwemmtesGebiet.svg",
+                "it": "it/1115-UeberschwemmtesGebiet.svg"
+              }
+            },
+            {
+              "id": "1116a",
+              "label": {
+                "de": "Trümmerbereich - Signatur",
+                "fr": "Zone de décombre",
+                "it": "Zona macerie"
+              },
+              "identical": true,
+              "files": {
+                "de": "de/1116a-Truemmerbereich-Signatur.svg",
+                "fr": "fr/1116a-Truemmerbereich-Signatur.svg",
+                "it": "it/1116a-Truemmerbereich-Signatur.svg"
+              }
+            },
+            {
+              "id": "1116b",
+              "label": {
+                "de": "Trümmerbereich - Beispiel",
+                "fr": "Zone de décombre-exemple",
+                "it": "Zona macerie-esempio"
+              },
+              "identical": true,
+              "files": {
+                "de": "de/1116b-Truemmerbereich-Beispiel.svg",
+                "fr": "fr/1116b-Truemmerbereich-Beispiel.svg",
+                "it": "it/1116b-Truemmerbereich-Beispiel.svg"
+              }
+            }
+          ]
+        },
+        {
+          "number": "12",
+          "name": {
+            "de": "Auswirkungen von Schadenereignissen auf Verkehrswege",
+            "fr": "Effets d'événements dommageables sur les voies de communication",
+            "it": "Effetti provocati da sinistri sulle vie di comunicazione"
+          },
+          "symbols": [
+            {
+              "id": "1201",
+              "label": {
+                "de": "Str erschwert befahrbar - begehbar",
+                "fr": "Route difficilement praticable",
+                "it": "Strada percorribile"
+              },
+              "identical": true,
+              "files": {
+                "de": "de/1201-Strerschwertbefahrbar-begehbar.svg",
+                "fr": "fr/1201-Strerschwertbefahrbar-begehbar.svg",
+                "it": "it/1201-Strerschwertbefahrbar-begehbar.svg"
+              }
+            },
+            {
+              "id": "1202",
+              "label": {
+                "de": "Str nicht befahrbar - schwer begehbar",
+                "fr": "Route impraticable pour les vhc",
+                "it": "Strada non percorribile per i veicoli"
+              },
+              "identical": true,
+              "files": {
+                "de": "de/1202-Strnichtbefahrbar-schwerbegehbar.svg",
+                "fr": "fr/1202-Strnichtbefahrbar-schwerbegehbar.svg",
+                "it": "it/1202-Strnichtbefahrbar-schwerbegehbar.svg"
+              }
+            },
+            {
+              "id": "1203",
+              "label": {
+                "de": "Str unpassierbar - gesperrt",
+                "fr": "Route impraticable-barrée",
+                "it": "Strada impraticabile-sbarrata"
+              },
+              "identical": true,
+              "files": {
+                "de": "de/1203-Strunpassierbar-gesperrt.svg",
+                "fr": "fr/1203-Strunpassierbar-gesperrt.svg",
+                "it": "it/1203-Strunpassierbar-gesperrt.svg"
+              }
+            }
+          ]
+        },
+        {
+          "number": "13",
+          "name": {
+            "de": "Auswirkungen von Schadenereignissen auf Personen",
+            "fr": "Effets d'événements dommageables sur les personnes",
+            "it": "Effetti provocati da sinistri sulle persone"
+          },
+          "symbols": [
+            {
+              "id": "1301",
+              "label": {
+                "de": "Verletzte",
+                "fr": "F-Blesses",
+                "it": "Feriti"
+              },
+              "identical": true,
+              "files": {
+                "de": "de/1301-Verletzte.svg",
+                "fr": "fr/1301-Verletzte.svg",
+                "it": "it/1301-Verletzte.svg"
+              }
+            },
+            {
+              "id": "1302",
+              "label": {
+                "de": "Vermisste",
+                "fr": "F-Disparus",
+                "it": "Dispersi"
+              },
+              "identical": true,
+              "files": {
+                "de": "de/1302-Vermisste.svg",
+                "fr": "fr/1302-Vermisste.svg",
+                "it": "it/1302-Vermisste.svg"
+              }
+            },
+            {
+              "id": "1303",
+              "label": {
+                "de": "Obdachlose",
+                "fr": "F-Sans-abri",
+                "it": "Senzatetto"
+              },
+              "identical": true,
+              "files": {
+                "de": "de/1303-Obdachlose.svg",
+                "fr": "fr/1303-Obdachlose.svg",
+                "it": "it/1303-Obdachlose.svg"
+              }
+            },
+            {
+              "id": "1304",
+              "label": {
+                "de": "Eingesperrte",
+                "fr": "F-Enfermes",
+                "it": "Persone-imprigionate"
+              },
+              "identical": true,
+              "files": {
+                "de": "de/1304-Eingesperrte.svg",
+                "fr": "fr/1304-Eingesperrte.svg",
+                "it": "it/1304-Eingesperrte.svg"
+              }
+            },
+            {
+              "id": "1305",
+              "label": {
+                "de": "Tote",
+                "fr": "F-Morts",
+                "it": "Morti"
+              },
+              "identical": true,
+              "files": {
+                "de": "de/1305-Tote.svg",
+                "fr": "fr/1305-Tote.svg",
+                "it": "it/1305-Tote.svg"
+              }
+            }
+          ]
+        },
+        {
+          "number": "14",
+          "name": {
+            "de": "Auswirkungen von Schadenereignissen auf Gebiete Gelb",
+            "fr": "Effets d'événements dommageables sur le terrain",
+            "it": "Effetti provocati da sinistri sul territorio"
+          },
+          "symbols": [
+            {
+              "id": "1401",
+              "label": {
+                "de": "Biologisch verseuchtes Gebiet",
+                "fr": "Zone biologiquement contaminée",
+                "it": "Zona infettata"
+              },
+              "identical": true,
+              "files": {
+                "de": "de/1401-BiologischverseuchtesGebiet.svg",
+                "fr": "fr/1401-BiologischverseuchtesGebiet.svg",
+                "it": "it/1401-BiologischverseuchtesGebiet.svg"
+              }
+            },
+            {
+              "id": "1402",
+              "label": {
+                "de": "Chemievergiftete Zone flüssig - sesshaft",
+                "fr": "Zone chimiquement contaminée sous forme liquide",
+                "it": "Zona intossicata liquido-persistente"
+              },
+              "identical": true,
+              "files": {
+                "de": "de/1402-ChemievergifteteZonefluessig-sesshaft.svg",
+                "fr": "fr/1402-ChemievergifteteZonefluessig-sesshaft.svg",
+                "it": "it/1402-ChemievergifteteZonefluessig-sesshaft.svg"
+              }
+            },
+            {
+              "id": "1403",
+              "label": {
+                "de": "Chemievergiftetes Gebiet gasförmig - flüchtig",
+                "fr": "Zone chimiquement contaminée sous forme gazeuse",
+                "it": "Zona intossicata gas-volatile"
+              },
+              "identical": true,
+              "files": {
+                "de": "de/1403-ChemievergiftetesGebietgasfoermig-fluechtig.svg",
+                "fr": "fr/1403-ChemievergiftetesGebietgasfoermig-fluechtig.svg",
+                "it": "it/1403-ChemievergiftetesGebietgasfoermig-fluechtig.svg"
+              }
+            },
+            {
+              "id": "1404",
+              "label": {
+                "de": "Radioaktives Gebiet",
+                "fr": "Zone radioactive",
+                "it": "Zona contaminata radioattività"
+              },
+              "identical": true,
+              "files": {
+                "de": "de/1404-RadioaktivesGebiet.svg",
+                "fr": "fr/1404-RadioaktivesGebiet.svg",
+                "it": "it/1404-RadioaktivesGebiet.svg"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "number": "2",
+      "name": {
+        "de": "Gefahren",
+        "fr": "Dangers",
+        "it": "Pericoli"
+      },
+      "symbols": [
+        {
+          "id": "2101",
+          "label": {
+            "de": "Chemikalien Gefahr",
+            "fr": "Danger chimique",
+            "it": "Pericolo sostanze chimiche"
+          },
+          "identical": true,
+          "files": {
+            "de": "de/2101-ChemikalienGefahr.svg",
+            "fr": "fr/2101-ChemikalienGefahr.svg",
+            "it": "it/2101-ChemikalienGefahr.svg"
+          }
+        },
+        {
+          "id": "2102",
+          "label": {
+            "de": "Elektrizität Gefahr",
+            "fr": "Danger électrique",
+            "it": "Pericolo ellettricità"
+          },
+          "identical": true,
+          "files": {
+            "de": "de/2102-ElektrizitaetGefahr.svg",
+            "fr": "fr/2102-ElektrizitaetGefahr.svg",
+            "it": "it/2102-ElektrizitaetGefahr.svg"
+          }
+        },
+        {
+          "id": "2103",
+          "label": {
+            "de": "Explosion Gefahr",
+            "fr": "Danger d'explosion",
+            "it": "Pericolo esplosione"
+          },
+          "identical": true,
+          "files": {
+            "de": "de/2103-ExplosionGefahr.svg",
+            "fr": "fr/2103-ExplosionGefahr.svg",
+            "it": "it/2103-ExplosionGefahr.svg"
+          }
+        },
+        {
+          "id": "2104",
+          "label": {
+            "de": "Gas Gefahr",
+            "fr": "Danger de gaz",
+            "it": "Pericolo gas"
+          },
+          "identical": true,
+          "files": {
+            "de": "de/2104-GasGefahr.svg",
+            "fr": "fr/2104-GasGefahr.svg",
+            "it": "it/2104-GasGefahr.svg"
+          }
+        },
+        {
+          "id": "2105",
+          "label": {
+            "de": "Unfall Gefahr",
+            "fr": "Danger d'accident",
+            "it": "Pericolo Incidente"
+          },
+          "identical": false,
+          "files": {
+            "de": "de/2105-UnfallGefahr.svg",
+            "fr": "fr/2105-UnfallGefahr.svg",
+            "it": "it/2105-UnfallGefahr.svg"
+          }
+        },
+        {
+          "id": "2106",
+          "label": {
+            "de": "Gefahr durch Löschen mit Wasser",
+            "fr": "Danger-si-extinction-avec-eau",
+            "it": "Pericolo in caso di spegnimento con acqua"
+          },
+          "identical": true,
+          "files": {
+            "de": "de/2106-GefahrdurchLoeschenmitWasser.svg",
+            "fr": "fr/2106-GefahrdurchLoeschenmitWasser.svg",
+            "it": "it/2106-GefahrdurchLoeschenmitWasser.svg"
+          }
+        },
+        {
+          "id": "2107",
+          "label": {
+            "de": "Radioaktive Stoffe Gefahr",
+            "fr": "Danger substances-radioactives",
+            "it": "Pericolo sostanze radioattive"
+          },
+          "identical": true,
+          "files": {
+            "de": "de/2107-RadioaktiveStoffeGefahr.svg",
+            "fr": "fr/2107-RadioaktiveStoffeGefahr.svg",
+            "it": "it/2107-RadioaktiveStoffeGefahr.svg"
+          }
+        },
+        {
+          "id": "2108",
+          "label": {
+            "de": "Gefahr für Grundwasser",
+            "fr": "Danger-pour-les-eaux de surface",
+            "it": "Pericolo per le acque in superficie"
+          },
+          "identical": true,
+          "files": {
+            "de": "de/2108-GefahrfuerGrundwasser.svg",
+            "fr": "fr/2108-GefahrfuerGrundwasser.svg",
+            "it": "it/2108-GefahrfuerGrundwasser.svg"
+          }
+        },
+        {
+          "id": "2109a",
+          "label": {
+            "de": "Gefahrentafel ohne UN-Nummer",
+            "fr": "Plaque de danger sans numéro ONU",
+            "it": "Pannello di pericolo senza numero ONU"
+          },
+          "identical": true,
+          "files": {
+            "de": "de/2109a-GefahrentafelohneUN-Nummer.svg",
+            "fr": "fr/2109a-GefahrentafelohneUN-Nummer.svg",
+            "it": "it/2109a-GefahrentafelohneUN-Nummer.svg"
+          }
+        },
+        {
+          "id": "2109b",
+          "label": {
+            "de": "Gefahrentafel mit UN-Nummer",
+            "fr": "Plaque de danger avec numéro ONU",
+            "it": "Pannello di pericolo con numero ONU"
+          },
+          "identical": true,
+          "files": {
+            "de": "de/2109b-GefahrentafelmitUN-Nummer.svg",
+            "fr": "fr/2109b-GefahrentafelmitUN-Nummer.svg",
+            "it": "it/2109b-GefahrentafelmitUN-Nummer.svg"
+          }
+        }
+      ]
+    },
+    {
+      "number": "3",
+      "name": {
+        "de": "Zivile Führungsstandorte",
+        "fr": "Emplacements de conduite civils",
+        "it": "Ubicazioni di condotta civili"
+      },
+      "symbols": [
+        {
+          "id": "3101",
+          "label": {
+            "de": "Einsatzleitung",
+            "fr": "Direction d'intervention",
+            "it": "Direzione d'intervento"
+          },
+          "identical": false,
+          "files": {
+            "de": "de/3101-Einsatzleitung.svg",
+            "fr": "fr/3101-Einsatzleitung.svg",
+            "it": "it/3101-Einsatzleitung.svg"
+          }
+        },
+        {
+          "id": "3102",
+          "label": {
+            "de": "Mobile Einsatzzentrale",
+            "fr": "Centrale d'engagement mobile",
+            "it": "Centrale d'intervento mobile"
+          },
+          "identical": false,
+          "files": {
+            "de": "de/3102-MobileEinsatzzentrale.svg",
+            "fr": "fr/3102-MobileEinsatzzentrale.svg",
+            "it": "it/3102-MobileEinsatzzentrale.svg"
+          }
+        },
+        {
+          "id": "3103",
+          "label": {
+            "de": "Kommandoposten Front",
+            "fr": "PC engagement",
+            "it": "Posto di comando fronte"
+          },
+          "identical": false,
+          "files": {
+            "de": "de/3103-KommandopostenFront.svg",
+            "fr": "fr/3103-KommandopostenFront.svg",
+            "it": "it/3103-KommandopostenFront.svg"
+          }
+        },
+        {
+          "id": "3104",
+          "label": {
+            "de": "Kommandoposten Rückwärtiges",
+            "fr": "PC opérations",
+            "it": "Posto di comando retrovie"
+          },
+          "identical": false,
+          "files": {
+            "de": "de/3104-KommandopostenRueckwaertiges.svg",
+            "fr": "fr/3104-KommandopostenRueckwaertiges.svg",
+            "it": "it/3104-KommandopostenRueckwaertiges.svg"
+          }
+        },
+        {
+          "id": "3105",
+          "label": {
+            "de": "Einsatzzentrale",
+            "fr": "Centrale d'engagement",
+            "it": "Centrale d'intervento"
+          },
+          "identical": false,
+          "files": {
+            "de": "de/3105-Einsatzzentrale.svg",
+            "fr": "fr/3105-Einsatzzentrale.svg",
+            "it": "it/3105-Einsatzzentrale.svg"
+          }
+        },
+        {
+          "id": "3106",
+          "label": {
+            "de": "Ziviles Führungsorgan",
+            "fr": "Organe de conduite civile",
+            "it": "Organo di condotta civile"
+          },
+          "identical": false,
+          "files": {
+            "de": "de/3106-ZivilesFuehrungsorgan.svg",
+            "fr": "fr/3106-ZivilesFuehrungsorgan.svg",
+            "it": "it/3106-ZivilesFuehrungsorgan.svg"
+          }
+        },
+        {
+          "id": "3107",
+          "label": {
+            "de": "Gemeindeführungsorgan",
+            "fr": "Organe de conduite communal",
+            "it": "Organo di condotta comunale"
+          },
+          "identical": false,
+          "files": {
+            "de": "de/3107-Gemeindefuehrungsorgan.svg",
+            "fr": "fr/3107-Gemeindefuehrungsorgan.svg",
+            "it": "it/3107-Gemeindefuehrungsorgan.svg"
+          }
+        },
+        {
+          "id": "3108",
+          "label": {
+            "de": "Regionales Führungsorgan",
+            "fr": "Organe de conduite régional",
+            "it": "Organo di condotta regionale"
+          },
+          "identical": false,
+          "files": {
+            "de": "de/3108-RegionalesFuehrungsorgan.svg",
+            "fr": "fr/3108-RegionalesFuehrungsorgan.svg",
+            "it": "it/3108-RegionalesFuehrungsorgan.svg"
+          }
+        },
+        {
+          "id": "3109",
+          "label": {
+            "de": "Bezirksführungsorgan",
+            "fr": "Organe de conduite de district",
+            "it": "Organo di condotta distrettuale"
+          },
+          "identical": false,
+          "files": {
+            "de": "de/3109-Bezirksfuehrungsorgan.svg",
+            "fr": "fr/3109-Bezirksfuehrungsorgan.svg",
+            "it": "it/3109-Bezirksfuehrungsorgan.svg"
+          }
+        },
+        {
+          "id": "3110",
+          "label": {
+            "de": "Kantonales Führungsorgan",
+            "fr": "Organe de conduite cantonal",
+            "it": "Organo di condotta cantonale"
+          },
+          "identical": false,
+          "files": {
+            "de": "de/3110-KantonalesFuehrungsorgan.svg",
+            "fr": "fr/3110-KantonalesFuehrungsorgan.svg",
+            "it": "it/3110-KantonalesFuehrungsorgan.svg"
+          }
+        }
+      ]
+    },
+    {
+      "number": "5",
+      "name": {
+        "de": "Einrichtungen im Einsatzraum",
+        "fr": "Installations temporaires",
+        "it": "Installazioni nel settore d'intervento - nella zona sinistrata"
+      },
+      "symbols": [
+        {
+          "id": "5101",
+          "label": {
+            "de": "Verkehrsposten",
+            "fr": "Poste de circulation",
+            "it": "Posto di circolazione"
+          },
+          "identical": true,
+          "files": {
+            "de": "de/5101-Verkehrsposten.svg",
+            "fr": "fr/5101-Verkehrsposten.svg",
+            "it": "it/5101-Verkehrsposten.svg"
+          }
+        },
+        {
+          "id": "5102",
+          "label": {
+            "de": "Standort mobile Führungsstelle",
+            "fr": "Poste de conduite mobile",
+            "it": "Ubicazione posto di condotta mobile"
+          },
+          "identical": true,
+          "files": {
+            "de": "de/5102-StandortmobileFuehrungsstelle.svg",
+            "fr": "fr/5102-StandortmobileFuehrungsstelle.svg",
+            "it": "it/5102-StandortmobileFuehrungsstelle.svg"
+          }
+        },
+        {
+          "id": "5103",
+          "label": {
+            "de": "Sammelstelle",
+            "fr": "Poste-collecteur",
+            "it": "Posto-collettore"
+          },
+          "identical": true,
+          "files": {
+            "de": "de/5103-Sammelstelle.svg",
+            "fr": "fr/5103-Sammelstelle.svg",
+            "it": "it/5103-Sammelstelle.svg"
+          }
+        },
+        {
+          "id": "5104",
+          "label": {
+            "de": "Betreuungsstelle",
+            "fr": "Poste-d-assistance",
+            "it": "Posto-d-assistenza"
+          },
+          "identical": true,
+          "files": {
+            "de": "de/5104-Betreuungsstelle.svg",
+            "fr": "fr/5104-Betreuungsstelle.svg",
+            "it": "it/5104-Betreuungsstelle.svg"
+          }
+        },
+        {
+          "id": "5105",
+          "label": {
+            "de": "Patientensammelstelle",
+            "fr": "Poste-collecteur-de-patients",
+            "it": "Posto-collettore-dei-pazienti"
+          },
+          "identical": true,
+          "files": {
+            "de": "de/5105-Patientensammelstelle.svg",
+            "fr": "fr/5105-Patientensammelstelle.svg",
+            "it": "it/5105-Patientensammelstelle.svg"
+          }
+        },
+        {
+          "id": "5106",
+          "label": {
+            "de": "Sanitaetshilfsstelle",
+            "fr": "Poste-medical-avance",
+            "it": "Posto-di-soccorso-sanitario"
+          },
+          "identical": true,
+          "files": {
+            "de": "de/5106-Sanitaetshilfsstelle.svg",
+            "fr": "fr/5106-Sanitaetshilfsstelle.svg",
+            "it": "it/5106-Sanitaetshilfsstelle.svg"
+          }
+        },
+        {
+          "id": "5107",
+          "label": {
+            "de": "Fahrzeugplatz",
+            "fr": "Place pour véhicules",
+            "it": "Posteggio veicoli"
+          },
+          "identical": false,
+          "files": {
+            "de": "de/5107-Fahrzeugplatz.svg",
+            "fr": "fr/5107-Fahrzeugplatz.svg",
+            "it": "it/5107-Fahrzeugplatz.svg"
+          }
+        },
+        {
+          "id": "5108",
+          "label": {
+            "de": "B Laboratorium",
+            "fr": "Laboratoire B",
+            "it": "Laboratorio B"
+          },
+          "identical": true,
+          "files": {
+            "de": "de/5108-BLaboratorium.svg",
+            "fr": "fr/5108-BLaboratorium.svg",
+            "it": "it/5108-BLaboratorium.svg"
+          }
+        },
+        {
+          "id": "5109",
+          "label": {
+            "de": "ABC Dekontaminationsstelle",
+            "fr": "Poste de décontamination ABC",
+            "it": "Posto di decontaminazione NBC"
+          },
+          "identical": true,
+          "files": {
+            "de": "de/5109-ABCDekontaminationsstelle.svg",
+            "fr": "fr/5109-ABCDekontaminationsstelle.svg",
+            "it": "it/5109-ABCDekontaminationsstelle.svg"
+          }
+        },
+        {
+          "id": "5110",
+          "label": {
+            "de": "Haftstrasse",
+            "fr": "Poste ou zone de rétention",
+            "it": "Posto (zone) di ritenzione"
+          },
+          "identical": true,
+          "files": {
+            "de": "de/5110-Haftstrasse.svg",
+            "fr": "fr/5110-Haftstrasse.svg",
+            "it": "it/5110-Haftstrasse.svg"
+          }
+        },
+        {
+          "id": "5111",
+          "label": {
+            "de": "Totensammelstelle",
+            "fr": "Poste-collecteur-de-morts",
+            "it": "Posto-colletore-dei-morti"
+          },
+          "identical": true,
+          "files": {
+            "de": "de/5111-Totensammelstelle.svg",
+            "fr": "fr/5111-Totensammelstelle.svg",
+            "it": "it/5111-Totensammelstelle.svg"
+          }
+        },
+        {
+          "id": "5112",
+          "label": {
+            "de": "Verpflegungsabgabestelle",
+            "fr": "Poste-de-distribution",
+            "it": "Posto-distribuzione-sussistenza"
+          },
+          "identical": true,
+          "files": {
+            "de": "de/5112-Verpflegungsabgabestelle.svg",
+            "fr": "fr/5112-Verpflegungsabgabestelle.svg",
+            "it": "it/5112-Verpflegungsabgabestelle.svg"
+          }
+        },
+        {
+          "id": "5113",
+          "label": {
+            "de": "Betriebsstoffabgabestelle",
+            "fr": "Station-de-carburant",
+            "it": "Posto-distribuzione-carburante"
+          },
+          "identical": true,
+          "files": {
+            "de": "de/5113-Betriebsstoffabgabestelle.svg",
+            "fr": "fr/5113-Betriebsstoffabgabestelle.svg",
+            "it": "it/5113-Betriebsstoffabgabestelle.svg"
+          }
+        },
+        {
+          "id": "5114",
+          "label": {
+            "de": "Informationsstelle",
+            "fr": "poste d'information",
+            "it": "Posto d’informazione"
+          },
+          "identical": false,
+          "files": {
+            "de": "de/5114-Informationsstelle.svg",
+            "fr": "fr/5114-Informationsstelle.svg",
+            "it": "it/5114-Informationsstelle.svg"
+          }
+        },
+        {
+          "id": "5115",
+          "label": {
+            "de": "Informationszentrum",
+            "fr": "centre de presse",
+            "it": "Centro informazioni"
+          },
+          "identical": false,
+          "files": {
+            "de": "de/5115-Informationszentrum.svg",
+            "fr": "fr/5115-Informationszentrum.svg",
+            "it": "it/5115-Informationszentrum.svg"
+          }
+        },
+        {
+          "id": "5116",
+          "label": {
+            "de": "Debriefingstelle",
+            "fr": "Poste de débriefing",
+            "it": "Posto di débriefing"
+          },
+          "identical": true,
+          "files": {
+            "de": "de/5116-Debriefingstelle.svg",
+            "fr": "fr/5116-Debriefingstelle.svg",
+            "it": "it/5116-Debriefingstelle.svg"
+          }
+        },
+        {
+          "id": "5117",
+          "label": {
+            "de": "Angehörigensammelstelle",
+            "fr": "Poste collecteur pour les proches",
+            "it": "Posto colletore dei famigliari"
+          },
+          "identical": true,
+          "files": {
+            "de": "de/5117-Angehoerigensammelstelle.svg",
+            "fr": "fr/5117-Angehoerigensammelstelle.svg",
+            "it": "it/5117-Angehoerigensammelstelle.svg"
+          }
+        },
+        {
+          "id": "5118",
+          "label": {
+            "de": "Kadaversammelstelle",
+            "fr": "Poste collecteur de cadavres d'animaux",
+            "it": "Posto collettore dei cadaveri di animali"
+          },
+          "identical": true,
+          "files": {
+            "de": "de/5118-Kadaversammelstelle.svg",
+            "fr": "fr/5118-Kadaversammelstelle.svg",
+            "it": "it/5118-Kadaversammelstelle.svg"
+          }
+        },
+        {
+          "id": "5119",
+          "label": {
+            "de": "Streugutsammelstelle",
+            "fr": "Poste collecteur des objets trouvés",
+            "it": "Posto colletore degli aggretti trovati"
+          },
+          "identical": true,
+          "files": {
+            "de": "de/5119-Streugutsammelstelle.svg",
+            "fr": "fr/5119-Streugutsammelstelle.svg",
+            "it": "it/5119-Streugutsammelstelle.svg"
+          }
+        },
+        {
+          "id": "5120",
+          "label": {
+            "de": "Trinkwasserabgabestelle",
+            "fr": "Poste de distribution d'eau potable",
+            "it": "Posto di distribuzione acqua potabile"
+          },
+          "identical": true,
+          "files": {
+            "de": "de/5120-Trinkwasserabgabestelle.svg",
+            "fr": "fr/5120-Trinkwasserabgabestelle.svg",
+            "it": "it/5120-Trinkwasserabgabestelle.svg"
+          }
+        },
+        {
+          "id": "5121",
+          "label": {
+            "de": "Kontrollstelle",
+            "fr": "Point de contrôle",
+            "it": "Posto di controllo"
+          },
+          "identical": true,
+          "files": {
+            "de": "de/5121-Kontrollstelle.svg",
+            "fr": "fr/5121-Kontrollstelle.svg",
+            "it": "it/5121-Kontrollstelle.svg"
+          }
+        },
+        {
+          "id": "5122",
+          "label": {
+            "de": "Kontrollzentrum",
+            "fr": "Centre de contrôle",
+            "it": "Centro di controllo"
+          },
+          "identical": true,
+          "files": {
+            "de": "de/5122-Kontrollzentrum.svg",
+            "fr": "fr/5122-Kontrollzentrum.svg",
+            "it": "it/5122-Kontrollzentrum.svg"
+          }
+        },
+        {
+          "id": "5123",
+          "label": {
+            "de": "Umleitung",
+            "fr": "Deviations",
+            "it": "Deviazione"
+          },
+          "identical": true,
+          "files": {
+            "de": "de/5123-Umleitung.svg",
+            "fr": "fr/5123-Umleitung.svg",
+            "it": "it/5123-Umleitung.svg"
+          }
+        },
+        {
+          "id": "5124",
+          "label": {
+            "de": "Pforte",
+            "fr": "Porte d'accès",
+            "it": "Porta"
+          },
+          "identical": true,
+          "files": {
+            "de": "de/5124-Pforte.svg",
+            "fr": "fr/5124-Pforte.svg",
+            "it": "it/5124-Pforte.svg"
+          }
+        },
+        {
+          "id": "5125",
+          "label": {
+            "de": "Absperrung Verkehrswege",
+            "fr": "Fermeture de la route",
+            "it": "Sbarramento delle vie di comunicazione"
+          },
+          "identical": true,
+          "files": {
+            "de": "de/5125-AbsperrungVerkehrswege.svg",
+            "fr": "fr/5125-AbsperrungVerkehrswege.svg",
+            "it": "it/5125-AbsperrungVerkehrswege.svg"
+          }
+        },
+        {
+          "id": "5126",
+          "label": {
+            "de": "Absperrung Einsatzraum",
+            "fr": "Barrage du secteur d'engagement-exemple",
+            "it": "Sbarramento del settore d'intervento-esempio"
+          },
+          "identical": true,
+          "files": {
+            "de": "de/5126-AbsperrungEinsatzraum.svg",
+            "fr": "fr/5126-AbsperrungEinsatzraum.svg",
+            "it": "it/5126-AbsperrungEinsatzraum.svg"
+          }
+        },
+        {
+          "id": "5127",
+          "label": {
+            "de": "Sperre",
+            "fr": "Barrage",
+            "it": "Sbarramento"
+          },
+          "identical": true,
+          "files": {
+            "de": "de/5127-Sperre.svg",
+            "fr": "fr/5127-Sperre.svg",
+            "it": "it/5127-Sperre.svg"
+          }
+        },
+        {
+          "id": "5128",
+          "label": {
+            "de": "Stützpunkt",
+            "fr": "Point de sécurité police",
+            "it": "Caposaldo Polizia"
+          },
+          "identical": true,
+          "files": {
+            "de": "de/5128-Stuetzpunkt.svg",
+            "fr": "fr/5128-Stuetzpunkt.svg",
+            "it": "it/5128-Stuetzpunkt.svg"
+          }
+        },
+        {
+          "id": "5129",
+          "label": {
+            "de": "Helikopterlandeplatz",
+            "fr": "Place d'atterrissage-Helico",
+            "it": "Piazza-d-atterraggio-elicotteri"
+          },
+          "identical": true,
+          "files": {
+            "de": "de/5129-Helikopterlandeplatz.svg",
+            "fr": "fr/5129-Helikopterlandeplatz.svg",
+            "it": "it/5129-Helikopterlandeplatz.svg"
+          }
+        },
+        {
+          "id": "5130",
+          "label": {
+            "de": "Drohnenlandeplatz",
+            "fr": "Place d'atterrissage pour drônes",
+            "it": "Piazza d’atterraggio per drone"
+          },
+          "identical": true,
+          "files": {
+            "de": "de/5130-Drohnenlandeplatz.svg",
+            "fr": "fr/5130-Drohnenlandeplatz.svg",
+            "it": "it/5130-Drohnenlandeplatz.svg"
+          }
+        },
+        {
+          "id": "5131",
+          "label": {
+            "de": "Materialdepot",
+            "fr": "Depot-materiel",
+            "it": "Deposito-del-materiale"
+          },
+          "identical": true,
+          "files": {
+            "de": "de/5131-Materialdepot.svg",
+            "fr": "fr/5131-Materialdepot.svg",
+            "it": "it/5131-Materialdepot.svg"
+          }
+        },
+        {
+          "id": "5132a",
+          "label": {
+            "de": "Beobachtung",
+            "fr": "Observation",
+            "it": "Osservazione"
+          },
+          "identical": true,
+          "files": {
+            "de": "de/5132a-Beobachtung.svg",
+            "fr": "fr/5132a-Beobachtung.svg",
+            "it": "it/5132a-Beobachtung.svg"
+          }
+        },
+        {
+          "id": "5132b",
+          "label": {
+            "de": "Beobachten",
+            "fr": "Observer",
+            "it": "Osservare"
+          },
+          "identical": true,
+          "files": {
+            "de": "de/5132b-Beobachten.svg",
+            "fr": "fr/5132b-Beobachten.svg",
+            "it": "it/5132b-Beobachten.svg"
+          }
+        },
+        {
+          "id": "5133",
+          "label": {
+            "de": "Ueberwachung",
+            "fr": "Surveillance",
+            "it": "Sorveglianza"
+          },
+          "identical": true,
+          "files": {
+            "de": "de/5133-Ueberwachung.svg",
+            "fr": "fr/5133-Ueberwachung.svg",
+            "it": "it/5133-Ueberwachung.svg"
+          }
+        },
+        {
+          "id": "5134",
+          "label": {
+            "de": "KGS Notlager",
+            "fr": "Entrepôt d'urgence PBC",
+            "it": "Magazzino PBC di fortuna"
+          },
+          "identical": true,
+          "files": {
+            "de": "de/5134-KGSNotlager.svg",
+            "fr": "fr/5134-KGSNotlager.svg",
+            "it": "it/5134-KGSNotlager.svg"
+          }
+        },
+        {
+          "id": "5135",
+          "label": {
+            "de": "KGS-Notdepot",
+            "fr": "Depot-d-urgence-PBC",
+            "it": "Deposito PBC di fortuna"
+          },
+          "identical": true,
+          "files": {
+            "de": "de/5135-KGS-Notdepot.svg",
+            "fr": "fr/5135-KGS-Notdepot.svg",
+            "it": "it/5135-KGS-Notdepot.svg"
+          }
+        },
+        {
+          "id": "5136",
+          "label": {
+            "de": "KGS Sammelpunkt",
+            "fr": "Point de collecte PBC",
+            "it": "Posto collettore PBC"
+          },
+          "identical": true,
+          "files": {
+            "de": "de/5136-KGSSammelpunkt.svg",
+            "fr": "fr/5136-KGSSammelpunkt.svg",
+            "it": "it/5136-KGSSammelpunkt.svg"
+          }
+        },
+        {
+          "id": "5137",
+          "label": {
+            "de": "KGS Logo",
+            "fr": "Logo PBC",
+            "it": "Logo PBC"
+          },
+          "identical": true,
+          "files": {
+            "de": "de/5137-KGSLogo.svg",
+            "fr": "fr/5137-KGSLogo.svg",
+            "it": "it/5137-KGSLogo.svg"
+          }
+        }
+      ]
+    },
+    {
+      "number": "6",
+      "name": {
+        "de": "Bewegungen",
+        "fr": "Mouvements",
+        "it": "Spostamenti"
+      },
+      "symbols": [
+        {
+          "id": "6101a",
+          "label": {
+            "de": "Beabsichtigte Verschiebung",
+            "fr": "mouvement prevu",
+            "it": "Spostamento pianificato"
+          },
+          "identical": true,
+          "files": {
+            "de": "de/6101a-BeabsichtigteVerschiebung.svg",
+            "fr": "fr/6101a-BeabsichtigteVerschiebung.svg",
+            "it": "it/6101a-BeabsichtigteVerschiebung.svg"
+          }
+        },
+        {
+          "id": "6101b",
+          "label": {
+            "de": "Durchgeführte Verschiebung",
+            "fr": "mouvement exécuté",
+            "it": "Spostamento eseguito"
+          },
+          "identical": true,
+          "files": {
+            "de": "de/6101b-DurchgefuehrteVerschiebung.svg",
+            "fr": "fr/6101b-DurchgefuehrteVerschiebung.svg",
+            "it": "it/6101b-DurchgefuehrteVerschiebung.svg"
+          }
+        },
+        {
+          "id": "6102a",
+          "label": {
+            "de": "D-Beabsichtigter-Einsatz",
+            "fr": "Engagement-prevu",
+            "it": "Intervento pianificato"
+          },
+          "identical": true,
+          "files": {
+            "de": "de/6102a-D-Beabsichtigter-Einsatz.svg",
+            "fr": "fr/6102a-D-Beabsichtigter-Einsatz.svg",
+            "it": "it/6102a-D-Beabsichtigter-Einsatz.svg"
+          }
+        },
+        {
+          "id": "6102b",
+          "label": {
+            "de": "D-Durchgefuehrter-Einsatz",
+            "fr": "Engagement-execute",
+            "it": "Intervento eseguito"
+          },
+          "identical": true,
+          "files": {
+            "de": "de/6102b-D-Durchgefuehrter-Einsatz.svg",
+            "fr": "fr/6102b-D-Durchgefuehrter-Einsatz.svg",
+            "it": "it/6102b-D-Durchgefuehrter-Einsatz.svg"
+          }
+        },
+        {
+          "id": "6103a",
+          "label": {
+            "de": "D-Beabsichtigte-Erkundung",
+            "fr": "Reconnaissance-prevue",
+            "it": "Ricognizione pianificata"
+          },
+          "identical": false,
+          "files": {
+            "de": "de/6103a-D-Beabsichtigte-Erkundung.svg",
+            "fr": "fr/6103a-D-Beabsichtigte-Erkundung.svg",
+            "it": "it/6103a-D-Beabsichtigte-Erkundung.svg"
+          }
+        },
+        {
+          "id": "6103b",
+          "label": {
+            "de": "D-Durchgefuehrte-Erkundung",
+            "fr": "Reconnaissance-executee",
+            "it": "Ricognizione eseguita"
+          },
+          "identical": false,
+          "files": {
+            "de": "de/6103b-D-Durchgefuehrte-Erkundung.svg",
+            "fr": "fr/6103b-D-Durchgefuehrte-Erkundung.svg",
+            "it": "it/6103b-D-Durchgefuehrte-Erkundung.svg"
+          }
+        },
+        {
+          "id": "6104",
+          "label": {
+            "de": "Durchsuchen",
+            "fr": "Fouiller",
+            "it": "Perquisire"
+          },
+          "identical": true,
+          "files": {
+            "de": "de/6104-Durchsuchen.svg",
+            "fr": "fr/6104-Durchsuchen.svg",
+            "it": "it/6104-Durchsuchen.svg"
+          }
+        },
+        {
+          "id": "6105",
+          "label": {
+            "de": "Motorisierte Verschiebung",
+            "fr": "Déplacement motorisé",
+            "it": "Spostamento motorizzato"
+          },
+          "identical": true,
+          "files": {
+            "de": "de/6105-MotorisierteVerschiebung.svg",
+            "fr": "fr/6105-MotorisierteVerschiebung.svg",
+            "it": "it/6105-MotorisierteVerschiebung.svg"
+          }
+        },
+        {
+          "id": "6106",
+          "label": {
+            "de": "Rettungsachse",
+            "fr": "Axe de sauvetage",
+            "it": "Asse di salvataggio"
+          },
+          "identical": false,
+          "files": {
+            "de": "de/6106-Rettungsachse.svg",
+            "fr": "fr/6106-Rettungsachse.svg",
+            "it": "it/6106-Rettungsachse.svg"
+          }
+        },
+        {
+          "id": "6107",
+          "label": {
+            "de": "Ueberwachen",
+            "fr": "Surveiller",
+            "it": "Sorvegliare"
+          },
+          "identical": true,
+          "files": {
+            "de": "de/6107-Ueberwachen.svg",
+            "fr": "fr/6107-Ueberwachen.svg",
+            "it": "it/6107-Ueberwachen.svg"
+          }
+        },
+        {
+          "id": "6108",
+          "label": {
+            "de": "Bergen",
+            "fr": "Secourir",
+            "it": "Soccorrere"
+          },
+          "identical": true,
+          "files": {
+            "de": "de/6108-Bergen.svg",
+            "fr": "fr/6108-Bergen.svg",
+            "it": "it/6108-Bergen.svg"
+          }
+        }
+      ]
+    },
+    {
+      "number": "7",
+      "name": {
+        "de": "Fahrzeuge",
+        "fr": "Véhicules",
+        "it": "Veicoli"
+      },
+      "symbols": [
+        {
+          "id": "7101",
+          "label": {
+            "de": "Motorrad",
+            "fr": "Motocycle",
+            "it": "Motociclo"
+          },
+          "identical": true,
+          "files": {
+            "de": "de/7101-Motorrad.svg",
+            "fr": "fr/7101-Motorrad.svg",
+            "it": "it/7101-Motorrad.svg"
+          }
+        },
+        {
+          "id": "7102",
+          "label": {
+            "de": "Boot",
+            "fr": "Embarcation",
+            "it": "Imbarcazione"
+          },
+          "identical": true,
+          "files": {
+            "de": "de/7102-Boot.svg",
+            "fr": "fr/7102-Boot.svg",
+            "it": "it/7102-Boot.svg"
+          }
+        },
+        {
+          "id": "7103",
+          "label": {
+            "de": "Motorfahrzeug",
+            "fr": "Vehicule-leger-voiture",
+            "it": "Veicolo per il trasporto (automobile)"
+          },
+          "identical": true,
+          "files": {
+            "de": "de/7103-Motorfahrzeug.svg",
+            "fr": "fr/7103-Motorfahrzeug.svg",
+            "it": "it/7103-Motorfahrzeug.svg"
+          }
+        },
+        {
+          "id": "7104",
+          "label": {
+            "de": "Transportfahrzeug",
+            "fr": "Vehicule-de-transport-bus",
+            "it": "Veicoli per il trasporto (Bus)"
+          },
+          "identical": true,
+          "files": {
+            "de": "de/7104-Transportfahrzeug.svg",
+            "fr": "fr/7104-Transportfahrzeug.svg",
+            "it": "it/7104-Transportfahrzeug.svg"
+          }
+        },
+        {
+          "id": "7105",
+          "label": {
+            "de": "Lastwagen",
+            "fr": "Camion-poids-lourd",
+            "it": "Autocarro"
+          },
+          "identical": true,
+          "files": {
+            "de": "de/7105-Lastwagen.svg",
+            "fr": "fr/7105-Lastwagen.svg",
+            "it": "it/7105-Lastwagen.svg"
+          }
+        },
+        {
+          "id": "7106",
+          "label": {
+            "de": "Anhänger",
+            "fr": "Remorque",
+            "it": "Rimorchi"
+          },
+          "identical": true,
+          "files": {
+            "de": "de/7106-Anhaenger.svg",
+            "fr": "fr/7106-Anhaenger.svg",
+            "it": "it/7106-Anhaenger.svg"
+          }
+        },
+        {
+          "id": "7107",
+          "label": {
+            "de": "Kipper",
+            "fr": "Camion à pont basculant",
+            "it": "Autocarro con cassone ribaltabile"
+          },
+          "identical": true,
+          "files": {
+            "de": "de/7107-Kipper.svg",
+            "fr": "fr/7107-Kipper.svg",
+            "it": "it/7107-Kipper.svg"
+          }
+        },
+        {
+          "id": "7108",
+          "label": {
+            "de": "Zisternenlastwagen",
+            "fr": "Camion citerne",
+            "it": "Autocisterna"
+          },
+          "identical": true,
+          "files": {
+            "de": "de/7108-Zisternenlastwagen.svg",
+            "fr": "fr/7108-Zisternenlastwagen.svg",
+            "it": "it/7108-Zisternenlastwagen.svg"
+          }
+        },
+        {
+          "id": "7109",
+          "label": {
+            "de": "Zisternenwagen",
+            "fr": "Wagon citerne",
+            "it": "Cisterna"
+          },
+          "identical": true,
+          "files": {
+            "de": "de/7109-Zisternenwagen.svg",
+            "fr": "fr/7109-Zisternenwagen.svg",
+            "it": "it/7109-Zisternenwagen.svg"
+          }
+        },
+        {
+          "id": "7110",
+          "label": {
+            "de": "Bagger auf Rädern",
+            "fr": "Excavatrice",
+            "it": "Escavatrice ruotata"
+          },
+          "identical": true,
+          "files": {
+            "de": "de/7110-BaggeraufRaedern.svg",
+            "fr": "fr/7110-BaggeraufRaedern.svg",
+            "it": "it/7110-BaggeraufRaedern.svg"
+          }
+        },
+        {
+          "id": "7111",
+          "label": {
+            "de": "Ladeschaufel auf Rädern",
+            "fr": "Pelle chargeuse",
+            "it": "Pala caricatrice ruotata"
+          },
+          "identical": true,
+          "files": {
+            "de": "de/7111-LadeschaufelaufRaedern.svg",
+            "fr": "fr/7111-LadeschaufelaufRaedern.svg",
+            "it": "it/7111-LadeschaufelaufRaedern.svg"
+          }
+        },
+        {
+          "id": "7112",
+          "label": {
+            "de": "Kranwagen",
+            "fr": "Camion grue",
+            "it": "Autogru"
+          },
+          "identical": true,
+          "files": {
+            "de": "de/7112-Kranwagen.svg",
+            "fr": "fr/7112-Kranwagen.svg",
+            "it": "it/7112-Kranwagen.svg"
+          }
+        },
+        {
+          "id": "7113",
+          "label": {
+            "de": "Helikopter",
+            "fr": "Helicoptere",
+            "it": "Elicottero"
+          },
+          "identical": true,
+          "files": {
+            "de": "de/7113-Helikopter.svg",
+            "fr": "fr/7113-Helikopter.svg",
+            "it": "it/7113-Helikopter.svg"
+          }
+        },
+        {
+          "id": "7114",
+          "label": {
+            "de": "Ambulanz",
+            "fr": "Ambulance",
+            "it": "Ambulanza"
+          },
+          "identical": true,
+          "files": {
+            "de": "de/7114-Ambulanz.svg",
+            "fr": "fr/7114-Ambulanz.svg",
+            "it": "it/7114-Ambulanz.svg"
+          }
+        },
+        {
+          "id": "7115",
+          "label": {
+            "de": "Wasserwerfer",
+            "fr": "Canon-a-eau",
+            "it": "Lanciaacqua"
+          },
+          "identical": true,
+          "files": {
+            "de": "de/7115-Wasserwerfer.svg",
+            "fr": "fr/7115-Wasserwerfer.svg",
+            "it": "it/7115-Wasserwerfer.svg"
+          }
+        },
+        {
+          "id": "7116",
+          "label": {
+            "de": "Hubrettungsfahrzeug",
+            "fr": "Elevateur-a-nacelle",
+            "it": "Elevatore-a-navicella"
+          },
+          "identical": true,
+          "files": {
+            "de": "de/7116-Hubrettungsfahrzeug.svg",
+            "fr": "fr/7116-Hubrettungsfahrzeug.svg",
+            "it": "it/7116-Hubrettungsfahrzeug.svg"
+          }
+        },
+        {
+          "id": "7117",
+          "label": {
+            "de": "Autodrehleiter",
+            "fr": "Echelle pivotante aérienne",
+            "it": "Scala-motorizzata"
+          },
+          "identical": true,
+          "files": {
+            "de": "de/7117-Autodrehleiter.svg",
+            "fr": "fr/7117-Autodrehleiter.svg",
+            "it": "it/7117-Autodrehleiter.svg"
+          }
+        },
+        {
+          "id": "7118",
+          "label": {
+            "de": "Tanklöschfahrzeug",
+            "fr": "Fourgon-Tonne-pompe",
+            "it": "Autobotte"
+          },
+          "identical": false,
+          "files": {
+            "de": "de/7118-Tankloeschfahrzeug.svg",
+            "fr": "fr/7118-Tankloeschfahrzeug.svg",
+            "it": "it/7118-Tankloeschfahrzeug.svg"
+          }
+        },
+        {
+          "id": "7119",
+          "label": {
+            "de": "Luftaufklärung leicht",
+            "fr": "Reconnaissance aérienne légère",
+            "it": "Ricognizione aerea leggera"
+          },
+          "identical": true,
+          "files": {
+            "de": "de/7119-Luftaufklaerungleicht.svg",
+            "fr": "fr/7119-Luftaufklaerungleicht.svg",
+            "it": "it/7119-Luftaufklaerungleicht.svg"
+          }
+        }
+      ]
+    },
+    {
+      "number": "8",
+      "name": {
+        "de": "Bildhafte Signaturen",
+        "fr": "Pictogrammes",
+        "it": "Segni convenzionali per eventi"
+      },
+      "subcategories": [
+        {
+          "number": "81",
+          "name": {
+            "de": "Naturbedingte Lagen",
+            "fr": "Evénements naturels",
+            "it": "Eventi naturali"
+          },
+          "symbols": [
+            {
+              "id": "8101",
+              "label": {
+                "de": "Sturm",
+                "fr": "Tempete",
+                "it": "Tempesta"
+              },
+              "identical": true,
+              "files": {
+                "de": "de/8101-Sturm.svg",
+                "fr": "fr/8101-Sturm.svg",
+                "it": "it/8101-Sturm.svg"
+              }
+            },
+            {
+              "id": "8102",
+              "label": {
+                "de": "Starkniederschlag",
+                "fr": "Fortes-precipitations",
+                "it": "Piogge-intense"
+              },
+              "identical": true,
+              "files": {
+                "de": "de/8102-Starkniederschlag.svg",
+                "fr": "fr/8102-Starkniederschlag.svg",
+                "it": "it/8102-Starkniederschlag.svg"
+              }
+            },
+            {
+              "id": "8103",
+              "label": {
+                "de": "Ueberschwemmung",
+                "fr": "Inondation",
+                "it": "Piena"
+              },
+              "identical": true,
+              "files": {
+                "de": "de/8103-Ueberschwemmung.svg",
+                "fr": "fr/8103-Ueberschwemmung.svg",
+                "it": "it/8103-Ueberschwemmung.svg"
+              }
+            },
+            {
+              "id": "8104",
+              "label": {
+                "de": "Erdrutsch",
+                "fr": "Glissement-de-terrain",
+                "it": "Frana"
+              },
+              "identical": true,
+              "files": {
+                "de": "de/8104-Erdrutsch.svg",
+                "fr": "fr/8104-Erdrutsch.svg",
+                "it": "it/8104-Erdrutsch.svg"
+              }
+            },
+            {
+              "id": "8105",
+              "label": {
+                "de": "Lawine",
+                "fr": "Avalanche",
+                "it": "Valanga"
+              },
+              "identical": true,
+              "files": {
+                "de": "de/8105-Lawine.svg",
+                "fr": "fr/8105-Lawine.svg",
+                "it": "it/8105-Lawine.svg"
+              }
+            },
+            {
+              "id": "8106",
+              "label": {
+                "de": "Erdbeben",
+                "fr": "Tremblement de terre",
+                "it": "Terremoto"
+              },
+              "identical": true,
+              "files": {
+                "de": "de/8106-Erdbeben.svg",
+                "fr": "fr/8106-Erdbeben.svg",
+                "it": "it/8106-Erdbeben.svg"
+              }
+            },
+            {
+              "id": "8107",
+              "label": {
+                "de": "Dürre",
+                "fr": "Sécheresse",
+                "it": "Siccità"
+              },
+              "identical": true,
+              "files": {
+                "de": "de/8107-Duerre.svg",
+                "fr": "fr/8107-Duerre.svg",
+                "it": "it/8107-Duerre.svg"
+              }
+            },
+            {
+              "id": "8108",
+              "label": {
+                "de": "Epidemie",
+                "fr": "Epidémie",
+                "it": "Epidemia"
+              },
+              "identical": true,
+              "files": {
+                "de": "de/8108-Epidemie.svg",
+                "fr": "fr/8108-Epidemie.svg",
+                "it": "it/8108-Epidemie.svg"
+              }
+            },
+            {
+              "id": "8109",
+              "label": {
+                "de": "Tierseuche",
+                "fr": "Epizootie",
+                "it": "Epizoozia"
+              },
+              "identical": true,
+              "files": {
+                "de": "de/8109-Tierseuche.svg",
+                "fr": "fr/8109-Tierseuche.svg",
+                "it": "it/8109-Tierseuche.svg"
+              }
+            },
+            {
+              "id": "8110",
+              "label": {
+                "de": "Wasserstand gestiegen",
+                "fr": "Niveau d'eau monte",
+                "it": "Livello dell'acqua sale"
+              },
+              "identical": true,
+              "files": {
+                "de": "de/8110-Wasserstandgestiegen.svg",
+                "fr": "fr/8110-Wasserstandgestiegen.svg",
+                "it": "it/8110-Wasserstandgestiegen.svg"
+              }
+            },
+            {
+              "id": "8111",
+              "label": {
+                "de": "Wasserstand gesunken",
+                "fr": "Niveau d'eau descent",
+                "it": "Livello dell'acqua in calo"
+              },
+              "identical": true,
+              "files": {
+                "de": "de/8111-Wasserstandgesunken.svg",
+                "fr": "fr/8111-Wasserstandgesunken.svg",
+                "it": "it/8111-Wasserstandgesunken.svg"
+              }
+            },
+            {
+              "id": "8112",
+              "label": {
+                "de": "Bach ausgetroknet",
+                "fr": "Ruisseau asséché",
+                "it": "Riverse prosciugati"
+              },
+              "identical": true,
+              "files": {
+                "de": "de/8112-Bachausgetroknet.svg",
+                "fr": "fr/8112-Bachausgetroknet.svg",
+                "it": "it/8112-Bachausgetroknet.svg"
+              }
+            },
+            {
+              "id": "8113",
+              "label": {
+                "de": "Schweinegrippe",
+                "fr": "Grippe porcine",
+                "it": "Influenza suina"
+              },
+              "identical": true,
+              "files": {
+                "de": "de/8113-Schweinegrippe.svg",
+                "fr": "fr/8113-Schweinegrippe.svg",
+                "it": "it/8113-Schweinegrippe.svg"
+              }
+            }
+          ]
+        },
+        {
+          "number": "82",
+          "name": {
+            "de": "Technisch bedingte Lagen",
+            "fr": "Evénements techniques",
+            "it": "Eventi tecnici"
+          },
+          "symbols": [
+            {
+              "id": "8201",
+              "label": {
+                "de": "Brand",
+                "fr": "Incendie",
+                "it": "Incendio"
+              },
+              "identical": true,
+              "files": {
+                "de": "de/8201-Brand.svg",
+                "fr": "fr/8201-Brand.svg",
+                "it": "it/8201-Brand.svg"
+              }
+            },
+            {
+              "id": "8202",
+              "label": {
+                "de": "Explosion-pikt",
+                "fr": "Explosion",
+                "it": "Esplosione"
+              },
+              "identical": true,
+              "files": {
+                "de": "de/8202-Explosion-pikt.svg",
+                "fr": "fr/8202-Explosion-pikt.svg",
+                "it": "it/8202-Explosion-pikt.svg"
+              }
+            },
+            {
+              "id": "8203",
+              "label": {
+                "de": "Stau",
+                "fr": "Embouteillage",
+                "it": "Colonna"
+              },
+              "identical": true,
+              "files": {
+                "de": "de/8203-Stau.svg",
+                "fr": "fr/8203-Stau.svg",
+                "it": "it/8203-Stau.svg"
+              }
+            },
+            {
+              "id": "8204",
+              "label": {
+                "de": "Autounfall",
+                "fr": "Accident-auto",
+                "it": "Incidente-della-circolazione"
+              },
+              "identical": true,
+              "files": {
+                "de": "de/8204-Autounfall.svg",
+                "fr": "fr/8204-Autounfall.svg",
+                "it": "it/8204-Autounfall.svg"
+              }
+            },
+            {
+              "id": "8205",
+              "label": {
+                "de": "Eisenbahnunglueck",
+                "fr": "Accident-ferroviaire",
+                "it": "Incidente-ferroviario"
+              },
+              "identical": true,
+              "files": {
+                "de": "de/8205-Eisenbahnunglueck.svg",
+                "fr": "fr/8205-Eisenbahnunglueck.svg",
+                "it": "it/8205-Eisenbahnunglueck.svg"
+              }
+            },
+            {
+              "id": "8206",
+              "label": {
+                "de": "Flugzeugabsturz",
+                "fr": "Catastrophe aérienne",
+                "it": "Catastrofe aerea"
+              },
+              "identical": true,
+              "files": {
+                "de": "de/8206-Flugzeugabsturz.svg",
+                "fr": "fr/8206-Flugzeugabsturz.svg",
+                "it": "it/8206-Flugzeugabsturz.svg"
+              }
+            },
+            {
+              "id": "8207",
+              "label": {
+                "de": "Energieausfall",
+                "fr": "Panne énergétique",
+                "it": "Interruzione dell'energia elettrica"
+              },
+              "identical": true,
+              "files": {
+                "de": "de/8207-Energieausfall.svg",
+                "fr": "fr/8207-Energieausfall.svg",
+                "it": "it/8207-Energieausfall.svg"
+              }
+            },
+            {
+              "id": "8208",
+              "label": {
+                "de": "Kommunikationsstörung",
+                "fr": "Perturbation de la communication",
+                "it": "Disturbo della comunicazione"
+              },
+              "identical": true,
+              "files": {
+                "de": "de/8208-Kommunikationsstoerung.svg",
+                "fr": "fr/8208-Kommunikationsstoerung.svg",
+                "it": "it/8208-Kommunikationsstoerung.svg"
+              }
+            },
+            {
+              "id": "8209",
+              "label": {
+                "de": "Ausfall Wasserversorgung",
+                "fr": "Interruption de l'approvisionnement en eau",
+                "it": "Interruzione dell'approvvigionamento idrico"
+              },
+              "identical": true,
+              "files": {
+                "de": "de/8209-AusfallWasserversorgung.svg",
+                "fr": "fr/8209-AusfallWasserversorgung.svg",
+                "it": "it/8209-AusfallWasserversorgung.svg"
+              }
+            },
+            {
+              "id": "8210",
+              "label": {
+                "de": "Kanalisationsausfall",
+                "fr": "Egouts-defectueux",
+                "it": "Interruzione-della-canalizzazione"
+              },
+              "identical": true,
+              "files": {
+                "de": "de/8210-Kanalisationsausfall.svg",
+                "fr": "fr/8210-Kanalisationsausfall.svg",
+                "it": "it/8210-Kanalisationsausfall.svg"
+              }
+            },
+            {
+              "id": "8211",
+              "label": {
+                "de": "Atomunfall",
+                "fr": "Accident-nucleaire",
+                "it": "Incidente-nucleare"
+              },
+              "identical": true,
+              "files": {
+                "de": "de/8211-Atomunfall.svg",
+                "fr": "fr/8211-Atomunfall.svg",
+                "it": "it/8211-Atomunfall.svg"
+              }
+            },
+            {
+              "id": "8212",
+              "label": {
+                "de": "Biounfall",
+                "fr": "Accident-biologique",
+                "it": "Incidente-biologico"
+              },
+              "identical": true,
+              "files": {
+                "de": "de/8212-Biounfall.svg",
+                "fr": "fr/8212-Biounfall.svg",
+                "it": "it/8212-Biounfall.svg"
+              }
+            },
+            {
+              "id": "8213",
+              "label": {
+                "de": "Chemieunfall",
+                "fr": "Accident-chimique",
+                "it": "Incidente-chimico"
+              },
+              "identical": true,
+              "files": {
+                "de": "de/8213-Chemieunfall.svg",
+                "fr": "fr/8213-Chemieunfall.svg",
+                "it": "it/8213-Chemieunfall.svg"
+              }
+            },
+            {
+              "id": "8214",
+              "label": {
+                "de": "Oelverschmutzung",
+                "fr": "Pollution-aux-hydrocarbures",
+                "it": "Inquinamento-da-idrocarburi"
+              },
+              "identical": true,
+              "files": {
+                "de": "de/8214-Oelverschmutzung.svg",
+                "fr": "fr/8214-Oelverschmutzung.svg",
+                "it": "it/8214-Oelverschmutzung.svg"
+              }
+            },
+            {
+              "id": "8215",
+              "label": {
+                "de": "Infrastrukturschaden",
+                "fr": "Dommages-aux-infrastructures",
+                "it": "Danni-alle-infrastrutture"
+              },
+              "identical": true,
+              "files": {
+                "de": "de/8215-Infrastrukturschaden.svg",
+                "fr": "fr/8215-Infrastrukturschaden.svg",
+                "it": "it/8215-Infrastrukturschaden.svg"
+              }
+            },
+            {
+              "id": "8216",
+              "label": {
+                "de": "Schiffsversenkung",
+                "fr": "Accident-navigation",
+                "it": "Incidente-nautico"
+              },
+              "identical": true,
+              "files": {
+                "de": "de/8216-Schiffsversenkung.svg",
+                "fr": "fr/8216-Schiffsversenkung.svg",
+                "it": "it/8216-Schiffsversenkung.svg"
+              }
+            },
+            {
+              "id": "8217",
+              "label": {
+                "de": "Brunnen eingestellt",
+                "fr": "Fontaine fermée",
+                "it": "Fontana chiusa"
+              },
+              "identical": true,
+              "files": {
+                "de": "de/8217-Brunneneingestellt.svg",
+                "fr": "fr/8217-Brunneneingestellt.svg",
+                "it": "it/8217-Brunneneingestellt.svg"
+              }
+            },
+            {
+              "id": "8218",
+              "label": {
+                "de": "Unterbruch öffentlicher Verkehr",
+                "fr": "Interruption des transports publics",
+                "it": "Interruzione dei trasporti pubblici"
+              },
+              "identical": true,
+              "files": {
+                "de": "de/8218-UnterbruchoeffentlicherVerkehr.svg",
+                "fr": "fr/8218-UnterbruchoeffentlicherVerkehr.svg",
+                "it": "it/8218-UnterbruchoeffentlicherVerkehr.svg"
+              }
+            },
+            {
+              "id": "8219",
+              "label": {
+                "de": "Gebaeudeeinsturz",
+                "fr": "Immeuble-effondré",
+                "it": "Crollo-di-edificio"
+              },
+              "identical": true,
+              "files": {
+                "de": "de/8219-Gebaeudeeinsturz.svg",
+                "fr": "fr/8219-Gebaeudeeinsturz.svg",
+                "it": "it/8219-Gebaeudeeinsturz.svg"
+              }
+            },
+            {
+              "id": "8220",
+              "label": {
+                "de": "Fischen verlegt",
+                "fr": "Poissons déplacés",
+                "it": "Pesci trasferiti"
+              },
+              "identical": true,
+              "files": {
+                "de": "de/8220-Fischenverlegt.svg",
+                "fr": "fr/8220-Fischenverlegt.svg",
+                "it": "it/8220-Fischenverlegt.svg"
+              }
+            },
+            {
+              "id": "8221",
+              "label": {
+                "de": "Amphibien verlegt",
+                "fr": "Amphibiens déplacés",
+                "it": "Anfibi trasferiti"
+              },
+              "identical": true,
+              "files": {
+                "de": "de/8221-Amphibienverlegt.svg",
+                "fr": "fr/8221-Amphibienverlegt.svg",
+                "it": "it/8221-Amphibienverlegt.svg"
+              }
+            },
+            {
+              "id": "8222",
+              "label": {
+                "de": "Gewässerverschmutzung",
+                "fr": "Pollution des eaux",
+                "it": "Inquinamento delle acque"
+              },
+              "identical": true,
+              "files": {
+                "de": "de/8222-Gewaesserverschmutzung.svg",
+                "fr": "fr/8222-Gewaesserverschmutzung.svg",
+                "it": "it/8222-Gewaesserverschmutzung.svg"
+              }
+            }
+          ]
+        },
+        {
+          "number": "83",
+          "name": {
+            "de": "Gesellschaftlich bedingte Lagen",
+            "fr": "Evénements sociaux",
+            "it": "Eventi sociali"
+          },
+          "symbols": [
+            {
+              "id": "8301",
+              "label": {
+                "de": "Pluenderung",
+                "fr": "Pillage",
+                "it": "Saccheggi"
+              },
+              "identical": true,
+              "files": {
+                "de": "de/8301-Pluenderung.svg",
+                "fr": "fr/8301-Pluenderung.svg",
+                "it": "it/8301-Pluenderung.svg"
+              }
+            },
+            {
+              "id": "8302",
+              "label": {
+                "de": "Dieb",
+                "fr": "Vol",
+                "it": "Furto"
+              },
+              "identical": false,
+              "files": {
+                "de": "de/8302-Dieb.svg",
+                "fr": "fr/8302-Dieb.svg",
+                "it": "it/8302-Dieb.svg"
+              }
+            },
+            {
+              "id": "8303",
+              "label": {
+                "de": "Raub, Drohung",
+                "fr": "Vol, menaces",
+                "it": "Rapina, minaccia"
+              },
+              "identical": true,
+              "files": {
+                "de": "de/8303-RaubDrohung.svg",
+                "fr": "fr/8303-RaubDrohung.svg",
+                "it": "it/8303-RaubDrohung.svg"
+              }
+            },
+            {
+              "id": "8304",
+              "label": {
+                "de": "Zwischenfall mit Extremisten",
+                "fr": "Incident avec des extrémistes",
+                "it": "Incidente con estremisti"
+              },
+              "identical": true,
+              "files": {
+                "de": "de/8304-ZwischenfallmitExtremisten.svg",
+                "fr": "fr/8304-ZwischenfallmitExtremisten.svg",
+                "it": "it/8304-ZwischenfallmitExtremisten.svg"
+              }
+            },
+            {
+              "id": "8305",
+              "label": {
+                "de": "Demo-gewaltlos",
+                "fr": "Manifestation",
+                "it": "Dimostrazioni"
+              },
+              "identical": true,
+              "files": {
+                "de": "de/8305-Demo-gewaltlos.svg",
+                "fr": "fr/8305-Demo-gewaltlos.svg",
+                "it": "it/8305-Demo-gewaltlos.svg"
+              }
+            },
+            {
+              "id": "8306",
+              "label": {
+                "de": "Demo-gewaltsam",
+                "fr": "Manifestation-avec-exactions",
+                "it": "Dimostrazioni-con-disordini"
+              },
+              "identical": true,
+              "files": {
+                "de": "de/8306-Demo-gewaltsam.svg",
+                "fr": "fr/8306-Demo-gewaltsam.svg",
+                "it": "it/8306-Demo-gewaltsam.svg"
+              }
+            },
+            {
+              "id": "8307",
+              "label": {
+                "de": "Hooligans",
+                "fr": "Hooligans",
+                "it": "Hooligans"
+              },
+              "identical": true,
+              "files": {
+                "de": "de/8307-Hooligans.svg",
+                "fr": "fr/8307-Hooligans.svg",
+                "it": "it/8307-Hooligans.svg"
+              }
+            },
+            {
+              "id": "8308",
+              "label": {
+                "de": "Schlägerei",
+                "fr": "Bagarre",
+                "it": "Rissa"
+              },
+              "identical": true,
+              "files": {
+                "de": "de/8308-Schlaegerei.svg",
+                "fr": "fr/8308-Schlaegerei.svg",
+                "it": "it/8308-Schlaegerei.svg"
+              }
+            },
+            {
+              "id": "8309",
+              "label": {
+                "de": "Sachbeschädigung",
+                "fr": "Dégradation de biens",
+                "it": "Danno alla proprietà"
+              },
+              "identical": true,
+              "files": {
+                "de": "de/8309-Sachbeschaedigung.svg",
+                "fr": "fr/8309-Sachbeschaedigung.svg",
+                "it": "it/8309-Sachbeschaedigung.svg"
+              }
+            },
+            {
+              "id": "8310",
+              "label": {
+                "de": "Sprayerei Farbanschlag",
+                "fr": "Graffiti",
+                "it": "Graffito"
+              },
+              "identical": true,
+              "files": {
+                "de": "de/8310-SprayereiFarbanschlag.svg",
+                "fr": "fr/8310-SprayereiFarbanschlag.svg",
+                "it": "it/8310-SprayereiFarbanschlag.svg"
+              }
+            },
+            {
+              "id": "8311",
+              "label": {
+                "de": "Trunkenheit",
+                "fr": "Ivresse",
+                "it": "Ubriachezza"
+              },
+              "identical": true,
+              "files": {
+                "de": "de/8311-Trunkenheit.svg",
+                "fr": "fr/8311-Trunkenheit.svg",
+                "it": "it/8311-Trunkenheit.svg"
+              }
+            },
+            {
+              "id": "8312",
+              "label": {
+                "de": "Fahrende",
+                "fr": "Gens du voyage",
+                "it": "Nomadi"
+              },
+              "identical": true,
+              "files": {
+                "de": "de/8312-Fahrende.svg",
+                "fr": "fr/8312-Fahrende.svg",
+                "it": "it/8312-Fahrende.svg"
+              }
+            },
+            {
+              "id": "8313",
+              "label": {
+                "de": "Hausbesetzung",
+                "fr": "Occupation illégale",
+                "it": "Occupazione abusiva"
+              },
+              "identical": true,
+              "files": {
+                "de": "de/8313-Hausbesetzung.svg",
+                "fr": "fr/8313-Hausbesetzung.svg",
+                "it": "it/8313-Hausbesetzung.svg"
+              }
+            },
+            {
+              "id": "8314",
+              "label": {
+                "de": "Public Viewing",
+                "fr": "Visionnage public",
+                "it": "Visione pubblica"
+              },
+              "identical": true,
+              "files": {
+                "de": "de/8314-PublicViewing.svg",
+                "fr": "fr/8314-PublicViewing.svg",
+                "it": "it/8314-PublicViewing.svg"
+              }
+            },
+            {
+              "id": "8315",
+              "label": {
+                "de": "Sportveranstaltung",
+                "fr": "Evénement sportif",
+                "it": "Evento sportivo"
+              },
+              "identical": true,
+              "files": {
+                "de": "de/8315-Sportveranstaltung.svg",
+                "fr": "fr/8315-Sportveranstaltung.svg",
+                "it": "it/8315-Sportveranstaltung.svg"
+              }
+            },
+            {
+              "id": "8316",
+              "label": {
+                "de": "Barrikaden",
+                "fr": "Barricades",
+                "it": "Barricate"
+              },
+              "identical": true,
+              "files": {
+                "de": "de/8316-Barrikaden.svg",
+                "fr": "fr/8316-Barrikaden.svg",
+                "it": "it/8316-Barrikaden.svg"
+              }
+            },
+            {
+              "id": "8317",
+              "label": {
+                "de": "Geiselnahme",
+                "fr": "Prise d'otages",
+                "it": "Sequestro di persona"
+              },
+              "identical": true,
+              "files": {
+                "de": "de/8317-Geiselnahme.svg",
+                "fr": "fr/8317-Geiselnahme.svg",
+                "it": "it/8317-Geiselnahme.svg"
+              }
+            },
+            {
+              "id": "8318",
+              "label": {
+                "de": "Erpressung",
+                "fr": "Chantage",
+                "it": "Ricatto"
+              },
+              "identical": true,
+              "files": {
+                "de": "de/8318-Erpressung.svg",
+                "fr": "fr/8318-Erpressung.svg",
+                "it": "it/8318-Erpressung.svg"
+              }
+            },
+            {
+              "id": "8319",
+              "label": {
+                "de": "Flugzeugentführung",
+                "fr": "Détournement d'avion",
+                "it": "Dirottamento aereo"
+              },
+              "identical": true,
+              "files": {
+                "de": "de/8319-Flugzeugentfuehrung.svg",
+                "fr": "fr/8319-Flugzeugentfuehrung.svg",
+                "it": "it/8319-Flugzeugentfuehrung.svg"
+              }
+            },
+            {
+              "id": "8320",
+              "label": {
+                "de": "Entfürung",
+                "fr": "Enlèvement",
+                "it": "Rapimento"
+              },
+              "identical": true,
+              "files": {
+                "de": "de/8320-Entfuerung.svg",
+                "fr": "fr/8320-Entfuerung.svg",
+                "it": "it/8320-Entfuerung.svg"
+              }
+            },
+            {
+              "id": "8321",
+              "label": {
+                "de": "Schiesserei",
+                "fr": "Fusillade",
+                "it": "Sparatoria"
+              },
+              "identical": true,
+              "files": {
+                "de": "de/8321-Schiesserei.svg",
+                "fr": "fr/8321-Schiesserei.svg",
+                "it": "it/8321-Schiesserei.svg"
+              }
+            },
+            {
+              "id": "8322",
+              "label": {
+                "de": "AMOK",
+                "fr": "AMOK",
+                "it": "AMOK"
+              },
+              "identical": true,
+              "files": {
+                "de": "de/8322-AMOK.svg",
+                "fr": "fr/8322-AMOK.svg",
+                "it": "it/8322-AMOK.svg"
+              }
+            },
+            {
+              "id": "8323",
+              "label": {
+                "de": "Terroranschlag",
+                "fr": "Attentat terroriste",
+                "it": "Attentato terroristico"
+              },
+              "identical": true,
+              "files": {
+                "de": "de/8323-Terroranschlag.svg",
+                "fr": "fr/8323-Terroranschlag.svg",
+                "it": "it/8323-Terroranschlag.svg"
+              }
+            },
+            {
+              "id": "8324",
+              "label": {
+                "de": "Bombendrohung",
+                "fr": "Menace d'attentat à la bombe",
+                "it": "Minaccia di attentato dinamitardo"
+              },
+              "identical": true,
+              "files": {
+                "de": "de/8324-Bombendrohung.svg",
+                "fr": "fr/8324-Bombendrohung.svg",
+                "it": "it/8324-Bombendrohung.svg"
+              }
+            },
+            {
+              "id": "8325",
+              "label": {
+                "de": "Bombenanschlag--",
+                "fr": "Attentat-a-la-bombe",
+                "it": "Attentato-dinamitardo"
+              },
+              "identical": true,
+              "files": {
+                "de": "de/8325-Bombenanschlag.svg",
+                "fr": "fr/8325-Bombenanschlag.svg",
+                "it": "it/8325-Bombenanschlag.svg"
+              }
+            },
+            {
+              "id": "8326",
+              "label": {
+                "de": "Massenpanik",
+                "fr": "Effet-de-panique",
+                "it": "Panico-di-massa"
+              },
+              "identical": true,
+              "files": {
+                "de": "de/8326-Massenpanik.svg",
+                "fr": "fr/8326-Massenpanik.svg",
+                "it": "it/8326-Massenpanik.svg"
+              }
+            },
+            {
+              "id": "8327",
+              "label": {
+                "de": "Brandanschlag",
+                "fr": "Incendie-criminel",
+                "it": "Attentato-incendiario"
+              },
+              "identical": true,
+              "files": {
+                "de": "de/8327-Brandanschlag.svg",
+                "fr": "fr/8327-Brandanschlag.svg",
+                "it": "it/8327-Brandanschlag.svg"
+              }
+            },
+            {
+              "id": "8328",
+              "label": {
+                "de": "Sabotage",
+                "fr": "Sabotage",
+                "it": "Sabotaggio"
+              },
+              "identical": true,
+              "files": {
+                "de": "de/8328-Sabotage.svg",
+                "fr": "fr/8328-Sabotage.svg",
+                "it": "it/8328-Sabotage.svg"
+              }
+            },
+            {
+              "id": "8329",
+              "label": {
+                "de": "Bomben",
+                "fr": "Bombes",
+                "it": "Bombe"
+              },
+              "identical": true,
+              "files": {
+                "de": "de/8329-Bomben.svg",
+                "fr": "fr/8329-Bomben.svg",
+                "it": "it/8329-Bomben.svg"
+              }
+            },
+            {
+              "id": "8330",
+              "label": {
+                "de": "Bedrohung durch Minen",
+                "fr": "Menace de mines",
+                "it": "Minaccia delle mine"
+              },
+              "identical": true,
+              "files": {
+                "de": "de/8330-BedrohungdurchMinen.svg",
+                "fr": "fr/8330-BedrohungdurchMinen.svg",
+                "it": "it/8330-BedrohungdurchMinen.svg"
+              }
+            },
+            {
+              "id": "8331",
+              "label": {
+                "de": "Drohung",
+                "fr": "Menaces",
+                "it": "Minaccia"
+              },
+              "identical": true,
+              "files": {
+                "de": "de/8331-Drohung.svg",
+                "fr": "fr/8331-Drohung.svg",
+                "it": "it/8331-Drohung.svg"
+              }
+            },
+            {
+              "id": "8332",
+              "label": {
+                "de": "Flüchtlinge",
+                "fr": "Réfugiés",
+                "it": "Rifugiati"
+              },
+              "identical": true,
+              "files": {
+                "de": "de/8332-Fluechtlinge.svg",
+                "fr": "fr/8332-Fluechtlinge.svg",
+                "it": "it/8332-Fluechtlinge.svg"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "number": "9",
+      "name": {
+        "de": "Spezial",
+        "fr": "Spéciaux",
+        "it": "Speciali"
+      },
+      "symbols": [
+        {
+          "id": "9101a",
+          "label": {
+            "de": "Autobahn",
+            "fr": "F-Autoroute",
+            "it": "I-Autostrada"
+          },
+          "identical": true,
+          "files": {
+            "de": "de/9101a-Autobahn.svg",
+            "fr": "fr/9101a-Autobahn.svg",
+            "it": "it/9101a-Autobahn.svg"
+          }
+        },
+        {
+          "id": "9101b",
+          "label": {
+            "de": "Autobahn",
+            "fr": "F-Autoroute",
+            "it": "I-Autostrada"
+          },
+          "identical": true,
+          "files": {
+            "de": "de/9101b-Autobahn.svg",
+            "fr": "fr/9101b-Autobahn.svg",
+            "it": "it/9101b-Autobahn.svg"
+          }
+        },
+        {
+          "id": "9101c",
+          "label": {
+            "de": "Autobahn",
+            "fr": "F-Autoroute",
+            "it": "I-Autostrada"
+          },
+          "identical": true,
+          "files": {
+            "de": "de/9101c-Autobahn.svg",
+            "fr": "fr/9101c-Autobahn.svg",
+            "it": "it/9101c-Autobahn.svg"
+          }
+        },
+        {
+          "id": "9101d",
+          "label": {
+            "de": "Autobahn",
+            "fr": "F-Autoroute",
+            "it": "I-Autostrada"
+          },
+          "identical": true,
+          "files": {
+            "de": "de/9101d-Autobahn.svg",
+            "fr": "fr/9101d-Autobahn.svg",
+            "it": "it/9101d-Autobahn.svg"
+          }
+        },
+        {
+          "id": "9102",
+          "label": {
+            "de": "Schifffahrt-verbot",
+            "fr": "Interdiction-de-naviguer",
+            "it": "Divieto-di-navigazione"
+          },
+          "identical": true,
+          "files": {
+            "de": "de/9102-Schifffahrt-verbot.svg",
+            "fr": "fr/9102-Schifffahrt-verbot.svg",
+            "it": "it/9102-Schifffahrt-verbot.svg"
+          }
+        },
+        {
+          "id": "9103",
+          "label": {
+            "de": "Ueberflugverbot",
+            "fr": "Interdiction-de-survoler",
+            "it": "Divieto-di-sorvolo"
+          },
+          "identical": true,
+          "files": {
+            "de": "de/9103-Ueberflugverbot.svg",
+            "fr": "fr/9103-Ueberflugverbot.svg",
+            "it": "it/9103-Ueberflugverbot.svg"
+          }
+        },
+        {
+          "id": "9104",
+          "label": {
+            "de": "Notfalltreffpunkt",
+            "fr": "Point-de-rassemblement-d-urgence",
+            "it": "Punto-di-raccolta-d-urgenza"
+          },
+          "identical": true,
+          "files": {
+            "de": "de/9104-Notfalltreffpunkt.svg",
+            "fr": "fr/9104-Notfalltreffpunkt.svg",
+            "it": "it/9104-Notfalltreffpunkt.svg"
+          }
+        }
+      ]
+    }
+  ]
+}

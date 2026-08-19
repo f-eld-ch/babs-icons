@@ -1,0 +1,26 @@
+{
+  "name": "@f-eld-ch/babs-core",
+  "version": "0.0.0",
+  "type": "module",
+  "description": "BABS icon library — core types, metadata, and language utilities",
+  "sideEffects": false,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/f-eld-ch/babs-icons.git",
+    "directory": "packages/core"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com",
+    "access": "public"
+  },
+  "exports": {
+    ".": "./dist/index.js",
+    "./ids": "./dist/ids.js",
+    "./tree": "./dist/tree.js",
+    "./labels/de": "./dist/labels/de.js",
+    "./labels/fr": "./dist/labels/fr.js",
+    "./labels/it": "./dist/labels/it.js",
+    "./package.json": "./package.json"
+  },
+  "files": ["dist/"]
+}
