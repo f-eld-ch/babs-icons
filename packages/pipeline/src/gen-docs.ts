@@ -83,6 +83,14 @@ function img(src: string, alt: string, size = 48): string {
   return `<img src="${src}" alt="${alt}" width="${size}" height="${size}">`;
 }
 
+function isRaster(svgFile: string): boolean {
+  try {
+    return readFileSync(join(SVG_PKG, svgFile), "utf8").includes("<image");
+  } catch {
+    return false;
+  }
+}
+
 function symbolRow(sym: Symbol): string {
   const de = correctedLabel(sym.id, "de", sym.label.de);
   const fr = correctedLabel(sym.id, "fr", sym.label.fr);
@@ -120,7 +128,10 @@ function symbolRow(sym: Symbol): string {
   const alias = aliasLock.aliases?.[sym.id];
   const aliasCell = alias ? `\`${alias}\`` : "";
 
-  return `| ${iconCell} | \`${sym.id}\` | ${aliasCell} | ${de} | ${fr} | ${it} | ${patternCell} |`;
+  const repFile = sym.files.de ?? sym.files.fr ?? sym.files.it;
+  const rasterCell = repFile && isRaster(repFile.svg) ? "✓" : "";
+
+  return `| ${iconCell} | \`${sym.id}\` | ${aliasCell} | ${de} | ${fr} | ${it} | ${patternCell} | ${rasterCell} |`;
 }
 
 // Min-width for the icon column: GitHub distributes table width proportionally, so a
@@ -136,7 +147,7 @@ function iconColHeader(hasDivergent: boolean): string {
 
 function symbolsTable(symbols: Symbol[]): string {
   const hasDivergent = symbols.some((s) => !s.identical);
-  const header = `| ${iconColHeader(hasDivergent)} | ID | Export | DE | FR | IT | Pattern |\n|---|---|---|---|---|---|---|`;
+  const header = `| ${iconColHeader(hasDivergent)} | ID | Export | DE | FR | IT | Pattern | Raster |\n|---|---|---|---|---|---|---|---|`;
   const rows = symbols.map(symbolRow);
   return `${header}\n${rows.join("\n")}`;
 }
