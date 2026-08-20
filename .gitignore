@@ -4,6 +4,10 @@ normalized/
 *.tsbuildinfo
 packages/*/dist/
 !packages/sprites/dist/
+packages/sprites/dist/*.js
+packages/sprites/dist/*.d.ts
+packages/sprites/dist/*.map
+packages/assets/svg/
 packages/*/src/generated/
 !packages/svg/
 .changeset/

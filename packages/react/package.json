@@ -13,6 +13,9 @@
     "registry": "https://npm.pkg.github.com",
     "access": "public"
   },
+  "scripts": {
+    "build": "tsc --build"
+  },
   "peerDependencies": {
     "@f-eld-ch/babs-core": "workspace:*",
     "react": ">=18"
@@ -23,10 +26,22 @@
     "react": "^19.0.0"
   },
   "exports": {
-    ".": "./dist/index.js",
-    "./icons": "./dist/icons.js",
-    "./named": "./dist/named.js",
-    "./all": "./dist/all.js",
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    },
+    "./icons": {
+      "types": "./dist/icons.d.ts",
+      "default": "./dist/icons.js"
+    },
+    "./named": {
+      "types": "./dist/named.d.ts",
+      "default": "./dist/named.js"
+    },
+    "./all": {
+      "types": "./dist/all.d.ts",
+      "default": "./dist/all.js"
+    },
     "./package.json": "./package.json"
   },
   "files": [

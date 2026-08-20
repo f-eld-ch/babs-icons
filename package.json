@@ -19,11 +19,13 @@
     "icons:source:trace": "node packages/pipeline/src/trace.ts",
     "icons:sprites": "node packages/pipeline/src/sprites.ts",
     "icons:verify": "node packages/pipeline/src/verify.ts",
-    "typecheck": "yarn workspaces foreach -Apt exec tsc --noEmit"
+    "typecheck": "yarn workspaces foreach -Apt exec tsc --noEmit",
+    "test": "vitest run"
   },
   "packageManager": "yarn@4.18.0",
   "devDependencies": {
     "@types/node": "^24",
-    "typescript": "^7.0.2"
+    "typescript": "^7.0.2",
+    "vitest": "^4.1.11"
   }
 }

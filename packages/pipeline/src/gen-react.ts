@@ -257,6 +257,26 @@ function processRasterSvg(svgContent: string): string {
   // Remove xlink namespace prefix from any remaining uses
   body = body.replace(/xlink:/g, "");
 
+  // Rename class → className (JSX uses className; React maps it back to class in the DOM).
+  body = body.replace(/\bclass=/g, "className=");
+
+  // Escape CSS {} in <style> text nodes — bare { } are TSX parser errors.
+  // Wrap the content in a JSX string expression so the parser sees a JS string.
+  body = body.replace(/<style([^>]*)>([\s\S]*?)<\/style>/gi, (_, attrs: string, css: string) =>
+    `<style${attrs}>{${JSON.stringify(css)}}</style>`
+  );
+
+  // Convert style="..." strings to JSX style objects — React requires CSSProperties, not strings.
+  body = body.replace(/\bstyle="([^"]+)"/g, (_, styleStr: string) => {
+    const obj = styleStr.split(";").filter(Boolean).map((decl: string) => {
+      const [prop, ...vals] = decl.split(":");
+      const key = (prop ?? "").trim().replace(/-([a-z])/g, (_: string, c: string) => c.toUpperCase());
+      const val = vals.join(":").trim();
+      return `${key}: ${JSON.stringify(val)}`;
+    }).join(", ");
+    return `style={{ ${obj} }}`;
+  });
+
   return body.trim();
 }
 

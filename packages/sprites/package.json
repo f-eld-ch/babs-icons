@@ -12,6 +12,9 @@
     "registry": "https://npm.pkg.github.com",
     "access": "public"
   },
+  "scripts": {
+    "build": "tsc --build"
+  },
   "peerDependencies": {
     "vite": ">=5"
   },
@@ -21,13 +24,20 @@
     }
   },
   "exports": {
-    ".": "./dist/index.js",
-    "./vite": "./dist/vite.js",
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    },
+    "./vite": {
+      "types": "./dist/vite.d.ts",
+      "default": "./dist/vite.js"
+    },
     "./dist/*": "./dist/*",
     "./package.json": "./package.json"
   },
   "files": [
-    "dist/"
+    "dist/",
+    "layout.lock.json"
   ],
   "devDependencies": {
     "vite": "^8.2.1"

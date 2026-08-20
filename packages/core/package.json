@@ -13,14 +13,38 @@
     "registry": "https://npm.pkg.github.com",
     "access": "public"
   },
+  "scripts": {
+    "build": "node ../pipeline/src/gen-core.ts && tsc --build"
+  },
   "exports": {
-    ".": "./dist/index.js",
-    "./ids": "./dist/ids.js",
-    "./tree": "./dist/tree.js",
-    "./labels/de": "./dist/labels/de.js",
-    "./labels/fr": "./dist/labels/fr.js",
-    "./labels/it": "./dist/labels/it.js",
-    "./markers": "./dist/generated/markers.js",
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    },
+    "./ids": {
+      "types": "./dist/generated/ids.d.ts",
+      "default": "./dist/generated/ids.js"
+    },
+    "./tree": {
+      "types": "./dist/generated/tree.d.ts",
+      "default": "./dist/generated/tree.js"
+    },
+    "./labels/de": {
+      "types": "./dist/generated/labels/de.d.ts",
+      "default": "./dist/generated/labels/de.js"
+    },
+    "./labels/fr": {
+      "types": "./dist/generated/labels/fr.d.ts",
+      "default": "./dist/generated/labels/fr.js"
+    },
+    "./labels/it": {
+      "types": "./dist/generated/labels/it.d.ts",
+      "default": "./dist/generated/labels/it.js"
+    },
+    "./markers": {
+      "types": "./dist/generated/markers.d.ts",
+      "default": "./dist/generated/markers.js"
+    },
     "./package.json": "./package.json"
   },
   "files": [

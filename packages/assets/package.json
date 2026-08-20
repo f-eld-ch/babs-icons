@@ -12,8 +12,14 @@
     "registry": "https://npm.pkg.github.com",
     "access": "public"
   },
+  "scripts": {
+    "build": "tsc --build && mkdir -p svg && cp -rL ../svg/de ../svg/fr ../svg/it svg/"
+  },
   "exports": {
-    ".": "./dist/index.js",
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    },
     "./package.json": "./package.json"
   },
   "files": [
