@@ -1,7 +1,7 @@
 // @f-eld-ch/babs-sprites — browser, zero runtime deps
 // Exports helpers for wiring BABS sprite sheets into MapLibre GL.
 
-const BABS_SPRITES_VERSION = "0.0.0";
+import { BABS_SPRITES_VERSION } from "./generated/version.js";
 
 type BabsLang = "de" | "fr" | "it";
 

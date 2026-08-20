@@ -29,7 +29,7 @@
     "registry": "https://npm.pkg.github.com"
   },
   "scripts": {
-    "build": "tsc --build"
+    "build": "node --experimental-strip-types src/gen-version.ts && tsc --build"
   },
   "devDependencies": {
     "vite": "^8.2.1"

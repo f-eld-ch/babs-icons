@@ -83,6 +83,17 @@ for (const pkg of PACKAGES) {
       it("layout.lock.json is present", () => {
         expect(existsSync(join(unpackDir, "layout.lock.json"))).toBe(true);
       });
+
+      it("babsSpriteUrl embeds a real content hash, not the placeholder 0.0.0", () => {
+        const versionJs = readFileSync(join(unpackDir, "dist/generated/version.js"), "utf8");
+        // The generated version constant must appear in the built output
+        const match = versionJs.match(/BABS_SPRITES_VERSION\s*=\s*"([^"]+)"/);
+        expect(match, "BABS_SPRITES_VERSION not found in dist/index.js").toBeTruthy();
+        const hash = match?.[1] ?? "";
+        expect(hash, "version is still the placeholder 0.0.0").not.toBe("0.0.0");
+        // Must be an 8-char hex string (our content hash format)
+        expect(hash).toMatch(/^[0-9a-f]{8}$/);
+      });
     }
   });
 }
