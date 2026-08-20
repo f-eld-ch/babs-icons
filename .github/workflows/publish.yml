@@ -45,4 +45,4 @@ jobs:
       - name: Publish to GitHub Packages
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: yarn workspaces foreach -A --no-private exec npm publish
+        run: yarn workspaces foreach -A --no-private npm publish
