@@ -102,6 +102,8 @@ Markers (`markers/`) are sprite-only graphics that appear in the sprite sheets b
 | `yarn icons:rebuild`      | Re-generates core, react, and sprites from `packages/svg/`    | Yes      |
 | `yarn icons:flatten`      | Re-flattens `sources/` into `packages/svg/`                   | Yes      |
 | `yarn icons:ingest`       | Normalises `sources/` with Inkscape, then rebuilds            | **No**   |
+| `yarn icons:source:normalize` | Normalises `sources/` SVGs in-place with Inkscape         | **No**   |
+| `yarn icons:source:copy-de`   | Copies German sources as starting point for missing langs  | **No**   |
 | `yarn icons:source:trace` | Traces raster sources to SVG with potrace                     | **No**   |
 | `yarn icons:sprites`      | Generates sprite sheets only                                  | Yes      |
 | `yarn icons:gen-core`     | Generates `babs-core` metadata                                | Yes      |
