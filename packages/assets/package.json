@@ -25,6 +25,6 @@
     "registry": "https://npm.pkg.github.com"
   },
   "scripts": {
-    "build": "tsc --build && mkdir -p svg && cp -rL ../svg/de ../svg/fr ../svg/it svg/"
+    "build": "tsc --build && rm -rf svg/de svg/fr svg/it && mkdir -p svg && cp -rL ../svg/de ../svg/fr ../svg/it svg/"
   }
 }
