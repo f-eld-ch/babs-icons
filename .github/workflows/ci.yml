@@ -23,14 +23,14 @@ jobs:
 
       - run: yarn install --immutable
 
-      - name: Rebuild icons
-        run: yarn icons:rebuild
-
       - name: Lint
         run: yarn lint
 
       - name: Format check
         run: yarn fmt:check
+
+      - name: Rebuild icons
+        run: yarn icons:rebuild
 
       - name: Check for uncommitted changes
         run: |

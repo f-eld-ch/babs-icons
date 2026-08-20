@@ -48,6 +48,6 @@
     "registry": "https://npm.pkg.github.com"
   },
   "scripts": {
-    "build": "node ../pipeline/src/gen-core.ts && tsc --build"
+    "build": "tsc --build"
   }
 }

@@ -110,6 +110,11 @@ Markers (`markers/`) are sprite-only graphics that appear in the sprite sheets b
 | `yarn icons:docs`         | Regenerates `docs/icons.md` icon reference                    | Yes      |
 | `yarn build`              | Builds all packages                                           | Yes      |
 | `yarn typecheck`          | Type-checks all packages                                      | Yes      |
+| `yarn test`               | Runs smoke tests (packs each tarball, checks entry points)    | Yes      |
+| `yarn lint`               | Runs oxlint across the codebase                               | Yes      |
+| `yarn lint:fix`           | Runs oxlint with auto-fix                                     | Yes      |
+| `yarn fmt`                | Formats all source files with oxfmt                           | Yes      |
+| `yarn fmt:check`          | Checks formatting without writing (CI)                        | Yes      |
 
 `icons:ingest` and `icons:source:trace` modify `sources/` and must not run in CI.
 

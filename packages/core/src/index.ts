@@ -73,7 +73,7 @@ export function resolveGraphicLang(id: BabsIconId, requested?: string): BabsLang
 
 export function getLabel(id: BabsIconId, requested?: string): string {
   const lang = resolveBabsLang(requested);
-  return LABEL_MAPS[lang][id] ?? LABEL_MAPS.de[id] ?? id;
+  return LABEL_MAPS[lang]?.[id] ?? LABEL_MAPS.de[id] ?? id;
 }
 
 export function spriteName(requested?: string): "babs-de" | "babs-fr" | "babs-it" {
@@ -111,7 +111,7 @@ export function listCategories(): readonly BabsCategory[] {
 }
 
 export function getCategory(n: BabsCategoryNumber): BabsCategory {
-  const cat = BABS_TREE.find((c) => c.number === n);
+  const cat = BABS_TREE.find((c: BabsCategory) => c.number === n);
   if (!cat) throw new RangeError(`Unknown category: ${n}`);
   return cat;
 }
@@ -122,7 +122,7 @@ export function listGroups(n: BabsCategoryNumber): readonly BabsGroup[] {
 
 export function getGroup(n: BabsGroupNumber): BabsGroup {
   for (const cat of BABS_TREE) {
-    const grp = cat.groups.find((g) => g.number === n);
+    const grp = cat.groups.find((g: BabsGroup) => g.number === n);
     if (grp) return grp;
   }
   throw new RangeError(`Unknown group: ${n}`);
@@ -183,7 +183,7 @@ export function findIcons(query: string, lang?: string): readonly BabsIconMeta[]
     .toLowerCase();
   const l = resolveBabsLang(lang);
   return listIcons().filter((meta) => {
-    const label = (meta.labels[l] ?? meta.labels.de)
+    const label = (meta.labels[l] ?? meta.labels.de ?? "")
       .normalize("NFD")
       .replace(/[̀-ͯ]/g, "")
       .toLowerCase();
