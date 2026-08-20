@@ -1,0 +1,18 @@
+{
+  "$schema": "./node_modules/oxlint/configuration_schema.json",
+  "plugins": ["typescript", "unicorn", "oxc"],
+  "categories": {
+    "correctness": "error"
+  },
+  "rules": {},
+  "env": {
+    "builtin": true
+  },
+  "ignorePatterns": [
+    "packages/react/src/icons/",
+    "packages/*/dist/",
+    "packages/svg/",
+    "sources/",
+    ".yarn/"
+  ]
+}

@@ -1,28 +1,17 @@
 {
   "name": "@f-eld-ch/babs-sprites",
   "version": "0.0.0",
-  "type": "module",
   "description": "BABS icon library — per-language MapLibre sprite sheets",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/f-eld-ch/babs-icons.git",
     "directory": "packages/sprites"
   },
-  "publishConfig": {
-    "registry": "https://npm.pkg.github.com",
-    "access": "public"
-  },
-  "scripts": {
-    "build": "tsc --build"
-  },
-  "peerDependencies": {
-    "vite": ">=5"
-  },
-  "peerDependenciesMeta": {
-    "vite": {
-      "optional": true
-    }
-  },
+  "files": [
+    "dist/",
+    "layout.lock.json"
+  ],
+  "type": "module",
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
@@ -35,11 +24,22 @@
     "./dist/*": "./dist/*",
     "./package.json": "./package.json"
   },
-  "files": [
-    "dist/",
-    "layout.lock.json"
-  ],
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://npm.pkg.github.com"
+  },
+  "scripts": {
+    "build": "tsc --build"
+  },
   "devDependencies": {
     "vite": "^8.2.1"
+  },
+  "peerDependencies": {
+    "vite": ">=5"
+  },
+  "peerDependenciesMeta": {
+    "vite": {
+      "optional": true
+    }
   }
 }

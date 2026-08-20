@@ -42,7 +42,7 @@ Import by human-readable name from `./named`. Same definition object as `./icons
 import { BabsIcon } from "@f-eld-ch/babs-react";
 import { babsBeschaedigung } from "@f-eld-ch/babs-react/named";
 
-<BabsIcon icon={babsBeschaedigung} size={32} />
+<BabsIcon icon={babsBeschaedigung} size={32} />;
 ```
 
 Named exports are derived from the German label and frozen in `corrections/names.lock.json` on first generation. They are stable across patch and minor versions; only a major version may rename them (and then only with a one-major deprecation cycle). The numeric form `babs<id>` from `./icons` is permanently stable.
@@ -55,7 +55,7 @@ Import by catalogue number. Useful when you know the ID but not the name, or wan
 import { BabsIcon } from "@f-eld-ch/babs-react";
 import { babs1101 } from "@f-eld-ch/babs-react/icons";
 
-<BabsIcon icon={babs1101} size={32} />
+<BabsIcon icon={babs1101} size={32} />;
 ```
 
 ### Enumeration (icon picker)
@@ -93,22 +93,22 @@ import { babs1101, babs7118 } from "@f-eld-ch/babs-react/icons";
 registerBabsIcons([babs1101, babs7118]);
 
 // Later, id comes from e.g. a GeoJSON feature property
-<BabsIcon icon={feature.properties.symbolId} size={32} fallback={<Spinner />} />
+<BabsIcon icon={feature.properties.symbolId} size={32} fallback={<Spinner />} />;
 ```
 
 If the ID is not in the registry, `fallback` is rendered instead.
 
 ## BabsIcon props
 
-| Prop | Type | Default | Description |
-|---|---|---|---|
-| `icon` | `BabsIconDefinition \| BabsIconId \| string` | required | Icon definition object, typed ID, or bare string (registry lookup) |
-| `size` | `number \| string` | `"1em"` | Maps to `width` and `height` on the SVG element |
-| `lang` | `string` | context lang | Overrides the provider language for this instance |
-| `title` | `string` | label from metadata | Overrides the accessible name |
-| `decorative` | `boolean` | `false` | When `true`, adds `aria-hidden` and omits the `<title>` |
-| `color` | `string` | `"currentColor"` | Fill colour — no-op when `recolorable: false` |
-| `fallback` | `ReactNode` | `null` | Rendered when the icon cannot be resolved |
+| Prop         | Type                                         | Default             | Description                                                        |
+| ------------ | -------------------------------------------- | ------------------- | ------------------------------------------------------------------ |
+| `icon`       | `BabsIconDefinition \| BabsIconId \| string` | required            | Icon definition object, typed ID, or bare string (registry lookup) |
+| `size`       | `number \| string`                           | `"1em"`             | Maps to `width` and `height` on the SVG element                    |
+| `lang`       | `string`                                     | context lang        | Overrides the provider language for this instance                  |
+| `title`      | `string`                                     | label from metadata | Overrides the accessible name                                      |
+| `decorative` | `boolean`                                    | `false`             | When `true`, adds `aria-hidden` and omits the `<title>`            |
+| `color`      | `string`                                     | `"currentColor"`    | Fill colour — no-op when `recolorable: false`                      |
+| `fallback`   | `ReactNode`                                  | `null`              | Rendered when the icon cannot be resolved                          |
 
 Any additional props are forwarded to the `<svg>` element.
 
@@ -117,14 +117,20 @@ Any additional props are forwarded to the `<svg>` element.
 By default `BabsIcon` is a labelled landmark: it sets `role="img"` and `aria-labelledby` pointing to an inline `<title>` whose text comes from the metadata label in the resolved language. Pass `title` to override the label. Pass `decorative={true}` to suppress the label and set `aria-hidden`.
 
 ```tsx
-{/* Labelled — screen readers announce the German label */}
-<BabsIcon icon={babs1101} />
+{
+  /* Labelled — screen readers announce the German label */
+}
+<BabsIcon icon={babs1101} />;
 
-{/* Custom label */}
-<BabsIcon icon={babs1101} title="Gebäudeschaden" />
+{
+  /* Custom label */
+}
+<BabsIcon icon={babs1101} title="Gebäudeschaden" />;
 
-{/* Purely decorative — ignored by assistive technology */}
-<BabsIcon icon={babs1101} decorative />
+{
+  /* Purely decorative — ignored by assistive technology */
+}
+<BabsIcon icon={babs1101} decorative />;
 ```
 
 ## useBabsLang
@@ -149,29 +155,33 @@ function IconLabel() {
 import { registerBabsIcons } from "@f-eld-ch/babs-react";
 import { babs1101 } from "@f-eld-ch/babs-react/icons";
 
-registerBabsIcons(babs1101);               // single definition
-registerBabsIcons([babs1101, babs7118]);   // array
+registerBabsIcons(babs1101); // single definition
+registerBabsIcons([babs1101, babs7118]); // array
 ```
 
 The registry is a module-level map; call `registerBabsIcons` before any `<BabsIcon icon="1101" />` renders. Registering the same ID twice is safe — the latest definition wins.
 
 ## Exports
 
-| Entry point | Contents | Use when |
-|---|---|---|
-| `.` | `BabsIcon`, `BabsIconProvider`, `BabsLangContext`, `useBabsLang`, `registerBabsIcons`, types | Always |
-| `./named` | 257 definitions under human-readable names (`babsBeschaedigung`, …) | Hand-written usage where readability matters |
-| `./icons` | 257 definitions under numeric names (`babs1101`, …) | When stability > readability, or the numeric ID is all you have |
-| `./all` | All 257 definitions as a default-exported array | Icon pickers |
+| Entry point | Contents                                                                                     | Use when                                                        |
+| ----------- | -------------------------------------------------------------------------------------------- | --------------------------------------------------------------- |
+| `.`         | `BabsIcon`, `BabsIconProvider`, `BabsLangContext`, `useBabsLang`, `registerBabsIcons`, types | Always                                                          |
+| `./named`   | 257 definitions under human-readable names (`babsBeschaedigung`, …)                          | Hand-written usage where readability matters                    |
+| `./icons`   | 257 definitions under numeric names (`babs1101`, …)                                          | When stability > readability, or the numeric ID is all you have |
+| `./all`     | All 257 definitions as a default-exported array                                              | Icon pickers                                                    |
 
 ## Color and recolorable
 
 The `color` prop sets the SVG `fill` attribute. It takes effect only when `meta.recolorable === true`, which is the case for single-colour icons. Most BABS icons are multicolour and have `recolorable: false`; passing `color` on those icons has no visual effect.
 
 ```tsx
-{/* Works — icon is single-colour */}
-<BabsIcon icon={babs7118} color="#e63312" />
+{
+  /* Works — icon is single-colour */
+}
+<BabsIcon icon={babs7118} color="#e63312" />;
 
-{/* No-op — icon is multicolour */}
-<BabsIcon icon={babs1101} color="#e63312" />
+{
+  /* No-op — icon is multicolour */
+}
+<BabsIcon icon={babs1101} color="#e63312" />;
 ```

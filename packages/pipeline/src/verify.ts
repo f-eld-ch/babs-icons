@@ -26,15 +26,27 @@ function pass(msg: string): void {
 }
 
 // ── Load index ────────────────────────────────────────────────────────────────
-interface SymFiles { lang: string; svg: string }
-interface PatternVariantEntry { identical: boolean; files: Partial<Record<string, SymFiles>> }
+interface SymFiles {
+  lang: string;
+  svg: string;
+}
+interface PatternVariantEntry {
+  identical: boolean;
+  files: Partial<Record<string, SymFiles>>;
+}
 interface SymEntry {
   id: string;
   identical: boolean;
   files: Record<string, SymFiles>;
   patterns?: Partial<Record<"a" | "b", PatternVariantEntry>>;
 }
-interface IndexJson { categories: Array<{ number: string; symbols?: SymEntry[]; subcategories?: Array<{ number: string; symbols: SymEntry[] }> }> }
+interface IndexJson {
+  categories: Array<{
+    number: string;
+    symbols?: SymEntry[];
+    subcategories?: Array<{ number: string; symbols: SymEntry[] }>;
+  }>;
+}
 
 const index = JSON.parse(readFileSync(SVG_INDEX, "utf8")) as IndexJson;
 const allSymbols: SymEntry[] = [];
@@ -103,10 +115,16 @@ if (spriteKeySets.length === 3) {
   const [de, fr, it] = spriteKeySets as [Set<string>, Set<string>, Set<string>];
   let identical = true;
   for (const k of de) {
-    if (!fr.has(k) || !it.has(k)) { fail(`sprite key "${k}" present in de but missing in fr or it`); identical = false; }
+    if (!fr.has(k) || !it.has(k)) {
+      fail(`sprite key "${k}" present in de but missing in fr or it`);
+      identical = false;
+    }
   }
   for (const k of fr) {
-    if (!de.has(k)) { fail(`sprite key "${k}" present in fr but missing in de`); identical = false; }
+    if (!de.has(k)) {
+      fail(`sprite key "${k}" present in fr but missing in de`);
+      identical = false;
+    }
   }
   if (identical) pass("sprite key sets are identical across de/fr/it");
 }
@@ -123,7 +141,7 @@ const symbolsWithPatternB = allSymbols.filter((s) => s.patterns?.b);
 // Bug fix: iterate symbolsWithAnyPattern, not symbolsWithPattern, so b-only variants are covered.
 let patternPathsOk = true;
 for (const sym of symbolsWithAnyPattern) {
-  for (const variant of (["a", "b"] as const)) {
+  for (const variant of ["a", "b"] as const) {
     const pv = sym.patterns?.[variant];
     if (!pv) continue;
     for (const [lang, entry] of Object.entries(pv.files)) {
@@ -228,7 +246,9 @@ if (spriteKeySets.length === 3) {
     let closedOk = true;
     for (const key of deKeys) {
       if (key.startsWith("marker-") && !markerKeys.has(key)) {
-        fail(`sprite key "${key}" has "marker-" prefix but is not declared in markers/markers.json`);
+        fail(
+          `sprite key "${key}" has "marker-" prefix but is not declared in markers/markers.json`,
+        );
         closedOk = false;
       }
     }
@@ -238,15 +258,27 @@ if (spriteKeySets.length === 3) {
   // 5. Language-neutral: pixel hashes for each marker key are identical across de/fr/it.
   const PIXEL_HASH = join(ROOT, "packages/sprites/pixels.sha256.json");
   if (existsSync(PIXEL_HASH)) {
-    const px = JSON.parse(readFileSync(PIXEL_HASH, "utf8")) as { langs: Record<string, Record<string, string>> };
+    const px = JSON.parse(readFileSync(PIXEL_HASH, "utf8")) as {
+      langs: Record<string, Record<string, string>>;
+    };
     let hashOk = true;
     for (const m of markers) {
       const de = px.langs["de"]?.[m.key];
       const fr = px.langs["fr"]?.[m.key];
       const it = px.langs["it"]?.[m.key];
-      if (!de) { fail(`marker "${m.key}": missing hash in pixels.sha256.json (de)`); hashOk = false; continue; }
-      if (de !== fr) { fail(`marker "${m.key}": de/fr pixel hashes differ — marker is not language-neutral`); hashOk = false; }
-      if (de !== it) { fail(`marker "${m.key}": de/it pixel hashes differ — marker is not language-neutral`); hashOk = false; }
+      if (!de) {
+        fail(`marker "${m.key}": missing hash in pixels.sha256.json (de)`);
+        hashOk = false;
+        continue;
+      }
+      if (de !== fr) {
+        fail(`marker "${m.key}": de/fr pixel hashes differ — marker is not language-neutral`);
+        hashOk = false;
+      }
+      if (de !== it) {
+        fail(`marker "${m.key}": de/it pixel hashes differ — marker is not language-neutral`);
+        hashOk = false;
+      }
     }
     if (hashOk) pass(`marker pixel hashes are identical across de/fr/it`);
   }
@@ -255,14 +287,19 @@ if (spriteKeySets.length === 3) {
   if (spriteKeySets.length > 0) {
     const deJsonPath = join(SPRITES_DIST, "babs-de.json");
     if (existsSync(deJsonPath)) {
-      const deSprite = JSON.parse(readFileSync(deJsonPath, "utf8")) as Record<string, { width: number }>;
+      const deSprite = JSON.parse(readFileSync(deJsonPath, "utf8")) as Record<
+        string,
+        { width: number }
+      >;
       let geomOk = true;
       for (const m of markers) {
         const entry = deSprite[m.key];
         if (!entry) continue; // caught by check 3
         const expectedW = m.mode === "pattern" ? 36 : 32;
         if (entry.width !== expectedW) {
-          fail(`marker "${m.key}": mode="${m.mode}" expects width=${expectedW}, sprite has width=${entry.width}`);
+          fail(
+            `marker "${m.key}": mode="${m.mode}" expects width=${expectedW}, sprite has width=${entry.width}`,
+          );
           geomOk = false;
         }
       }
@@ -278,7 +315,9 @@ if (spriteKeySets.length === 3) {
       disjointOk = false;
     }
     if (/-pattern(-b)?$/.test(id)) {
-      fail(`marker id "${id}" ends with "-pattern" or "-pattern-b" — would collide with PATTERN_KEY_RE`);
+      fail(
+        `marker id "${id}" ends with "-pattern" or "-pattern-b" — would collide with PATTERN_KEY_RE`,
+      );
       disjointOk = false;
     }
   }
@@ -299,7 +338,9 @@ if (spriteKeySets.length === 3) {
     let setEqOk = true;
     for (const stem of stemSet) {
       if (!idSet.has(stem)) {
-        fail(`packages/react/src/icons/${stem}.tsx exists but "${stem}" is not in index.json — stale or leaked file`);
+        fail(
+          `packages/react/src/icons/${stem}.tsx exists but "${stem}" is not in index.json — stale or leaked file`,
+        );
         setEqOk = false;
       }
     }
@@ -313,7 +354,9 @@ if (spriteKeySets.length === 3) {
   }
 
   // 8b. Scoped tripwire: none of named.ts/icons.ts/all.ts contains any concrete marker-<id> string.
-  const REACT_BARRELS = ["named.ts", "icons.ts", "all.ts"].map((f) => join(ROOT, "packages/react/src", f));
+  const REACT_BARRELS = ["named.ts", "icons.ts", "all.ts"].map((f) =>
+    join(ROOT, "packages/react/src", f),
+  );
   let barrelOk = true;
   for (const m of markers) {
     const concreteKey = m.key; // e.g. "marker-chevron-blue"
@@ -321,7 +364,9 @@ if (spriteKeySets.length === 3) {
       if (!existsSync(barrelPath)) continue;
       const src = readFileSync(barrelPath, "utf8");
       if (src.includes(`"${concreteKey}"`) || src.includes(`'${concreteKey}'`)) {
-        fail(`marker key "${concreteKey}" found in ${basename(barrelPath)} — markers must not reach babs-react`);
+        fail(
+          `marker key "${concreteKey}" found in ${basename(barrelPath)} — markers must not reach babs-react`,
+        );
         barrelOk = false;
       }
     }
@@ -334,7 +379,9 @@ if (spriteKeySets.length === 3) {
   let indexCleanOk = true;
   for (const m of markers) {
     if (rawIndex.includes(`"${m.key}"`) || rawIndex.includes(`"${m.id}"`)) {
-      fail(`marker id/key "${m.id}" found in packages/svg/index.json — markers must not enter the catalogue`);
+      fail(
+        `marker id/key "${m.id}" found in packages/svg/index.json — markers must not enter the catalogue`,
+      );
       indexCleanOk = false;
     }
   }
@@ -355,7 +402,9 @@ if (spriteKeySets.length === 3) {
   // 1. Completeness — every id has a canonical and alias entry.
   const missingAlias = allIdsList.filter((id) => !lock.aliases[id]);
   if (missingAlias.length > 0) {
-    fail(`names.lock.json missing aliases for: ${missingAlias.join(", ")} — run yarn icons:gen-core`);
+    fail(
+      `names.lock.json missing aliases for: ${missingAlias.join(", ")} — run yarn icons:gen-core`,
+    );
   } else {
     pass("names.lock.json has alias for every icon");
   }
@@ -370,11 +419,16 @@ if (spriteKeySets.length === 3) {
 
   // 3. Orphan check — every key in lock + pins must still exist in index.json.
   const indexIds = new Set(allIdsList);
-  for (const id of [...Object.keys(lock.aliases), ...Object.keys(lock.canonical), ...Object.keys(lock.retired)]) {
+  for (const id of [
+    ...Object.keys(lock.aliases),
+    ...Object.keys(lock.canonical),
+    ...Object.keys(lock.retired),
+  ]) {
     if (!indexIds.has(id)) fail(`names.lock.json: id "${id}" not in index.json — orphaned entry`);
   }
   for (const id of Object.keys(pins)) {
-    if (!indexIds.has(id)) fail(`corrections/aliases.json: id "${id}" not in index.json — orphaned entry`);
+    if (!indexIds.has(id))
+      fail(`corrections/aliases.json: id "${id}" not in index.json — orphaned entry`);
   }
 
   // 4. Global uniqueness — all assigned names (canonical + live aliases + retired) must be unique.
@@ -382,7 +436,9 @@ if (spriteKeySets.length === 3) {
   let collisionFound = false;
   const checkUnique = (name: string, id: string, source: string): void => {
     if (nameToId.has(name) && nameToId.get(name) !== id) {
-      fail(`naming collision: "${name}" assigned to both "${nameToId.get(name)}" and "${id}" (${source})`);
+      fail(
+        `naming collision: "${name}" assigned to both "${nameToId.get(name)}" and "${id}" (${source})`,
+      );
       collisionFound = true;
     } else {
       nameToId.set(name, id);
@@ -399,7 +455,9 @@ if (spriteKeySets.length === 3) {
   const ALIAS_RE = /^babs[A-Za-z0-9]+$/;
   const invalidAliases = Object.entries(lock.aliases).filter(([, name]) => !ALIAS_RE.test(name));
   if (invalidAliases.length > 0) {
-    fail(`aliases with invalid identifier form: ${invalidAliases.map(([id, n]) => `${id}→${n}`).join(", ")}`);
+    fail(
+      `aliases with invalid identifier form: ${invalidAliases.map(([id, n]) => `${id}→${n}`).join(", ")}`,
+    );
   } else {
     pass("all aliases are valid JS identifiers");
   }
@@ -422,7 +480,8 @@ if (spriteKeySets.length === 3) {
         barrelOk = false;
       }
     }
-    if (barrelOk) pass(`packages/react/src/named.ts matches names.lock.json (${allIdsList.length} entries)`);
+    if (barrelOk)
+      pass(`packages/react/src/named.ts matches names.lock.json (${allIdsList.length} entries)`);
   }
 }
 

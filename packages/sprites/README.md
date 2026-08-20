@@ -44,7 +44,7 @@ import { babsSprites } from "@f-eld-ch/babs-sprites/vite";
 
 export default defineConfig({
   plugins: [
-    babsSprites(),           // emits to map/sprites/ (default)
+    babsSprites(), // emits to map/sprites/ (default)
     // babsSprites({ path: "assets/sprites" }),  // custom path
   ],
 });
@@ -59,7 +59,7 @@ VitePWA({
   workbox: {
     globIgnores: ["map/sprites/**"],
   },
-})
+});
 ```
 
 ## Initial style
@@ -98,10 +98,10 @@ MapLibre requires an **absolute, extensionless** URL for sprites — it appends 
 ```ts
 import { babsSpriteUrl } from "@f-eld-ch/babs-sprites";
 
-babsSpriteUrl("de")            // "https://example.com/map/sprites/babs-de?v=…"
-babsSpriteUrl("fr-CH")         // "…/babs-fr?v=…"
-babsSpriteUrl("en")            // "…/babs-de?v=…"  (falls back to German)
-babsSpriteUrl("de", "assets/sprites")  // custom base path
+babsSpriteUrl("de"); // "https://example.com/map/sprites/babs-de?v=…"
+babsSpriteUrl("fr-CH"); // "…/babs-fr?v=…"
+babsSpriteUrl("en"); // "…/babs-de?v=…"  (falls back to German)
+babsSpriteUrl("de", "assets/sprites"); // custom base path
 ```
 
 The URL is resolved against `document.baseURI`, so sub-path Vite bases work without configuration.
@@ -115,18 +115,14 @@ import { withBabsSprite } from "@f-eld-ch/babs-sprites";
 const style = withBabsSprite(
   {
     version: 8,
-    sources: { /* … */ },
+    sources: {/* … */},
     layers: [
       {
         id: "babs-symbols",
         type: "symbol",
         source: "events",
         layout: {
-          "icon-image": [
-            "coalesce",
-            ["image", ["get", "symbol"]],
-            ["image", "fallback-marker"],
-          ],
+          "icon-image": ["coalesce", ["image", ["get", "symbol"]], ["image", "fallback-marker"]],
         },
       },
     ],
@@ -168,7 +164,7 @@ BABS sprites are rasterised from multicolour SVGs. They are not SDF (signed dist
 
 ## Exports
 
-| Entry point | Contents | Environment |
-|---|---|---|
-| `.` | `babsSpriteUrl`, `withBabsSprite`, `setBabsSpriteLang` | Browser, 0 runtime deps |
-| `./vite` | `babsSprites()` Vite plugin | Node only; requires `vite >=5` |
+| Entry point | Contents                                               | Environment                    |
+| ----------- | ------------------------------------------------------ | ------------------------------ |
+| `.`         | `babsSpriteUrl`, `withBabsSprite`, `setBabsSpriteLang` | Browser, 0 runtime deps        |
+| `./vite`    | `babsSprites()` Vite plugin                            | Node only; requires `vite >=5` |

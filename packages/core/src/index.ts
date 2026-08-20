@@ -138,10 +138,14 @@ export interface ListIconsFilter {
 
 export function listIcons(filter?: ListIconsFilter): readonly BabsIconMeta[] {
   const cats = filter?.category
-    ? (Array.isArray(filter.category) ? filter.category : [filter.category])
+    ? Array.isArray(filter.category)
+      ? filter.category
+      : [filter.category]
     : undefined;
   const grps = filter?.group
-    ? (Array.isArray(filter.group) ? filter.group : [filter.group])
+    ? Array.isArray(filter.group)
+      ? filter.group
+      : [filter.group]
     : undefined;
 
   const results: BabsIconMeta[] = [];

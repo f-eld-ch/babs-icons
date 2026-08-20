@@ -19,11 +19,11 @@ import { assetUrl } from "@f-eld-ch/babs-assets";
 import { resolveGraphicLang } from "@f-eld-ch/babs-core";
 
 // For icons identical across languages, lang defaults to "de"
-const url = assetUrl("1101");          // resolves to de/1101.svg
+const url = assetUrl("1101"); // resolves to de/1101.svg
 
 // For divergent icons, pass the user's resolved language
 const lang = resolveGraphicLang("7118", i18n.resolvedLanguage);
-const url2 = assetUrl("7118", lang);   // resolves to fr/7118.svg (if lang is "fr")
+const url2 = assetUrl("7118", lang); // resolves to fr/7118.svg (if lang is "fr")
 ```
 
 In the browser, Vite replaces the `new URL` call with the hashed output path:
@@ -34,13 +34,13 @@ In the browser, Vite replaces the `new URL` call with the hashed output path:
 
 ## When to use this vs babs-react
 
-| Situation | Use |
-|---|---|
-| React app, inline SVG rendering, tree-shaking | `@f-eld-ch/babs-react` |
-| `<img>` elements, CSS backgrounds | `@f-eld-ch/babs-assets` |
-| Server-side rendering without a React renderer | `@f-eld-ch/babs-assets` |
-| Non-JavaScript consumers (e.g. Svelte, Vue, plain HTML) | `@f-eld-ch/babs-assets` |
-| MapLibre sprite integration | `@f-eld-ch/babs-sprites` |
+| Situation                                               | Use                      |
+| ------------------------------------------------------- | ------------------------ |
+| React app, inline SVG rendering, tree-shaking           | `@f-eld-ch/babs-react`   |
+| `<img>` elements, CSS backgrounds                       | `@f-eld-ch/babs-assets`  |
+| Server-side rendering without a React renderer          | `@f-eld-ch/babs-assets`  |
+| Non-JavaScript consumers (e.g. Svelte, Vue, plain HTML) | `@f-eld-ch/babs-assets`  |
+| MapLibre sprite integration                             | `@f-eld-ch/babs-sprites` |
 
 ## Lang defaulting for identical icons
 

@@ -41,18 +41,24 @@ export const fileNum = (f: string): string | undefined =>
 export function symLabel(f: string): string {
   return f
     .replace(/\.svg$/, "")
-    .replace(/-pattern(-b)?$/, "")        // strip pattern suffix before lang markers
-    .replace(/^(\d+[a-z]?)[-.\s]+/, "")  // strip leading ID + separator
-    .replace(/^[DFI]-/, "")              // strip leading lang prefix (finding 7)
-    .replace(/-[DFI]$/, "");             // strip trailing lang suffix
+    .replace(/-pattern(-b)?$/, "") // strip pattern suffix before lang markers
+    .replace(/^(\d+[a-z]?)[-.\s]+/, "") // strip leading ID + separator
+    .replace(/^[DFI]-/, "") // strip leading lang prefix (finding 7)
+    .replace(/-[DFI]$/, ""); // strip trailing lang suffix
 }
 
 /** Transliterate to an ASCII-safe stem suitable for use in filenames. */
 export function stem(f: string): string {
   let s = symLabel(f);
   // German umlauts
-  s = s.replace(/ä/g, "ae").replace(/ö/g, "oe").replace(/ü/g, "ue")
-       .replace(/Ä/g, "Ae").replace(/Ö/g, "Oe").replace(/Ü/g, "Ue").replace(/ß/g, "ss");
+  s = s
+    .replace(/ä/g, "ae")
+    .replace(/ö/g, "oe")
+    .replace(/ü/g, "ue")
+    .replace(/Ä/g, "Ae")
+    .replace(/Ö/g, "Oe")
+    .replace(/Ü/g, "Ue")
+    .replace(/ß/g, "ss");
   // Accented letters: NFD-normalise and drop combining marks (U+0300–U+036F)
   s = s.normalize("NFD").replace(/[̀-ͯ]/g, "");
   // Whitespace, commas, apostrophes → empty (jam words together)

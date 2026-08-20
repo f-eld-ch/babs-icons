@@ -1,21 +1,17 @@
 {
   "name": "@f-eld-ch/babs-core",
   "version": "0.0.0",
-  "type": "module",
   "description": "BABS icon library — core types, metadata, and language utilities",
-  "sideEffects": false,
   "repository": {
     "type": "git",
     "url": "git+https://github.com/f-eld-ch/babs-icons.git",
     "directory": "packages/core"
   },
-  "publishConfig": {
-    "registry": "https://npm.pkg.github.com",
-    "access": "public"
-  },
-  "scripts": {
-    "build": "node ../pipeline/src/gen-core.ts && tsc --build"
-  },
+  "files": [
+    "dist/"
+  ],
+  "type": "module",
+  "sideEffects": false,
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
@@ -47,7 +43,11 @@
     },
     "./package.json": "./package.json"
   },
-  "files": [
-    "dist/"
-  ]
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://npm.pkg.github.com"
+  },
+  "scripts": {
+    "build": "node ../pipeline/src/gen-core.ts && tsc --build"
+  }
 }

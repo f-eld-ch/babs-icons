@@ -13,10 +13,15 @@ export type AliasPins = Readonly<Record<string, string>>;
 
 export function transliterate(s: string): string {
   return s
-    .replace(/ä/g, "ae").replace(/ö/g, "oe").replace(/ü/g, "ue")
-    .replace(/Ä/g, "Ae").replace(/Ö/g, "Oe").replace(/Ü/g, "Ue")
+    .replace(/ä/g, "ae")
+    .replace(/ö/g, "oe")
+    .replace(/ü/g, "ue")
+    .replace(/Ä/g, "Ae")
+    .replace(/Ö/g, "Oe")
+    .replace(/Ü/g, "Ue")
     .replace(/ß/g, "ss")
-    .normalize("NFD").replace(/[̀-ͯ]/g, "");
+    .normalize("NFD")
+    .replace(/[̀-ͯ]/g, "");
 }
 
 export function labelToAlias(label: string): string {

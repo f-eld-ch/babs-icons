@@ -1,16 +1,51 @@
 {
-  "6102a": { "de": "Beabsichtigter Einsatz",    "note": "source label had hyphens: 'Beabsichtigter-Einsatz'" },
-  "6102b": { "de": "Durchgeführter Einsatz",    "note": "source label had hyphens and no umlaut: 'Durchgefuehrter-Einsatz'" },
-  "6103a": { "de": "Beabsichtigte Erkundung",   "note": "source label had hyphens: 'Beabsichtigte-Erkundung'" },
-  "6103b": { "de": "Durchgeführte Erkundung",   "note": "source label had hyphens and no umlaut: 'Durchgefuehrte-Erkundung'" },
-  "6107":  { "de": "Überwachen",                "note": "source label missing umlaut: 'Ueberwachen'" },
-  "8110":  { "de": "Wasserstand gestiegen",      "note": "source filename had no spaces" },
-  "8202":  { "de": "Explosion",                  "note": "source label was 'Explosion-pikt'" },
-  "8206":  { "de": "Bach ausgetrocknet",         "note": "source typo: 'ausgetroknet'" },
-  "8318":  { "de": "Entführung",                 "note": "source typo: 'Entfürung'" },
-  "1105b": { "de": "Explosionsherd-Beispiel",    "note": "source typo: missing 's' in 'Explosionsherd'" },
-  "9101a": { "de": "Autobahn offen",                          "fr": "Autoroute ouverte",                          "it": "Autostrada aperta",              "note": "source label 'Autobahn' was ambiguous; disambiguated by state" },
-  "9101b": { "de": "Autobahn gesperrt",                       "fr": "Autoroute fermée",                           "it": "Autostrada chiusa",              "note": "source label 'Autobahn' was ambiguous; disambiguated by state" },
-  "9101c": { "de": "Autobahn, einspurig gesperrt linke Spur", "fr": "Autoroute, une voie fermée côté gauche",     "it": "Autostrada, corsia sinistra chiusa",  "note": "source label 'Autobahn' was ambiguous; disambiguated by state" },
-  "9101d": { "de": "Autobahn, einspurig gesperrt rechte Spur","fr": "Autoroute, une voie fermée côté droit",      "it": "Autostrada, corsia destra chiusa",    "note": "source label 'Autobahn' was ambiguous; disambiguated by state" }
+  "6102a": {
+    "de": "Beabsichtigter Einsatz",
+    "note": "source label had hyphens: 'Beabsichtigter-Einsatz'"
+  },
+  "6102b": {
+    "de": "Durchgeführter Einsatz",
+    "note": "source label had hyphens and no umlaut: 'Durchgefuehrter-Einsatz'"
+  },
+  "6103a": {
+    "de": "Beabsichtigte Erkundung",
+    "note": "source label had hyphens: 'Beabsichtigte-Erkundung'"
+  },
+  "6103b": {
+    "de": "Durchgeführte Erkundung",
+    "note": "source label had hyphens and no umlaut: 'Durchgefuehrte-Erkundung'"
+  },
+  "6107": { "de": "Überwachen", "note": "source label missing umlaut: 'Ueberwachen'" },
+  "8110": { "de": "Wasserstand gestiegen", "note": "source filename had no spaces" },
+  "8202": { "de": "Explosion", "note": "source label was 'Explosion-pikt'" },
+  "8206": { "de": "Bach ausgetrocknet", "note": "source typo: 'ausgetroknet'" },
+  "8318": { "de": "Entführung", "note": "source typo: 'Entfürung'" },
+  "1105b": {
+    "de": "Explosionsherd-Beispiel",
+    "note": "source typo: missing 's' in 'Explosionsherd'"
+  },
+  "9101a": {
+    "de": "Autobahn offen",
+    "fr": "Autoroute ouverte",
+    "it": "Autostrada aperta",
+    "note": "source label 'Autobahn' was ambiguous; disambiguated by state"
+  },
+  "9101b": {
+    "de": "Autobahn gesperrt",
+    "fr": "Autoroute fermée",
+    "it": "Autostrada chiusa",
+    "note": "source label 'Autobahn' was ambiguous; disambiguated by state"
+  },
+  "9101c": {
+    "de": "Autobahn, einspurig gesperrt linke Spur",
+    "fr": "Autoroute, une voie fermée côté gauche",
+    "it": "Autostrada, corsia sinistra chiusa",
+    "note": "source label 'Autobahn' was ambiguous; disambiguated by state"
+  },
+  "9101d": {
+    "de": "Autobahn, einspurig gesperrt rechte Spur",
+    "fr": "Autoroute, une voie fermée côté droit",
+    "it": "Autostrada, corsia destra chiusa",
+    "note": "source label 'Autobahn' was ambiguous; disambiguated by state"
+  }
 }

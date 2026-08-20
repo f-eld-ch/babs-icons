@@ -4,28 +4,28 @@ Internal code generator for the babs-icons monorepo. This package is private and
 
 ## Prerequisites
 
-| Tool | Version | Required for |
-|---|---|---|
-| Node.js | 24+ | All subcommands |
+| Tool     | Version    | Required for                          |
+| -------- | ---------- | ------------------------------------- |
+| Node.js  | 24+        | All subcommands                       |
 | Inkscape | any recent | `icons:ingest` (normalize/trace only) |
-| potrace | any recent | `icons:source:trace` only |
+| potrace  | any recent | `icons:source:trace` only             |
 
 ## Subcommands
 
 All commands are run from the monorepo root with `yarn`.
 
-| Command | Flags | CI-safe | Description |
-|---|---|---|---|
-| `yarn icons:flatten` | — | Yes | Re-flattens `sources/de`, `sources/fr`, `sources/it` into `packages/svg/` with a fresh `index.json` |
-| `yarn icons:sprites` | `--check` | Yes | Generates sprite sheets in `packages/sprites/dist/`; `--check` verifies without writing |
-| `yarn icons:gen-core` | `--check` | Yes | Generates `packages/core/src/generated/`; `--check` verifies without writing |
-| `yarn icons:gen-react` | `--check` | Yes | Generates `packages/react/src/icons/`; `--check` verifies without writing |
-| `yarn icons:verify` | — | Yes | Runs semantic invariant checks over all generated outputs |
-| `yarn icons:rebuild` | — | Yes | `flatten` + `sprites` + `gen-core` + `gen-react` + `verify` in order |
-| `yarn icons:check` | — | Yes | Verifies all generated outputs are up to date without writing anything |
-| `yarn icons:ingest` | — | **No** | Normalises `sources/` with Inkscape then rebuilds; modifies source files |
-| `yarn icons:source:trace` | — | **No** | Traces raster source files to SVG using potrace; modifies source files |
-| `yarn icons:source:copy-de` | — | Yes | Copies German graphics to fr/it for icons that are language-neutral |
+| Command                     | Flags     | CI-safe | Description                                                                                         |
+| --------------------------- | --------- | ------- | --------------------------------------------------------------------------------------------------- |
+| `yarn icons:flatten`        | —         | Yes     | Re-flattens `sources/de`, `sources/fr`, `sources/it` into `packages/svg/` with a fresh `index.json` |
+| `yarn icons:sprites`        | `--check` | Yes     | Generates sprite sheets in `packages/sprites/dist/`; `--check` verifies without writing             |
+| `yarn icons:gen-core`       | `--check` | Yes     | Generates `packages/core/src/generated/`; `--check` verifies without writing                        |
+| `yarn icons:gen-react`      | `--check` | Yes     | Generates `packages/react/src/icons/`; `--check` verifies without writing                           |
+| `yarn icons:verify`         | —         | Yes     | Runs semantic invariant checks over all generated outputs                                           |
+| `yarn icons:rebuild`        | —         | Yes     | `flatten` + `sprites` + `gen-core` + `gen-react` + `verify` in order                                |
+| `yarn icons:check`          | —         | Yes     | Verifies all generated outputs are up to date without writing anything                              |
+| `yarn icons:ingest`         | —         | **No**  | Normalises `sources/` with Inkscape then rebuilds; modifies source files                            |
+| `yarn icons:source:trace`   | —         | **No**  | Traces raster source files to SVG using potrace; modifies source files                              |
+| `yarn icons:source:copy-de` | —         | Yes     | Copies German graphics to fr/it for icons that are language-neutral                                 |
 
 `icons:ingest` and `icons:source:trace` modify files under `sources/` and must never run in CI.
 
@@ -38,6 +38,7 @@ All commands are run from the monorepo root with `yarn`.
 3. Run `yarn icons:ingest` to normalise the SVG to a 100×100 viewBox (requires Inkscape) and re-generate all derived files. This modifies `sources/`.
 
 4. If the label requires correction (typo, missing umlaut, hyphenated label), add an entry to `corrections/labels.json`:
+
    ```json
    "8206": { "de": "Bach ausgetrocknet", "note": "source typo: 'ausgetroknet'" }
    ```
@@ -90,11 +91,11 @@ The numeric export (`babs<id>`, from `@f-eld-ch/babs-react/icons`) is permanentl
 
 ## rebuild vs ingest vs check
 
-| Command | Reads from | Writes to | Touches sources? |
-|---|---|---|---|
-| `icons:check` | `packages/svg/` | Nothing | No |
-| `icons:rebuild` | `packages/svg/` | `packages/core/`, `packages/react/`, `packages/sprites/` | No |
-| `icons:ingest` | `sources/` | `sources/`, then everything rebuild writes | **Yes** |
+| Command         | Reads from      | Writes to                                                | Touches sources? |
+| --------------- | --------------- | -------------------------------------------------------- | ---------------- |
+| `icons:check`   | `packages/svg/` | Nothing                                                  | No               |
+| `icons:rebuild` | `packages/svg/` | `packages/core/`, `packages/react/`, `packages/sprites/` | No               |
+| `icons:ingest`  | `sources/`      | `sources/`, then everything rebuild writes               | **Yes**          |
 
 Use `icons:check` in CI to assert generated files are committed. Use `icons:rebuild` when you have already modified `packages/svg/` directly (e.g. after running `icons:flatten` by hand). Use `icons:ingest` only locally when adding or updating source SVGs.
 

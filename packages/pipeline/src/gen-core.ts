@@ -112,7 +112,9 @@ function isRaster(svgRelPath: string): boolean {
   const idSet = new Set(richSymbols.map((s) => s.id));
   for (const id of Object.keys(pins)) {
     if (!idSet.has(id)) {
-      console.error(`ERROR: corrections/aliases.json: "${id}" not found in index.json — orphaned entry`);
+      console.error(
+        `ERROR: corrections/aliases.json: "${id}" not found in index.json — orphaned entry`,
+      );
       process.exit(1);
     }
   }
@@ -122,8 +124,8 @@ function isRaster(svgRelPath: string): boolean {
     if (lockedName !== undefined && lockedName !== requestedName) {
       console.error(
         `ERROR: "${id}" is locked as "${lockedName}" but corrections/aliases.json requests "${requestedName}".\n` +
-        `Renaming a frozen export name is a breaking change. To proceed, add the old name to\n` +
-        `corrections/names.lock.json "retired" and then re-run yarn icons:gen-core.`,
+          `Renaming a frozen export name is a breaking change. To proceed, add the old name to\n` +
+          `corrections/names.lock.json "retired" and then re-run yarn icons:gen-core.`,
       );
       process.exit(1);
     }
@@ -155,7 +157,9 @@ function getGraphicLangs(sym: SymbolEntry): Lang[] {
     if (rel) {
       try {
         content[lang] = readFileSync(join(SVG_DIR, rel.replace(/^svg\//, "")), "utf8");
-      } catch { /**/ }
+      } catch {
+        /**/
+      }
     }
   }
   // Collect distinct langs (by content)
@@ -213,10 +217,6 @@ const groupNumbers = [...new Set(icons.map((i) => i.groupNum))].sort();
 // ── Code generation helpers ───────────────────────────────────────────────────
 function q(s: string): string {
   return JSON.stringify(s);
-}
-
-function langUnion(langs: Lang[]): string {
-  return langs.map(q).join(" | ");
 }
 
 function boolArr(arr: string[]): string {
@@ -392,7 +392,8 @@ ok = writeOrCheck(join(CORE_GEN, "meta.ts"), genMeta(), "meta.ts") && ok;
 ok = writeOrCheck(join(CORE_GEN, "tree.ts"), genTree(), "tree.ts") && ok;
 ok = writeOrCheck(join(CORE_GEN, "markers.ts"), genMarkers(), "markers.ts") && ok;
 for (const lang of LANGS) {
-  ok = writeOrCheck(join(CORE_GEN, `labels/${lang}.ts`), genLabels(lang), `labels/${lang}.ts`) && ok;
+  ok =
+    writeOrCheck(join(CORE_GEN, `labels/${lang}.ts`), genLabels(lang), `labels/${lang}.ts`) && ok;
 }
 
 if (CHECK) {
@@ -411,10 +412,10 @@ if (CHECK) {
   // Write names.lock.json — append-only, sorted by id.
   const sortedCanonical: Record<string, string> = {};
   const sortedAliases: Record<string, string> = {};
-  for (const id of [...Object.keys(namesLock.canonical)].sort(compareNumeric)) {
+  for (const id of Object.keys(namesLock.canonical).sort(compareNumeric)) {
     sortedCanonical[id] = namesLock.canonical[id]!;
   }
-  for (const id of [...Object.keys(namesLock.aliases)].sort(compareNumeric)) {
+  for (const id of Object.keys(namesLock.aliases).sort(compareNumeric)) {
     sortedAliases[id] = namesLock.aliases[id]!;
   }
   const lockOut: NamesLock = {
@@ -432,7 +433,9 @@ if (CHECK) {
   if (newLockEntries.length > 0) {
     console.log(`  names.lock.json: assigned ${newLockEntries.length} new name(s)`);
   }
-  console.log(`  raster: ${icons.filter((i) => i.raster).length}, vector: ${icons.filter((i) => !i.raster).length}`);
+  console.log(
+    `  raster: ${icons.filter((i) => i.raster).length}, vector: ${icons.filter((i) => !i.raster).length}`,
+  );
   console.log(
     `  identical: ${icons.filter((i) => i.identical).length}, divergent: ${icons.filter((i) => !i.identical).length}`,
   );

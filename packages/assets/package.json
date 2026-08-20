@@ -1,20 +1,17 @@
 {
   "name": "@f-eld-ch/babs-assets",
   "version": "0.0.0",
-  "type": "module",
   "description": "BABS icon library — optimized SVG files",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/f-eld-ch/babs-icons.git",
     "directory": "packages/assets"
   },
-  "publishConfig": {
-    "registry": "https://npm.pkg.github.com",
-    "access": "public"
-  },
-  "scripts": {
-    "build": "tsc --build && mkdir -p svg && cp -rL ../svg/de ../svg/fr ../svg/it svg/"
-  },
+  "files": [
+    "dist/",
+    "svg/"
+  ],
+  "type": "module",
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
@@ -22,8 +19,11 @@
     },
     "./package.json": "./package.json"
   },
-  "files": [
-    "dist/",
-    "svg/"
-  ]
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://npm.pkg.github.com"
+  },
+  "scripts": {
+    "build": "tsc --build && mkdir -p svg && cp -rL ../svg/de ../svg/fr ../svg/it svg/"
+  }
 }

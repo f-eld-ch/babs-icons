@@ -26,6 +26,12 @@ jobs:
       - name: Rebuild icons
         run: yarn icons:rebuild
 
+      - name: Lint
+        run: yarn lint
+
+      - name: Format check
+        run: yarn fmt:check
+
       - name: Check for uncommitted changes
         run: |
           # Sprite PNGs and pixel hashes are excluded: resvg/libvips produce different

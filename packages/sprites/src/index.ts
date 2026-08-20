@@ -54,7 +54,10 @@ export function withBabsSprite<T extends { sprite?: unknown }>(
   return { ...style, sprite };
 }
 
-interface SpriteEntry { id: string; url: string }
+interface SpriteEntry {
+  id: string;
+  url: string;
+}
 interface MapLike {
   getSprite(): SpriteEntry[];
   addSprite(id: string, url: string): unknown;

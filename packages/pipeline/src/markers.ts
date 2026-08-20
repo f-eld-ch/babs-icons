@@ -47,8 +47,13 @@ const PATTERN_SUFFIX_RE = /-pattern(-b)?$/;
 const HEX_COLOR_RE = /^#([0-9a-f]{3}|[0-9a-f]{6})$/i;
 
 const COLOUR_ATTRS = new Set([
-  "fill", "stroke", "stop-color", "flood-color",
-  "lighting-color", "color", "solid-color",
+  "fill",
+  "stroke",
+  "stop-color",
+  "flood-color",
+  "lighting-color",
+  "color",
+  "solid-color",
 ]);
 const FUNCTIONAL_RE = /\b(rgb|rgba|hsl|hsla|var|color-mix)\s*\(/i;
 const ALLOWED_KEYWORD_RE = /^(none|currentcolor|inherit|transparent)$|^url\(/i;
@@ -60,7 +65,10 @@ const ALLOWED_KEYWORD_RE = /^(none|currentcolor|inherit|transparent)$|^url\(/i;
 function parseViewBox(svg: string): [number, number] | null {
   const m = svg.match(/viewBox="([^"]+)"/);
   if (!m) return null;
-  const parts = m[1]!.trim().split(/[\s,]+/).map(Number);
+  const parts = m[1]!
+    .trim()
+    .split(/[\s,]+/)
+    .map(Number);
   if (parts.length < 4) return null;
   const w = parts[2];
   const h = parts[3];
@@ -129,10 +137,7 @@ export function recolorSvg(svg: string, rules: Record<string, string>, file: str
   // Replace only inside presentation attributes (fill="…", stroke="…", etc.)
   let result = svg;
   for (const rule of normRules) {
-    const attrRe = new RegExp(
-      `(\\b(?:${[...COLOUR_ATTRS].join("|")})\\s*=\\s*")([^"]*)(")`  ,
-      "gi",
-    );
+    const attrRe = new RegExp(`(\\b(?:${[...COLOUR_ATTRS].join("|")})\\s*=\\s*")([^"]*)(")`, "gi");
     result = result.replace(attrRe, (_match, pre, val, post) => {
       const norm = expand3(val.trim());
       if (norm === rule.from) {
@@ -147,7 +152,7 @@ export function recolorSvg(svg: string, rules: Record<string, string>, file: str
   if (zero.length > 0) {
     throw new Error(
       `recolor rule(s) ${zero.map((r) => r.from).join(", ")} matched nothing in ${file} — ` +
-      `stale rule would publish a sprite identical to its base`,
+        `stale rule would publish a sprite identical to its base`,
     );
   }
 
@@ -185,13 +190,17 @@ export function loadMarkers(): Marker[] {
     }
     // mode must be known
     if (def.mode !== "icon" && def.mode !== "pattern") {
-      throw new Error(`marker "${id}": unknown mode "${String(def.mode)}" — expected "icon" or "pattern"`);
+      throw new Error(
+        `marker "${id}": unknown mode "${String(def.mode)}" — expected "icon" or "pattern"`,
+      );
     }
     // recolor values must be hex
     if (def.recolor) {
       for (const [from, to] of Object.entries(def.recolor)) {
-        if (!HEX_COLOR_RE.test(from)) throw new Error(`marker "${id}": recolor key "${from}" is not a hex colour`);
-        if (!HEX_COLOR_RE.test(to)) throw new Error(`marker "${id}": recolor value "${to}" is not a hex colour`);
+        if (!HEX_COLOR_RE.test(from))
+          throw new Error(`marker "${id}": recolor key "${from}" is not a hex colour`);
+        if (!HEX_COLOR_RE.test(to))
+          throw new Error(`marker "${id}": recolor value "${to}" is not a hex colour`);
       }
     }
 
@@ -250,7 +259,9 @@ if (isMain) {
     console.log(`markers: loaded ${markers.length} marker(s)`);
     for (const m of markers) {
       const svg = markerSvg(m);
-      console.log(`  ${m.key}  src=${m.src}  mode=${m.mode}  svgLen=${svg.length}  recolor=${JSON.stringify(m.recolor ?? null)}`);
+      console.log(
+        `  ${m.key}  src=${m.src}  mode=${m.mode}  svgLen=${svg.length}  recolor=${JSON.stringify(m.recolor ?? null)}`,
+      );
     }
     console.log("markers: all OK");
   } catch (e) {

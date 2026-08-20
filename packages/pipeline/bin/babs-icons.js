@@ -1,7 +1,6 @@
 #!/usr/bin/env node
 // Thin wrapper so yarn can link this as an executable bin.
 // Node 22.6+ strips TypeScript types natively; no build step needed.
-import { createRequire } from "node:module";
 import { fileURLToPath } from "node:url";
 import { join, dirname } from "node:path";
 import { spawnSync } from "node:child_process";

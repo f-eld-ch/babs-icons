@@ -18,50 +18,57 @@ import sharp from "sharp";
 import { indexAll } from "./source-index.ts";
 import { LANGS, type Lang } from "./naming.ts";
 
-const ROOT    = join(dirname(fileURLToPath(import.meta.url)), "../../../");
+const ROOT = join(dirname(fileURLToPath(import.meta.url)), "../../../");
 const SOURCES = join(ROOT, "sources");
 
 // ── Complexity thresholds ─────────────────────────────────────────────────────
 // Icons above either limit are flagged as "complex" and skipped unless --force.
 // Thresholds are aggregated across all color layers in the multi-color output.
-const MAX_PATHS    = 150;     // total <path> elements across all color layers
-const MAX_CMDS     = 2_000;   // total path commands (M L C Q A Z …)
-const MAX_D_BYTES  = 50_000;  // total byte length of all d="…" values
+const MAX_PATHS = 150; // total <path> elements across all color layers
+const MAX_CMDS = 2_000; // total path commands (M L C Q A Z …)
+const MAX_D_BYTES = 50_000; // total byte length of all d="…" values
 
 // ── Color tracing constants ───────────────────────────────────────────────────
-const QUANT_STEP = 64;  // channel quantization step for palette discovery
-const MAX_COLORS = 12;  // reject images with more distinct colors than this
+const QUANT_STEP = 64; // channel quantization step for palette discovery
+const MAX_COLORS = 12; // reject images with more distinct colors than this
 
 // ── Argument parsing ──────────────────────────────────────────────────────────
 const args = process.argv.slice(2);
 
 if (args.includes("--help") || args.includes("-h")) {
-  console.log([
-    "Usage: node packages/pipeline/src/trace.ts [options]",
-    "",
-    "Options:",
-    "  --ids <id1,id2,...>  Only trace icons with these IDs (default: all raster icons)",
-    "  --dry-run            Preview without writing any files",
-    "  --force              Write even complex icons (exceed complexity threshold)",
-    "",
-    "Exit codes:  0 = all processed icons converted; 1 = any failure or complex icon",
-  ].join("\n"));
+  console.log(
+    [
+      "Usage: node packages/pipeline/src/trace.ts [options]",
+      "",
+      "Options:",
+      "  --ids <id1,id2,...>  Only trace icons with these IDs (default: all raster icons)",
+      "  --dry-run            Preview without writing any files",
+      "  --force              Write even complex icons (exceed complexity threshold)",
+      "",
+      "Exit codes:  0 = all processed icons converted; 1 = any failure or complex icon",
+    ].join("\n"),
+  );
   process.exit(0);
 }
 
 const DRY_RUN = args.includes("--dry-run");
-const FORCE   = args.includes("--force");
+const FORCE = args.includes("--force");
 
 function getArg(flag: string): string | undefined {
-  const eq = args.find(a => a.startsWith(`${flag}=`))?.slice(flag.length + 1);
+  const eq = args.find((a) => a.startsWith(`${flag}=`))?.slice(flag.length + 1);
   if (eq !== undefined) return eq;
   const idx = args.indexOf(flag);
   return idx >= 0 ? args[idx + 1] : undefined;
 }
 
-const idsRaw  = getArg("--ids");
+const idsRaw = getArg("--ids");
 const ID_FILTER: Set<string> | null = idsRaw
-  ? new Set(idsRaw.split(",").map(s => s.trim()).filter(Boolean))
+  ? new Set(
+      idsRaw
+        .split(",")
+        .map((s) => s.trim())
+        .filter(Boolean),
+    )
   : null;
 
 // ── Helpers ───────────────────────────────────────────────────────────────────
@@ -73,14 +80,15 @@ const ID_FILTER: Set<string> | null = idsRaw
  */
 function selfClosingEnd(s: string, from: number): number {
   let inQ = false;
-  let qc  = '"';
+  let qc = '"';
   for (let i = from; i < s.length - 1; i++) {
     const c = s[i]!;
     if (inQ) {
       if (c === qc) inQ = false;
     } else if (c === '"' || c === "'") {
-      inQ = true; qc = c;
-    } else if (c === '/' && s[i + 1] === '>') {
+      inQ = true;
+      qc = c;
+    } else if (c === "/" && s[i + 1] === ">") {
       return i + 2;
     }
   }
@@ -99,7 +107,7 @@ function selfClosingEnd(s: string, from: number): number {
 function findEmbeddedPng(
   svg: string,
 ): { b64: string; imgStart: number; imgEnd: number } | undefined {
-  const imgStart = svg.indexOf('<image');
+  const imgStart = svg.indexOf("<image");
   if (imgStart === -1) return undefined;
 
   // Match the href attribute, supporting both xlink: prefix and both MIME spellings.
@@ -123,7 +131,11 @@ function findEmbeddedPng(
 
 // ── Color types ───────────────────────────────────────────────────────────────
 
-interface RgbColor { r: number; g: number; b: number }
+interface RgbColor {
+  r: number;
+  g: number;
+  b: number;
+}
 
 function toHex(c: RgbColor): string {
   const h = (v: number): string => Math.max(0, Math.min(255, v)).toString(16).padStart(2, "0");
@@ -140,7 +152,11 @@ function luminance(c: RgbColor): number {
 
 // ── PNG decoding ──────────────────────────────────────────────────────────────
 
-interface DecodedPng { pixels: Buffer; width: number; height: number }
+interface DecodedPng {
+  pixels: Buffer;
+  width: number;
+  height: number;
+}
 
 /** Decode a PNG to raw 3-channel RGB pixels with alpha flattened onto white. */
 async function decodePng(pngBuf: Buffer): Promise<DecodedPng> {
@@ -175,11 +191,13 @@ function findPalette(decoded: DecodedPng): RgbColor[] {
     else counts.set(key, { color: { r, g, b }, count: 1 });
   }
 
-  return [...counts.values()]
-    .filter(e => e.count >= minPx)
-    // Lightest first → darkest last: white background renders first, black outlines on top.
-    .sort((a, b) => luminance(b.color) - luminance(a.color))
-    .map(e => e.color);
+  return (
+    [...counts.values()]
+      .filter((e) => e.count >= minPx)
+      // Lightest first → darkest last: white background renders first, black outlines on top.
+      .sort((a, b) => luminance(b.color) - luminance(a.color))
+      .map((e) => e.color)
+  );
 }
 
 // ── Per-color masking ─────────────────────────────────────────────────────────
@@ -204,10 +222,17 @@ function makeColorMaskPpm(decoded: DecodedPng, targetColor: RgbColor, palette: R
     let bestColor = palette[0]!;
     for (const c of palette) {
       const d = colorDistSq(pixel, c);
-      if (d < bestDist) { bestDist = d; bestColor = c; }
+      if (d < bestDist) {
+        bestDist = d;
+        bestColor = c;
+      }
     }
 
-    if (bestColor.r === targetColor.r && bestColor.g === targetColor.g && bestColor.b === targetColor.b) {
+    if (
+      bestColor.r === targetColor.r &&
+      bestColor.g === targetColor.g &&
+      bestColor.b === targetColor.b
+    ) {
       maskRgb[i * 3] = 0;
       maskRgb[i * 3 + 1] = 0;
       maskRgb[i * 3 + 2] = 0;
@@ -224,14 +249,7 @@ function makeColorMaskPpm(decoded: DecodedPng, targetColor: RgbColor, palette: R
 function runPotrace(ppmPath: string): string | null {
   const r = spawnSync(
     "potrace",
-    [
-      "--svg",
-      "--turdsize", "20",
-      "--alphamax", "1.0",
-      "--opttolerance", "0.5",
-      "-o", "-",
-      ppmPath,
-    ],
+    ["--svg", "--turdsize", "20", "--alphamax", "1.0", "--opttolerance", "0.5", "-o", "-", ppmPath],
     { encoding: "utf8", timeout: 60_000, maxBuffer: 64 * 1024 * 1024 },
   );
   if (r.status !== 0 || !r.stdout?.trim()) return null;
@@ -254,7 +272,10 @@ function countCmds(pathDatas: string): number {
 
 // ── Multi-color assembly ──────────────────────────────────────────────────────
 
-interface ColorLayer { color: RgbColor; paths: string[] }
+interface ColorLayer {
+  color: RgbColor;
+  paths: string[];
+}
 
 interface TraceResult {
   colorLayers: ColorLayer[];
@@ -270,7 +291,10 @@ interface TraceResult {
  *
  * Returns "too-many-colors" if the palette exceeds MAX_COLORS (photographic image).
  */
-async function traceMultiColor(decoded: DecodedPng, tmpPpm: string): Promise<TraceResult | null | "too-many-colors"> {
+async function traceMultiColor(
+  decoded: DecodedPng,
+  tmpPpm: string,
+): Promise<TraceResult | null | "too-many-colors"> {
   const palette = findPalette(decoded);
   if (palette.length === 0) return null;
   if (palette.length > MAX_COLORS) return "too-many-colors";
@@ -294,7 +318,7 @@ async function traceMultiColor(decoded: DecodedPng, tmpPpm: string): Promise<Tra
 /** Assemble traced color layers into a single SVG group element. */
 function assembleColorGroup(result: TraceResult): string {
   const inner = result.colorLayers
-    .map(l => `<g fill="${toHex(l.color)}" stroke="none">\n${l.paths.join("\n")}\n</g>`)
+    .map((l) => `<g fill="${toHex(l.color)}" stroke="none">\n${l.paths.join("\n")}\n</g>`)
     .join("\n");
   return `<g transform="${result.transform}">\n${inner}\n</g>`;
 }
@@ -302,7 +326,11 @@ function assembleColorGroup(result: TraceResult): string {
 // ── Build the list of files to process ───────────────────────────────────────
 const indices = indexAll({ srcRoot: SOURCES });
 
-interface FileEntry { id: string; lang: Lang; path: string }
+interface FileEntry {
+  id: string;
+  lang: Lang;
+  path: string;
+}
 const toProcess: FileEntry[] = [];
 const seenPaths = new Set<string>();
 
@@ -324,9 +352,9 @@ toProcess.sort((a, b) => {
 
 // ── Main loop ─────────────────────────────────────────────────────────────────
 let nConverted = 0;
-let nComplex   = 0;
-let nFailed    = 0;
-let nNoRaster  = 0;
+let nComplex = 0;
+let nFailed = 0;
+let nNoRaster = 0;
 
 const complexList: string[] = [];
 
@@ -368,7 +396,9 @@ try {
 
     if (traceResult === "too-many-colors") {
       console.log(`⚠ COMPLEX   [${id}/${lang}] ${rel}`);
-      console.log(`             too many distinct colors (>${MAX_COLORS}) — skipped (photographic image?)`);
+      console.log(
+        `             too many distinct colors (>${MAX_COLORS}) — skipped (photographic image?)`,
+      );
       complexList.push(`[${id}/${lang}]: too many colors`);
       nComplex++;
       continue;
@@ -382,16 +412,18 @@ try {
     }
 
     // Complexity metrics (aggregated across all color layers)
-    const allPaths = traceResult.colorLayers.flatMap(l => l.paths);
-    const allD     = allPaths.join("");
-    const pathCnt  = allPaths.length;
-    const cmdCnt   = countCmds(allD);
-    const dBytes   = allD.length;
+    const allPaths = traceResult.colorLayers.flatMap((l) => l.paths);
+    const allD = allPaths.join("");
+    const pathCnt = allPaths.length;
+    const cmdCnt = countCmds(allD);
+    const dBytes = allD.length;
     const isComplex = !FORCE && (pathCnt > MAX_PATHS || cmdCnt > MAX_CMDS || dBytes > MAX_D_BYTES);
 
     if (isComplex) {
       console.log(`⚠ COMPLEX   [${id}/${lang}] ${rel}`);
-      console.log(`             ${pathCnt} paths · ${cmdCnt} cmds · ${dBytes} d-chars — skipped (use --force to write)`);
+      console.log(
+        `             ${pathCnt} paths · ${cmdCnt} cmds · ${dBytes} d-chars — skipped (use --force to write)`,
+      );
       complexList.push(`[${id}/${lang}]: ${pathCnt} paths, ${cmdCnt} cmds, ${dBytes} d-chars`);
       nComplex++;
       continue;
@@ -402,9 +434,11 @@ try {
     // Build new SVG: replace <image .../> with the multi-color potrace <g>...</g>
     const newSvg = svgContent.slice(0, imgStart) + potraceGroup + svgContent.slice(imgEnd);
 
-    const colorSummary = traceResult.colorLayers.map(l => toHex(l.color)).join("+");
+    const colorSummary = traceResult.colorLayers.map((l) => toHex(l.color)).join("+");
     console.log(`✓ CONVERTED  [${id}/${lang}] ${rel}`);
-    console.log(`             ${pathCnt} paths · ${cmdCnt} cmds · ${decoded.width}×${decoded.height} px · colors: ${colorSummary}`);
+    console.log(
+      `             ${pathCnt} paths · ${cmdCnt} cmds · ${decoded.width}×${decoded.height} px · colors: ${colorSummary}`,
+    );
 
     if (!DRY_RUN) {
       writeFileSync(filePath, newSvg, "utf8");
@@ -413,8 +447,12 @@ try {
   }
 } finally {
   // Clean up temp files
-  try { unlinkSync(tmpPpm); } catch {}
-  try { rmdirSync(tmpDir); } catch {}
+  try {
+    unlinkSync(tmpPpm);
+  } catch {}
+  try {
+    rmdirSync(tmpDir);
+  } catch {}
 }
 
 // ── Summary ───────────────────────────────────────────────────────────────────
@@ -423,10 +461,10 @@ console.log("─".repeat(64));
 console.log("trace summary:");
 console.log(`  ✓ converted:  ${nConverted}${DRY_RUN ? "  (dry-run — not written)" : ""}`);
 if (nNoRaster > 0) console.log(`  - skipped:    ${nNoRaster}  (vector icons, no embedded PNG)`);
-if (nComplex  > 0) {
+if (nComplex > 0) {
   console.log(`  ⚠ complex:   ${nComplex}  (needs manual review or re-run with --force)`);
   for (const s of complexList) console.log(`      ${s}`);
 }
-if (nFailed   > 0) console.log(`  ✗ failed:     ${nFailed}`);
+if (nFailed > 0) console.log(`  ✗ failed:     ${nFailed}`);
 
 if (nFailed > 0 || nComplex > 0) process.exitCode = 1;

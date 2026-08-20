@@ -515,6 +515,6 @@ const all: readonly BabsIconDefinition[] = [
   babs9101d,
   babs9102,
   babs9103,
-  babs9104
+  babs9104,
 ];
 export default all;

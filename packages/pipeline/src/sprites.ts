@@ -2,9 +2,7 @@
 // Generates sprite sheets for babs-de, babs-fr, babs-it
 // Reads packages/svg/svg/ + index.json, writes packages/sprites/dist/
 
-import {
-  readFileSync, writeFileSync, mkdirSync, existsSync,
-} from "node:fs";
+import { readFileSync, writeFileSync, mkdirSync, existsSync } from "node:fs";
 import { createHash } from "node:crypto";
 import { join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
@@ -34,15 +32,27 @@ type Lang = (typeof LANGS)[number];
 const CHECK = process.argv.includes("--check");
 
 // ── Load index ───────────────────────────────────────────────────────────────
-interface SymFiles { lang: string; svg: string }
-interface PatternVariantEntry { identical: boolean; files: Partial<Record<Lang, SymFiles>> }
-interface SymEntry {
-  id:        string;
+interface SymFiles {
+  lang: string;
+  svg: string;
+}
+interface PatternVariantEntry {
   identical: boolean;
-  files:     Partial<Record<Lang, SymFiles>>;
+  files: Partial<Record<Lang, SymFiles>>;
+}
+interface SymEntry {
+  id: string;
+  identical: boolean;
+  files: Partial<Record<Lang, SymFiles>>;
   patterns?: Partial<Record<"a" | "b", PatternVariantEntry>>;
 }
-interface IndexJson { categories: Array<{ number: string; symbols?: SymEntry[]; subcategories?: Array<{ number: string; symbols: SymEntry[] }> }> }
+interface IndexJson {
+  categories: Array<{
+    number: string;
+    symbols?: SymEntry[];
+    subcategories?: Array<{ number: string; symbols: SymEntry[] }>;
+  }>;
+}
 
 const index = JSON.parse(readFileSync(SVG_INDEX, "utf8")) as IndexJson;
 const allSymbols: SymEntry[] = [];
@@ -69,7 +79,12 @@ const markerByKey = new Map<string, Marker>(markers.map((m) => [m.key, m]));
 const allKeys = [...allSymbolIds, ...allPatternKeys, ...allMarkerKeys];
 
 // ── Layout lock ───────────────────────────────────────────────────────────────
-interface LayoutLock { version: number; cell: number; cols: number; keys: string[] }
+interface LayoutLock {
+  version: number;
+  cell: number;
+  cols: number;
+  keys: string[];
+}
 
 let layoutLock: LayoutLock;
 if (existsSync(LAYOUT_LOCK)) {
@@ -93,7 +108,7 @@ const sheetW2X = cols * GRID_2X;
 const sheetH2X = rows * GRID_2X;
 
 // ── Rasterize one SVG ─────────────────────────────────────────────────────────
-async function rasterize(svgContent: string, cell: number, pad: number): Promise<Buffer> {
+async function rasterize(svgContent: string, cell: number, _pad: number): Promise<Buffer> {
   const fitSize = cell * 4; // 4× supersampling
   let fixedSvg = svgContent
     .replace(/xlink:href="data:img\/png;/g, 'href="data:image/png;')
@@ -102,7 +117,9 @@ async function rasterize(svgContent: string, cell: number, pad: number): Promise
     const r = new Resvg(fixedSvg, { fitTo: { mode: "width", value: fitSize } });
     const rgba = r.render();
     // Downscale to cell×cell
-    const buf = await sharp(Buffer.from(rgba.pixels), { raw: { width: rgba.width, height: rgba.height, channels: 4 } })
+    const buf = await sharp(Buffer.from(rgba.pixels), {
+      raw: { width: rgba.width, height: rgba.height, channels: 4 },
+    })
       .resize(cell, cell, { kernel: "lanczos3", fit: "fill" })
       .raw()
       .toBuffer();
@@ -114,7 +131,16 @@ async function rasterize(svgContent: string, cell: number, pad: number): Promise
 }
 
 // ── Blit RGBA buffer into sheet ───────────────────────────────────────────────
-function blit(sheet: Buffer, cellBuf: Buffer, col: number, row: number, gridSize: number, cell: number, pad: number, sheetW: number): void {
+function blit(
+  sheet: Buffer,
+  cellBuf: Buffer,
+  col: number,
+  row: number,
+  gridSize: number,
+  cell: number,
+  pad: number,
+  sheetW: number,
+): void {
   const x0 = col * gridSize + pad;
   const y0 = row * gridSize + pad;
   for (let y = 0; y < cell; y++) {
@@ -131,7 +157,8 @@ function blit(sheet: Buffer, cellBuf: Buffer, col: number, row: number, gridSize
 
 // ── Get SVG file for icon + lang ─────────────────────────────────────────────
 function getSvgPath(sym: SymEntry, lang: Lang): string {
-  const rel = sym.files[lang]?.svg ?? sym.files.de?.svg ?? sym.files.fr?.svg ?? sym.files.it?.svg ?? "";
+  const rel =
+    sym.files[lang]?.svg ?? sym.files.de?.svg ?? sym.files.fr?.svg ?? sym.files.it?.svg ?? "";
   return join(SVG_DIR, rel.replace(/^svg\//, ""));
 }
 
@@ -145,7 +172,11 @@ function getPatternSvgPath(sym: SymEntry, variant: "a" | "b", lang: Lang): strin
 const PATTERN_KEY_RE = /^(.+)-pattern(-b)?$/;
 
 // ── Generate one sprite sheet ─────────────────────────────────────────────────
-async function genSheet(lang: Lang): Promise<{ spriteJson: Record<string, unknown>; pixelHashes: Record<string, string>; ok: boolean }> {
+async function genSheet(lang: Lang): Promise<{
+  spriteJson: Record<string, unknown>;
+  pixelHashes: Record<string, string>;
+  ok: boolean;
+}> {
   const sheet1X = Buffer.alloc(sheetW1X * sheetH1X * 4, 0);
   const sheet2X = Buffer.alloc(sheetW2X * sheetH2X * 4, 0);
   const spriteJson: Record<string, unknown> = {};
@@ -169,15 +200,13 @@ async function genSheet(lang: Lang): Promise<{ spriteJson: Record<string, unknow
     } else {
       // Detect pattern key vs symbol key
       const pm = key.match(PATTERN_KEY_RE);
-      const symId    = pm ? pm[1]! : key;
+      const symId = pm ? pm[1]! : key;
       const patVariant: "a" | "b" | null = pm ? (pm[2] ? "b" : "a") : null;
 
       const sym = symMap.get(symId);
       if (!sym) continue; // removed icon — leave transparent hole
 
-      const svgPath = patVariant
-        ? getPatternSvgPath(sym, patVariant, lang)
-        : getSvgPath(sym, lang);
+      const svgPath = patVariant ? getPatternSvgPath(sym, patVariant, lang) : getSvgPath(sym, lang);
 
       if (!svgPath || !existsSync(svgPath)) {
         console.warn(`  MISSING svg: ${svgPath || key}`);
@@ -189,9 +218,9 @@ async function genSheet(lang: Lang): Promise<{ spriteJson: Record<string, unknow
 
     // Patterns and pattern-mode markers tile seam-free (pad=0, full grid cell).
     const cellW1 = seamless ? GRID_1X : CELL_1X;
-    const pad1   = seamless ? 0       : PAD_1X;
+    const pad1 = seamless ? 0 : PAD_1X;
     const cellW2 = seamless ? GRID_2X : CELL_2X;
-    const pad2   = seamless ? 0       : PAD_2X;
+    const pad2 = seamless ? 0 : PAD_2X;
 
     const col = idx % cols;
     const row = Math.floor(idx / cols);
@@ -207,7 +236,13 @@ async function genSheet(lang: Lang): Promise<{ spriteJson: Record<string, unknow
     const hash = createHash("sha256").update(buf1X).digest("hex");
     pixelHashes[key] = hash;
 
-    spriteJson[key] = { width: cellW1, height: cellW1, x: col * GRID_1X + pad1, y: row * GRID_1X + pad1, pixelRatio: 1 };
+    spriteJson[key] = {
+      width: cellW1,
+      height: cellW1,
+      x: col * GRID_1X + pad1,
+      y: row * GRID_1X + pad1,
+      pixelRatio: 1,
+    };
   }
 
   // Encode PNGs
@@ -224,20 +259,48 @@ async function genSheet(lang: Lang): Promise<{ spriteJson: Record<string, unknow
   // @1x JSON: keys already populated above
   const json1X = JSON.stringify(sortKeys(spriteJson), null, 2) + "\n";
   // @2x JSON: same keys, doubled dimensions (derived from 1x to handle per-entry sizes)
-  const json2X = JSON.stringify(sortKeys(Object.fromEntries(
-    Object.entries(spriteJson).map(([k, v]) => {
-      const v1 = v as { width: number; height: number; x: number; y: number };
-      return [k, { width: v1.width * 2, height: v1.height * 2, x: v1.x * 2, y: v1.y * 2, pixelRatio: 2 }];
-    })
-  )), null, 2) + "\n";
+  const json2X =
+    JSON.stringify(
+      sortKeys(
+        Object.fromEntries(
+          Object.entries(spriteJson).map(([k, v]) => {
+            const v1 = v as { width: number; height: number; x: number; y: number };
+            return [
+              k,
+              {
+                width: v1.width * 2,
+                height: v1.height * 2,
+                x: v1.x * 2,
+                y: v1.y * 2,
+                pixelRatio: 2,
+              },
+            ];
+          }),
+        ),
+      ),
+      null,
+      2,
+    ) + "\n";
 
   if (CHECK) {
     let ok = true;
-    for (const [fn, data] of [[`${name}.json`, json1X], [`${name}@2x.json`, json2X], [`${name}.png`, png1X], [`${name}@2x.png`, png2X]] as Array<[string, string | Buffer]>) {
+    for (const [fn, data] of [
+      [`${name}.json`, json1X],
+      [`${name}@2x.json`, json2X],
+      [`${name}.png`, png1X],
+      [`${name}@2x.png`, png2X],
+    ] as Array<[string, string | Buffer]>) {
       const p = join(SPRITES_DIST, fn);
-      if (!existsSync(p)) { console.error(`MISSING: ${fn}`); ok = false; continue; }
+      if (!existsSync(p)) {
+        console.error(`MISSING: ${fn}`);
+        ok = false;
+        continue;
+      }
       const existing = readFileSync(p);
-      if (Buffer.compare(Buffer.from(data), existing) !== 0) { console.error(`DRIFT:   ${fn}`); ok = false; }
+      if (Buffer.compare(Buffer.from(data), existing) !== 0) {
+        console.error(`DRIFT:   ${fn}`);
+        ok = false;
+      }
     }
     return { spriteJson, pixelHashes, ok };
   } else {
@@ -250,13 +313,17 @@ async function genSheet(lang: Lang): Promise<{ spriteJson: Record<string, unknow
 }
 
 function sortKeys<T>(obj: Record<string, T>): Record<string, T> {
-  return Object.fromEntries(Object.entries(obj).sort(([a], [b]) => (a < b ? -1 : a > b ? 1 : 0))) as Record<string, T>;
+  return Object.fromEntries(
+    Object.entries(obj).sort(([a], [b]) => (a < b ? -1 : a > b ? 1 : 0)),
+  ) as Record<string, T>;
 }
 
 // ── Main ──────────────────────────────────────────────────────────────────────
 mkdirSync(SPRITES_DIST, { recursive: true });
 
-console.log(`sprites: generating ${allSymbolIds.length} icons + ${allPatternKeys.length} patterns + ${allMarkerKeys.length} markers, ${cols}×${rows} grid (${sheetW1X}×${sheetH1X} @1x)`);
+console.log(
+  `sprites: generating ${allSymbolIds.length} icons + ${allPatternKeys.length} patterns + ${allMarkerKeys.length} markers, ${cols}×${rows} grid (${sheetW1X}×${sheetH1X} @1x)`,
+);
 
 // Pre-read and recolour all marker SVGs once, outside the per-language loop.
 // This guarantees all three sheets are pixel-identical for markers, and throws
@@ -276,10 +343,17 @@ for (const lang of LANGS) {
 
 if (!CHECK) {
   // Write layout.lock.json
-  const lockOut = JSON.stringify(
-    { version: layoutLock.version, cell: layoutLock.cell, cols: layoutLock.cols, keys: layoutLock.keys },
-    null, 2,
-  ) + "\n";
+  const lockOut =
+    JSON.stringify(
+      {
+        version: layoutLock.version,
+        cell: layoutLock.cell,
+        cols: layoutLock.cols,
+        keys: layoutLock.keys,
+      },
+      null,
+      2,
+    ) + "\n";
   writeFileSync(LAYOUT_LOCK, lockOut);
 
   // Write pixels.sha256.json
@@ -287,7 +361,10 @@ if (!CHECK) {
   for (const lang of LANGS) {
     pixOut[lang] = pixelHashesByLang[lang] ?? {};
   }
-  writeFileSync(PIXEL_HASH, JSON.stringify({ algorithm: "sha256", cell: CELL_1X, langs: pixOut }, null, 2) + "\n");
+  writeFileSync(
+    PIXEL_HASH,
+    JSON.stringify({ algorithm: "sha256", cell: CELL_1X, langs: pixOut }, null, 2) + "\n",
+  );
 
   console.log(`sprites: done — layout.lock.json + pixels.sha256.json written`);
 } else if (overallOk) {

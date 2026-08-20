@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 // Reads packages/svg/ + index.json and generates packages/react/src/icons/
 
-import { readFileSync, writeFileSync, mkdirSync, readdirSync, existsSync, rmSync } from "node:fs";
+import { existsSync, mkdirSync, readFileSync, rmSync, writeFileSync } from "node:fs";
 import { join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 import { optimize } from "svgo";
@@ -21,14 +21,35 @@ const LANG_SUFFIX: Record<Lang, string> = { de: "d", fr: "f", it: "i" };
 const CHECK = process.argv.includes("--check");
 
 // ── Load inputs ──────────────────────────────────────────────────────────────
-interface SymEntry { id: string; identical: boolean; label: Record<Lang, string>; files: Record<Lang, { lang: string; svg: string }> }
-interface SubcatEntry { number: string; name: Record<Lang, string>; symbols: SymEntry[] }
-interface CatEntry { number: string; name: Record<Lang, string>; symbols?: SymEntry[]; subcategories?: SubcatEntry[] }
-interface IndexJson { categories: CatEntry[] }
+interface SymEntry {
+  id: string;
+  identical: boolean;
+  label: Record<Lang, string>;
+  files: Record<Lang, { lang: string; svg: string }>;
+}
+interface SubcatEntry {
+  number: string;
+  name: Record<Lang, string>;
+  symbols: SymEntry[];
+}
+interface CatEntry {
+  number: string;
+  name: Record<Lang, string>;
+  symbols?: SymEntry[];
+  subcategories?: SubcatEntry[];
+}
+interface IndexJson {
+  categories: CatEntry[];
+}
 
 const index = JSON.parse(readFileSync(SVG_INDEX, "utf8")) as IndexJson;
-const corrections = JSON.parse(readFileSync(CORRECTIONS, "utf8")) as Record<string, Partial<Record<Lang, string>> & { note?: string }>;
-const namesLock = JSON.parse(readFileSync(NAMES_LOCK, "utf8")) as { aliases: Record<string, string> };
+const corrections = JSON.parse(readFileSync(CORRECTIONS, "utf8")) as Record<
+  string,
+  Partial<Record<Lang, string>> & { note?: string }
+>;
+const namesLock = JSON.parse(readFileSync(NAMES_LOCK, "utf8")) as {
+  aliases: Record<string, string>;
+};
 
 // Collect all symbols
 const allSymbols: SymEntry[] = [];
@@ -41,9 +62,18 @@ for (const cat of index.categories) {
 function svgoConfig(prefix: string) {
   return {
     plugins: [
-      "removeDoctype", "removeXMLProcInst", "removeComments", "removeMetadata",
-      "removeEditorsNSData", "removeTitle", "removeDesc", "cleanupAttrs",
-      "removeUselessDefs", "removeEmptyAttrs", "removeEmptyContainers", "removeEmptyText",
+      "removeDoctype",
+      "removeXMLProcInst",
+      "removeComments",
+      "removeMetadata",
+      "removeEditorsNSData",
+      "removeTitle",
+      "removeDesc",
+      "cleanupAttrs",
+      "removeUselessDefs",
+      "removeEmptyAttrs",
+      "removeEmptyContainers",
+      "removeEmptyText",
       { name: "inlineStyles", params: { onlyMatchedOnce: false, removeMatchedSelectors: true } },
       "convertStyleToAttrs",
       "removeStyleElement",
@@ -54,15 +84,18 @@ function svgoConfig(prefix: string) {
       { name: "convertPathData", params: { floatPrecision: 2 } },
       { name: "cleanupNumericValues", params: { floatPrecision: 2 } },
       { name: "convertTransform", params: { floatPrecision: 4 } },
-      "collapseGroups", "mergePaths", "convertShapeToPath",
-      "removeUnusedNS", "sortAttrs",
+      "collapseGroups",
+      "mergePaths",
+      "convertShapeToPath",
+      "removeUnusedNS",
+      "sortAttrs",
     ],
   };
 }
 
 // ── SVG → JSX body ─────────────────────────────────────────────────────────────
 const ATTR_MAP: Record<string, string | null> = {
-  "class": "className",
+  class: "className",
   "clip-path": "clipPath",
   "clip-rule": "clipRule",
   "enable-background": "enableBackground",
@@ -93,9 +126,9 @@ const ATTR_MAP: Record<string, string | null> = {
   "xlink:href": "href",
   // Removed from inner elements:
   "xml:space": null,
-  "xmlns": null,
+  xmlns: null,
   "xmlns:xlink": null,
-  "version": null,
+  version: null,
 };
 
 function extractSvgBody(svgStr: string): string {
@@ -109,8 +142,12 @@ function extractSvgBody(svgStr: string): string {
     if (inQuote) {
       if (c === quoteChar) inQuote = false;
     } else if (c === '"' || c === "'") {
-      inQuote = true; quoteChar = c;
-    } else if (c === ">") { i++; break; }
+      inQuote = true;
+      quoteChar = c;
+    } else if (c === ">") {
+      i++;
+      break;
+    }
   }
   const closeIdx = svgStr.lastIndexOf("</svg>");
   return svgStr.slice(i, closeIdx).trim();
@@ -125,8 +162,6 @@ function renameAttr(name: string): string | null {
 function convertToJsx(body: string, prefix: string): { jsx: string; usesNs: boolean } {
   const escapedPrefix = prefix.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
   // Ids in SVGO output follow pattern: prefix__originalMinifiedId
-  const idRe = new RegExp(`${escapedPrefix}__([\\w-]+)`, "g");
-
   let usesNs = false;
 
   // Pass 1: handle url(#prefix__X) inside attribute values
@@ -153,13 +188,10 @@ function convertToJsx(body: string, prefix: string): { jsx: string; usesNs: bool
   );
 
   // Pass 3: handle id="prefix__X"
-  jsx = jsx.replace(
-    new RegExp(`id="${escapedPrefix}__([\\w-]+)"`, "g"),
-    (_, localId: string) => {
-      usesNs = true;
-      return `id={ns("${localId}")}`;
-    },
-  );
+  jsx = jsx.replace(new RegExp(`id="${escapedPrefix}__([\\w-]+)"`, "g"), (_, localId: string) => {
+    usesNs = true;
+    return `id={ns("${localId}")}`;
+  });
 
   // Pass 4: rename remaining attributes (not already converted by passes 1-3)
   // Match attr="value" patterns and rename the attr part
@@ -180,12 +212,18 @@ function convertToJsx(body: string, prefix: string): { jsx: string; usesNs: bool
 
   // Pass 6: handle style attribute — convert inline style string to JSX object
   jsx = jsx.replace(/\bstyle="([^"]+)"/g, (_, styleStr: string) => {
-    const obj = styleStr.split(";").filter(Boolean).map((decl: string) => {
-      const [prop, ...vals] = decl.split(":");
-      const key = (prop ?? "").trim().replace(/-([a-z])/g, (_: string, c: string) => c.toUpperCase());
-      const val = vals.join(":").trim();
-      return `${key}: ${JSON.stringify(val)}`;
-    }).join(", ");
+    const obj = styleStr
+      .split(";")
+      .filter(Boolean)
+      .map((decl: string) => {
+        const [prop, ...vals] = decl.split(":");
+        const key = (prop ?? "")
+          .trim()
+          .replace(/-([a-z])/g, (_: string, c: string) => c.toUpperCase());
+        const val = vals.join(":").trim();
+        return `${key}: ${JSON.stringify(val)}`;
+      })
+      .join(", ");
     return `style={{ ${obj} }}`;
   });
 
@@ -215,7 +253,13 @@ function preprocessSvg(svg: string): string {
         if (!d) return false;
         const prop = d.split(":")[0]?.trim() ?? "";
         // Remove properties starting with - or Inkscape-specific ones
-        if (prop.startsWith("-") || prop.toLowerCase().includes("inkscape") || prop === "font-specification" || prop === "shape-inside") return false;
+        if (
+          prop.startsWith("-") ||
+          prop.toLowerCase().includes("inkscape") ||
+          prop === "font-specification" ||
+          prop === "shape-inside"
+        )
+          return false;
         return true;
       })
       .join(";");
@@ -223,10 +267,17 @@ function preprocessSvg(svg: string): string {
   });
 }
 
-function processVectorSvg(svgContent: string, id: string, lang: Lang): { jsx: string; usesNs: boolean } | null {
+function processVectorSvg(
+  svgContent: string,
+  id: string,
+  lang: Lang,
+): { jsx: string; usesNs: boolean } | null {
   const prefix = `b${id}${LANG_SUFFIX[lang]}`;
   try {
-    const result = optimize(preprocessSvg(svgContent), svgoConfig(prefix) as Parameters<typeof optimize>[1]);
+    const result = optimize(
+      preprocessSvg(svgContent),
+      svgoConfig(prefix) as Parameters<typeof optimize>[1],
+    );
     const body = extractSvgBody(result.data);
     const cleaned = removeNullAttrs(body);
     return convertToJsx(cleaned, prefix);
@@ -262,18 +313,25 @@ function processRasterSvg(svgContent: string): string {
 
   // Escape CSS {} in <style> text nodes — bare { } are TSX parser errors.
   // Wrap the content in a JSX string expression so the parser sees a JS string.
-  body = body.replace(/<style([^>]*)>([\s\S]*?)<\/style>/gi, (_, attrs: string, css: string) =>
-    `<style${attrs}>{${JSON.stringify(css)}}</style>`
+  body = body.replace(
+    /<style([^>]*)>([\s\S]*?)<\/style>/gi,
+    (_, attrs: string, css: string) => `<style${attrs}>{${JSON.stringify(css)}}</style>`,
   );
 
   // Convert style="..." strings to JSX style objects — React requires CSSProperties, not strings.
   body = body.replace(/\bstyle="([^"]+)"/g, (_, styleStr: string) => {
-    const obj = styleStr.split(";").filter(Boolean).map((decl: string) => {
-      const [prop, ...vals] = decl.split(":");
-      const key = (prop ?? "").trim().replace(/-([a-z])/g, (_: string, c: string) => c.toUpperCase());
-      const val = vals.join(":").trim();
-      return `${key}: ${JSON.stringify(val)}`;
-    }).join(", ");
+    const obj = styleStr
+      .split(";")
+      .filter(Boolean)
+      .map((decl: string) => {
+        const [prop, ...vals] = decl.split(":");
+        const key = (prop ?? "")
+          .trim()
+          .replace(/-([a-z])/g, (_: string, c: string) => c.toUpperCase());
+        const val = vals.join(":").trim();
+        return `${key}: ${JSON.stringify(val)}`;
+      })
+      .join(", ");
     return `style={{ ${obj} }}`;
   });
 
@@ -292,14 +350,21 @@ function getSvgContent(sym: SymEntry, lang: Lang): string | null {
 function contentHash(content: string): number {
   let h = 0;
   for (let i = 0; i < content.length; i++) {
-    h = Math.imul(31, h) + content.charCodeAt(i) | 0;
+    h = (Math.imul(31, h) + content.charCodeAt(i)) | 0;
   }
   return h;
 }
 
-interface LangGraphics { lang: Lang; content: string; isRaster: boolean }
+interface LangGraphics {
+  lang: Lang;
+  content: string;
+  isRaster: boolean;
+}
 
-function getLangGraphics(sym: SymEntry): { canonical: Lang; langs: Array<LangGraphics & { aliases: Lang[] }> } {
+function getLangGraphics(sym: SymEntry): {
+  canonical: Lang;
+  langs: Array<LangGraphics & { aliases: Lang[] }>;
+} {
   if (sym.identical) {
     // Only emit canonical lang; renderer falls back via canonicalLang
     const deContent = getSvgContent(sym, "de");
@@ -385,9 +450,9 @@ function genIconModule(sym: SymEntry): string {
   }
 
   // Sort entries to canonical order: de, fr, it
-  const orderedEntries = LANGS
-    .map(l => graphicEntries.find(e => e.startsWith(`    ${JSON.stringify(l)}`)))
-    .filter(Boolean) as string[];
+  const orderedEntries = LANGS.map((l) =>
+    graphicEntries.find((e) => e.startsWith(`    ${JSON.stringify(l)}`)),
+  ).filter(Boolean) as string[];
 
   const labels = `{ de: ${JSON.stringify(correctedLabels.de)}, fr: ${JSON.stringify(correctedLabels.fr)}, it: ${JSON.stringify(correctedLabels.it)} }`;
   const exportName = `babs${sym.id}`;
@@ -410,22 +475,27 @@ ${orderedEntries.join(",\n")}
 
 // ── Generate barrel files ─────────────────────────────────────────────────────
 function genIconsBarrel(syms: SymEntry[]): string {
-  const imports = syms.map(s => `export { babs${s.id} } from "./icons/${s.id}.js";`).join("\n");
+  const imports = syms.map((s) => `export { babs${s.id} } from "./icons/${s.id}.js";`).join("\n");
   return `${HEADER}${imports}\n`;
 }
 
 function genNamedBarrel(syms: SymEntry[]): string {
-  const lines = syms.map(s => {
-    const alias = namesLock.aliases[s.id];
-    if (!alias) throw new Error(`gen-react: no alias in names.lock.json for icon ${s.id} — run yarn icons:gen-core first`);
-    return `export { babs${s.id} as ${alias} } from "./icons/${s.id}.js";`;
-  }).join("\n");
+  const lines = syms
+    .map((s) => {
+      const alias = namesLock.aliases[s.id];
+      if (!alias)
+        throw new Error(
+          `gen-react: no alias in names.lock.json for icon ${s.id} — run yarn icons:gen-core first`,
+        );
+      return `export { babs${s.id} as ${alias} } from "./icons/${s.id}.js";`;
+    })
+    .join("\n");
   return `${HEADER}${lines}\n`;
 }
 
 function genAllBarrel(syms: SymEntry[]): string {
-  const imports = syms.map(s => `import { babs${s.id} } from "./icons/${s.id}.js";`).join("\n");
-  const exports = syms.map(s => `  babs${s.id}`).join(",\n");
+  const imports = syms.map((s) => `import { babs${s.id} } from "./icons/${s.id}.js";`).join("\n");
+  const exports = syms.map((s) => `  babs${s.id}`).join(",\n");
   return `${HEADER}import type { BabsIconDefinition } from "./types.js";
 ${imports}
 
@@ -439,8 +509,14 @@ export default all;
 // ── Write or check ────────────────────────────────────────────────────────────
 function writeOrCheck(path: string, content: string, label: string): boolean {
   if (CHECK) {
-    if (!existsSync(path)) { console.error(`MISSING: ${label}`); return false; }
-    if (readFileSync(path, "utf8") !== content) { console.error(`DRIFT:   ${label}`); return false; }
+    if (!existsSync(path)) {
+      console.error(`MISSING: ${label}`);
+      return false;
+    }
+    if (readFileSync(path, "utf8") !== content) {
+      console.error(`DRIFT:   ${label}`);
+      return false;
+    }
     return true;
   }
   mkdirSync(dirname(path), { recursive: true });
@@ -458,13 +534,15 @@ if (!CHECK) {
 }
 
 let ok = true;
-let vector = 0; let raster = 0;
+let vector = 0;
+let raster = 0;
 
 for (const sym of allSymbols) {
   const content = genIconModule(sym);
   ok = writeOrCheck(join(REACT_ICONS, `${sym.id}.tsx`), content, `icons/${sym.id}.tsx`) && ok;
   const { langs } = getLangGraphics(sym);
-  if (langs[0]?.isRaster) raster++; else vector++;
+  if (langs[0]?.isRaster) raster++;
+  else vector++;
 }
 
 ok = writeOrCheck(join(REACT_SRC, "icons.ts"), genIconsBarrel(allSymbols), "icons.ts") && ok;

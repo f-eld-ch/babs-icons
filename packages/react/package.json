@@ -1,30 +1,17 @@
 {
   "name": "@f-eld-ch/babs-react",
   "version": "0.0.0",
-  "type": "module",
   "description": "BABS icon library — React components",
-  "sideEffects": false,
   "repository": {
     "type": "git",
     "url": "git+https://github.com/f-eld-ch/babs-icons.git",
     "directory": "packages/react"
   },
-  "publishConfig": {
-    "registry": "https://npm.pkg.github.com",
-    "access": "public"
-  },
-  "scripts": {
-    "build": "tsc --build"
-  },
-  "peerDependencies": {
-    "@f-eld-ch/babs-core": "workspace:*",
-    "react": ">=18"
-  },
-  "devDependencies": {
-    "@f-eld-ch/babs-core": "workspace:*",
-    "@types/react": "^19.0.0",
-    "react": "^19.0.0"
-  },
+  "files": [
+    "dist/"
+  ],
+  "type": "module",
+  "sideEffects": false,
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
@@ -44,7 +31,20 @@
     },
     "./package.json": "./package.json"
   },
-  "files": [
-    "dist/"
-  ]
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://npm.pkg.github.com"
+  },
+  "scripts": {
+    "build": "tsc --build"
+  },
+  "devDependencies": {
+    "@f-eld-ch/babs-core": "workspace:*",
+    "@types/react": "^19.0.0",
+    "react": "^19.0.0"
+  },
+  "peerDependencies": {
+    "@f-eld-ch/babs-core": "workspace:*",
+    "react": ">=18"
+  }
 }

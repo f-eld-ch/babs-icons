@@ -28,12 +28,15 @@ import { LANGS } from "./naming.ts";
 
 // ── Args ──────────────────────────────────────────────────────────────────────
 
-const argv    = process.argv.slice(2);
+const argv = process.argv.slice(2);
 const DRY_RUN = argv.includes("--dry-run");
-const LIST    = argv.includes("--list");
-const getArg  = (flag: string) => { const i = argv.indexOf(flag); return i !== -1 ? argv[i + 1] : null; };
+const LIST = argv.includes("--list");
+const getArg = (flag: string) => {
+  const i = argv.indexOf(flag);
+  return i !== -1 ? argv[i + 1] : null;
+};
 const catFilter = getArg("--cat");
-const SRC     = getArg("--src") ?? "sources";
+const SRC = getArg("--src") ?? "sources";
 // IDs: positional args (not flags and not the value of a flag)
 const flagNames = new Set(["--src", "--cat"]);
 const ids = argv.filter((a, i) => !a.startsWith("--") && (i === 0 || !flagNames.has(argv[i - 1]!)));
@@ -62,13 +65,13 @@ if (LIST) {
       const e = indices[lang].get(id);
       if (e) hashes[lang] = hashOf(e.path);
     }
-    const present = LANGS.filter(l => !!hashes[l]);
-    const unique  = new Set(Object.values(hashes)).size;
+    const present = LANGS.filter((l) => !!hashes[l]);
+    const unique = new Set(Object.values(hashes)).size;
     if (unique === 1 && present.length === 3) continue; // already identical in all 3
 
     let pattern: string;
     if (present.length < 3) {
-      const missing = LANGS.filter(l => !hashes[l]);
+      const missing = LANGS.filter((l) => !hashes[l]);
       pattern = `missing: [${missing.join(",")}]`;
     } else if (hashes.fr === hashes.it) {
       pattern = "de≠  fr=it";
@@ -80,21 +83,24 @@ if (LIST) {
       pattern = "all3≠";
     }
 
-    const label = indices.de.get(id)!.file
-      .replace(/\.svg$/, "")
+    const label = indices.de
+      .get(id)!
+      .file.replace(/\.svg$/, "")
       .replace(/^(\d+[a-z]?)[-.\s]+/, "")
-      .replace(/^[DFI]-/, "")   // finding 7 fix: strip prefix lang marker
+      .replace(/^[DFI]-/, "") // finding 7 fix: strip prefix lang marker
       .replace(/-[DFI]$/, "");
     rows.push({ id, label, pattern });
   }
 
   if (!rows.length) {
-    console.log(`No divergent IDs with German source${catFilter ? ` in category ${catFilter}` : ""}.`);
+    console.log(
+      `No divergent IDs with German source${catFilter ? ` in category ${catFilter}` : ""}.`,
+    );
     process.exit(0);
   }
 
-  const col1 = Math.max(...rows.map(r => r.id.length), 4);
-  const col2 = Math.max(...rows.map(r => r.label.length), 10);
+  const col1 = Math.max(...rows.map((r) => r.id.length), 4);
+  const col2 = Math.max(...rows.map((r) => r.label.length), 10);
   console.log(`${"ID".padEnd(col1)}  ${"Label (de)".padEnd(col2)}  Pattern`);
   console.log("-".repeat(col1 + col2 + 12));
   for (const { id, label, pattern } of rows) {
@@ -107,15 +113,18 @@ if (LIST) {
 // ── Copy mode ─────────────────────────────────────────────────────────────────
 
 if (!ids.length) {
-  console.error([
-    "Usage:",
-    "  node copy-de.ts <id1> [id2 ...] [--dry-run]",
-    "  node copy-de.ts --list [--cat <prefix>]",
-  ].join("\n"));
+  console.error(
+    [
+      "Usage:",
+      "  node copy-de.ts <id1> [id2 ...] [--dry-run]",
+      "  node copy-de.ts --list [--cat <prefix>]",
+    ].join("\n"),
+  );
   process.exit(1);
 }
 
-let changed = 0, skipped = 0;
+let changed = 0,
+  skipped = 0;
 
 for (const id of ids) {
   const deEntry = indices.de.get(id);
@@ -126,7 +135,7 @@ for (const id of ids) {
   }
 
   const deContent = readFileSync(deEntry.path);
-  const deHash    = hashOf(deEntry.path);
+  const deHash = hashOf(deEntry.path);
   console.log(`\n${id}  ${deEntry.file}`);
   console.log(`  de: ${deEntry.path}`);
 
@@ -147,12 +156,15 @@ for (const id of ids) {
   }
 
   if (anyChange) changed++;
-  else { console.log("  (nothing to change)"); skipped++; }
+  else {
+    console.log("  (nothing to change)");
+    skipped++;
+  }
 }
 
 console.log(
   `\nDone — ${changed} IDs updated, ${skipped} skipped` +
-  (DRY_RUN ? "  [dry run, nothing written]" : ""),
+    (DRY_RUN ? "  [dry run, nothing written]" : ""),
 );
 if (!DRY_RUN && changed > 0) {
   console.log("Re-run `babs-icons flatten` to regenerate packages/svg/");

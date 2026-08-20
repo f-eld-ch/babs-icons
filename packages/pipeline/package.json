@@ -2,10 +2,10 @@
   "name": "@f-eld-ch/babs-pipeline",
   "version": "0.0.0",
   "private": true,
-  "type": "module",
   "bin": {
     "babs-icons": "./bin/babs-icons.js"
   },
+  "type": "module",
   "dependencies": {
     "@resvg/resvg-js": "^2.6.2",
     "sharp": "^0.35.3",

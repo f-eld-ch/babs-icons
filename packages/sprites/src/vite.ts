@@ -29,10 +29,7 @@ export function babsSprites({ path = "map/sprites" }: { path?: string } = {}): P
           next();
           return;
         }
-        res.setHeader(
-          "Content-Type",
-          file.endsWith(".json") ? "application/json" : "image/png",
-        );
+        res.setHeader("Content-Type", file.endsWith(".json") ? "application/json" : "image/png");
         createReadStream(distDir + file).pipe(res);
       });
     },

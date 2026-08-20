@@ -17,17 +17,30 @@ const OUT_MARKERS = join(ROOT, "docs/markers.md");
 
 const index = JSON.parse(readFileSync(join(SVG_PKG, "index.json"), "utf8")) as Index;
 const corrections = existsSync(join(ROOT, "corrections/labels.json"))
-  ? JSON.parse(readFileSync(join(ROOT, "corrections/labels.json"), "utf8")) as Record<string, { de?: string; fr?: string; it?: string; note?: string }>
+  ? (JSON.parse(readFileSync(join(ROOT, "corrections/labels.json"), "utf8")) as Record<
+      string,
+      { de?: string; fr?: string; it?: string; note?: string }
+    >)
   : {};
 const aliasLock: { aliases?: Record<string, string> } = existsSync(NAMES_LOCK)
-  ? JSON.parse(readFileSync(NAMES_LOCK, "utf8")) as { aliases?: Record<string, string> }
+  ? (JSON.parse(readFileSync(NAMES_LOCK, "utf8")) as { aliases?: Record<string, string> })
   : {};
 
 // ── Types ─────────────────────────────────────────────────────────────────────
 
-interface LangMap { de: string; fr: string; it: string }
-interface FileRef { lang: string; svg: string }
-interface PatternVariant { identical: boolean; files: { de?: FileRef; fr?: FileRef; it?: FileRef } }
+interface LangMap {
+  de: string;
+  fr: string;
+  it: string;
+}
+interface FileRef {
+  lang: string;
+  svg: string;
+}
+interface PatternVariant {
+  identical: boolean;
+  files: { de?: FileRef; fr?: FileRef; it?: FileRef };
+}
 interface Symbol {
   id: string;
   identical: boolean;
@@ -35,14 +48,20 @@ interface Symbol {
   files: { de?: FileRef; fr?: FileRef; it?: FileRef };
   patterns?: { a?: PatternVariant; b?: PatternVariant };
 }
-interface Subcategory { number: string; name: LangMap; symbols: Symbol[] }
+interface Subcategory {
+  number: string;
+  name: LangMap;
+  symbols: Symbol[];
+}
 interface Category {
   number: string;
   name: LangMap;
   subcategories?: Subcategory[];
   symbols?: Symbol[];
 }
-interface Index { categories: Category[] }
+interface Index {
+  categories: Category[];
+}
 
 // ── Helpers ───────────────────────────────────────────────────────────────────
 
@@ -55,8 +74,8 @@ function correctedLabel(id: string, lang: "de" | "fr" | "it", raw: string): stri
 // to docs/ suitable for use in an <img src>.
 function imgSrc(svgFile: string): string {
   const abs = join(SVG_PKG, svgFile);
-  const real = realpathSync(abs);                   // follow symlinks
-  const rel = relative(join(ROOT, "docs"), real);   // relative from docs/
+  const real = realpathSync(abs); // follow symlinks
+  const rel = relative(join(ROOT, "docs"), real); // relative from docs/
   return rel;
 }
 
@@ -107,8 +126,7 @@ function symbolRow(sym: Symbol): string {
 // Min-width for the icon column: widest case is 3×48px images side by side (~160px).
 // GitHub preserves img width/height attributes, so a transparent spacer in the header
 // forces the column to at least that width.
-const ICON_COL_HEADER =
-  `Icon<img width="160" height="1" src="spacer.svg" alt="">`;
+const ICON_COL_HEADER = `Icon<img width="160" height="1" src="spacer.svg" alt="">`;
 
 function symbolsTable(symbols: Symbol[]): string {
   const header = `| ${ICON_COL_HEADER} | ID | Export | DE | FR | IT | Pattern |\n|---|---|---|---|---|---|---|`;
@@ -124,7 +142,7 @@ const lines: string[] = [];
 let totalSymbols = 0;
 for (const cat of index.categories) {
   const syms = cat.subcategories
-    ? cat.subcategories.flatMap(s => s.symbols)
+    ? cat.subcategories.flatMap((s) => s.symbols)
     : (cat.symbols ?? []);
   totalSymbols += syms.length;
 }
@@ -133,7 +151,9 @@ lines.push("# BABS Icon Reference");
 lines.push("");
 lines.push(`${totalSymbols} civil-protection icons across ${index.categories.length} categories.`);
 lines.push("Labels in German (DE), French (FR) and Italian (IT).");
-lines.push("For divergent icons (different graphic per language) all three variants are shown side by side.");
+lines.push(
+  "For divergent icons (different graphic per language) all three variants are shown side by side.",
+);
 lines.push("");
 lines.push("---");
 lines.push("");
@@ -187,25 +207,43 @@ function genMarkersDoc(): string {
 
   mdLines.push("# BABS Sprite Markers");
   mdLines.push("");
-  mdLines.push("Sprite-only graphic primitives for MapLibre symbol layers. Markers have no BABS catalogue");
-  mdLines.push("id, no language variant, and no React export — they appear only in the sprite sheets");
+  mdLines.push(
+    "Sprite-only graphic primitives for MapLibre symbol layers. Markers have no BABS catalogue",
+  );
+  mdLines.push(
+    "id, no language variant, and no React export — they appear only in the sprite sheets",
+  );
   mdLines.push(`(\`babs-de\`, \`babs-fr\`, \`babs-it\`).`);
   mdLines.push("");
   mdLines.push("## Design notes");
   mdLines.push("");
-  mdLines.push("- **Ids name shape and colour, never use-case.** A chevron may serve any number of line");
-  mdLines.push("  types without its name going stale. The mapping from line type to marker key lives");
+  mdLines.push(
+    "- **Ids name shape and colour, never use-case.** A chevron may serve any number of line",
+  );
+  mdLines.push(
+    "  types without its name going stale. The mapping from line type to marker key lives",
+  );
   mdLines.push("  entirely in the downstream map style.");
-  mdLines.push("- **Language-neutral.** The same pixel data is baked into all three sprite sheets.");
+  mdLines.push(
+    "- **Language-neutral.** The same pixel data is baked into all three sprite sheets.",
+  );
   mdLines.push("  `pixels.sha256.json` asserts this on every build.");
-  mdLines.push("- **`icon` mode keeps a 2 px gutter.** A rotated sampling footprint reaches outside the");
+  mdLines.push(
+    "- **`icon` mode keeps a 2 px gutter.** A rotated sampling footprint reaches outside the",
+  );
   mdLines.push("  nominal 32 px box; the gutter prevents the neighbouring cell bleeding in under");
   mdLines.push("  `icon-rotate`. The full-bleed `pattern` mode (36 px, no gutter) is reserved for");
   mdLines.push("  seamlessly-tiling line fills.");
-  mdLines.push("- **Colour variants are baked.** MapLibre sprites are not SDF, so `icon-color` cannot");
-  mdLines.push("  recolour at runtime. Each colour variant is a separate sprite key, derived in-memory");
+  mdLines.push(
+    "- **Colour variants are baked.** MapLibre sprites are not SDF, so `icon-color` cannot",
+  );
+  mdLines.push(
+    "  recolour at runtime. Each colour variant is a separate sprite key, derived in-memory",
+  );
   mdLines.push("  from the same geometry by a recolour rule declared in `markers/markers.json`.");
-  mdLines.push("- **Add a marker:** three lines in `markers/markers.json` + one SVG in `markers/svg/`.");
+  mdLines.push(
+    "- **Add a marker:** three lines in `markers/markers.json` + one SVG in `markers/svg/`.",
+  );
   mdLines.push("  A colour-derived variant is three lines in the manifest with no SVG.");
   mdLines.push("  Run `yarn icons:rebuild && yarn icons:verify` to regenerate.");
   mdLines.push("");
@@ -232,7 +270,9 @@ function genMarkersDoc(): string {
     const keyCell = `\`${m.key}\``;
     const modeCell = m.mode;
     const recolorCell = m.recolor
-      ? Object.entries(m.recolor).map(([from, to]) => `${from} → ${to}`).join(", ")
+      ? Object.entries(m.recolor)
+          .map(([from, to]) => `${from} → ${to}`)
+          .join(", ")
       : "—";
     const notes = m.recolor
       ? `Geometry shared with \`${m.id.replace(/-[^-]+$/, "")}-${m.mode === "icon" ? "blue" : m.mode}\`. Colour baked — sprites are not SDF.`

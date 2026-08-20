@@ -56,7 +56,9 @@ for (const pkg of PACKAGES) {
 
       if (defaultPath && !defaultPath.includes("*")) {
         it(`${specifier} default entry exists`, () => {
-          expect(existsSync(join(unpackDir, defaultPath)), `${defaultPath} not in tarball`).toBe(true);
+          expect(existsSync(join(unpackDir, defaultPath)), `${defaultPath} not in tarball`).toBe(
+            true,
+          );
         });
       }
 

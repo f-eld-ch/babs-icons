@@ -1,10 +1,10 @@
 {
   "name": "babs-icons",
   "private": true,
-  "type": "module",
   "workspaces": [
     "packages/*"
   ],
+  "type": "module",
   "scripts": {
     "build": "yarn workspaces foreach -A -pt run build",
     "icons:check": "yarn icons:flatten && yarn icons:sprites --check && yarn icons:gen-core --check && yarn icons:gen-react --check && yarn icons:verify",
@@ -20,12 +20,18 @@
     "icons:sprites": "node packages/pipeline/src/sprites.ts",
     "icons:verify": "node packages/pipeline/src/verify.ts",
     "typecheck": "yarn workspaces foreach -Apt exec tsc --noEmit",
-    "test": "vitest run"
+    "test": "vitest run",
+    "fmt": "oxfmt",
+    "fmt:check": "oxfmt --check",
+    "lint": "oxlint",
+    "lint:fix": "oxlint --fix"
   },
-  "packageManager": "yarn@4.18.0",
   "devDependencies": {
     "@types/node": "^24",
+    "oxfmt": "^0.64.0",
+    "oxlint": "^1.79.0",
     "typescript": "^7.0.2",
     "vitest": "^4.1.11"
-  }
+  },
+  "packageManager": "yarn@4.18.0"
 }

@@ -43,7 +43,7 @@ function cropToDrawing(svgPath: string): string | null {
   const result = spawnSync(
     "inkscape",
     ["--export-area-drawing", "--export-plain-svg", "--export-filename=-", svgPath],
-    { encoding: "utf-8", timeout: 15_000 }
+    { encoding: "utf-8", timeout: 15_000 },
   );
   if (result.status !== 0 || !result.stdout?.trim()) return null;
   return result.stdout;
@@ -65,9 +65,15 @@ function makeCenterPlugin(targetSize: number, paddingRatio: number): CustomPlugi
           if (node.name !== "svg" || parentNode.type !== "root") return;
 
           const vbStr = node.attributes["viewBox"] ?? "";
-          const parts = vbStr.trim().split(/[\s,]+/).map(Number);
+          const parts = vbStr
+            .trim()
+            .split(/[\s,]+/)
+            .map(Number);
 
-          let vbX = 0, vbY = 0, vbW = 0, vbH = 0;
+          let vbX = 0,
+            vbY = 0,
+            vbW = 0,
+            vbH = 0;
           if (parts.length === 4 && parts.every(isFinite)) {
             [vbX, vbY, vbW, vbH] = parts as [number, number, number, number];
           } else {
@@ -84,10 +90,10 @@ function makeCenterPlugin(targetSize: number, paddingRatio: number): CustomPlugi
           const ty = padding + (contentSize - vbH * scale) / 2 - vbY * scale;
 
           const defs = node.children.filter(
-            (c) => c.type === "element" && (c as XastElement).name === "defs"
+            (c) => c.type === "element" && (c as XastElement).name === "defs",
           );
           const drawables = node.children.filter(
-            (c) => !(c.type === "element" && (c as XastElement).name === "defs")
+            (c) => !(c.type === "element" && (c as XastElement).name === "defs"),
           );
 
           const g = {
@@ -138,8 +144,11 @@ function makeSvgoConfig(targetSize: number, paddingRatio: number): Config {
               const fill = (node.attributes["fill"] ?? "").toLowerCase();
               const style = (node.attributes["style"] ?? "").toLowerCase();
               const isWhite =
-                fill === "#fff" || fill === "#ffffff" || fill === "white" ||
-                style.includes("#fff") || style.includes("white");
+                fill === "#fff" ||
+                fill === "#ffffff" ||
+                fill === "white" ||
+                style.includes("#fff") ||
+                style.includes("white");
               if (isWhite && parentNode.type === "element" && parentNode.name === "svg") {
                 parentNode.children = parentNode.children.filter((c) => c !== node);
               }
@@ -168,7 +177,7 @@ function* walkSvgs(dir: string): Generator<string> {
 // ── Main ──────────────────────────────────────────────────────────────────────
 
 const files = [...walkSvgs(ROOT_DIR)];
-const svgoConfig        = makeSvgoConfig(TARGET_SIZE, PADDING_RATIO);
+const svgoConfig = makeSvgoConfig(TARGET_SIZE, PADDING_RATIO);
 const svgoPatternConfig = makeSvgoConfig(TARGET_SIZE, 0);
 
 console.log(`Found ${files.length} SVG files`);
@@ -176,7 +185,8 @@ console.log(`Canvas: ${TARGET_SIZE}×${TARGET_SIZE}, padding: ${PADDING_RATIO * 
 console.log(INPLACE ? "Mode: INPLACE" : `Output: ${OUT_DIR}/`);
 console.log();
 
-let ok = 0, failed = 0;
+let ok = 0,
+  failed = 0;
 
 for (const [i, file] of files.entries()) {
   const rel = relative(ROOT_DIR, file);

@@ -1,19 +1,14 @@
 export type { BabsGraphic, BabsIconDefinition, BabsIconId, BabsLang, BabsLabels } from "./types.js";
 
-import {
-  createContext,
-  useContext,
-  useId,
-  type SVGProps,
-  type ReactNode,
-} from "react";
+import { createContext, useContext, useId, type SVGProps, type ReactNode } from "react";
 import { resolveBabsLang, getLabel } from "@f-eld-ch/babs-core";
 import type { BabsIconId, BabsLang } from "@f-eld-ch/babs-core";
 import type { BabsIconDefinition } from "./types.js";
 
 // ── Context ───────────────────────────────────────────────────────────────────
 
-export const BabsLangContext: ReturnType<typeof createContext<string>> = createContext<string>("de");
+export const BabsLangContext: ReturnType<typeof createContext<string>> =
+  createContext<string>("de");
 
 export function BabsIconProvider({
   lang,
@@ -52,7 +47,11 @@ export function useBabsLang(): {
     lang,
     label: (icon) => {
       if (typeof icon === "string") return getLabel(icon as BabsIconId, lang);
-      return (icon as BabsIconDefinition).labels[lang] ?? (icon as BabsIconDefinition).labels[(icon as BabsIconDefinition).canonicalLang] ?? "";
+      return (
+        (icon as BabsIconDefinition).labels[lang] ??
+        (icon as BabsIconDefinition).labels[(icon as BabsIconDefinition).canonicalLang] ??
+        ""
+      );
     },
   };
 }
@@ -84,15 +83,13 @@ export function BabsIcon({
 
   // Resolve definition
   const def: BabsIconDefinition | undefined =
-    typeof icon === "string"
-      ? lookupRegistered(icon)
-      : (icon as BabsIconDefinition);
+    typeof icon === "string" ? lookupRegistered(icon) : (icon as BabsIconDefinition);
 
   if (!def) return <>{fallback}</>;
 
   // ONE language resolution — used for both the label and the graphic
   const l = resolveBabsLang(lang ?? ctxLang);
-  const label = decorative ? undefined : title ?? (def.labels[l] ?? def.labels[def.canonicalLang]);
+  const label = decorative ? undefined : (title ?? def.labels[l] ?? def.labels[def.canonicalLang]);
   const g = def.graphics[l] ?? def.graphics[def.canonicalLang];
 
   if (!g) return <>{fallback}</>;
