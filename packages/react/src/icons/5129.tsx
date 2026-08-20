@@ -11,12 +11,6 @@ export const babs5129: BabsIconDefinition = {
   graphics: {
     "de": { kind: "vector", body: (_ns: (localId: string) => string) => (
       <><g transform="translate(5 21.2668) scale(.71034)"><path fill="#0000FF" fillRule="evenodd" d="M2.9 40.1 123.8 40.1 123.8 47 2.9 47z" clipRule="evenodd"/><path fill="#0000FF" fillRule="evenodd" d="M32 36.9 32 12.6 65.1 25.7z" clipRule="evenodd"/><path fill="#0000FF" fillRule="evenodd" d="M95.8 36.9 95.8 12.6 63.2 25.7z" clipRule="evenodd"/><path fill="#0000FF" d="M126.7 80.9H0V0h126.7ZM5.9 75h114.9V5.9H5.9Z"/></g></>
-    ) },
-    "fr": { kind: "vector", body: (_ns: (localId: string) => string) => (
-      <><g transform="translate(5 21.2668) scale(.71034)"><path fill="#0000FF" fillRule="evenodd" d="M123.8 47 2.9 47 2.9 40.1 123.8 40.1z" clipRule="evenodd"/><path fill="#0000FF" fillRule="evenodd" d="M32 12.6 65.1 25.7 32 36.9z" clipRule="evenodd"/><path fill="#0000FF" fillRule="evenodd" d="M95.8 12.6 63.2 25.7 95.8 36.9z" clipRule="evenodd"/><path fill="#0000FF" d="M126.7 80.9H0V0h126.7ZM5.9 75h114.9V5.9H5.9Z"/></g></>
-    ) },
-    "it": { kind: "vector", body: (_ns: (localId: string) => string) => (
-      <><g transform="translate(5 21.2668) scale(.71034)"><path fill="#0000FF" fillRule="evenodd" d="M123.8 47 2.9 47 2.9 40.1 123.8 40.1z" clipRule="evenodd"/><path fill="#0000FF" fillRule="evenodd" d="M32 12.6 65.1 25.7 32 36.9z" clipRule="evenodd"/><path fill="#0000FF" fillRule="evenodd" d="M95.8 12.6 63.2 25.7 95.8 36.9z" clipRule="evenodd"/><path fill="#0000FF" d="M126.7 80.9H0V0h126.7ZM5.9 75h114.9V5.9H5.9Z"/></g></>
     ) }
   },
 };

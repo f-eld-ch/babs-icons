@@ -11,12 +11,6 @@ export const babs5112: BabsIconDefinition = {
   graphics: {
     "de": { kind: "vector", body: (_ns: (localId: string) => string) => (
       <><g transform="translate(20.5908 5) scale(.72347)"><path fill="#0000FF" d="M81.3 124.4H0V0h81.3zm-75-6.3H75V6.3H6.3Z"/><path fill="#0000FF" d="M38.6 3.6H42.800000000000004V121.8H38.6z"/></g></>
-    ) },
-    "fr": { kind: "vector", body: (_ns: (localId: string) => string) => (
-      <><g transform="translate(20.5908 5) scale(.72347)"><path fill="#0000FF" d="M81.3 124.4H0V0h81.3zm-75-6.3H75V6.3H6.3Z"/><path fill="#0000FF" d="M38.6 3.6H42.800000000000004V121.8H38.6z"/></g></>
-    ) },
-    "it": { kind: "vector", body: (_ns: (localId: string) => string) => (
-      <><g transform="translate(20.5908 5) scale(.72347)"><path fill="#0000FF" d="M81.3 124.4H0V0h81.3zm-75-6.3H75V6.3H6.3Z"/><path fill="#0000FF" d="M38.6 3.6H42.800000000000004V121.8H38.6z"/></g></>
     ) }
   },
 };

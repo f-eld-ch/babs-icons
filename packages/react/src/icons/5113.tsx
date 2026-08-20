@@ -11,12 +11,6 @@ export const babs5113: BabsIconDefinition = {
   graphics: {
     "de": { kind: "vector", body: (_ns: (localId: string) => string) => (
       <><g transform="translate(20.4401 5) scale(.7335)"><path fill="#0000FF" d="M80.6 122.7H0V0h80.6zm-75-5.6H75V5.6H5.6Z"/><path fill="#0000FF" d="M39.1 66.1 12 29.8h54.3ZM20.3 33.9l18.8 25.2 18.8-25.2Z"/><path fill="#0000FF" d="M37.5 62.7H41.7V93.4H37.5z"/></g></>
-    ) },
-    "fr": { kind: "vector", body: (_ns: (localId: string) => string) => (
-      <><g transform="translate(20.4401 5) scale(.7335)"><path fill="#0000FF" d="M80.6 122.7H0V0h80.6zm-75-5.6H75V5.6H5.6Z"/><path fill="#0000FF" d="M39.1 66.1 12 29.8h54.3ZM20.3 33.9l18.8 25.2 18.8-25.2Z"/><path fill="#0000FF" d="M37.5 62.7H41.7V93.4H37.5z"/></g></>
-    ) },
-    "it": { kind: "vector", body: (_ns: (localId: string) => string) => (
-      <><g transform="translate(20.4401 5) scale(.7335)"><path fill="#0000FF" d="M80.6 122.7H0V0h80.6zm-75-5.6H75V5.6H5.6Z"/><path fill="#0000FF" d="M39.1 66.1 12 29.8h54.3ZM20.3 33.9l18.8 25.2 18.8-25.2Z"/><path fill="#0000FF" d="M37.5 62.7H41.7V93.4H37.5z"/></g></>
     ) }
   },
 };

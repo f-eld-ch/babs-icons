@@ -11,12 +11,6 @@ export const babs5125: BabsIconDefinition = {
   graphics: {
     "de": { kind: "vector", body: (_ns: (localId: string) => string) => (
       <><g transform="translate(39.0624 5) scale(.98855) translate(-34.5218 .1403)scale(.08214)"><path fill="#0000ff" stroke="none" d="M689 39 469 303l-48-39L642-1Z"/><path fill="none" stroke="#0000ff" strokeWidth="1" d="M689 39 469 303l-48-39L642-1Z"/><path fill="#0000ff" stroke="none" d="m469 802 220 264-47 40-221-264z"/><path fill="none" stroke="#0000ff" strokeWidth="1" d="m469 802 220 264-47 40-221-264z"/><path fill="#0000ff" stroke="none" d="M483 264v577h-62V264Z"/><path fill="none" stroke="#0000ff" strokeWidth="1" d="M483 264v577h-62V264Z"/></g></>
-    ) },
-    "fr": { kind: "vector", body: (_ns: (localId: string) => string) => (
-      <><g transform="translate(39.0624 5)scale(.98855) translate(-34.5218 .1403)scale(.08214)"><path fill="#0000ff" stroke="none" d="M689 39 469 303l-48-39L642-1Z"/><path fill="none" stroke="#0000ff" strokeWidth="1" d="M689 39 469 303l-48-39L642-1Z"/><path fill="#0000ff" stroke="none" d="m469 802 220 264-47 40-221-264z"/><path fill="none" stroke="#0000ff" strokeWidth="1" d="m469 802 220 264-47 40-221-264z"/><path fill="#0000ff" stroke="none" d="M483 264v577h-62V264Z"/><path fill="none" stroke="#0000ff" strokeWidth="1" d="M483 264v577h-62V264Z"/></g></>
-    ) },
-    "it": { kind: "vector", body: (_ns: (localId: string) => string) => (
-      <><g transform="translate(39.0624 5)scale(.98855) translate(-34.5218 .1403)scale(.08214)"><path fill="#0000ff" stroke="none" d="M689 39 469 303l-48-39L642-1Z"/><path fill="none" stroke="#0000ff" strokeWidth="1" d="M689 39 469 303l-48-39L642-1Z"/><path fill="#0000ff" stroke="none" d="m469 802 220 264-47 40-221-264z"/><path fill="none" stroke="#0000ff" strokeWidth="1" d="m469 802 220 264-47 40-221-264z"/><path fill="#0000ff" stroke="none" d="M483 264v577h-62V264Z"/><path fill="none" stroke="#0000ff" strokeWidth="1" d="M483 264v577h-62V264Z"/></g></>
     ) }
   },
 };
