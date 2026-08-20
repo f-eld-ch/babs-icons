@@ -4,6 +4,11 @@
 
 import type { BabsIconId, BabsLang } from "@f-eld-ch/babs-core";
 
+export interface AssetUrlOptions {
+  /** Pass `true` for the primary pattern tile, `"b"` for the alternate variant. */
+  pattern?: true | "b";
+}
+
 /**
  * Returns a URL for the optimized SVG file for the given icon and language.
  * The bundler (Vite/rolldown) converts this into a hashed asset reference.
@@ -11,6 +16,7 @@ import type { BabsIconId, BabsLang } from "@f-eld-ch/babs-core";
  * `lang` defaults to "de" when the icon has a single shared graphic.
  * For divergent icons, pass the user's resolved language.
  */
-export function assetUrl(id: BabsIconId, lang: BabsLang = "de"): string {
-  return new URL(`../svg/${lang}/${id}.svg`, import.meta.url).href;
+export function assetUrl(id: BabsIconId, lang: BabsLang = "de", opts?: AssetUrlOptions): string {
+  const suffix = opts?.pattern === "b" ? "-pattern-b" : opts?.pattern ? "-pattern" : "";
+  return new URL(`../svg/${lang}/${id}${suffix}.svg`, import.meta.url).href;
 }

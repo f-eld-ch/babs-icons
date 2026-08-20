@@ -17,6 +17,7 @@
       "types": "./dist/index.d.ts",
       "default": "./dist/index.js"
     },
+    "./svg/*": "./svg/*",
     "./package.json": "./package.json"
   },
   "publishConfig": {

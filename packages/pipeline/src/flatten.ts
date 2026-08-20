@@ -124,7 +124,6 @@ function buildWriteEntries(): WriteEntry[] {
     const stemLang = (["de", "fr", "it"] as const).find((l) => !!sources[l])!;
     // Finding 7 fix: stem() calls symLabel() which strips [DFI]- prefix AND -[DFI] suffix
     const s = stem(sources[stemLang]!.file);
-    const hasNum = /^\d/.test(s);
     const unique = new Set(presentLangs.map((l) => hashes[l]));
     const identical = unique.size === 1;
 
@@ -140,7 +139,7 @@ function buildWriteEntries(): WriteEntry[] {
     };
 
     if (identical) {
-      const base = hasNum ? `${id}${s}.svg` : `${id}-${s}.svg`;
+      const base = `${id}.svg`;
       for (const lang of presentLangs) {
         we.langs[lang] = {
           svgFileName: base,
@@ -159,9 +158,9 @@ function buildWriteEntries(): WriteEntry[] {
         const suf = LANG_SUFFIX[lang];
         const rl = realLang.get(lang)!;
         const realSuf = LANG_SUFFIX[rl];
-        const svgFn = hasNum ? `${id}${s}-${suf}.svg` : `${id}-${s}-${suf}.svg`;
-        const realFn = hasNum ? `${id}${s}-${realSuf}.svg` : `${id}-${s}-${realSuf}.svg`;
-        const langDir = hasNum ? `${id}${s}.svg` : `${id}-${s}.svg`;
+        const svgFn = `${id}-${suf}.svg`;
+        const realFn = `${id}-${realSuf}.svg`;
+        const langDir = `${id}.svg`;
         we.langs[lang] = {
           svgFileName: svgFn,
           langDirName: langDir,
@@ -193,7 +192,7 @@ function buildWriteEntries(): WriteEntry[] {
       const pLangs: Partial<Record<Lang, LangEntry>> = {};
 
       if (pIdentical) {
-        const base = hasNum ? `${id}${s}${varSuffix}.svg` : `${id}-${s}${varSuffix}.svg`;
+        const base = `${id}${varSuffix}.svg`;
         for (const lang of presentPatternLangs) {
           pLangs[lang] = {
             svgFileName: base,
@@ -212,13 +211,9 @@ function buildWriteEntries(): WriteEntry[] {
           const suf = LANG_SUFFIX[lang];
           const rl = realLang.get(lang)!;
           const realSuf = LANG_SUFFIX[rl];
-          const svgFn = hasNum
-            ? `${id}${s}${varSuffix}-${suf}.svg`
-            : `${id}-${s}${varSuffix}-${suf}.svg`;
-          const realFn = hasNum
-            ? `${id}${s}${varSuffix}-${realSuf}.svg`
-            : `${id}-${s}${varSuffix}-${realSuf}.svg`;
-          const langDir = hasNum ? `${id}${s}${varSuffix}.svg` : `${id}-${s}${varSuffix}.svg`;
+          const svgFn = `${id}${varSuffix}-${suf}.svg`;
+          const realFn = `${id}${varSuffix}-${realSuf}.svg`;
+          const langDir = `${id}${varSuffix}.svg`;
           pLangs[lang] = {
             svgFileName: svgFn,
             langDirName: langDir,
