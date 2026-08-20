@@ -96,27 +96,27 @@ Markers (`markers/`) are sprite-only graphics that appear in the sprite sheets b
 
 ## Pipeline commands
 
-| Script                    | What it does                                                  | CI-safe? |
-| ------------------------- | ------------------------------------------------------------- | -------- |
-| `yarn icons:check`        | Verifies all generated outputs are up to date without writing | Yes      |
-| `yarn icons:rebuild`      | Re-generates core, react, and sprites from `packages/svg/`    | Yes      |
-| `yarn icons:flatten`      | Re-flattens `sources/` into `packages/svg/`                   | Yes      |
-| `yarn icons:ingest`       | Normalises `sources/` with Inkscape, then rebuilds            | **No**   |
-| `yarn icons:source:normalize` | Normalises `sources/` SVGs in-place with Inkscape         | **No**   |
-| `yarn icons:source:copy-de`   | Copies German sources as starting point for missing langs  | **No**   |
-| `yarn icons:source:trace` | Traces raster sources to SVG with potrace                     | **No**   |
-| `yarn icons:sprites`      | Generates sprite sheets only                                  | Yes      |
-| `yarn icons:gen-core`     | Generates `babs-core` metadata                                | Yes      |
-| `yarn icons:gen-react`    | Generates `babs-react` icon definitions                       | Yes      |
-| `yarn icons:verify`       | Runs semantic invariant checks                                | Yes      |
-| `yarn icons:docs`         | Regenerates `docs/icons.md` icon reference                    | Yes      |
-| `yarn build`              | Builds all packages                                           | Yes      |
-| `yarn typecheck`          | Type-checks all packages                                      | Yes      |
-| `yarn test`               | Runs smoke tests (packs each tarball, checks entry points)    | Yes      |
-| `yarn lint`               | Runs oxlint across the codebase                               | Yes      |
-| `yarn lint:fix`           | Runs oxlint with auto-fix                                     | Yes      |
-| `yarn fmt`                | Formats all source files with oxfmt                           | Yes      |
-| `yarn fmt:check`          | Checks formatting without writing (CI)                        | Yes      |
+| Script                        | What it does                                                  | CI-safe? |
+| ----------------------------- | ------------------------------------------------------------- | -------- |
+| `yarn icons:check`            | Verifies all generated outputs are up to date without writing | Yes      |
+| `yarn icons:rebuild`          | Re-generates core, react, and sprites from `packages/svg/`    | Yes      |
+| `yarn icons:flatten`          | Re-flattens `sources/` into `packages/svg/`                   | Yes      |
+| `yarn icons:ingest`           | Normalises `sources/` with Inkscape, then rebuilds            | **No**   |
+| `yarn icons:source:normalize` | Normalises `sources/` SVGs in-place with Inkscape             | **No**   |
+| `yarn icons:source:copy-de`   | Copies German sources as starting point for missing langs     | **No**   |
+| `yarn icons:source:trace`     | Traces raster sources to SVG with potrace                     | **No**   |
+| `yarn icons:sprites`          | Generates sprite sheets only                                  | Yes      |
+| `yarn icons:gen-core`         | Generates `babs-core` metadata                                | Yes      |
+| `yarn icons:gen-react`        | Generates `babs-react` icon definitions                       | Yes      |
+| `yarn icons:verify`           | Runs semantic invariant checks                                | Yes      |
+| `yarn icons:docs`             | Regenerates `docs/icons.md` icon reference                    | Yes      |
+| `yarn build`                  | Builds all packages                                           | Yes      |
+| `yarn typecheck`              | Type-checks all packages                                      | Yes      |
+| `yarn test`                   | Runs smoke tests (packs each tarball, checks entry points)    | Yes      |
+| `yarn lint`                   | Runs oxlint across the codebase                               | Yes      |
+| `yarn lint:fix`               | Runs oxlint with auto-fix                                     | Yes      |
+| `yarn fmt`                    | Formats all source files with oxfmt                           | Yes      |
+| `yarn fmt:check`              | Checks formatting without writing (CI)                        | Yes      |
 
 `icons:ingest` and `icons:source:trace` modify `sources/` and must not run in CI.
 
