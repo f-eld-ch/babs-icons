@@ -28,7 +28,7 @@ For divergent icons (different graphic per language) all three variants are show
 
 _Auswirkungen von Schadenereignissen auf Gebiete / Effets d'événements dommageables sur le terrain et les objectifs / Effetti provocati da sinistri sul territorio e sugli obiettivi_
 
-| Icon                                                                                                      | ID      | Export                               | DE                                 | FR                                      | IT                                                    | Pattern                                                                                                                                                                                                        |
+| Icon<img width="56" height="1" src="spacer.svg" alt="">                                                   | ID      | Export                               | DE                                 | FR                                      | IT                                                    | Pattern                                                                                                                                                                                                        |
 | --------------------------------------------------------------------------------------------------------- | ------- | ------------------------------------ | ---------------------------------- | --------------------------------------- | ----------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | <img src="../packages/svg/svg/1101.svg" alt="Beschaedigung" width="48" height="48">                       | `1101`  | `babsBeschaedigung`                  | Beschaedigung                      | Degat                                   | Danneggiamento                                        |                                                                                                                                                                                                                |
 | <img src="../packages/svg/svg/1102.svg" alt="Teilzerstoerung" width="48" height="48">                     | `1102`  | `babsTeilzerstoerung`                | Teilzerstoerung                    | Destruction-partielle                   | Distruzione-parziale                                  |                                                                                                                                                                                                                |
@@ -56,7 +56,7 @@ _Auswirkungen von Schadenereignissen auf Gebiete / Effets d'événements dommage
 
 _Auswirkungen von Schadenereignissen auf Verkehrswege / Effets d'événements dommageables sur les voies de communication / Effetti provocati da sinistri sulle vie di comunicazione_
 
-| Icon                                                                                                        | ID     | Export                                | DE                                    | FR                              | IT                                    | Pattern                                                                                                           |
+| Icon<img width="56" height="1" src="spacer.svg" alt="">                                                     | ID     | Export                                | DE                                    | FR                              | IT                                    | Pattern                                                                                                           |
 | ----------------------------------------------------------------------------------------------------------- | ------ | ------------------------------------- | ------------------------------------- | ------------------------------- | ------------------------------------- | ----------------------------------------------------------------------------------------------------------------- |
 | <img src="../packages/svg/svg/1201.svg" alt="Str erschwert befahrbar - begehbar" width="48" height="48">    | `1201` | `babsStrErschwertBefahrbarBegehbar`   | Str erschwert befahrbar - begehbar    | Route difficilement praticable  | Strada percorribile                   |                                                                                                                   |
 | <img src="../packages/svg/svg/1202.svg" alt="Str nicht befahrbar - schwer begehbar" width="48" height="48"> | `1202` | `babsStrNichtBefahrbarSchwerBegehbar` | Str nicht befahrbar - schwer begehbar | Route impraticable pour les vhc | Strada non percorribile per i veicoli |                                                                                                                   |
@@ -66,7 +66,7 @@ _Auswirkungen von Schadenereignissen auf Verkehrswege / Effets d'événements do
 
 _Auswirkungen von Schadenereignissen auf Personen / Effets d'événements dommageables sur les personnes / Effetti provocati da sinistri sulle persone_
 
-| Icon                                                                               | ID     | Export             | DE           | FR        | IT                   | Pattern |
+| Icon<img width="56" height="1" src="spacer.svg" alt="">                            | ID     | Export             | DE           | FR        | IT                   | Pattern |
 | ---------------------------------------------------------------------------------- | ------ | ------------------ | ------------ | --------- | -------------------- | ------- |
 | <img src="../packages/svg/svg/1301.svg" alt="Verletzte" width="48" height="48">    | `1301` | `babsVerletzte`    | Verletzte    | Blesses   | Feriti               |         |
 | <img src="../packages/svg/svg/1302.svg" alt="Vermisste" width="48" height="48">    | `1302` | `babsVermisste`    | Vermisste    | Disparus  | Dispersi             |         |
@@ -78,7 +78,7 @@ _Auswirkungen von Schadenereignissen auf Personen / Effets d'événements dommag
 
 _Auswirkungen von Schadenereignissen auf Gebiete Gelb / Effets d'événements dommageables sur le terrain / Effetti provocati da sinistri sul territorio_
 
-| Icon                                                                                                                | ID     | Export                                           | DE                                            | FR                                              | IT                                   | Pattern |
+| Icon<img width="56" height="1" src="spacer.svg" alt="">                                                             | ID     | Export                                           | DE                                            | FR                                              | IT                                   | Pattern |
 | ------------------------------------------------------------------------------------------------------------------- | ------ | ------------------------------------------------ | --------------------------------------------- | ----------------------------------------------- | ------------------------------------ | ------- |
 | <img src="../packages/svg/svg/1401.svg" alt="Biologisch verseuchtes Gebiet" width="48" height="48">                 | `1401` | `babsBiologischVerseuchtesGebiet`                | Biologisch verseuchtes Gebiet                 | Zone biologiquement contaminée                  | Zona infettata                       |         |
 | <img src="../packages/svg/svg/1402.svg" alt="Chemievergiftete Zone flüssig - sesshaft" width="48" height="48">      | `1402` | `babsChemievergifteteZoneFluessigSesshaft`       | Chemievergiftete Zone flüssig - sesshaft      | Zone chimiquement contaminée sous forme liquide | Zona intossicata liquido-persistente |         |
@@ -133,7 +133,7 @@ _Auswirkungen von Schadenereignissen auf Gebiete Gelb / Effets d'événements do
 
 _Polizei / Police / Polizia_
 
-| Icon                                                                                       | ID     | Export                    | DE                   | FR                         | IT                      | Pattern |
+| Icon<img width="56" height="1" src="spacer.svg" alt="">                                    | ID     | Export                    | DE                   | FR                         | IT                      | Pattern |
 | ------------------------------------------------------------------------------------------ | ------ | ------------------------- | -------------------- | -------------------------- | ----------------------- | ------- |
 | <img src="../packages/svg/svg/4101.svg" alt="Trupp-P" width="48" height="48">              | `4101` | `babsTruppP`              | Trupp-P              | Equipe-P                   | Squadra-P               |         |
 | <img src="../packages/svg/svg/4102.svg" alt="Gruppe-P" width="48" height="48">             | `4102` | `babsGruppeP`             | Gruppe-P             | Groupe-P                   | Gruppo-P                |         |
@@ -163,7 +163,7 @@ _Feuerwehr / Pompier / Pompieri_
 
 _Sanitätsdienst / Santé publique / Sanità pubblica_
 
-| Icon                                                                                         | ID     | Export                      | DE                     | FR                           | IT                        | Pattern |
+| Icon<img width="56" height="1" src="spacer.svg" alt="">                                      | ID     | Export                      | DE                     | FR                           | IT                        | Pattern |
 | -------------------------------------------------------------------------------------------- | ------ | --------------------------- | ---------------------- | ---------------------------- | ------------------------- | ------- |
 | <img src="../packages/svg/svg/4301.svg" alt="Trupp-San" width="48" height="48">              | `4301` | `babsTruppSan`              | Trupp-San              | Equipe-San                   | Squadra-San               |         |
 | <img src="../packages/svg/svg/4302.svg" alt="Gruppe-San" width="48" height="48">             | `4302` | `babsGruppeSan`             | Gruppe-San             | Groupe-San                   | Gruppo-San                |         |
@@ -236,7 +236,7 @@ _Partner ohne Hierarchiestufe / Partenaires sans hiérarchie / Partner non gerar
 
 _Hierarchiestufe ohne Partner / Hiérarchies sans partenaire / Gerarchie senza partner_
 
-| Icon                                                                                     | ID     | Export                   | DE                 | FR                       | IT                    | Pattern |
+| Icon<img width="56" height="1" src="spacer.svg" alt="">                                  | ID     | Export                   | DE                 | FR                       | IT                    | Pattern |
 | ---------------------------------------------------------------------------------------- | ------ | ------------------------ | ------------------ | ------------------------ | --------------------- | ------- |
 | <img src="../packages/svg/svg/4801.svg" alt="Trupp" width="48" height="48">              | `4801` | `babsTrupp`              | Trupp              | Equipe                   | Squadra               |         |
 | <img src="../packages/svg/svg/4802.svg" alt="Gruppe" width="48" height="48">             | `4802` | `babsGruppe`             | Gruppe             | Groupe                   | Gruppo                |         |
@@ -352,7 +352,7 @@ _Hierarchiestufe ohne Partner / Hiérarchies sans partenaire / Gerarchie senza p
 
 _Naturbedingte Lagen / Evénements naturels / Eventi naturali_
 
-| Icon                                                                                        | ID     | Export                     | DE                    | FR                    | IT                         | Pattern |
+| Icon<img width="56" height="1" src="spacer.svg" alt="">                                     | ID     | Export                     | DE                    | FR                    | IT                         | Pattern |
 | ------------------------------------------------------------------------------------------- | ------ | -------------------------- | --------------------- | --------------------- | -------------------------- | ------- |
 | <img src="../packages/svg/svg/8101.svg" alt="Sturm" width="48" height="48">                 | `8101` | `babsSturm`                | Sturm                 | Tempete               | Tempesta                   |         |
 | <img src="../packages/svg/svg/8102.svg" alt="Starkniederschlag" width="48" height="48">     | `8102` | `babsStarkniederschlag`    | Starkniederschlag     | Fortes-precipitations | Piogge-intense             |         |
@@ -372,7 +372,7 @@ _Naturbedingte Lagen / Evénements naturels / Eventi naturali_
 
 _Technisch bedingte Lagen / Evénements techniques / Eventi tecnici_
 
-| Icon                                                                                                  | ID     | Export                               | DE                              | FR                                         | IT                                          | Pattern |
+| Icon<img width="56" height="1" src="spacer.svg" alt="">                                               | ID     | Export                               | DE                              | FR                                         | IT                                          | Pattern |
 | ----------------------------------------------------------------------------------------------------- | ------ | ------------------------------------ | ------------------------------- | ------------------------------------------ | ------------------------------------------- | ------- |
 | <img src="../packages/svg/svg/8201.svg" alt="Brand" width="48" height="48">                           | `8201` | `babsBrand`                          | Brand                           | Incendie                                   | Incendio                                    |         |
 | <img src="../packages/svg/svg/8202.svg" alt="Explosion" width="48" height="48">                       | `8202` | `babsExplosion`                      | Explosion                       | Explosion                                  | Esplosione                                  |         |
@@ -442,7 +442,7 @@ _Gesellschaftlich bedingte Lagen / Evénements sociaux / Eventi sociali_
 
 **Spezial** / Spéciaux / Speciali
 
-| Icon                                                                                                            | ID      | Export                                    | DE                                       | FR                                     | IT                                 | Pattern |
+| Icon<img width="56" height="1" src="spacer.svg" alt="">                                                         | ID      | Export                                    | DE                                       | FR                                     | IT                                 | Pattern |
 | --------------------------------------------------------------------------------------------------------------- | ------- | ----------------------------------------- | ---------------------------------------- | -------------------------------------- | ---------------------------------- | ------- |
 | <img src="../packages/svg/svg/9101a.svg" alt="Autobahn offen" width="48" height="48">                           | `9101a` | `babsAutobahnOffen`                       | Autobahn offen                           | Autoroute ouverte                      | Autostrada aperta                  |         |
 | <img src="../packages/svg/svg/9101b.svg" alt="Autobahn gesperrt" width="48" height="48">                        | `9101b` | `babsAutobahnGesperrt`                    | Autobahn gesperrt                        | Autoroute fermée                       | Autostrada chiusa                  |         |

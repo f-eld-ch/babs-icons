@@ -123,14 +123,15 @@ function symbolRow(sym: Symbol): string {
   return `| ${iconCell} | \`${sym.id}\` | ${aliasCell} | ${de} | ${fr} | ${it} | ${patternCell} |`;
 }
 
-// Min-width for the icon column: widest case is 3×48px images side by side (~160px).
-// GitHub preserves img width/height attributes, so a transparent spacer in the header
-// forces the column to at least that width.
-// For tables that contain only identical icons (1 image per row) the spacer is omitted
-// so the column auto-sizes to ~56px instead of being unnecessarily wide.
+// Min-width for the icon column: GitHub distributes table width proportionally, so a
+// text-heavy DE/FR/IT column can squeeze a narrow icon column below 48px. A transparent
+// spacer in the header pins a floor:
+//   56px  — single-image tables (48px icon + 8px breathing room)
+//  160px  — multi-image tables (3 × 48px + two &nbsp; gaps)
 
 function iconColHeader(hasDivergent: boolean): string {
-  return hasDivergent ? `Icon<img width="160" height="1" src="spacer.svg" alt="">` : "Icon";
+  const w = hasDivergent ? 160 : 56;
+  return `Icon<img width="${w}" height="1" src="spacer.svg" alt="">`;
 }
 
 function symbolsTable(symbols: Symbol[]): string {
