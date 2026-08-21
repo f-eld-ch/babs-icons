@@ -179,6 +179,21 @@ function* walkSvgs(dir: string): Generator<string> {
 const files = [...walkSvgs(ROOT_DIR)];
 const svgoConfig = makeSvgoConfig(TARGET_SIZE, PADDING_RATIO);
 const svgoPatternConfig = makeSvgoConfig(TARGET_SIZE, 0);
+// Raster SVGs embed <image> elements whose coordinate system cannot be safely
+// rewritten by the center plugin (clipPath refs would go out of sync).
+// Run only basic cleanup; preserve viewBox and internal coords as-is.
+const svgoRasterConfig: Config = {
+  plugins: [
+    "removeDoctype",
+    "removeXMLProcInst",
+    "removeComments",
+    "removeMetadata",
+    "removeEditorsNSData",
+    "cleanupAttrs",
+    "removeEmptyAttrs",
+    "removeUselessDefs",
+  ],
+};
 
 console.log(`Found ${files.length} SVG files`);
 console.log(`Canvas: ${TARGET_SIZE}×${TARGET_SIZE}, padding: ${PADDING_RATIO * 100}%`);
@@ -194,12 +209,18 @@ for (const [i, file] of files.entries()) {
 
   const isPattern = PATTERN_RE.test(file);
 
+  // Read the file first so we can detect raster before deciding whether to run Inkscape.
+  const rawContent = readFileSync(file, "utf-8");
+  // Raster SVGs embed <image> elements whose coordinate system cannot be safely
+  // rewritten — skip both Inkscape and the center plugin for them.
+  const isRaster = !isPattern && rawContent.includes("<image");
+
   // Patterns already tile edge-to-edge and must not be cropped or inset.
   // For regular symbols, Inkscape crops the SVG to actual drawn content bounds
   // to eliminate artboard whitespace that would otherwise cause them to appear tiny.
   let svgInput: string;
-  if (isPattern) {
-    svgInput = readFileSync(file, "utf-8");
+  if (isPattern || isRaster) {
+    svgInput = rawContent;
   } else {
     const cropped = cropToDrawing(file);
     if (!cropped) {
@@ -211,7 +232,7 @@ for (const [i, file] of files.entries()) {
   }
 
   // Step 2: SVGO cleans up and centers the content in a square canvas.
-  const cfg = isPattern ? svgoPatternConfig : svgoConfig;
+  const cfg = isPattern ? svgoPatternConfig : isRaster ? svgoRasterConfig : svgoConfig;
   let result: { data: string };
   try {
     result = optimize(svgInput, { ...cfg, path: file });

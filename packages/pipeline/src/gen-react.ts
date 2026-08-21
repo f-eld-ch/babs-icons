@@ -288,7 +288,7 @@ function processVectorSvg(
 }
 
 // For raster SVGs: minimal processing, extract <image> content
-function processRasterSvg(svgContent: string): string {
+function processRasterSvg(svgContent: string): { jsx: string; usesNs: boolean } {
   // Fix MIME type and xlink:href
   let body = svgContent
     .replace(/data:img\/png;/g, "data:image/png;")
@@ -302,7 +302,6 @@ function processRasterSvg(svgContent: string): string {
   body = body
     .replace(/\s+xmlns(?::[a-z]+)?="[^"]*"/g, "")
     .replace(/\s+xml:space="[^"]*"/g, "")
-    .replace(/\s+id="[^"]*"/g, "")
     .replace(/\s+data-name="[^"]*"/g, "");
 
   // Remove xlink namespace prefix from any remaining uses
@@ -335,7 +334,35 @@ function processRasterSvg(svgContent: string): string {
     return `style={{ ${obj} }}`;
   });
 
-  return body.trim();
+  // If the SVG has internal id references (href="#X" or url(#X)), namespace all ids
+  // so that multiple instances on the same page don't collide.
+  // SVGs that use <use href="#img1"> lose the reference if id="img1" is stripped.
+  const hasInternalRefs = /href="#[\w-]+"|\burl\(#[\w-]+\)/.test(body);
+  if (hasInternalRefs) {
+    // Convert attr="...url(#X)..." → attr={`...url(#${ns("X")})...`}
+    body = body.replace(
+      /([\w:-]+=)"([^"]*url\(#([\w-]+)\)[^"]*)"/g,
+      (_, attrEq: string, val: string, id: string) => {
+        const attr = attrEq
+          .slice(0, -1)
+          .replace(/-([a-z])/g, (_: string, c: string) => c.toUpperCase());
+        const jsxVal = val.replace(`url(#${id})`, `url(#\${ns("${id}")})`);
+        return `${attr}={\`${jsxVal}\`}`;
+      },
+    );
+    // Convert href="#X" → href={`#${ns("X")}`}
+    body = body.replace(/href="#([\w-]+)"/g, (_, id: string) => `href={\`#\${ns("${id}")}\`}`);
+    // Convert id="X" → id={ns("X")}
+    body = body.replace(
+      /(\s)id="([\w-]+)"/g,
+      (_, space: string, id: string) => `${space}id={ns("${id}")}`,
+    );
+    return { jsx: body.trim(), usesNs: true };
+  }
+
+  // No internal refs — strip ids to avoid cross-instance collisions
+  body = body.replace(/\s+id="[^"]*"/g, "");
+  return { jsx: body.trim(), usesNs: false };
 }
 
 // ── Determine which lang files to process per icon ────────────────────────────
@@ -427,8 +454,8 @@ function genIconModule(sym: SymEntry): string {
   for (const { lang, content, isRaster, aliases } of langs) {
     let bodyStr: string;
     if (isRaster) {
-      const innerJsx = processRasterSvg(content);
-      bodyStr = `(_ns: (localId: string) => string) => (\n      <>${innerJsx}</>\n    )`;
+      const result = processRasterSvg(content);
+      bodyStr = makeBodyStr(result.jsx, result.usesNs);
     } else {
       const result = processVectorSvg(content, sym.id, lang);
       if (!result) {
