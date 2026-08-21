@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   viewBox="0 0 100 100"
+   version="1.1"
+   id="svg1"
+   sodipodi:docname="04-Radioaktives Gebiet - Beispiel.svg"
+   inkscape:version="1.4.4 (dcaf3e7d9e, 2026-05-05)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs3" />
+  <sodipodi:namedview
+     id="namedview3"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:zoom="6.9173039"
+     inkscape:cx="-1.3010849"
+     inkscape:cy="48.64612"
+     inkscape:window-width="2304"
+     inkscape:window-height="1371"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg1" />
+  <g
+     id="g4"
+     transform="matrix(2.0397184,0,0,2.0397184,-47.979946,-47.598574)">
+    <path
+       d="M 48.119141,27.25 A 14.918766,15.093744 0 0 0 33.201172,42.169922 H 63.037109 A 14.918766,15.093744 0 0 0 48.119141,27.25 Z"
+       style="fill:#ffff00;fill-opacity:1;stroke:#000000;stroke-width:1.20875"
+       id="path4" />
+    <rect
+       style="fill:#ffff00;fill-opacity:1;stroke:#000000;stroke-width:1.3"
+       id="rect4"
+       width="14.785652"
+       height="26.421698"
+       x="41.150143"
+       y="42.216511" />
+    <text
+       xml:space="preserve"
+       style="font-weight:bold;font-size:18.5627px;font-family:FreeSans;-inkscape-font-specification:'FreeSans Bold';letter-spacing:-0.803681px;word-spacing:0px;writing-mode:lr-tb;direction:ltr;fill:#ffff00;fill-opacity:1;stroke:#000000;stroke-width:0.822665"
+       x="41.59864"
+       y="62.804359"
+       id="text4"><tspan
+         sodipodi:role="line"
+         id="tspan4"
+         x="41.59864"
+         y="62.804359"
+         style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.822665">N</tspan></text>
+  </g>
+</svg>

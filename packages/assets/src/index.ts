@@ -5,8 +5,8 @@
 import type { BabsIconId, BabsLang } from "@f-eld-ch/babs-core";
 
 export interface AssetUrlOptions {
-  /** Pass `true` for the primary pattern tile, `"b"` for the alternate variant. */
-  pattern?: true | "b";
+  /** Pass `true` for the pattern tile. */
+  pattern?: true;
 }
 
 /**
@@ -17,6 +17,6 @@ export interface AssetUrlOptions {
  * For divergent icons, pass the user's resolved language.
  */
 export function assetUrl(id: BabsIconId, lang: BabsLang = "de", opts?: AssetUrlOptions): string {
-  const suffix = opts?.pattern === "b" ? "-pattern-b" : opts?.pattern ? "-pattern" : "";
+  const suffix = opts?.pattern ? "-pattern" : "";
   return new URL(`../svg/${lang}/${id}${suffix}.svg`, import.meta.url).href;
 }

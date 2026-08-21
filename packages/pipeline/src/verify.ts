@@ -38,7 +38,7 @@ interface SymEntry {
   id: string;
   identical: boolean;
   files: Record<string, SymFiles>;
-  patterns?: Partial<Record<"a" | "b", PatternVariantEntry>>;
+  patterns?: Partial<Record<"a", PatternVariantEntry>>;
 }
 interface IndexJson {
   categories: Array<{
@@ -132,25 +132,20 @@ if (spriteKeySets.length === 3) {
 // ── Pattern invariants ────────────────────────────────────────────────────────
 const SVG_DIR = join(ROOT, "packages/svg/svg");
 
-// Collect symbols that have at least one pattern variant (a or b).
-// Bug fix: the old filter `s.patterns?.a` missed symbols with only a "b" variant.
-const symbolsWithAnyPattern = allSymbols.filter((s) => s.patterns?.a || s.patterns?.b);
-const symbolsWithPatternB = allSymbols.filter((s) => s.patterns?.b);
+// Collect symbols that have a pattern variant.
+const symbolsWithAnyPattern = allSymbols.filter((s) => s.patterns?.a);
 
 // Every pattern SVG path must exist on disk.
-// Bug fix: iterate symbolsWithAnyPattern, not symbolsWithPattern, so b-only variants are covered.
 let patternPathsOk = true;
 for (const sym of symbolsWithAnyPattern) {
-  for (const variant of ["a", "b"] as const) {
-    const pv = sym.patterns?.[variant];
-    if (!pv) continue;
-    for (const [lang, entry] of Object.entries(pv.files)) {
-      if (!entry) continue;
-      const p = join(SVG_DIR, entry.svg.replace(/^svg\//, ""));
-      if (!existsSync(p)) {
-        fail(`pattern svg missing: ${sym.id} variant=${variant} lang=${lang} → ${entry.svg}`);
-        patternPathsOk = false;
-      }
+  const pv = sym.patterns?.a;
+  if (!pv) continue;
+  for (const [lang, entry] of Object.entries(pv.files)) {
+    if (!entry) continue;
+    const p = join(SVG_DIR, entry.svg.replace(/^svg\//, ""));
+    if (!existsSync(p)) {
+      fail(`pattern svg missing: ${sym.id} lang=${lang} → ${entry.svg}`);
+      patternPathsOk = false;
     }
   }
 }
@@ -158,29 +153,12 @@ if (patternPathsOk && symbolsWithAnyPattern.length > 0) {
   pass(`pattern svg paths exist (${symbolsWithAnyPattern.length} symbols with patterns)`);
 }
 
-// Bug fix: replace the hardcoded "1113-only" b-variant whitelist with a structural check.
-// Any symbol may gain a b variant in future; the check should enforce structural consistency,
-// not catalogue facts. We simply assert that b-variant symbols also have an a variant
-// (b is always an alternate to a, never the sole variant).
-let bVariantOk = true;
-for (const sym of symbolsWithPatternB) {
-  if (!sym.patterns?.a) {
-    fail(`symbol "${sym.id}" has pattern variant b but no variant a — b is always paired with a`);
-    bVariantOk = false;
-  }
-}
-if (bVariantOk && symbolsWithPatternB.length > 0) {
-  pass(`pattern b-variants all have a paired a-variant (${symbolsWithPatternB.length} symbols)`);
-}
-
 // Sprite JSON must contain all expected pattern keys.
-// Bug fix: iterate symbolsWithAnyPattern so b-only keys are also asserted.
 if (spriteKeySets.length === 3) {
   const deKeys = spriteKeySets[0]!;
   const expectedPatternKeys: string[] = [];
   for (const sym of symbolsWithAnyPattern) {
-    if (sym.patterns?.a) expectedPatternKeys.push(`${sym.id}-pattern`);
-    if (sym.patterns?.b) expectedPatternKeys.push(`${sym.id}-pattern-b`);
+    expectedPatternKeys.push(`${sym.id}-pattern`);
   }
   let patternKeysOk = true;
   for (const k of expectedPatternKeys) {

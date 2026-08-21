@@ -44,7 +44,7 @@ interface SymEntry {
   id: string;
   identical: boolean;
   files: Partial<Record<Lang, SymFiles>>;
-  patterns?: Partial<Record<"a" | "b", PatternVariantEntry>>;
+  patterns?: Partial<Record<"a", PatternVariantEntry>>;
 }
 interface IndexJson {
   categories: Array<{
@@ -63,11 +63,10 @@ for (const cat of index.categories) {
 
 const allSymbolIds = allSymbols.map((s) => s.id);
 
-// Pattern keys: "<id>-pattern" and "<id>-pattern-b", sorted and appended after symbol IDs.
+// Pattern keys: "<id>-pattern", sorted and appended after symbol IDs.
 const allPatternKeys: string[] = [];
 for (const sym of allSymbols) {
   if (sym.patterns?.a) allPatternKeys.push(`${sym.id}-pattern`);
-  if (sym.patterns?.b) allPatternKeys.push(`${sym.id}-pattern-b`);
 }
 allPatternKeys.sort(compareNumeric);
 
@@ -162,14 +161,14 @@ function getSvgPath(sym: SymEntry, lang: Lang): string {
   return join(SVG_DIR, rel.replace(/^svg\//, ""));
 }
 
-function getPatternSvgPath(sym: SymEntry, variant: "a" | "b", lang: Lang): string {
+function getPatternSvgPath(sym: SymEntry, variant: "a", lang: Lang): string {
   const pv = sym.patterns?.[variant];
   if (!pv) return "";
   const rel = pv.files[lang]?.svg ?? pv.files.de?.svg ?? pv.files.fr?.svg ?? pv.files.it?.svg ?? "";
   return join(SVG_DIR, rel.replace(/^svg\//, ""));
 }
 
-const PATTERN_KEY_RE = /^(.+)-pattern(-b)?$/;
+const PATTERN_KEY_RE = /^(.+)-pattern$/;
 
 // ── Generate one sprite sheet ─────────────────────────────────────────────────
 async function genSheet(lang: Lang): Promise<{
@@ -201,7 +200,7 @@ async function genSheet(lang: Lang): Promise<{
       // Detect pattern key vs symbol key
       const pm = key.match(PATTERN_KEY_RE);
       const symId = pm ? pm[1]! : key;
-      const patVariant: "a" | "b" | null = pm ? (pm[2] ? "b" : "a") : null;
+      const patVariant: "a" | null = pm ? "a" : null;
 
       const sym = symMap.get(symId);
       if (!sym) continue; // removed icon — leave transparent hole

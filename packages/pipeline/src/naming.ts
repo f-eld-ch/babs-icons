@@ -7,16 +7,16 @@ export const LANGS = ["de", "fr", "it"] as const;
 export type Lang = (typeof LANGS)[number];
 export const LANG_SUFFIX: Record<Lang, string> = { de: "D", fr: "F", it: "I" };
 
-/** Matches "-pattern.svg" and "-pattern-b.svg" filename suffixes. */
+/** Matches "-pattern.svg" (and the removed "-pattern-b.svg") filename suffixes. */
 export const PATTERN_RE = /-pattern(-b)?\.svg$/i;
 
-export type PatternVariant = "a" | "b";
+export type PatternVariant = "a";
 
-/** Returns "a" or "b" for a pattern file, null for a regular symbol file. */
+/** Returns "a" for a pattern file, null for regular or unsupported (-pattern-b) files. */
 export function patternVariant(f: string): PatternVariant | null {
   const m = f.match(PATTERN_RE);
-  if (!m) return null;
-  return m[1] ? "b" : "a";
+  if (!m || m[1]) return null;
+  return "a";
 }
 
 /** Extract leading number (e.g. "7a") from a dir name like "7a.Partner…" or "7a Partenaires…" */

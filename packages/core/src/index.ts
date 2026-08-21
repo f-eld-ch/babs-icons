@@ -81,8 +81,8 @@ export function spriteName(requested?: string): "babs-de" | "babs-fr" | "babs-it
   return `babs-${l}` as "babs-de" | "babs-fr" | "babs-it";
 }
 
-export function patternSpriteKey(id: BabsIconId, variant?: "a" | "b"): string {
-  return variant === "b" ? `${id}-pattern-b` : `${id}-pattern`;
+export function patternSpriteKey(id: BabsIconId): string {
+  return `${id}-pattern`;
 }
 
 /** Returns the sprite key for a marker: "marker-" + id.

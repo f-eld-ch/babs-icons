@@ -27,7 +27,7 @@ interface SymbolEntry {
   identical: boolean;
   label: Record<Lang, string>;
   files: Record<Lang, { lang: string; svg: string }>;
-  patterns?: Partial<Record<"a" | "b", unknown>>;
+  patterns?: Partial<Record<"a", unknown>>;
 }
 interface SubcatEntry {
   number: string;

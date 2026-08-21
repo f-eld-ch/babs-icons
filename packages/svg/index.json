@@ -461,23 +461,6 @@
                     }
                   },
                   "identical": true
-                },
-                "b": {
-                  "files": {
-                    "de": {
-                      "lang": "de/1113-pattern-b.svg",
-                      "svg": "svg/1113-pattern-b.svg"
-                    },
-                    "fr": {
-                      "lang": "fr/1113-pattern-b.svg",
-                      "svg": "svg/1113-pattern-b.svg"
-                    },
-                    "it": {
-                      "lang": "it/1113-pattern-b.svg",
-                      "svg": "svg/1113-pattern-b.svg"
-                    }
-                  },
-                  "identical": true
                 }
               }
             },
@@ -809,19 +792,19 @@
             {
               "files": {
                 "de": {
-                  "lang": "de/1401.svg",
-                  "svg": "svg/1401.svg"
+                  "lang": "de/1401a.svg",
+                  "svg": "svg/1401a.svg"
                 },
                 "fr": {
-                  "lang": "fr/1401.svg",
-                  "svg": "svg/1401.svg"
+                  "lang": "fr/1401a.svg",
+                  "svg": "svg/1401a.svg"
                 },
                 "it": {
-                  "lang": "it/1401.svg",
-                  "svg": "svg/1401.svg"
+                  "lang": "it/1401a.svg",
+                  "svg": "svg/1401a.svg"
                 }
               },
-              "id": "1401",
+              "id": "1401a",
               "identical": true,
               "label": {
                 "de": "Biologisch verseuchtes Gebiet",
@@ -832,19 +815,42 @@
             {
               "files": {
                 "de": {
-                  "lang": "de/1402.svg",
-                  "svg": "svg/1402.svg"
+                  "lang": "de/1401b.svg",
+                  "svg": "svg/1401b.svg"
                 },
                 "fr": {
-                  "lang": "fr/1402.svg",
-                  "svg": "svg/1402.svg"
+                  "lang": "fr/1401b.svg",
+                  "svg": "svg/1401b.svg"
                 },
                 "it": {
-                  "lang": "it/1402.svg",
-                  "svg": "svg/1402.svg"
+                  "lang": "it/1401b.svg",
+                  "svg": "svg/1401b.svg"
                 }
               },
-              "id": "1402",
+              "id": "1401b",
+              "identical": true,
+              "label": {
+                "de": "Biologisch verseuchtes Gebiet - Beispiel",
+                "fr": "Zone biologiquement contaminée - example",
+                "it": "Zona infettata - Esempio"
+              }
+            },
+            {
+              "files": {
+                "de": {
+                  "lang": "de/1402a.svg",
+                  "svg": "svg/1402a.svg"
+                },
+                "fr": {
+                  "lang": "fr/1402a.svg",
+                  "svg": "svg/1402a.svg"
+                },
+                "it": {
+                  "lang": "it/1402a.svg",
+                  "svg": "svg/1402a.svg"
+                }
+              },
+              "id": "1402a",
               "identical": true,
               "label": {
                 "de": "Chemievergiftete Zone flüssig - sesshaft",
@@ -855,19 +861,42 @@
             {
               "files": {
                 "de": {
-                  "lang": "de/1403.svg",
-                  "svg": "svg/1403.svg"
+                  "lang": "de/1402b.svg",
+                  "svg": "svg/1402b.svg"
                 },
                 "fr": {
-                  "lang": "fr/1403.svg",
-                  "svg": "svg/1403.svg"
+                  "lang": "fr/1402b.svg",
+                  "svg": "svg/1402b.svg"
                 },
                 "it": {
-                  "lang": "it/1403.svg",
-                  "svg": "svg/1403.svg"
+                  "lang": "it/1402b.svg",
+                  "svg": "svg/1402b.svg"
                 }
               },
-              "id": "1403",
+              "id": "1402b",
+              "identical": true,
+              "label": {
+                "de": "Chemievergiftete Zone flüssig - sesshaft - Beispiel",
+                "fr": "Zone chimiquement contaminée sous forme liquide - example",
+                "it": "Zona intossicata liquido-persistente - Esempio"
+              }
+            },
+            {
+              "files": {
+                "de": {
+                  "lang": "de/1403a.svg",
+                  "svg": "svg/1403a.svg"
+                },
+                "fr": {
+                  "lang": "fr/1403a.svg",
+                  "svg": "svg/1403a.svg"
+                },
+                "it": {
+                  "lang": "it/1403a.svg",
+                  "svg": "svg/1403a.svg"
+                }
+              },
+              "id": "1403a",
               "identical": true,
               "label": {
                 "de": "Chemievergiftetes Gebiet gasförmig - flüchtig",
@@ -878,24 +907,70 @@
             {
               "files": {
                 "de": {
-                  "lang": "de/1404.svg",
-                  "svg": "svg/1404.svg"
+                  "lang": "de/1403b.svg",
+                  "svg": "svg/1403b.svg"
                 },
                 "fr": {
-                  "lang": "fr/1404.svg",
-                  "svg": "svg/1404.svg"
+                  "lang": "fr/1403b.svg",
+                  "svg": "svg/1403b.svg"
                 },
                 "it": {
-                  "lang": "it/1404.svg",
-                  "svg": "svg/1404.svg"
+                  "lang": "it/1403b.svg",
+                  "svg": "svg/1403b.svg"
                 }
               },
-              "id": "1404",
+              "id": "1403b",
+              "identical": true,
+              "label": {
+                "de": "Chemievergiftetes Gebiet gasförmig - flüchtig - Beispiel",
+                "fr": "Zone chimiquement contaminée sous forme gazeuse - example",
+                "it": "Zona intossicata gas-volatile - Esempio"
+              }
+            },
+            {
+              "files": {
+                "de": {
+                  "lang": "de/1404a.svg",
+                  "svg": "svg/1404a.svg"
+                },
+                "fr": {
+                  "lang": "fr/1404a.svg",
+                  "svg": "svg/1404a.svg"
+                },
+                "it": {
+                  "lang": "it/1404a.svg",
+                  "svg": "svg/1404a.svg"
+                }
+              },
+              "id": "1404a",
               "identical": true,
               "label": {
                 "de": "Radioaktives Gebiet",
                 "fr": "Zone radioactive",
                 "it": "Zona contaminata radioattività"
+              }
+            },
+            {
+              "files": {
+                "de": {
+                  "lang": "de/1404b.svg",
+                  "svg": "svg/1404b.svg"
+                },
+                "fr": {
+                  "lang": "fr/1404b.svg",
+                  "svg": "svg/1404b.svg"
+                },
+                "it": {
+                  "lang": "it/1404b.svg",
+                  "svg": "svg/1404b.svg"
+                }
+              },
+              "id": "1404b",
+              "identical": true,
+              "label": {
+                "de": "Radioaktives Gebiet - Beispiel",
+                "fr": "Zone radioactive - example",
+                "it": "Zona contaminata radioattività - Esempio"
               }
             }
           ]
@@ -4799,19 +4874,19 @@
               "files": {
                 "de": {
                   "lang": "de/8111.svg",
-                  "svg": "svg/8111.svg"
+                  "svg": "svg/8111-D.svg"
                 },
                 "fr": {
                   "lang": "fr/8111.svg",
-                  "svg": "svg/8111.svg"
+                  "svg": "svg/8111-F.svg"
                 },
                 "it": {
                   "lang": "it/8111.svg",
-                  "svg": "svg/8111.svg"
+                  "svg": "svg/8111-I.svg"
                 }
               },
               "id": "8111",
-              "identical": true,
+              "identical": false,
               "label": {
                 "de": "Wasserstand gesunken",
                 "fr": "Niveau d'eau descent",
@@ -5394,19 +5469,19 @@
               "files": {
                 "de": {
                   "lang": "de/8301.svg",
-                  "svg": "svg/8301.svg"
+                  "svg": "svg/8301-D.svg"
                 },
                 "fr": {
                   "lang": "fr/8301.svg",
-                  "svg": "svg/8301.svg"
+                  "svg": "svg/8301-F.svg"
                 },
                 "it": {
                   "lang": "it/8301.svg",
-                  "svg": "svg/8301.svg"
+                  "svg": "svg/8301-I.svg"
                 }
               },
               "id": "8301",
-              "identical": true,
+              "identical": false,
               "label": {
                 "de": "Pluenderung",
                 "fr": "Pillage",
@@ -5440,19 +5515,19 @@
               "files": {
                 "de": {
                   "lang": "de/8303.svg",
-                  "svg": "svg/8303.svg"
+                  "svg": "svg/8303-D.svg"
                 },
                 "fr": {
                   "lang": "fr/8303.svg",
-                  "svg": "svg/8303.svg"
+                  "svg": "svg/8303-F.svg"
                 },
                 "it": {
                   "lang": "it/8303.svg",
-                  "svg": "svg/8303.svg"
+                  "svg": "svg/8303-I.svg"
                 }
               },
               "id": "8303",
-              "identical": true,
+              "identical": false,
               "label": {
                 "de": "Raub, Drohung",
                 "fr": "Vol, menaces",
@@ -5463,19 +5538,19 @@
               "files": {
                 "de": {
                   "lang": "de/8304.svg",
-                  "svg": "svg/8304.svg"
+                  "svg": "svg/8304-D.svg"
                 },
                 "fr": {
                   "lang": "fr/8304.svg",
-                  "svg": "svg/8304.svg"
+                  "svg": "svg/8304-F.svg"
                 },
                 "it": {
                   "lang": "it/8304.svg",
-                  "svg": "svg/8304.svg"
+                  "svg": "svg/8304-I.svg"
                 }
               },
               "id": "8304",
-              "identical": true,
+              "identical": false,
               "label": {
                 "de": "Zwischenfall mit Extremisten",
                 "fr": "Incident avec des extrémistes",
@@ -5486,19 +5561,19 @@
               "files": {
                 "de": {
                   "lang": "de/8305.svg",
-                  "svg": "svg/8305.svg"
+                  "svg": "svg/8305-D.svg"
                 },
                 "fr": {
                   "lang": "fr/8305.svg",
-                  "svg": "svg/8305.svg"
+                  "svg": "svg/8305-F.svg"
                 },
                 "it": {
                   "lang": "it/8305.svg",
-                  "svg": "svg/8305.svg"
+                  "svg": "svg/8305-I.svg"
                 }
               },
               "id": "8305",
-              "identical": true,
+              "identical": false,
               "label": {
                 "de": "Demo-gewaltlos",
                 "fr": "Manifestation",
@@ -5509,19 +5584,19 @@
               "files": {
                 "de": {
                   "lang": "de/8306.svg",
-                  "svg": "svg/8306.svg"
+                  "svg": "svg/8306-D.svg"
                 },
                 "fr": {
                   "lang": "fr/8306.svg",
-                  "svg": "svg/8306.svg"
+                  "svg": "svg/8306-F.svg"
                 },
                 "it": {
                   "lang": "it/8306.svg",
-                  "svg": "svg/8306.svg"
+                  "svg": "svg/8306-I.svg"
                 }
               },
               "id": "8306",
-              "identical": true,
+              "identical": false,
               "label": {
                 "de": "Demo-gewaltsam",
                 "fr": "Manifestation-avec-exactions",
@@ -5532,19 +5607,19 @@
               "files": {
                 "de": {
                   "lang": "de/8307.svg",
-                  "svg": "svg/8307.svg"
+                  "svg": "svg/8307-D.svg"
                 },
                 "fr": {
                   "lang": "fr/8307.svg",
-                  "svg": "svg/8307.svg"
+                  "svg": "svg/8307-F.svg"
                 },
                 "it": {
                   "lang": "it/8307.svg",
-                  "svg": "svg/8307.svg"
+                  "svg": "svg/8307-I.svg"
                 }
               },
               "id": "8307",
-              "identical": true,
+              "identical": false,
               "label": {
                 "de": "Hooligans",
                 "fr": "Hooligans",
@@ -5555,19 +5630,19 @@
               "files": {
                 "de": {
                   "lang": "de/8308.svg",
-                  "svg": "svg/8308.svg"
+                  "svg": "svg/8308-D.svg"
                 },
                 "fr": {
                   "lang": "fr/8308.svg",
-                  "svg": "svg/8308.svg"
+                  "svg": "svg/8308-F.svg"
                 },
                 "it": {
                   "lang": "it/8308.svg",
-                  "svg": "svg/8308.svg"
+                  "svg": "svg/8308-I.svg"
                 }
               },
               "id": "8308",
-              "identical": true,
+              "identical": false,
               "label": {
                 "de": "Schlägerei",
                 "fr": "Bagarre",
@@ -5578,19 +5653,19 @@
               "files": {
                 "de": {
                   "lang": "de/8309.svg",
-                  "svg": "svg/8309.svg"
+                  "svg": "svg/8309-D.svg"
                 },
                 "fr": {
                   "lang": "fr/8309.svg",
-                  "svg": "svg/8309.svg"
+                  "svg": "svg/8309-F.svg"
                 },
                 "it": {
                   "lang": "it/8309.svg",
-                  "svg": "svg/8309.svg"
+                  "svg": "svg/8309-I.svg"
                 }
               },
               "id": "8309",
-              "identical": true,
+              "identical": false,
               "label": {
                 "de": "Sachbeschädigung",
                 "fr": "Dégradation de biens",
@@ -5601,19 +5676,19 @@
               "files": {
                 "de": {
                   "lang": "de/8310.svg",
-                  "svg": "svg/8310.svg"
+                  "svg": "svg/8310-D.svg"
                 },
                 "fr": {
                   "lang": "fr/8310.svg",
-                  "svg": "svg/8310.svg"
+                  "svg": "svg/8310-F.svg"
                 },
                 "it": {
                   "lang": "it/8310.svg",
-                  "svg": "svg/8310.svg"
+                  "svg": "svg/8310-I.svg"
                 }
               },
               "id": "8310",
-              "identical": true,
+              "identical": false,
               "label": {
                 "de": "Sprayerei Farbanschlag",
                 "fr": "Graffiti",
@@ -5624,19 +5699,19 @@
               "files": {
                 "de": {
                   "lang": "de/8311.svg",
-                  "svg": "svg/8311.svg"
+                  "svg": "svg/8311-D.svg"
                 },
                 "fr": {
                   "lang": "fr/8311.svg",
-                  "svg": "svg/8311.svg"
+                  "svg": "svg/8311-F.svg"
                 },
                 "it": {
                   "lang": "it/8311.svg",
-                  "svg": "svg/8311.svg"
+                  "svg": "svg/8311-I.svg"
                 }
               },
               "id": "8311",
-              "identical": true,
+              "identical": false,
               "label": {
                 "de": "Trunkenheit",
                 "fr": "Ivresse",
@@ -5647,19 +5722,19 @@
               "files": {
                 "de": {
                   "lang": "de/8312.svg",
-                  "svg": "svg/8312.svg"
+                  "svg": "svg/8312-D.svg"
                 },
                 "fr": {
                   "lang": "fr/8312.svg",
-                  "svg": "svg/8312.svg"
+                  "svg": "svg/8312-F.svg"
                 },
                 "it": {
                   "lang": "it/8312.svg",
-                  "svg": "svg/8312.svg"
+                  "svg": "svg/8312-I.svg"
                 }
               },
               "id": "8312",
-              "identical": true,
+              "identical": false,
               "label": {
                 "de": "Fahrende",
                 "fr": "Gens du voyage",
@@ -5670,19 +5745,19 @@
               "files": {
                 "de": {
                   "lang": "de/8313.svg",
-                  "svg": "svg/8313.svg"
+                  "svg": "svg/8313-D.svg"
                 },
                 "fr": {
                   "lang": "fr/8313.svg",
-                  "svg": "svg/8313.svg"
+                  "svg": "svg/8313-F.svg"
                 },
                 "it": {
                   "lang": "it/8313.svg",
-                  "svg": "svg/8313.svg"
+                  "svg": "svg/8313-I.svg"
                 }
               },
               "id": "8313",
-              "identical": true,
+              "identical": false,
               "label": {
                 "de": "Hausbesetzung",
                 "fr": "Occupation illégale",
@@ -5693,19 +5768,19 @@
               "files": {
                 "de": {
                   "lang": "de/8314.svg",
-                  "svg": "svg/8314.svg"
+                  "svg": "svg/8314-D.svg"
                 },
                 "fr": {
                   "lang": "fr/8314.svg",
-                  "svg": "svg/8314.svg"
+                  "svg": "svg/8314-F.svg"
                 },
                 "it": {
                   "lang": "it/8314.svg",
-                  "svg": "svg/8314.svg"
+                  "svg": "svg/8314-I.svg"
                 }
               },
               "id": "8314",
-              "identical": true,
+              "identical": false,
               "label": {
                 "de": "Public Viewing",
                 "fr": "Visionnage public",
@@ -5716,19 +5791,19 @@
               "files": {
                 "de": {
                   "lang": "de/8315.svg",
-                  "svg": "svg/8315.svg"
+                  "svg": "svg/8315-D.svg"
                 },
                 "fr": {
                   "lang": "fr/8315.svg",
-                  "svg": "svg/8315.svg"
+                  "svg": "svg/8315-F.svg"
                 },
                 "it": {
                   "lang": "it/8315.svg",
-                  "svg": "svg/8315.svg"
+                  "svg": "svg/8315-I.svg"
                 }
               },
               "id": "8315",
-              "identical": true,
+              "identical": false,
               "label": {
                 "de": "Sportveranstaltung",
                 "fr": "Evénement sportif",
@@ -5739,19 +5814,19 @@
               "files": {
                 "de": {
                   "lang": "de/8316.svg",
-                  "svg": "svg/8316.svg"
+                  "svg": "svg/8316-D.svg"
                 },
                 "fr": {
                   "lang": "fr/8316.svg",
-                  "svg": "svg/8316.svg"
+                  "svg": "svg/8316-F.svg"
                 },
                 "it": {
                   "lang": "it/8316.svg",
-                  "svg": "svg/8316.svg"
+                  "svg": "svg/8316-I.svg"
                 }
               },
               "id": "8316",
-              "identical": true,
+              "identical": false,
               "label": {
                 "de": "Barrikaden",
                 "fr": "Barricades",
@@ -5762,19 +5837,19 @@
               "files": {
                 "de": {
                   "lang": "de/8317.svg",
-                  "svg": "svg/8317.svg"
+                  "svg": "svg/8317-D.svg"
                 },
                 "fr": {
                   "lang": "fr/8317.svg",
-                  "svg": "svg/8317.svg"
+                  "svg": "svg/8317-F.svg"
                 },
                 "it": {
                   "lang": "it/8317.svg",
-                  "svg": "svg/8317.svg"
+                  "svg": "svg/8317-I.svg"
                 }
               },
               "id": "8317",
-              "identical": true,
+              "identical": false,
               "label": {
                 "de": "Geiselnahme",
                 "fr": "Prise d'otages",
@@ -5785,19 +5860,19 @@
               "files": {
                 "de": {
                   "lang": "de/8318.svg",
-                  "svg": "svg/8318.svg"
+                  "svg": "svg/8318-D.svg"
                 },
                 "fr": {
                   "lang": "fr/8318.svg",
-                  "svg": "svg/8318.svg"
+                  "svg": "svg/8318-F.svg"
                 },
                 "it": {
                   "lang": "it/8318.svg",
-                  "svg": "svg/8318.svg"
+                  "svg": "svg/8318-I.svg"
                 }
               },
               "id": "8318",
-              "identical": true,
+              "identical": false,
               "label": {
                 "de": "Erpressung",
                 "fr": "Chantage",
@@ -5808,19 +5883,19 @@
               "files": {
                 "de": {
                   "lang": "de/8319.svg",
-                  "svg": "svg/8319.svg"
+                  "svg": "svg/8319-D.svg"
                 },
                 "fr": {
                   "lang": "fr/8319.svg",
-                  "svg": "svg/8319.svg"
+                  "svg": "svg/8319-F.svg"
                 },
                 "it": {
                   "lang": "it/8319.svg",
-                  "svg": "svg/8319.svg"
+                  "svg": "svg/8319-I.svg"
                 }
               },
               "id": "8319",
-              "identical": true,
+              "identical": false,
               "label": {
                 "de": "Flugzeugentführung",
                 "fr": "Détournement d'avion",
@@ -5831,19 +5906,19 @@
               "files": {
                 "de": {
                   "lang": "de/8320.svg",
-                  "svg": "svg/8320.svg"
+                  "svg": "svg/8320-D.svg"
                 },
                 "fr": {
                   "lang": "fr/8320.svg",
-                  "svg": "svg/8320.svg"
+                  "svg": "svg/8320-F.svg"
                 },
                 "it": {
                   "lang": "it/8320.svg",
-                  "svg": "svg/8320.svg"
+                  "svg": "svg/8320-I.svg"
                 }
               },
               "id": "8320",
-              "identical": true,
+              "identical": false,
               "label": {
                 "de": "Entfürung",
                 "fr": "Enlèvement",
@@ -5854,19 +5929,19 @@
               "files": {
                 "de": {
                   "lang": "de/8321.svg",
-                  "svg": "svg/8321.svg"
+                  "svg": "svg/8321-D.svg"
                 },
                 "fr": {
                   "lang": "fr/8321.svg",
-                  "svg": "svg/8321.svg"
+                  "svg": "svg/8321-F.svg"
                 },
                 "it": {
                   "lang": "it/8321.svg",
-                  "svg": "svg/8321.svg"
+                  "svg": "svg/8321-I.svg"
                 }
               },
               "id": "8321",
-              "identical": true,
+              "identical": false,
               "label": {
                 "de": "Schiesserei",
                 "fr": "Fusillade",
@@ -5877,19 +5952,19 @@
               "files": {
                 "de": {
                   "lang": "de/8322.svg",
-                  "svg": "svg/8322.svg"
+                  "svg": "svg/8322-D.svg"
                 },
                 "fr": {
                   "lang": "fr/8322.svg",
-                  "svg": "svg/8322.svg"
+                  "svg": "svg/8322-F.svg"
                 },
                 "it": {
                   "lang": "it/8322.svg",
-                  "svg": "svg/8322.svg"
+                  "svg": "svg/8322-I.svg"
                 }
               },
               "id": "8322",
-              "identical": true,
+              "identical": false,
               "label": {
                 "de": "AMOK",
                 "fr": "AMOK",
@@ -5900,19 +5975,19 @@
               "files": {
                 "de": {
                   "lang": "de/8323.svg",
-                  "svg": "svg/8323.svg"
+                  "svg": "svg/8323-D.svg"
                 },
                 "fr": {
                   "lang": "fr/8323.svg",
-                  "svg": "svg/8323.svg"
+                  "svg": "svg/8323-F.svg"
                 },
                 "it": {
                   "lang": "it/8323.svg",
-                  "svg": "svg/8323.svg"
+                  "svg": "svg/8323-I.svg"
                 }
               },
               "id": "8323",
-              "identical": true,
+              "identical": false,
               "label": {
                 "de": "Terroranschlag",
                 "fr": "Attentat terroriste",
@@ -5923,19 +5998,19 @@
               "files": {
                 "de": {
                   "lang": "de/8324.svg",
-                  "svg": "svg/8324.svg"
+                  "svg": "svg/8324-D.svg"
                 },
                 "fr": {
                   "lang": "fr/8324.svg",
-                  "svg": "svg/8324.svg"
+                  "svg": "svg/8324-F.svg"
                 },
                 "it": {
                   "lang": "it/8324.svg",
-                  "svg": "svg/8324.svg"
+                  "svg": "svg/8324-I.svg"
                 }
               },
               "id": "8324",
-              "identical": true,
+              "identical": false,
               "label": {
                 "de": "Bombendrohung",
                 "fr": "Menace d'attentat à la bombe",
@@ -5946,19 +6021,19 @@
               "files": {
                 "de": {
                   "lang": "de/8325.svg",
-                  "svg": "svg/8325.svg"
+                  "svg": "svg/8325-D.svg"
                 },
                 "fr": {
                   "lang": "fr/8325.svg",
-                  "svg": "svg/8325.svg"
+                  "svg": "svg/8325-F.svg"
                 },
                 "it": {
                   "lang": "it/8325.svg",
-                  "svg": "svg/8325.svg"
+                  "svg": "svg/8325-I.svg"
                 }
               },
               "id": "8325",
-              "identical": true,
+              "identical": false,
               "label": {
                 "de": "Bombenanschlag--",
                 "fr": "Attentat-a-la-bombe",
@@ -5969,19 +6044,19 @@
               "files": {
                 "de": {
                   "lang": "de/8326.svg",
-                  "svg": "svg/8326.svg"
+                  "svg": "svg/8326-D.svg"
                 },
                 "fr": {
                   "lang": "fr/8326.svg",
-                  "svg": "svg/8326.svg"
+                  "svg": "svg/8326-F.svg"
                 },
                 "it": {
                   "lang": "it/8326.svg",
-                  "svg": "svg/8326.svg"
+                  "svg": "svg/8326-I.svg"
                 }
               },
               "id": "8326",
-              "identical": true,
+              "identical": false,
               "label": {
                 "de": "Massenpanik",
                 "fr": "Effet-de-panique",
@@ -5992,19 +6067,19 @@
               "files": {
                 "de": {
                   "lang": "de/8327.svg",
-                  "svg": "svg/8327.svg"
+                  "svg": "svg/8327-D.svg"
                 },
                 "fr": {
                   "lang": "fr/8327.svg",
-                  "svg": "svg/8327.svg"
+                  "svg": "svg/8327-F.svg"
                 },
                 "it": {
                   "lang": "it/8327.svg",
-                  "svg": "svg/8327.svg"
+                  "svg": "svg/8327-I.svg"
                 }
               },
               "id": "8327",
-              "identical": true,
+              "identical": false,
               "label": {
                 "de": "Brandanschlag",
                 "fr": "Incendie-criminel",
@@ -6015,19 +6090,19 @@
               "files": {
                 "de": {
                   "lang": "de/8328.svg",
-                  "svg": "svg/8328.svg"
+                  "svg": "svg/8328-D.svg"
                 },
                 "fr": {
                   "lang": "fr/8328.svg",
-                  "svg": "svg/8328.svg"
+                  "svg": "svg/8328-F.svg"
                 },
                 "it": {
                   "lang": "it/8328.svg",
-                  "svg": "svg/8328.svg"
+                  "svg": "svg/8328-I.svg"
                 }
               },
               "id": "8328",
-              "identical": true,
+              "identical": false,
               "label": {
                 "de": "Sabotage",
                 "fr": "Sabotage",
@@ -6038,19 +6113,19 @@
               "files": {
                 "de": {
                   "lang": "de/8329.svg",
-                  "svg": "svg/8329.svg"
+                  "svg": "svg/8329-D.svg"
                 },
                 "fr": {
                   "lang": "fr/8329.svg",
-                  "svg": "svg/8329.svg"
+                  "svg": "svg/8329-F.svg"
                 },
                 "it": {
                   "lang": "it/8329.svg",
-                  "svg": "svg/8329.svg"
+                  "svg": "svg/8329-I.svg"
                 }
               },
               "id": "8329",
-              "identical": true,
+              "identical": false,
               "label": {
                 "de": "Bomben",
                 "fr": "Bombes",
@@ -6061,19 +6136,19 @@
               "files": {
                 "de": {
                   "lang": "de/8330.svg",
-                  "svg": "svg/8330.svg"
+                  "svg": "svg/8330-D.svg"
                 },
                 "fr": {
                   "lang": "fr/8330.svg",
-                  "svg": "svg/8330.svg"
+                  "svg": "svg/8330-F.svg"
                 },
                 "it": {
                   "lang": "it/8330.svg",
-                  "svg": "svg/8330.svg"
+                  "svg": "svg/8330-I.svg"
                 }
               },
               "id": "8330",
-              "identical": true,
+              "identical": false,
               "label": {
                 "de": "Bedrohung durch Minen",
                 "fr": "Menace de mines",
@@ -6084,19 +6159,19 @@
               "files": {
                 "de": {
                   "lang": "de/8331.svg",
-                  "svg": "svg/8331.svg"
+                  "svg": "svg/8331-D.svg"
                 },
                 "fr": {
                   "lang": "fr/8331.svg",
-                  "svg": "svg/8331.svg"
+                  "svg": "svg/8331-F.svg"
                 },
                 "it": {
                   "lang": "it/8331.svg",
-                  "svg": "svg/8331.svg"
+                  "svg": "svg/8331-I.svg"
                 }
               },
               "id": "8331",
-              "identical": true,
+              "identical": false,
               "label": {
                 "de": "Drohung",
                 "fr": "Menaces",
@@ -6107,23 +6182,46 @@
               "files": {
                 "de": {
                   "lang": "de/8332.svg",
-                  "svg": "svg/8332.svg"
+                  "svg": "svg/8332-D.svg"
                 },
                 "fr": {
                   "lang": "fr/8332.svg",
-                  "svg": "svg/8332.svg"
+                  "svg": "svg/8332-F.svg"
                 },
                 "it": {
                   "lang": "it/8332.svg",
-                  "svg": "svg/8332.svg"
+                  "svg": "svg/8332-I.svg"
                 }
               },
               "id": "8332",
-              "identical": true,
+              "identical": false,
               "label": {
                 "de": "Flüchtlinge",
                 "fr": "Réfugiés",
                 "it": "Rifugiati"
+              }
+            },
+            {
+              "files": {
+                "de": {
+                  "lang": "de/8333.svg",
+                  "svg": "svg/8333.svg"
+                },
+                "fr": {
+                  "lang": "fr/8333.svg",
+                  "svg": "svg/8333.svg"
+                },
+                "it": {
+                  "lang": "it/8333.svg",
+                  "svg": "svg/8333.svg"
+                }
+              },
+              "id": "8333",
+              "identical": true,
+              "label": {
+                "de": "Flugzeugabsturz",
+                "fr": "accident d'avion",
+                "it": "Incidente aereo"
               }
             }
           ]

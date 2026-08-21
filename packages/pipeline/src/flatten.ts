@@ -52,7 +52,7 @@ import {
   type PatternVariant,
 } from "./source-index.ts";
 
-const PATTERN_VARIANTS = ["a", "b"] as const;
+const PATTERN_VARIANTS = ["a"] as const;
 
 // ── CLI ───────────────────────────────────────────────────────────────────────
 
@@ -173,7 +173,7 @@ function buildWriteEntries(): WriteEntry[] {
 
     // Collect pattern variants (if any) for this symbol ID.
     for (const variant of PATTERN_VARIANTS) {
-      const varSuffix = variant === "b" ? "-pattern-b" : "-pattern";
+      const varSuffix = "-pattern";
       const psrc: Partial<Record<Lang, SourceEntry>> = {};
       const phsh: Partial<Record<Lang, string>> = {};
 

@@ -46,7 +46,7 @@ interface Symbol {
   identical: boolean;
   label: LangMap;
   files: { de?: FileRef; fr?: FileRef; it?: FileRef };
-  patterns?: { a?: PatternVariant; b?: PatternVariant };
+  patterns?: { a?: PatternVariant };
 }
 interface Subcategory {
   number: string;
@@ -118,11 +118,6 @@ function symbolRow(sym: Symbol): string {
     const pv = sym.patterns.a;
     const pFile = pv.files.de ?? pv.files.fr ?? pv.files.it;
     if (pFile) patternCell = img(imgSrc(pFile.svg), `${de} pattern`, 36);
-    if (sym.patterns.b) {
-      const pvb = sym.patterns.b;
-      const pbFile = pvb.files.de ?? pvb.files.fr ?? pvb.files.it;
-      if (pbFile) patternCell += "&nbsp;" + img(imgSrc(pbFile.svg), `${de} pattern-b`, 36);
-    }
   }
 
   const alias = aliasLock.aliases?.[sym.id];
