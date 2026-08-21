@@ -289,8 +289,14 @@ function processVectorSvg(
 
 // For raster SVGs: minimal processing, extract <image> content
 function processRasterSvg(svgContent: string): { jsx: string; usesNs: boolean } {
+  // Strip Inkscape/sodipodi editor metadata (sodipodi:namedview, inkscape:* attrs, etc.)
+  // before any string-based processing so they never reach JSX.
+  const cleaned = optimize(svgContent, {
+    plugins: ["removeEditorsNSData", "removeComments", "removeMetadata"],
+  });
+
   // Fix MIME type and xlink:href
-  let body = svgContent
+  let body = cleaned.data
     .replace(/data:img\/png;/g, "data:image/png;")
     .replace(/xlink:href=/g, "href=");
 
@@ -322,12 +328,21 @@ function processRasterSvg(svgContent: string): { jsx: string; usesNs: boolean } 
     const obj = styleStr
       .split(";")
       .filter(Boolean)
+      .filter((decl: string) => {
+        const prop = (decl.split(":")[0] ?? "").trim();
+        // Drop Inkscape-proprietary CSS properties (e.g. -inkscape-font-specification).
+        return !prop.startsWith("-inkscape-");
+      })
       .map((decl: string) => {
         const [prop, ...vals] = decl.split(":");
         const key = (prop ?? "")
           .trim()
           .replace(/-([a-z])/g, (_: string, c: string) => c.toUpperCase());
-        const val = vals.join(":").trim();
+        let val = vals.join(":").trim();
+        // Normalize deprecated SVG 1.1 writing-mode values to CSS Writing Modes Level 3.
+        if (key === "writingMode" && val === "lr-tb") val = "horizontal-tb";
+        else if (key === "writingMode" && val === "tb-rl") val = "vertical-rl";
+        else if (key === "writingMode" && val === "tb") val = "vertical-rl";
         return `${key}: ${JSON.stringify(val)}`;
       })
       .join(", ");

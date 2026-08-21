@@ -206,7 +206,7 @@ const icons: IconData[] = richSymbols.map((sym) => {
     raster,
     correctedLabels,
     hasPattern: !!sym.patterns?.a,
-    hasPatternB: !!sym.patterns?.b,
+    hasPatternB: false,
   };
 });
 
