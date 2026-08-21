@@ -4874,19 +4874,19 @@
               "files": {
                 "de": {
                   "lang": "de/8111.svg",
-                  "svg": "svg/8111-D.svg"
+                  "svg": "svg/8111.svg"
                 },
                 "fr": {
                   "lang": "fr/8111.svg",
-                  "svg": "svg/8111-F.svg"
+                  "svg": "svg/8111.svg"
                 },
                 "it": {
                   "lang": "it/8111.svg",
-                  "svg": "svg/8111-I.svg"
+                  "svg": "svg/8111.svg"
                 }
               },
               "id": "8111",
-              "identical": false,
+              "identical": true,
               "label": {
                 "de": "Wasserstand gesunken",
                 "fr": "Niveau d'eau descent",
