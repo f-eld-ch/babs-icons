@@ -30,12 +30,13 @@ import { babs1303 } from "./icons/1303.js";
 import { babs1304 } from "./icons/1304.js";
 import { babs1305 } from "./icons/1305.js";
 import { babs1401 } from "./icons/1401.js";
-import { babs1401a } from "./icons/1401a.js";
 import { babs1401b } from "./icons/1401b.js";
 import { babs1402 } from "./icons/1402.js";
+import { babs1402b } from "./icons/1402b.js";
 import { babs1403 } from "./icons/1403.js";
 import { babs1403b } from "./icons/1403b.js";
 import { babs1404 } from "./icons/1404.js";
+import { babs1404b } from "./icons/1404b.js";
 import { babs2101 } from "./icons/2101.js";
 import { babs2102 } from "./icons/2102.js";
 import { babs2103 } from "./icons/2103.js";
@@ -293,12 +294,13 @@ const all: readonly BabsIconDefinition[] = [
   babs1304,
   babs1305,
   babs1401,
-  babs1401a,
   babs1401b,
   babs1402,
+  babs1402b,
   babs1403,
   babs1403b,
   babs1404,
+  babs1404b,
   babs2101,
   babs2102,
   babs2103,

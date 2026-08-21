@@ -5,7 +5,7 @@ export const babs1403b: BabsIconDefinition = {
   id: "1403b",
   viewBox: "0 0 100 100",
   canonicalLang: "de",
-  labels: { de: "Chemievergiftetes Gebiet gasförmig - flüchtig - Beispiel", fr: "", it: "" },
+  labels: { de: "Chemievergiftetes Gebiet gasförmig - flüchtig - Beispiel", fr: "Zone chimiquement contaminée sous forme gazeuse - example", it: "Zona intossicata gas-volatile - Esempio" },
   recolorable: false,
   displaySize: 32,
   graphics: {

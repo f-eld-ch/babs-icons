@@ -792,19 +792,19 @@
             {
               "files": {
                 "de": {
-                  "lang": "de/1401a.svg",
-                  "svg": "svg/1401a.svg"
+                  "lang": "de/1401.svg",
+                  "svg": "svg/1401.svg"
                 },
                 "fr": {
-                  "lang": "fr/1401a.svg",
-                  "svg": "svg/1401a.svg"
+                  "lang": "fr/1401.svg",
+                  "svg": "svg/1401.svg"
                 },
                 "it": {
-                  "lang": "it/1401a.svg",
-                  "svg": "svg/1401a.svg"
+                  "lang": "it/1401.svg",
+                  "svg": "svg/1401.svg"
                 }
               },
-              "id": "1401a",
+              "id": "1401",
               "identical": true,
               "label": {
                 "de": "Biologisch verseuchtes Gebiet",
@@ -838,19 +838,19 @@
             {
               "files": {
                 "de": {
-                  "lang": "de/1402a.svg",
-                  "svg": "svg/1402a.svg"
+                  "lang": "de/1402.svg",
+                  "svg": "svg/1402.svg"
                 },
                 "fr": {
-                  "lang": "fr/1402a.svg",
-                  "svg": "svg/1402a.svg"
+                  "lang": "fr/1402.svg",
+                  "svg": "svg/1402.svg"
                 },
                 "it": {
-                  "lang": "it/1402a.svg",
-                  "svg": "svg/1402a.svg"
+                  "lang": "it/1402.svg",
+                  "svg": "svg/1402.svg"
                 }
               },
-              "id": "1402a",
+              "id": "1402",
               "identical": true,
               "label": {
                 "de": "Chemievergiftete Zone flüssig - sesshaft",
@@ -884,19 +884,19 @@
             {
               "files": {
                 "de": {
-                  "lang": "de/1403a.svg",
-                  "svg": "svg/1403a.svg"
+                  "lang": "de/1403.svg",
+                  "svg": "svg/1403.svg"
                 },
                 "fr": {
-                  "lang": "fr/1403a.svg",
-                  "svg": "svg/1403a.svg"
+                  "lang": "fr/1403.svg",
+                  "svg": "svg/1403.svg"
                 },
                 "it": {
-                  "lang": "it/1403a.svg",
-                  "svg": "svg/1403a.svg"
+                  "lang": "it/1403.svg",
+                  "svg": "svg/1403.svg"
                 }
               },
-              "id": "1403a",
+              "id": "1403",
               "identical": true,
               "label": {
                 "de": "Chemievergiftetes Gebiet gasförmig - flüchtig",
@@ -930,19 +930,19 @@
             {
               "files": {
                 "de": {
-                  "lang": "de/1404a.svg",
-                  "svg": "svg/1404a.svg"
+                  "lang": "de/1404.svg",
+                  "svg": "svg/1404.svg"
                 },
                 "fr": {
-                  "lang": "fr/1404a.svg",
-                  "svg": "svg/1404a.svg"
+                  "lang": "fr/1404.svg",
+                  "svg": "svg/1404.svg"
                 },
                 "it": {
-                  "lang": "it/1404a.svg",
-                  "svg": "svg/1404a.svg"
+                  "lang": "it/1404.svg",
+                  "svg": "svg/1404.svg"
                 }
               },
-              "id": "1404a",
+              "id": "1404",
               "identical": true,
               "label": {
                 "de": "Radioaktives Gebiet",

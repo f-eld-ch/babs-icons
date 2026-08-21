@@ -5,7 +5,7 @@ export const babs1401b: BabsIconDefinition = {
   id: "1401b",
   viewBox: "0 0 100 100",
   canonicalLang: "de",
-  labels: { de: "Biologisch verseuchtes Gebiet - Beispiel", fr: "", it: "" },
+  labels: { de: "Biologisch verseuchtes Gebiet - Beispiel", fr: "Zone biologiquement contaminée - example", it: "Zona infettata - Esempio" },
   recolorable: false,
   displaySize: 32,
   graphics: {

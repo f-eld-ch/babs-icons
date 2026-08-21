@@ -1735,13 +1735,6 @@
     "y": 540,
     "pixelRatio": 1
   },
-  "1401a": {
-    "width": 32,
-    "height": 32,
-    "x": 506,
-    "y": 542,
-    "pixelRatio": 1
-  },
   "1401b": {
     "width": 32,
     "height": 32,
@@ -1749,11 +1742,25 @@
     "y": 542,
     "pixelRatio": 1
   },
+  "1402b": {
+    "width": 32,
+    "height": 32,
+    "x": 38,
+    "y": 578,
+    "pixelRatio": 1
+  },
   "1403b": {
     "width": 32,
     "height": 32,
     "x": 578,
     "y": 542,
+    "pixelRatio": 1
+  },
+  "1404b": {
+    "width": 32,
+    "height": 32,
+    "x": 146,
+    "y": 578,
     "pixelRatio": 1
   },
   "2109a": {
