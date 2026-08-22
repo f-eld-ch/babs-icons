@@ -17,6 +17,7 @@ const SVG_DIR = join(ROOT, "packages/svg/svg");
 const SPRITES_DIST = join(ROOT, "packages/sprites/dist");
 const LAYOUT_LOCK = join(ROOT, "packages/sprites/layout.lock.json");
 const PIXEL_HASH = join(ROOT, "packages/sprites/pixels.sha256.json");
+const TEXT_FIT_PATH = join(ROOT, "corrections/text-fit.json");
 
 const CELL_1X = 48;
 const PAD_1X = 3;
@@ -30,6 +31,42 @@ const GRID_3X = CELL_3X + PAD_3X * 2; // 162
 
 const LANGS = ["de", "fr", "it"] as const;
 type Lang = (typeof LANGS)[number];
+
+// ── Text-fit definitions (SVG viewBox %, 0-100) ──────────────────────────────
+interface TextFitDef {
+  content: [number, number, number, number];
+  stretchX: [number, number][];
+  stretchY: [number, number][];
+}
+
+interface SpriteEntry {
+  width: number;
+  height: number;
+  x: number;
+  y: number;
+  pixelRatio: number;
+  content?: [number, number, number, number];
+  stretchX?: [number, number][];
+  stretchY?: [number, number][];
+}
+
+const textFitDefs: Record<string, TextFitDef> = existsSync(TEXT_FIT_PATH)
+  ? (JSON.parse(readFileSync(TEXT_FIT_PATH, "utf8")) as Record<string, TextFitDef>)
+  : {};
+
+function scaleSpriteEntry(e: SpriteEntry, f: number): SpriteEntry {
+  const out: SpriteEntry = {
+    width: e.width * f,
+    height: e.height * f,
+    x: e.x * f,
+    y: e.y * f,
+    pixelRatio: f,
+  };
+  if (e.content) out.content = e.content.map((n) => n * f) as [number, number, number, number];
+  if (e.stretchX) out.stretchX = e.stretchX.map(([a, b]) => [a * f, b * f]);
+  if (e.stretchY) out.stretchY = e.stretchY.map(([a, b]) => [a * f, b * f]);
+  return out;
+}
 
 // ── Parse arguments ──────────────────────────────────────────────────────────
 const CHECK = process.argv.includes("--check");
@@ -245,13 +282,23 @@ async function genSheet(lang: Lang): Promise<{
     const hash = createHash("sha256").update(buf1X).digest("hex");
     pixelHashes[key] = hash;
 
-    spriteJson[key] = {
-      width: cellW1,
-      height: cellW1,
-      x: col * GRID_1X + pad1,
-      y: row * GRID_1X + pad1,
-      pixelRatio: 1,
-    };
+    const spX = col * GRID_1X + pad1;
+    const spY = row * GRID_1X + pad1;
+    const entry: SpriteEntry = { width: cellW1, height: cellW1, x: spX, y: spY, pixelRatio: 1 };
+    const fitDef = textFitDefs[key];
+    if (fitDef) {
+      const sx = (v: number) => Math.round(spX + (v / 100) * cellW1);
+      const sy = (v: number) => Math.round(spY + (v / 100) * cellW1);
+      entry.content = [
+        sx(fitDef.content[0]),
+        sy(fitDef.content[1]),
+        sx(fitDef.content[2]),
+        sy(fitDef.content[3]),
+      ];
+      entry.stretchX = fitDef.stretchX.map(([a, b]) => [sx(a), sx(b)]);
+      entry.stretchY = fitDef.stretchY.map(([a, b]) => [sy(a), sy(b)]);
+    }
+    spriteJson[key] = entry;
   }
 
   // Encode PNGs
@@ -270,24 +317,12 @@ async function genSheet(lang: Lang): Promise<{
   const name = `babs-${lang}`;
   // @1x JSON: keys already populated above
   const json1X = JSON.stringify(sortKeys(spriteJson), null, 2) + "\n";
-  // @2x JSON: same keys, doubled dimensions (derived from 1x to handle per-entry sizes)
+  // @2x / @3x JSON: same keys, scaled dimensions + text-fit coords
   const json2X =
     JSON.stringify(
       sortKeys(
         Object.fromEntries(
-          Object.entries(spriteJson).map(([k, v]) => {
-            const v1 = v as { width: number; height: number; x: number; y: number };
-            return [
-              k,
-              {
-                width: v1.width * 2,
-                height: v1.height * 2,
-                x: v1.x * 2,
-                y: v1.y * 2,
-                pixelRatio: 2,
-              },
-            ];
-          }),
+          Object.entries(spriteJson).map(([k, v]) => [k, scaleSpriteEntry(v as SpriteEntry, 2)]),
         ),
       ),
       null,
@@ -297,19 +332,7 @@ async function genSheet(lang: Lang): Promise<{
     JSON.stringify(
       sortKeys(
         Object.fromEntries(
-          Object.entries(spriteJson).map(([k, v]) => {
-            const v1 = v as { width: number; height: number; x: number; y: number };
-            return [
-              k,
-              {
-                width: v1.width * 3,
-                height: v1.height * 3,
-                x: v1.x * 3,
-                y: v1.y * 3,
-                pixelRatio: 3,
-              },
-            ];
-          }),
+          Object.entries(spriteJson).map(([k, v]) => [k, scaleSpriteEntry(v as SpriteEntry, 3)]),
         ),
       ),
       null,

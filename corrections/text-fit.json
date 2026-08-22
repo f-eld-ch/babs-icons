@@ -1,0 +1,32 @@
+{
+  "1301": {
+    "content": [5, 26, 95, 74],
+    "stretchX": [[38, 62]],
+    "stretchY": [[26, 74]],
+    "note": "red 'Pat' text — stretchX zone between glyphs, verify visually"
+  },
+  "1303": {
+    "content": [14, 5, 86, 86],
+    "stretchX": [[14, 86]],
+    "stretchY": [[5, 86]],
+    "note": "U-frame open at top; content = interior of the U"
+  },
+  "1304": {
+    "content": [13, 13, 87, 87],
+    "stretchX": [[13, 87]],
+    "stretchY": [[13, 87]],
+    "note": "square border frame; content = interior"
+  },
+  "2109a": {
+    "content": [8, 52, 92, 76],
+    "stretchX": [[8, 92]],
+    "stretchY": [[52, 76]],
+    "note": "lower box (UN number field); no-number variant"
+  },
+  "2109b": {
+    "content": [8, 52, 92, 76],
+    "stretchX": [[8, 92]],
+    "stretchY": [[52, 76]],
+    "note": "lower box (UN number field); with-number variant"
+  }
+}
