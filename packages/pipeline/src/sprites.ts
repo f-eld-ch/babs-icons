@@ -18,12 +18,15 @@ const SPRITES_DIST = join(ROOT, "packages/sprites/dist");
 const LAYOUT_LOCK = join(ROOT, "packages/sprites/layout.lock.json");
 const PIXEL_HASH = join(ROOT, "packages/sprites/pixels.sha256.json");
 
-const CELL_1X = 32;
-const PAD_1X = 2;
-const GRID_1X = CELL_1X + PAD_1X * 2; // 36
-const CELL_2X = 64;
-const PAD_2X = 4;
-const GRID_2X = CELL_2X + PAD_2X * 2; // 72
+const CELL_1X = 48;
+const PAD_1X = 3;
+const GRID_1X = CELL_1X + PAD_1X * 2; // 54
+const CELL_2X = CELL_1X * 2; // 96
+const PAD_2X = PAD_1X * 2; // 6
+const GRID_2X = CELL_2X + PAD_2X * 2; // 108
+const CELL_3X = CELL_1X * 3; // 144
+const PAD_3X = PAD_1X * 3; // 9
+const GRID_3X = CELL_3X + PAD_3X * 2; // 162
 
 const LANGS = ["de", "fr", "it"] as const;
 type Lang = (typeof LANGS)[number];
@@ -105,6 +108,8 @@ const sheetW1X = cols * GRID_1X;
 const sheetH1X = rows * GRID_1X;
 const sheetW2X = cols * GRID_2X;
 const sheetH2X = rows * GRID_2X;
+const sheetW3X = cols * GRID_3X;
+const sheetH3X = rows * GRID_3X;
 
 // ── Rasterize one SVG ─────────────────────────────────────────────────────────
 async function rasterize(svgContent: string, cell: number, _pad: number): Promise<Buffer> {
@@ -178,6 +183,7 @@ async function genSheet(lang: Lang): Promise<{
 }> {
   const sheet1X = Buffer.alloc(sheetW1X * sheetH1X * 4, 0);
   const sheet2X = Buffer.alloc(sheetW2X * sheetH2X * 4, 0);
+  const sheet3X = Buffer.alloc(sheetW3X * sheetH3X * 4, 0);
   const spriteJson: Record<string, unknown> = {};
   const pixelHashes: Record<string, string> = {};
 
@@ -220,17 +226,21 @@ async function genSheet(lang: Lang): Promise<{
     const pad1 = seamless ? 0 : PAD_1X;
     const cellW2 = seamless ? GRID_2X : CELL_2X;
     const pad2 = seamless ? 0 : PAD_2X;
+    const cellW3 = seamless ? GRID_3X : CELL_3X;
+    const pad3 = seamless ? 0 : PAD_3X;
 
     const col = idx % cols;
     const row = Math.floor(idx / cols);
 
-    const [buf1X, buf2X] = await Promise.all([
+    const [buf1X, buf2X, buf3X] = await Promise.all([
       rasterize(svgContent, cellW1, pad1),
       rasterize(svgContent, cellW2, pad2),
+      rasterize(svgContent, cellW3, pad3),
     ]);
 
     blit(sheet1X, buf1X, col, row, GRID_1X, cellW1, pad1, sheetW1X);
     blit(sheet2X, buf2X, col, row, GRID_2X, cellW2, pad2, sheetW2X);
+    blit(sheet3X, buf3X, col, row, GRID_3X, cellW3, pad3, sheetW3X);
 
     const hash = createHash("sha256").update(buf1X).digest("hex");
     pixelHashes[key] = hash;
@@ -245,11 +255,14 @@ async function genSheet(lang: Lang): Promise<{
   }
 
   // Encode PNGs
-  const [png1X, png2X] = await Promise.all([
+  const [png1X, png2X, png3X] = await Promise.all([
     sharp(sheet1X, { raw: { width: sheetW1X, height: sheetH1X, channels: 4 } })
       .png({ compressionLevel: 9, effort: 10 })
       .toBuffer(),
     sharp(sheet2X, { raw: { width: sheetW2X, height: sheetH2X, channels: 4 } })
+      .png({ compressionLevel: 9, effort: 10 })
+      .toBuffer(),
+    sharp(sheet3X, { raw: { width: sheetW3X, height: sheetH3X, channels: 4 } })
       .png({ compressionLevel: 9, effort: 10 })
       .toBuffer(),
   ]);
@@ -280,14 +293,38 @@ async function genSheet(lang: Lang): Promise<{
       null,
       2,
     ) + "\n";
+  const json3X =
+    JSON.stringify(
+      sortKeys(
+        Object.fromEntries(
+          Object.entries(spriteJson).map(([k, v]) => {
+            const v1 = v as { width: number; height: number; x: number; y: number };
+            return [
+              k,
+              {
+                width: v1.width * 3,
+                height: v1.height * 3,
+                x: v1.x * 3,
+                y: v1.y * 3,
+                pixelRatio: 3,
+              },
+            ];
+          }),
+        ),
+      ),
+      null,
+      2,
+    ) + "\n";
 
   if (CHECK) {
     let ok = true;
     for (const [fn, data] of [
       [`${name}.json`, json1X],
       [`${name}@2x.json`, json2X],
+      [`${name}@3x.json`, json3X],
       [`${name}.png`, png1X],
       [`${name}@2x.png`, png2X],
+      [`${name}@3x.png`, png3X],
     ] as Array<[string, string | Buffer]>) {
       const p = join(SPRITES_DIST, fn);
       if (!existsSync(p)) {
@@ -305,8 +342,10 @@ async function genSheet(lang: Lang): Promise<{
   } else {
     writeFileSync(join(SPRITES_DIST, `${name}.json`), json1X);
     writeFileSync(join(SPRITES_DIST, `${name}@2x.json`), json2X);
+    writeFileSync(join(SPRITES_DIST, `${name}@3x.json`), json3X);
     writeFileSync(join(SPRITES_DIST, `${name}.png`), png1X);
     writeFileSync(join(SPRITES_DIST, `${name}@2x.png`), png2X);
+    writeFileSync(join(SPRITES_DIST, `${name}@3x.png`), png3X);
     return { spriteJson, pixelHashes, ok: true };
   }
 }

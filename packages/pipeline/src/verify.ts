@@ -78,7 +78,7 @@ if (!existsSync(CORE_META)) {
 
 // ── Sprite sheets ─────────────────────────────────────────────────────────────
 const LANGS = ["de", "fr", "it"] as const;
-const SUFFIXES = ["", "@2x"] as const;
+const SUFFIXES = ["", "@2x", "@3x"] as const;
 const EXTS = ["json", "png"] as const;
 
 let spriteKeySets: Set<string>[] = [];
@@ -273,7 +273,7 @@ if (spriteKeySets.length === 3) {
       for (const m of markers) {
         const entry = deSprite[m.key];
         if (!entry) continue; // caught by check 3
-        const expectedW = m.mode === "pattern" ? 36 : 32;
+        const expectedW = m.mode === "pattern" ? 54 : 48;
         if (entry.width !== expectedW) {
           fail(
             `marker "${m.key}": mode="${m.mode}" expects width=${expectedW}, sprite has width=${entry.width}`,
