@@ -5,7 +5,7 @@ export const babs5126: BabsIconDefinition = {
   id: "5126",
   viewBox: "0 0 100 100",
   canonicalLang: "de",
-  labels: { de: "Absperrung Einsatzraum", fr: "Barrage du secteur d'engagement-exemple", it: "Sbarramento del settore d'intervento-esempio" },
+  labels: { de: "Einsatzraum", fr: "Secteur d'engagement", it: "Settore d'intervento" },
   recolorable: false,
   displaySize: 32,
   graphics: {

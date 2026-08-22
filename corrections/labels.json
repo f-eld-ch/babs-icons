@@ -24,6 +24,12 @@
     "de": "Explosionsherd-Beispiel",
     "note": "source typo: missing 's' in 'Explosionsherd'"
   },
+  "5126": {
+    "de": "Einsatzraum",
+    "fr": "Secteur d'engagement",
+    "it": "Settore d'intervento",
+    "note": "source labels had 'Absperrung/Barrage/Sbarramento' prefix and '-esempio' suffix; shortened to just the sector term"
+  },
   "9101a": {
     "de": "Autobahn offen",
     "fr": "Autoroute ouverte",
