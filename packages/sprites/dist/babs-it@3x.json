@@ -102,25 +102,7 @@
     "height": 144,
     "x": 1143,
     "y": 171,
-    "pixelRatio": 3,
-    "content": [
-      1149,
-      207,
-      1281,
-      279
-    ],
-    "stretchX": [
-      [
-        1197,
-        1233
-      ]
-    ],
-    "stretchY": [
-      [
-        207,
-        279
-      ]
-    ]
+    "pixelRatio": 3
   },
   "1302": {
     "width": 144,
@@ -136,21 +118,21 @@
     "y": 171,
     "pixelRatio": 3,
     "content": [
-      1488,
-      177,
-      1590,
-      294
+      21,
+      6,
+      123,
+      123
     ],
     "stretchX": [
       [
-        1488,
-        1590
+        21,
+        123
       ]
     ],
     "stretchY": [
       [
-        177,
-        294
+        6,
+        123
       ]
     ]
   },
@@ -161,21 +143,21 @@
     "y": 171,
     "pixelRatio": 3,
     "content": [
-      1647,
-      189,
-      1755,
-      297
+      18,
+      18,
+      126,
+      126
     ],
     "stretchX": [
       [
-        1647,
-        1755
+        18,
+        126
       ]
     ],
     "stretchY": [
       [
-        189,
-        297
+        18,
+        126
       ]
     ]
   },
@@ -1734,8 +1716,8 @@
     "pixelRatio": 3
   },
   "1110-pattern": {
-    "width": 162,
-    "height": 162,
+    "width": 72,
+    "height": 72,
     "x": 324,
     "y": 2430,
     "pixelRatio": 3
@@ -1755,15 +1737,15 @@
     "pixelRatio": 3
   },
   "1112-pattern": {
-    "width": 162,
-    "height": 162,
+    "width": 72,
+    "height": 72,
     "x": 486,
     "y": 2430,
     "pixelRatio": 3
   },
   "1113-pattern": {
-    "width": 162,
-    "height": 162,
+    "width": 72,
+    "height": 72,
     "x": 648,
     "y": 2430,
     "pixelRatio": 3
@@ -1783,8 +1765,8 @@
     "pixelRatio": 3
   },
   "1203-pattern": {
-    "width": 162,
-    "height": 162,
+    "width": 72,
+    "height": 72,
     "x": 972,
     "y": 2430,
     "pixelRatio": 3
@@ -1824,21 +1806,21 @@
     "y": 333,
     "pixelRatio": 3,
     "content": [
-      1155,
-      408,
-      1275,
-      441
+      12,
+      75,
+      132,
+      108
     ],
     "stretchX": [
       [
-        1155,
-        1275
+        12,
+        132
       ]
     ],
     "stretchY": [
       [
-        408,
-        441
+        75,
+        108
       ]
     ]
   },
@@ -1847,25 +1829,7 @@
     "height": 144,
     "x": 1305,
     "y": 333,
-    "pixelRatio": 3,
-    "content": [
-      1317,
-      408,
-      1437,
-      441
-    ],
-    "stretchX": [
-      [
-        1317,
-        1437
-      ]
-    ],
-    "stretchY": [
-      [
-        408,
-        441
-      ]
-    ]
+    "pixelRatio": 3
   },
   "5132a": {
     "width": 144,
@@ -1917,8 +1881,8 @@
     "pixelRatio": 3
   },
   "6103a-pattern": {
-    "width": 162,
-    "height": 162,
+    "width": 72,
+    "height": 72,
     "x": 1134,
     "y": 2430,
     "pixelRatio": 3
@@ -1931,15 +1895,15 @@
     "pixelRatio": 3
   },
   "6103b-pattern": {
-    "width": 162,
-    "height": 162,
+    "width": 72,
+    "height": 72,
     "x": 1296,
     "y": 2430,
     "pixelRatio": 3
   },
   "6106-pattern": {
-    "width": 162,
-    "height": 162,
+    "width": 72,
+    "height": 72,
     "x": 1458,
     "y": 2430,
     "pixelRatio": 3

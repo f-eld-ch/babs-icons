@@ -158,6 +158,76 @@ function BabsMap({ style }: { style: object }) {
 
 Use `withBabsSprite` for the initial `mapStyle` prop and `setBabsSpriteLang` for subsequent language changes. Never call `setStyle` to change the language.
 
+## UN-signs sprite
+
+Dangerous-goods transport placards (Gefahrentafel) are available as a separate, language-independent sprite: `un-signs{,@2x,@3x}.{png,json}`. Each entry has the ADR Kemler number baked into the upper box; the lower box is empty and sized for `icon-text-fit` so MapLibre can fill the UN substance number at render time.
+
+Sprite key format: bare Kemler code (e.g. `"80"`, `"X338"`). The `un:` namespace from the sprite id already scopes them — no additional prefix is needed.
+
+### Adding the sprite to MapLibre
+
+MapLibre GL supports multiple sprite sources. Add `un-signs` alongside the BABS language sprite:
+
+```ts
+import { withBabsSprite } from "@f-eld-ch/babs-sprites";
+
+const style = withBabsSprite(baseStyle, "de");
+// then merge in the un-signs sprite manually:
+style.sprite = [...style.sprite, { id: "un", url: "/map/sprites/un-signs" }];
+```
+
+### Symbol layer with text-fit
+
+The placard has two boxes:
+
+| Box   | Content                                 | How it is set                                         |
+| ----- | --------------------------------------- | ----------------------------------------------------- |
+| Upper | Gefahrennummer (Kemler code, e.g. `80`) | Baked into the sprite entry — drives `icon-image`     |
+| Lower | Stoffnummer (UN number, e.g. `1789`)    | Set at render time via `text-field` + `icon-text-fit` |
+
+Expected GeoJSON feature properties:
+
+```json
+{
+  "kemler_number": "80",
+  "un_number": "1789"
+}
+```
+
+MapLibre layer:
+
+```json
+{
+  "id": "un-signs",
+  "type": "symbol",
+  "source": "events",
+  "filter": ["has", "kemler_number"],
+  "layout": {
+    "icon-image": ["image", ["concat", "un:", ["get", "kemler_number"]]],
+    "icon-text-fit": "both",
+    "text-field": ["get", "un_number"],
+    "text-font": ["FreeSans Bold", "Liberation Sans Bold", "Arial Unicode MS Bold"],
+    "text-size": 11
+  }
+}
+```
+
+`icon-text-fit: "both"` stretches the lower box horizontally and vertically to fit the Stoffnummer text. The sprite JSON already includes `content`, `stretchX`, and `stretchY` metadata that MapLibre reads to determine where to place the text and which pixel segments are stretchable. The UN number is always 4 digits, so the icon scales to a consistent size in practice.
+
+Features without a Stoffnummer (placards with Kemler code only) can omit the `un_number` property — `text-field` evaluates to an empty string and the lower box stays visually empty.
+
+`icon-text-fit-padding` can tighten or loosen the text fit:
+
+```json
+"icon-text-fit-padding": [2, 4, 2, 4]
+```
+
+Values are `[top, right, bottom, left]` in pixels.
+
+### React rendering
+
+For React (not MapLibre), use the `UnSign` component instead — it renders both boxes with props directly, without needing the sprite or `icon-text-fit`. See the [react README](../react/README.md#un--adr-hazard-signs-unsign).
+
 ## No SDF
 
 BABS sprites are rasterised from multicolour SVGs. They are not SDF (signed distance field). Do not use `icon-color` or `icon-halo-*` paint properties — they have no effect on non-SDF sprites.

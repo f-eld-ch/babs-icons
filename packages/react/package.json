@@ -29,6 +29,10 @@
       "types": "./dist/all.d.ts",
       "default": "./dist/all.js"
     },
+    "./un-signs": {
+      "types": "./dist/UnSign.d.ts",
+      "default": "./dist/UnSign.js"
+    },
     "./package.json": "./package.json"
   },
   "publishConfig": {
