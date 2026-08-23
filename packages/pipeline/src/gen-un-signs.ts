@@ -162,9 +162,7 @@ async function writeResolution(
 const templateSvg = readFileSync(TEMPLATE_SVG, "utf8");
 
 const keys: string[] = KEMLER_CODES.map((k) => `${k}`);
-const svgs = new Map<string, string>(
-  KEMLER_CODES.map((k) => [`${k}`, buildSvg(templateSvg, k)]),
-);
+const svgs = new Map<string, string>(KEMLER_CODES.map((k) => [`${k}`, buildSvg(templateSvg, k)]));
 
 mkdirSync(SPRITES_DIST, { recursive: true });
 

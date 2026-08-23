@@ -180,10 +180,10 @@ style.sprite = [...style.sprite, { id: "un", url: "/map/sprites/un-signs" }];
 
 The placard has two boxes:
 
-| Box | Content | How it is set |
-|---|---|---|
-| Upper | Gefahrennummer (Kemler code, e.g. `80`) | Baked into the sprite entry — drives `icon-image` |
-| Lower | Stoffnummer (UN number, e.g. `1789`) | Set at render time via `text-field` + `icon-text-fit` |
+| Box   | Content                                 | How it is set                                         |
+| ----- | --------------------------------------- | ----------------------------------------------------- |
+| Upper | Gefahrennummer (Kemler code, e.g. `80`) | Baked into the sprite entry — drives `icon-image`     |
+| Lower | Stoffnummer (UN number, e.g. `1789`)    | Set at render time via `text-field` + `icon-text-fit` |
 
 Expected GeoJSON feature properties:
 
