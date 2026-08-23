@@ -267,13 +267,19 @@ if (spriteKeySets.length === 3) {
     if (existsSync(deJsonPath)) {
       const deSprite = JSON.parse(readFileSync(deJsonPath, "utf8")) as Record<
         string,
-        { width: number }
+        {
+          width: number;
+          height: number;
+          content?: [number, number, number, number];
+          stretchX?: [number, number][];
+          stretchY?: [number, number][];
+        }
       >;
       let geomOk = true;
       for (const m of markers) {
         const entry = deSprite[m.key];
         if (!entry) continue; // caught by check 3
-        const expectedW = m.mode === "pattern" ? 54 : 48;
+        const expectedW = m.mode === "pattern" ? 24 : 48;
         if (entry.width !== expectedW) {
           fail(
             `marker "${m.key}": mode="${m.mode}" expects width=${expectedW}, sprite has width=${entry.width}`,
@@ -282,6 +288,35 @@ if (spriteKeySets.length === 3) {
         }
       }
       if (geomOk) pass("marker sprite geometry matches declared mode");
+
+      // 6b. text-fit coordinates must be icon-relative (within 0..width × 0..height).
+      //     Sprite-absolute values (offset by x/y) would far exceed the icon dimensions.
+      let textFitOk = true;
+      for (const [key, entry] of Object.entries(deSprite)) {
+        const { width: w, height: h, content, stretchX, stretchY } = entry;
+        if (!content && !stretchX && !stretchY) continue;
+        const oob = (v: number, max: number) => v < 0 || v > max;
+        if (content) {
+          const [x1, y1, x2, y2] = content;
+          if (oob(x1, w) || oob(x2, w) || oob(y1, h) || oob(y2, h) || x1 >= x2 || y1 >= y2) {
+            fail(`"${key}" content [${content.join(",")}] out of icon bounds (${w}×${h})`);
+            textFitOk = false;
+          }
+        }
+        for (const [a, b] of stretchX ?? []) {
+          if (oob(a, w) || oob(b, w) || a >= b) {
+            fail(`"${key}" stretchX [${a},${b}] out of icon width (${w})`);
+            textFitOk = false;
+          }
+        }
+        for (const [a, b] of stretchY ?? []) {
+          if (oob(a, h) || oob(b, h) || a >= b) {
+            fail(`"${key}" stretchY [${a},${b}] out of icon height (${h})`);
+            textFitOk = false;
+          }
+        }
+      }
+      if (textFitOk) pass("text-fit coordinates are icon-relative (within icon bounds)");
     }
   }
 

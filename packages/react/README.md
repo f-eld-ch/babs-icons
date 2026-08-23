@@ -161,14 +161,50 @@ registerBabsIcons([babs1101, babs7118]); // array
 
 The registry is a module-level map; call `registerBabsIcons` before any `<BabsIcon icon="1101" />` renders. Registering the same ID twice is safe — the latest definition wins.
 
+## UN / ADR hazard signs (UnSign)
+
+Dangerous-goods transport placards (Gefahrentafel) rendered as a React component. The Kemler number (Gefahrennummer) goes in the upper box; the UN substance number (Stoffnummer) goes in the lower box.
+
+```tsx
+import { UnSign } from "@f-eld-ch/babs-react/un-signs";
+
+// Both boxes
+<UnSign kemler="80" unNumber="1789" size={48} />
+
+// Upper box only (lower box empty)
+<UnSign kemler="X338" size={32} />
+```
+
+The `kemler` prop is typed as `KemlerCode` — a union of all ADR Annex A Table A codes — so unknown codes are a compile-time error. The full list and the type are re-exported from the same entry point:
+
+```ts
+import { KEMLER_CODES, type KemlerCode } from "@f-eld-ch/babs-react/un-signs";
+// or from core directly:
+import { KEMLER_CODES, type KemlerCode } from "@f-eld-ch/babs-core/kemler-codes";
+```
+
+### UnSign props
+
+| Prop         | Type               | Default  | Description                                                   |
+| ------------ | ------------------ | -------- | ------------------------------------------------------------- |
+| `kemler`     | `KemlerCode`       | required | ADR Kemler code shown in the upper box, e.g. `"80"`, `"X338"` |
+| `unNumber`   | `string`           | —        | UN substance number shown in the lower box, e.g. `"1789"`     |
+| `size`       | `number \| string` | `"1em"`  | Maps to `width` and `height` on the SVG element               |
+| `decorative` | `boolean`          | `false`  | When `true`, adds `aria-hidden` and `role="presentation"`     |
+
+Any additional props are forwarded to the `<svg>` element.
+
+For map rendering with dynamic UN numbers, use the `un-signs` MapLibre sprite together with `icon-text-fit` — see [sprites README](../sprites/README.md#un-signs-sprite).
+
 ## Exports
 
-| Entry point | Contents                                                                                     | Use when                                                        |
-| ----------- | -------------------------------------------------------------------------------------------- | --------------------------------------------------------------- |
-| `.`         | `BabsIcon`, `BabsIconProvider`, `BabsLangContext`, `useBabsLang`, `registerBabsIcons`, types | Always                                                          |
-| `./named`   | 257 definitions under human-readable names (`babsBeschaedigung`, …)                          | Hand-written usage where readability matters                    |
-| `./icons`   | 257 definitions under numeric names (`babs1101`, …)                                          | When stability > readability, or the numeric ID is all you have |
-| `./all`     | All 257 definitions as a default-exported array                                              | Icon pickers                                                    |
+| Entry point  | Contents                                                                                     | Use when                                                        |
+| ------------ | -------------------------------------------------------------------------------------------- | --------------------------------------------------------------- |
+| `.`          | `BabsIcon`, `BabsIconProvider`, `BabsLangContext`, `useBabsLang`, `registerBabsIcons`, types | Always                                                          |
+| `./named`    | 257 definitions under human-readable names (`babsBeschaedigung`, …)                          | Hand-written usage where readability matters                    |
+| `./icons`    | 257 definitions under numeric names (`babs1101`, …)                                          | When stability > readability, or the numeric ID is all you have |
+| `./all`      | All 257 definitions as a default-exported array                                              | Icon pickers                                                    |
+| `./un-signs` | `UnSign` component, `KemlerCode` type, `KEMLER_CODES` array                                  | Rendering ADR hazard placards in React                          |
 
 ## Color and recolorable
 

@@ -41,6 +41,10 @@
       "types": "./dist/generated/markers.d.ts",
       "default": "./dist/generated/markers.js"
     },
+    "./kemler-codes": {
+      "types": "./dist/kemler-codes.d.ts",
+      "default": "./dist/kemler-codes.js"
+    },
     "./package.json": "./package.json"
   },
   "publishConfig": {

@@ -29,6 +29,11 @@ const CELL_3X = CELL_1X * 3; // 144
 const PAD_3X = PAD_1X * 3; // 9
 const GRID_3X = CELL_3X + PAD_3X * 2; // 162
 
+// Pattern tiles are kept smaller than icon cells so they look fine-grained when tiled on the map.
+const PATTERN_CELL_1X = 24;
+const PATTERN_CELL_2X = PATTERN_CELL_1X * 2; // 64
+const PATTERN_CELL_3X = PATTERN_CELL_1X * 3; // 96
+
 const LANGS = ["de", "fr", "it"] as const;
 type Lang = (typeof LANGS)[number];
 
@@ -258,12 +263,13 @@ async function genSheet(lang: Lang): Promise<{
       seamless = patVariant !== null;
     }
 
-    // Patterns and pattern-mode markers tile seam-free (pad=0, full grid cell).
-    const cellW1 = seamless ? GRID_1X : CELL_1X;
+    // Patterns tile seam-free (pad=0) and use a smaller cell than icons so they
+    // appear fine-grained when tiled on the map.
+    const cellW1 = seamless ? PATTERN_CELL_1X : CELL_1X;
     const pad1 = seamless ? 0 : PAD_1X;
-    const cellW2 = seamless ? GRID_2X : CELL_2X;
+    const cellW2 = seamless ? PATTERN_CELL_2X : CELL_2X;
     const pad2 = seamless ? 0 : PAD_2X;
-    const cellW3 = seamless ? GRID_3X : CELL_3X;
+    const cellW3 = seamless ? PATTERN_CELL_3X : CELL_3X;
     const pad3 = seamless ? 0 : PAD_3X;
 
     const col = idx % cols;
@@ -287,8 +293,9 @@ async function genSheet(lang: Lang): Promise<{
     const entry: SpriteEntry = { width: cellW1, height: cellW1, x: spX, y: spY, pixelRatio: 1 };
     const fitDef = textFitDefs[key];
     if (fitDef) {
-      const sx = (v: number) => Math.round(spX + (v / 100) * cellW1);
-      const sy = (v: number) => Math.round(spY + (v / 100) * cellW1);
+      // content/stretchX/stretchY are icon-relative (0..cellW), NOT sprite-absolute.
+      const sx = (v: number) => Math.round((v / 100) * cellW1);
+      const sy = (v: number) => Math.round((v / 100) * cellW1);
       entry.content = [
         sx(fitDef.content[0]),
         sy(fitDef.content[1]),
