@@ -240,7 +240,7 @@ BABS sprites are rasterised from multicolour SVGs. They are not SDF (signed dist
 
 ## Exports
 
-| Entry point | Contents                                                                  | Environment                    |
-| ----------- | ------------------------------------------------------------------------- | ------------------------------ |
+| Entry point | Contents                                                                   | Environment                    |
+| ----------- | -------------------------------------------------------------------------- | ------------------------------ |
 | `.`         | `babsSpriteUrl`, `unSignsSpriteUrl`, `withBabsSprite`, `setBabsSpriteLang` | Browser, 0 runtime deps        |
-| `./vite`    | `babsSprites()` Vite plugin                                               | Node only; requires `vite >=5` |
+| `./vite`    | `babsSprites()` Vite plugin                                                | Node only; requires `vite >=5` |

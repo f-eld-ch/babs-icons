@@ -17,39 +17,36 @@ const SHEET_RE = /^(babs-(de|fr|it)|un-signs)(@[23]x)?\.(json|png)$/;
  * @param path  Output path inside the public/dist folder. Defaults to "map/sprites".
  */
 export function babsSprites({
-	path = "map/sprites",
+  path = "map/sprites",
 }: {
-	path?: string;
+  path?: string;
 } = {}): Plugin {
-	const distDir = fileURLToPath(new URL("../dist/", import.meta.url));
-	const base = path.replace(/^\/+|\/+$/g, "");
+  const distDir = fileURLToPath(new URL("../dist/", import.meta.url));
+  const base = path.replace(/^\/+|\/+$/g, "");
 
-	return {
-		name: "babs-sprites",
+  return {
+    name: "babs-sprites",
 
-		configureServer(server) {
-			const prefix = `/${base}`;
-			server.middlewares.use(prefix, (req, res, next) => {
-				const file = (req.url ?? "").split("?")[0]!.replace(/^\/+/, "");
-				if (!SHEET_RE.test(file)) {
-					next();
-					return;
-				}
-				res.setHeader(
-					"Content-Type",
-					file.endsWith(".json") ? "application/json" : "image/png",
-				);
-				createReadStream(distDir + file).pipe(res);
-			});
-		},
+    configureServer(server) {
+      const prefix = `/${base}`;
+      server.middlewares.use(prefix, (req, res, next) => {
+        const file = (req.url ?? "").split("?")[0]!.replace(/^\/+/, "");
+        if (!SHEET_RE.test(file)) {
+          next();
+          return;
+        }
+        res.setHeader("Content-Type", file.endsWith(".json") ? "application/json" : "image/png");
+        createReadStream(distDir + file).pipe(res);
+      });
+    },
 
-		async generateBundle() {
-			const files = await readdir(distDir);
-			for (const f of files) {
-				if (!SHEET_RE.test(f)) continue;
-				const source = await readFile(distDir + f);
-				this.emitFile({ type: "asset", fileName: `${base}/${f}`, source });
-			}
-		},
-	};
+    async generateBundle() {
+      const files = await readdir(distDir);
+      for (const f of files) {
+        if (!SHEET_RE.test(f)) continue;
+        const source = await readFile(distDir + f);
+        this.emitFile({ type: "asset", fileName: `${base}/${f}`, source });
+      }
+    },
+  };
 }
