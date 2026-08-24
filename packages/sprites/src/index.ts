@@ -24,34 +24,59 @@ function resolveLang(requested: string | undefined): BabsLang {
  */
 export function babsSpriteUrl(lang: string | undefined, base?: string): string {
   const l = resolveLang(lang);
+  return spriteUrl(`babs-${l}`, base);
+}
+
+/**
+ * Returns an absolute, extensionless URL for the language-independent
+ * un-signs (ADR/Gefahrentafel) sprite sheet.
+ *
+ * @param base  Root path (no trailing slash). Defaults to "map/sprites".
+ */
+export function unSignsSpriteUrl(base?: string): string {
+  return spriteUrl("un-signs", base);
+}
+
+function spriteUrl(sheet: string, base?: string): string {
   const root = (base ?? "map/sprites").replace(/\/+$/, "");
-  const sheet = `babs-${l}`;
   const resolved = new URL(`${root}/${sheet}?v=${BABS_SPRITES_VERSION}`, document.baseURI);
   return resolved.toString();
+}
+
+function withSpriteEntry<T extends { sprite?: unknown }>(style: T, id: string, url: string): T {
+  const entry = { id, url };
+
+  let sprite = style.sprite;
+  if (Array.isArray(sprite)) {
+    const filtered = (sprite as Array<{ id: string; url: string }>).filter((s) => s.id !== id);
+    sprite = [...filtered, entry];
+  } else if (typeof sprite === "string") {
+    sprite = [{ id: "default", url: sprite }, entry];
+  } else {
+    sprite = [entry];
+  }
+  return { ...style, sprite };
 }
 
 /**
  * Returns a NEW style object with a "babs" sprite entry inserted (or replaced).
  * Safe to use for the initial mapStyle prop — no live map needed.
+ *
+ * @param options  Base path string, or `{ base, unSigns }`. With `unSigns: true`
+ *                 an "un" entry for the language-independent un-signs sheet is
+ *                 added too (keys become `un:<kemler>`); it never needs swapping
+ *                 by `setBabsSpriteLang`.
  */
 export function withBabsSprite<T extends { sprite?: unknown }>(
   style: T,
   lang: string | undefined,
-  base?: string,
+  options: string | { base?: string; unSigns?: boolean } = {},
 ): T {
-  const url = babsSpriteUrl(lang, base);
-  const babsEntry = { id: "babs", url };
+  const { base, unSigns }: { base?: string; unSigns?: boolean } =
+    typeof options === "string" ? { base: options } : options;
 
-  let sprite = style.sprite;
-  if (Array.isArray(sprite)) {
-    const filtered = (sprite as Array<{ id: string; url: string }>).filter((s) => s.id !== "babs");
-    sprite = [...filtered, babsEntry];
-  } else if (typeof sprite === "string") {
-    sprite = [{ id: "default", url: sprite }, babsEntry];
-  } else {
-    sprite = [babsEntry];
-  }
-  return { ...style, sprite };
+  const next = withSpriteEntry(style, "babs", babsSpriteUrl(lang, base));
+  return unSigns ? withSpriteEntry(next, "un", unSignsSpriteUrl(base)) : next;
 }
 
 interface SpriteEntry {

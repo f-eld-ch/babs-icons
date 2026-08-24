@@ -78,6 +78,8 @@ const map = new maplibregl.Map({ style });
 
 `withBabsSprite` leaves any existing sprite entries intact and replaces the `"babs"` entry if one already exists. If the original `sprite` is a plain string it is converted to `[{ id: "default", url }, { id: "babs", url }]`.
 
+The third argument is either a base path string or an options object: `withBabsSprite(style, lang, { base: "assets/sprites", unSigns: true })`. See [UN-signs sprite](#un-signs-sprite) for `unSigns`.
+
 ## Runtime language switch
 
 Do not call `map.setStyle()` to change the language — that tears down and rebuilds all layers. Use `setBabsSpriteLang` instead, which swaps only the `"babs"` sprite entry and resolves once the new sheet has loaded.
@@ -166,15 +168,19 @@ Sprite key format: bare Kemler code (e.g. `"80"`, `"X338"`). The `un:` namespace
 
 ### Adding the sprite to MapLibre
 
-MapLibre GL supports multiple sprite sources. Add `un-signs` alongside the BABS language sprite:
+MapLibre GL supports multiple sprite sources. Pass `unSigns: true` to `withBabsSprite` to add `un-signs` alongside the BABS language sprite:
 
 ```ts
 import { withBabsSprite } from "@f-eld-ch/babs-sprites";
 
-const style = withBabsSprite(baseStyle, "de");
-// then merge in the un-signs sprite manually:
-style.sprite = [...style.sprite, { id: "un", url: "/map/sprites/un-signs" }];
+const style = withBabsSprite(baseStyle, "de", { unSigns: true });
+// style.sprite now contains { id: "babs", … } and { id: "un", … }
+
+// custom base path:
+withBabsSprite(baseStyle, "de", { base: "assets/sprites", unSigns: true });
 ```
+
+The `un` entry is language-independent, so `setBabsSpriteLang` leaves it untouched on language changes.
 
 ### Symbol layer with text-fit
 
@@ -234,7 +240,7 @@ BABS sprites are rasterised from multicolour SVGs. They are not SDF (signed dist
 
 ## Exports
 
-| Entry point | Contents                                               | Environment                    |
-| ----------- | ------------------------------------------------------ | ------------------------------ |
-| `.`         | `babsSpriteUrl`, `withBabsSprite`, `setBabsSpriteLang` | Browser, 0 runtime deps        |
-| `./vite`    | `babsSprites()` Vite plugin                            | Node only; requires `vite >=5` |
+| Entry point | Contents                                                                  | Environment                    |
+| ----------- | ------------------------------------------------------------------------- | ------------------------------ |
+| `.`         | `babsSpriteUrl`, `unSignsSpriteUrl`, `withBabsSprite`, `setBabsSpriteLang` | Browser, 0 runtime deps        |
+| `./vite`    | `babsSprites()` Vite plugin                                               | Node only; requires `vite >=5` |
