@@ -50,7 +50,7 @@ export default defineConfig({
 });
 ```
 
-In dev the plugin serves sheets directly from `node_modules` via a middleware — no file copies. During build it emits all 12 files with their exact names, bypassing Rollup/rolldown content-hash renaming.
+In dev the plugin serves sheets directly from `node_modules` via a middleware — no file copies. During build it emits all 24 files (the three language sheets plus `un-signs`, each at 1x/2x/3x as `.png` + `.json`) with their exact names, bypassing Rollup/rolldown content-hash renaming.
 
 If you use a PWA plugin (e.g. vite-plugin-pwa), exclude sprite files from the precache manifest to avoid stale cache entries after language switches:
 
