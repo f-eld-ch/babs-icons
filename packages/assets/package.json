@@ -2,6 +2,7 @@
   "name": "@f-eld-ch/babs-assets",
   "version": "0.0.0",
   "description": "BABS icon library — optimized SVG files",
+  "license": "MIT",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/f-eld-ch/babs-icons.git",
@@ -9,7 +10,8 @@
   },
   "files": [
     "dist/",
-    "svg/"
+    "svg/",
+    "LICENSE"
   ],
   "type": "module",
   "exports": {

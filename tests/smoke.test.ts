@@ -11,6 +11,7 @@ type ExportsMap = Record<string, string | { types?: string; default?: string }>;
 
 interface PackageJson {
   name: string;
+  license?: string;
   exports?: ExportsMap;
 }
 
@@ -34,7 +35,7 @@ afterAll(() => {
   if (existsSync(TMP)) rmSync(TMP, { recursive: true });
 });
 
-const PACKAGES = ["core", "react", "sprites", "assets"] as const;
+const PACKAGES = ["core", "react", "sprites", "assets", "svg"] as const;
 
 for (const pkg of PACKAGES) {
   const pkgDir = join(ROOT, "packages", pkg);
@@ -46,6 +47,14 @@ for (const pkg of PACKAGES) {
 
     beforeAll(() => {
       unpackDir = packAndUnpack(pkg);
+    });
+
+    it("declares the MIT license", () => {
+      expect(pkgJson.license).toBe("MIT");
+    });
+
+    it("includes LICENSE in the tarball", () => {
+      expect(existsSync(join(unpackDir, "LICENSE"))).toBe(true);
     });
 
     for (const [specifier, value] of Object.entries(exports)) {

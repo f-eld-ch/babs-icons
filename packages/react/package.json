@@ -2,13 +2,15 @@
   "name": "@f-eld-ch/babs-react",
   "version": "0.0.0",
   "description": "BABS icon library — React components",
+  "license": "MIT",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/f-eld-ch/babs-icons.git",
     "directory": "packages/react"
   },
   "files": [
-    "dist/"
+    "dist/",
+    "LICENSE"
   ],
   "type": "module",
   "sideEffects": false,

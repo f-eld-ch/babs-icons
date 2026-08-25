@@ -12,14 +12,15 @@ Registry configuration: see the [root README](../../README.md#auth).
 
 ## Exports
 
-| Entry point   | Contents                                                                                       |
-| ------------- | ---------------------------------------------------------------------------------------------- |
-| `.`           | All runtime functions, types, and generated data                                               |
-| `./ids`       | `BABS_ICON_IDS` union type + `BabsIconId`, `BabsCategoryNumber`, `BabsGroupNumber`, `BabsLang` |
-| `./tree`      | `BABS_TREE` — hierarchical category/group/icon structure                                       |
-| `./labels/de` | `BABS_LABELS_DE` — `Record<BabsIconId, string>`                                                |
-| `./labels/fr` | `BABS_LABELS_FR`                                                                               |
-| `./labels/it` | `BABS_LABELS_IT`                                                                               |
+| Entry point      | Contents                                                                                       |
+| ---------------- | ---------------------------------------------------------------------------------------------- |
+| `.`              | All runtime functions, types, and generated data                                               |
+| `./ids`          | `BABS_ICON_IDS` union type + `BabsIconId`, `BabsCategoryNumber`, `BabsGroupNumber`, `BabsLang` |
+| `./tree`         | `BABS_TREE` — hierarchical category/group/icon structure                                       |
+| `./labels/de`    | `BABS_LABELS_DE` — `Record<BabsIconId, string>`                                                |
+| `./labels/fr`    | `BABS_LABELS_FR`                                                                               |
+| `./labels/it`    | `BABS_LABELS_IT`                                                                               |
+| `./kemler-codes` | `KEMLER_CODES`, `KemlerCode`, `isKemlerCode`, `unSignSpriteKey`                                |
 
 All exports are `sideEffects: false` and tree-shakeable.
 

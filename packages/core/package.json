@@ -2,13 +2,15 @@
   "name": "@f-eld-ch/babs-core",
   "version": "0.0.0",
   "description": "BABS icon library — core types, metadata, and language utilities",
+  "license": "MIT",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/f-eld-ch/babs-icons.git",
     "directory": "packages/core"
   },
   "files": [
-    "dist/"
+    "dist/",
+    "LICENSE"
   ],
   "type": "module",
   "sideEffects": false,

@@ -120,3 +120,12 @@ export const KEMLER_CODES = [
 ] as const;
 
 export type KemlerCode = (typeof KEMLER_CODES)[number];
+
+export function isKemlerCode(v: unknown): v is KemlerCode {
+  return typeof v === "string" && (KEMLER_CODES as readonly string[]).includes(v);
+}
+
+/** Returns the MapLibre sprite key for a Kemler code, namespaced by the "un" sprite id. */
+export function unSignSpriteKey(code: KemlerCode): `un:${KemlerCode}` {
+  return `un:${code}`;
+}
