@@ -28,7 +28,7 @@
     "lint:fix": "oxlint --fix"
   },
   "devDependencies": {
-    "@types/node": "^24",
+    "@types/node": "^26",
     "oxfmt": "^0.70.0",
     "oxlint": "^1.85.0",
     "typescript": "^7.0.2",
