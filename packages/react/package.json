@@ -46,8 +46,8 @@
   },
   "devDependencies": {
     "@f-eld-ch/babs-core": "workspace:*",
-    "@types/react": "^19.0.0",
-    "react": "^19.0.0"
+    "@types/react": "^19.3.0",
+    "react": "^19.3.0"
   },
   "peerDependencies": {
     "@f-eld-ch/babs-core": "workspace:*",

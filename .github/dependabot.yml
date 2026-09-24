@@ -1,0 +1,57 @@
+version: 2
+updates:
+  # Enable version updates for npm
+  - package-ecosystem: "npm"
+    # Look for `package.json` and `lock` files in the `root` directory
+    directory: "/"
+    target-branch: "main"
+    schedule:
+      interval: "daily"
+      time: "18:00"
+    open-pull-requests-limit: 10
+    cooldown:
+      exclude:
+        - "@f-eld-ch/*"
+    groups:
+      # Must precede development-dependencies: Dependabot assigns each dependency
+      # to the first matching group in declaration order.
+      vitest:
+        applies-to: version-updates
+        patterns:
+          - "vitest"
+          - "@vitest/*"
+      development-dependencies:
+        dependency-type: "development"
+        applies-to: version-updates
+        update-types:
+          - "minor"
+          - "patch"       
+      react:
+        applies-to: version-updates
+        patterns:
+          - "react"
+          - "react-dom"
+    labels:
+      - "javascript"
+      - "dependencies"
+    ignore:
+      - dependency-name: "@types/mapbox-gl"
+        versions: "> 2.x"
+      - dependency-name: "@types/mapbox__mapbox-gl-draw"
+        versions: "> 1.4.6"
+      - dependency-name: "@types/node"
+        versions: ">= 22.x, < 23"
+      - dependency-name: maplibre-gl
+        versions: ">= 4.a, < 5"
+
+  # Enable version updates for Github Actions
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    target-branch: "main"
+    schedule:
+      interval: "weekly"
+    commit-message:
+      include: "scope"
+    labels:
+      - "gh-actions"
+      - "dependencies"
