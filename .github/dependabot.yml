@@ -50,8 +50,6 @@ updates:
     target-branch: "main"
     schedule:
       interval: "weekly"
-    commit-message:
-      include: "scope"
     labels:
       - "gh-actions"
       - "dependencies"
