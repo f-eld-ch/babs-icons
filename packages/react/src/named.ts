@@ -110,6 +110,7 @@ export { babs4703 as babsPartnerSan } from "./icons/4703.js";
 export { babs4704 as babsPartnerZS } from "./icons/4704.js";
 export { babs4705 as babsPartnerTechnB } from "./icons/4705.js";
 export { babs4706 as babsPartnerA } from "./icons/4706.js";
+export { babs4707 as babsAndere } from "./icons/4707.js";
 export { babs4801 as babsTrupp } from "./icons/4801.js";
 export { babs4802 as babsGruppe } from "./icons/4802.js";
 export { babs4803 as babsZug } from "./icons/4803.js";

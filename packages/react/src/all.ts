@@ -111,6 +111,7 @@ import { babs4703 } from "./icons/4703.js";
 import { babs4704 } from "./icons/4704.js";
 import { babs4705 } from "./icons/4705.js";
 import { babs4706 } from "./icons/4706.js";
+import { babs4707 } from "./icons/4707.js";
 import { babs4801 } from "./icons/4801.js";
 import { babs4802 } from "./icons/4802.js";
 import { babs4803 } from "./icons/4803.js";
@@ -375,6 +376,7 @@ const all: readonly BabsIconDefinition[] = [
   babs4704,
   babs4705,
   babs4706,
+  babs4707,
   babs4801,
   babs4802,
   babs4803,
