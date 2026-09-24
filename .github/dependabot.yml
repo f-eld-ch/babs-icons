@@ -25,7 +25,7 @@ updates:
         applies-to: version-updates
         update-types:
           - "minor"
-          - "patch"       
+          - "patch"
       react:
         applies-to: version-updates
         patterns:
