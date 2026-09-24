@@ -110,6 +110,7 @@ export { babs4703 } from "./icons/4703.js";
 export { babs4704 } from "./icons/4704.js";
 export { babs4705 } from "./icons/4705.js";
 export { babs4706 } from "./icons/4706.js";
+export { babs4707 } from "./icons/4707.js";
 export { babs4801 } from "./icons/4801.js";
 export { babs4802 } from "./icons/4802.js";
 export { babs4803 } from "./icons/4803.js";

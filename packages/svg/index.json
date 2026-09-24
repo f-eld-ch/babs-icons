@@ -2774,6 +2774,29 @@
                 "fr": "A",
                 "it": "Es"
               }
+            },
+            {
+              "files": {
+                "de": {
+                  "lang": "de/4707.svg",
+                  "svg": "svg/4707.svg"
+                },
+                "fr": {
+                  "lang": "fr/4707.svg",
+                  "svg": "svg/4707.svg"
+                },
+                "it": {
+                  "lang": "it/4707.svg",
+                  "svg": "svg/4707.svg"
+                }
+              },
+              "id": "4707",
+              "identical": true,
+              "label": {
+                "de": "Andere",
+                "fr": "autres",
+                "it": "altri"
+              }
             }
           ]
         },

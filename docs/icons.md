@@ -1,6 +1,6 @@
 # BABS Icon Reference
 
-262 civil-protection icons across 9 categories.
+263 civil-protection icons across 9 categories.
 Labels in German (DE), French (FR) and Italian (IT).
 For divergent icons (different graphic per language) all three variants are shown side by side.
 
@@ -227,14 +227,15 @@ _Armee / Armée / Esercito_
 
 _Partner ohne Hierarchiestufe / Partenaires sans hiérarchie / Partner non gerarchiche_
 
-| Icon<img width="160" height="1" src="spacer.svg" alt="">                                                                                                                                                                                                            | ID     | Export              | DE     | FR    | IT    | Pattern | Raster |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------ | ------------------- | ------ | ----- | ----- | ------- | ------ |
-| <img src="../packages/svg/svg/4701.svg" alt="P" width="48" height="48">                                                                                                                                                                                             | `4701` | `babsPartnerP`      | P      | P     | P     |         |        |
-| <img src="../packages/svg/svg/4702-D.svg" alt="FW (de)" width="48" height="48">&nbsp;<img src="../packages/svg/svg/4702-F.svg" alt="SP (fr)" width="48" height="48">&nbsp;<img src="../packages/svg/svg/4702-I.svg" alt="CP (it)" width="48" height="48">           | `4702` | `babsPartnerFW`     | FW     | SP    | CP    |         |        |
-| <img src="../packages/svg/svg/4703.svg" alt="San" width="48" height="48">                                                                                                                                                                                           | `4703` | `babsPartnerSan`    | San    | San   | San   |         |        |
-| <img src="../packages/svg/svg/4704-D.svg" alt="ZS (de)" width="48" height="48">&nbsp;<img src="../packages/svg/svg/4704-F.svg" alt="PCi (fr)" width="48" height="48">&nbsp;<img src="../packages/svg/svg/4704-F.svg" alt="PCi (it)" width="48" height="48">         | `4704` | `babsPartnerZS`     | ZS     | PCi   | PCi   |         |        |
-| <img src="../packages/svg/svg/4705-D.svg" alt="TechnB (de)" width="48" height="48">&nbsp;<img src="../packages/svg/svg/4705-F.svg" alt="S tec (fr)" width="48" height="48">&nbsp;<img src="../packages/svg/svg/4705-F.svg" alt="S tec (it)" width="48" height="48"> | `4705` | `babsPartnerTechnB` | TechnB | S tec | S tec |         |        |
-| <img src="../packages/svg/svg/4706-D.svg" alt="A (de)" width="48" height="48">&nbsp;<img src="../packages/svg/svg/4706-F.svg" alt="A (fr)" width="48" height="48">&nbsp;<img src="../packages/svg/svg/4706-I.svg" alt="Es (it)" width="48" height="48">             | `4706` | `babsPartnerA`      | A      | A     | Es    |         |        |
+| Icon<img width="160" height="1" src="spacer.svg" alt="">                                                                                                                                                                                                            | ID     | Export              | DE     | FR     | IT    | Pattern | Raster |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------ | ------------------- | ------ | ------ | ----- | ------- | ------ |
+| <img src="../packages/svg/svg/4701.svg" alt="P" width="48" height="48">                                                                                                                                                                                             | `4701` | `babsPartnerP`      | P      | P      | P     |         |        |
+| <img src="../packages/svg/svg/4702-D.svg" alt="FW (de)" width="48" height="48">&nbsp;<img src="../packages/svg/svg/4702-F.svg" alt="SP (fr)" width="48" height="48">&nbsp;<img src="../packages/svg/svg/4702-I.svg" alt="CP (it)" width="48" height="48">           | `4702` | `babsPartnerFW`     | FW     | SP     | CP    |         |        |
+| <img src="../packages/svg/svg/4703.svg" alt="San" width="48" height="48">                                                                                                                                                                                           | `4703` | `babsPartnerSan`    | San    | San    | San   |         |        |
+| <img src="../packages/svg/svg/4704-D.svg" alt="ZS (de)" width="48" height="48">&nbsp;<img src="../packages/svg/svg/4704-F.svg" alt="PCi (fr)" width="48" height="48">&nbsp;<img src="../packages/svg/svg/4704-F.svg" alt="PCi (it)" width="48" height="48">         | `4704` | `babsPartnerZS`     | ZS     | PCi    | PCi   |         |        |
+| <img src="../packages/svg/svg/4705-D.svg" alt="TechnB (de)" width="48" height="48">&nbsp;<img src="../packages/svg/svg/4705-F.svg" alt="S tec (fr)" width="48" height="48">&nbsp;<img src="../packages/svg/svg/4705-F.svg" alt="S tec (it)" width="48" height="48"> | `4705` | `babsPartnerTechnB` | TechnB | S tec  | S tec |         |        |
+| <img src="../packages/svg/svg/4706-D.svg" alt="A (de)" width="48" height="48">&nbsp;<img src="../packages/svg/svg/4706-F.svg" alt="A (fr)" width="48" height="48">&nbsp;<img src="../packages/svg/svg/4706-I.svg" alt="Es (it)" width="48" height="48">             | `4706` | `babsPartnerA`      | A      | A      | Es    |         |        |
+| <img src="../packages/svg/svg/4707.svg" alt="Andere" width="48" height="48">                                                                                                                                                                                        | `4707` | `babsAndere`        | Andere | autres | altri |         |        |
 
 ### 48 · Hierarchiestufe ohne Partner
 
