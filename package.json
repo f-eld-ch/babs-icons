@@ -32,7 +32,7 @@
     "oxfmt": "^0.70.0",
     "oxlint": "^1.85.0",
     "typescript": "^7.0.2",
-    "vitest": "^5.0.2"
+    "vitest": "^5.0.3"
   },
   "resolutions": {
     "sharp": "^0.35.4"
