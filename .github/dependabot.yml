@@ -34,15 +34,6 @@ updates:
     labels:
       - "javascript"
       - "dependencies"
-    ignore:
-      - dependency-name: "@types/mapbox-gl"
-        versions: "> 2.x"
-      - dependency-name: "@types/mapbox__mapbox-gl-draw"
-        versions: "> 1.4.6"
-      - dependency-name: "@types/node"
-        versions: ">= 22.x, < 23"
-      - dependency-name: maplibre-gl
-        versions: ">= 4.a, < 5"
 
   # Enable version updates for Github Actions
   - package-ecosystem: "github-actions"
@@ -50,6 +41,9 @@ updates:
     target-branch: "main"
     schedule:
       interval: "weekly"
+    commit-message:
+      prefix: "chore(deps-dev):"
+      include: "scope"
     labels:
       - "gh-actions"
       - "dependencies"
