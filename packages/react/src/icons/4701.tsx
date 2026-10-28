@@ -10,7 +10,7 @@ export const babs4701: BabsIconDefinition = {
   displaySize: 32,
   graphics: {
     "de": { kind: "vector", body: (_ns: (localId: string) => string) => (
-      <><g transform="translate(5 5.1299) scale(21.32386) translate(-39.1163 -23.3916)scale(.04688)"><path fill="#0000FF" d="M879.5 588.8c-24.82 0-45.02-20.14-45.02-44.89s20.2-44.89 45.02-44.89 45.02 20.14 45.02 44.89-20.19 44.89-45.02 44.89m0-79.77a35 35 0 0 0-35.02 34.89 35 35 0 0 0 35.02 34.89 35 35 0 0 0 35.02-34.89 35 35 0 0 0-35.02-34.89"/><text x="881.7" y="566.28" fill="#0000ff" strokeWidth="1" direction="ltr" fontFamily="FreeSans" fontSize="64.03" fontWeight="bold" letterSpacing="-1.58" style={{ textAlign: "center" }} textAnchor="middle" wordSpacing="0" writingMode="lr-tb"><tspan x="880.91" y="566.28" strokeWidth="1" fontSize="64.03">P</tspan></text></g></>
+      <><g transform="translate(5 5.1299) scale(21.32386) translate(-39.1163 -23.3916)scale(.04688)"><path fill="#0000FF" d="M879.5 588.8c-24.82 0-45.02-20.14-45.02-44.89s20.2-44.89 45.02-44.89 45.02 20.14 45.02 44.89-20.19 44.89-45.02 44.89m0-79.77a35 35 0 0 0-35.02 34.89 35 35 0 0 0 35.02 34.89 35 35 0 0 0 35.02-34.89 35 35 0 0 0-35.02-34.89"/><path fill="#0000ff" strokeWidth="1" d="M873.96 549.63v16.65h-9.6V519.6h20.61q7.3 0 11.14 3.72 3.9 3.71 3.9 10.76 0 7.1-3.83 11.33-3.84 4.22-10.25 4.22zm0-8h8.96q7.5 0 7.5-6.98 0-3.58-1.86-5.31-1.8-1.73-5.64-1.73h-8.96z" aria-label="P" fontFamily="FreeSans" fontSize="64.03" fontWeight="bold" letterSpacing="-1.58" style={{ textAlign: "center" }} textAnchor="middle" wordSpacing="0"/></g></>
     ) }
   },
 };

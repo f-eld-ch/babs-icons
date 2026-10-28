@@ -3,32 +3,10 @@
    viewBox="0 0 100 100"
    version="1.1"
    id="svg1"
-   sodipodi:docname="04-Radioaktives Gebiet - Beispiel.svg"
-   inkscape:version="1.4.4 (dcaf3e7d9e, 2026-05-05)"
-   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns="http://www.w3.org/2000/svg"
    xmlns:svg="http://www.w3.org/2000/svg">
   <defs
      id="defs3" />
-  <sodipodi:namedview
-     id="namedview3"
-     pagecolor="#ffffff"
-     bordercolor="#000000"
-     borderopacity="0.25"
-     inkscape:showpageshadow="2"
-     inkscape:pageopacity="0.0"
-     inkscape:pagecheckerboard="0"
-     inkscape:deskcolor="#d1d1d1"
-     inkscape:zoom="6.9173039"
-     inkscape:cx="-1.3010849"
-     inkscape:cy="48.64612"
-     inkscape:window-width="2304"
-     inkscape:window-height="1371"
-     inkscape:window-x="0"
-     inkscape:window-y="0"
-     inkscape:window-maximized="1"
-     inkscape:current-layer="svg1" />
   <g
      id="g4"
      transform="matrix(2.0397184,0,0,2.0397184,-47.979946,-47.598574)">
@@ -43,16 +21,10 @@
        height="26.421698"
        x="41.150143"
        y="42.216511" />
-    <text
-       xml:space="preserve"
-       style="font-weight:bold;font-size:18.5627px;font-family:FreeSans;-inkscape-font-specification:'FreeSans Bold';letter-spacing:-0.803681px;word-spacing:0px;writing-mode:lr-tb;direction:ltr;fill:#ffff00;fill-opacity:1;stroke:#000000;stroke-width:0.822665"
-       x="41.59864"
-       y="62.804359"
-       id="text4"><tspan
-         sodipodi:role="line"
-         id="tspan4"
-         x="41.59864"
-         y="62.804359"
-         style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.822665">N</tspan></text>
+    <path
+       style="font-weight:bold;font-size:18.5627px;font-family:FreeSans;-inkscape-font-specification:'FreeSans Bold';letter-spacing:-0.803681px;word-spacing:0px;stroke-width:0.822665"
+       d="m 51.306933,62.804359 -5.438871,-9.355601 v 9.355601 H 43.083656 V 49.272151 h 2.858656 l 5.364621,9.207099 v -9.207099 h 2.784405 v 13.532208 z"
+       id="text4"
+       aria-label="N" />
   </g>
 </svg>

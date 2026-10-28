@@ -3,32 +3,10 @@
    viewBox="0 0 100 100"
    version="1.1"
    id="svg1"
-   sodipodi:docname="02-Chemievergiftete Zone flüssig - sesshaft.svg"
-   inkscape:version="1.4.4 (dcaf3e7d9e, 2026-05-05)"
-   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns="http://www.w3.org/2000/svg"
    xmlns:svg="http://www.w3.org/2000/svg">
   <defs
      id="defs3" />
-  <sodipodi:namedview
-     id="namedview3"
-     pagecolor="#ffffff"
-     bordercolor="#000000"
-     borderopacity="0.25"
-     inkscape:showpageshadow="2"
-     inkscape:pageopacity="0.0"
-     inkscape:pagecheckerboard="0"
-     inkscape:deskcolor="#d1d1d1"
-     inkscape:zoom="11.43"
-     inkscape:cx="49.912511"
-     inkscape:cy="50"
-     inkscape:window-width="2304"
-     inkscape:window-height="1371"
-     inkscape:window-x="0"
-     inkscape:window-y="0"
-     inkscape:window-maximized="1"
-     inkscape:current-layer="g5" />
   <g
      id="g5"
      transform="translate(2.712161,-0.08748906)">
@@ -36,17 +14,11 @@
        id="path3"
        style="fill:#ffff00;fill-opacity:1;stroke:#000000;stroke-width:3.13755"
        d="M 33.189335,3.986143 V 46.989238 A 26.60547,26.60547 0 0 0 21.565747,68.977891 26.60547,26.60547 0 0 0 48.170386,95.582528 26.60547,26.60547 0 0 0 74.779204,68.977891 26.60547,26.60547 0 0 0 63.155616,46.989238 V 3.986143 Z" />
-    <text
-       xml:space="preserve"
-       style="font-weight:bold;font-size:37.5393px;font-family:FreeSans;-inkscape-font-specification:'FreeSans Bold';letter-spacing:-1.62529px;word-spacing:0px;writing-mode:lr-tb;direction:ltr;fill:#ffff00;fill-opacity:1;stroke:#000000;stroke-width:1.66367"
-       x="34.653336"
-       y="81.727882"
-       id="text5"><tspan
-         sodipodi:role="line"
-         id="tspan5"
-         x="34.653336"
-         y="81.727882"
-         style="fill:#000000;fill-opacity:1;stroke-width:1.66367">C</tspan></text>
+    <path
+       style="font-weight:bold;font-size:37.5393px;font-family:FreeSans;-inkscape-font-specification:'FreeSans Bold';letter-spacing:-1.62529px;word-spacing:0px;stroke:#000000;stroke-width:1.66367"
+       d="m 54.736861,63.63394 q -1.051101,-4.917648 -5.856131,-4.917648 -3.340998,0 -5.217963,2.552672 -1.876965,2.552673 -1.876965,7.094928 0,4.467177 1.801887,6.98231 1.839425,2.515133 5.105344,2.515133 2.627751,0 4.204402,-1.426494 1.57665,-1.426493 1.839426,-4.054244 h 5.480737 q -0.262775,4.692412 -3.416076,7.47032 -3.153301,2.740369 -8.258646,2.740369 -5.705973,0 -9.046971,-3.829008 -3.340997,-3.866548 -3.340997,-10.473465 0,-6.644456 3.378536,-10.511003 3.378537,-3.866548 9.159589,-3.866548 4.84257,0 7.920792,2.590211 3.115762,2.590212 3.491155,7.132467 z"
+       id="text5"
+       aria-label="C" />
     <rect
        style="fill:#000000;stroke:#000000;stroke-width:1.3"
        id="rect1"

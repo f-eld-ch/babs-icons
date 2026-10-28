@@ -3,32 +3,10 @@
    viewBox="0 0 100 100"
    version="1.1"
    id="svg1"
-   sodipodi:docname="01-Biologisch verseuchtes Gebiet.svg"
-   inkscape:version="1.4.4 (dcaf3e7d9e, 2026-05-05)"
-   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns="http://www.w3.org/2000/svg"
    xmlns:svg="http://www.w3.org/2000/svg">
   <defs
      id="defs3" />
-  <sodipodi:namedview
-     id="namedview3"
-     pagecolor="#ffffff"
-     bordercolor="#000000"
-     borderopacity="0.25"
-     inkscape:showpageshadow="2"
-     inkscape:pageopacity="0.0"
-     inkscape:pagecheckerboard="0"
-     inkscape:deskcolor="#d1d1d1"
-     inkscape:zoom="11.43"
-     inkscape:cx="49.956255"
-     inkscape:cy="50"
-     inkscape:window-width="2304"
-     inkscape:window-height="1371"
-     inkscape:window-x="0"
-     inkscape:window-y="0"
-     inkscape:window-maximized="1"
-     inkscape:current-layer="svg1" />
   <g
      transform="translate(5,14.2973)"
      id="g3"
@@ -51,17 +29,10 @@
   <path
      style="fill:#ffff00;fill-opacity:1;stroke:#000000;stroke-width:2.91679;stroke-dasharray:none;stroke-opacity:1"
      d="M 17.788992,93.846821 C 17.592692,92.86533 37.02618,51.053891 37.02618,51.053891 l -0.06617,-41.1799093 27.744165,-0.042639 0.283789,41.1585867 18.823276,42.94659 z"
-     id="path5"
-     sodipodi:nodetypes="ccccccc" />
-  <text
-     xml:space="preserve"
-     style="font-weight:bold;font-size:29.3333px;font-family:FreeSans;-inkscape-font-specification:'FreeSans Bold';letter-spacing:-1.27px;word-spacing:0px;writing-mode:lr-tb;direction:ltr;fill:#ffff00;fill-opacity:1;stroke:#000000;stroke-width:1.3;stroke-dasharray:none;stroke-opacity:1"
-     x="40.857391"
-     y="84.864388"
-     id="text5"><tspan
-       sodipodi:role="line"
-       id="tspan5"
-       x="40.857391"
-       y="84.864388"
-       style="fill:#000000;fill-opacity:1">B</tspan></text>
+     id="path5" />
+  <path
+     style="font-weight:bold;font-size:29.3333px;font-family:FreeSans;-inkscape-font-specification:'FreeSans Bold';letter-spacing:-1.27px;word-spacing:0px;stroke:#000000;stroke-width:1.3"
+     d="m 60.334702,78.704395 q 0,1.055998 -0.351999,2.053331 -0.352,0.997332 -1.143999,1.965331 -0.762666,0.967999 -2.317331,1.554665 -1.554665,0.586666 -3.695995,0.586666 H 43.204055 V 63.480412 h 9.533323 q 1.994664,0 3.431996,0.586666 1.466665,0.586666 2.170664,1.525332 0.733332,0.909332 1.055999,1.789331 0.322666,0.879999 0.322666,1.730665 0,1.378665 -0.674666,2.40533 -0.674666,0.997332 -2.258664,1.994665 3.549329,2.082664 3.549329,5.191994 z M 47.60405,67.147075 v 4.839994 h 4.781328 q 3.10933,0 3.10933,-2.405331 0,-2.434663 -3.10933,-2.434663 z m 0,8.506656 v 5.543994 h 5.250661 q 3.255996,0 3.255996,-2.75733 0,-2.786664 -3.255996,-2.786664 z"
+     id="text5"
+     aria-label="B" />
 </svg>

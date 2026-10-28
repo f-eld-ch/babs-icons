@@ -10,7 +10,7 @@ export const babs1402: BabsIconDefinition = {
   displaySize: 32,
   graphics: {
     "de": { kind: "vector", body: (_ns: (localId: string) => string) => (
-      <><g transform="translate(2.7122 -.0875)"><path fill="#ffff00" fillOpacity="1" stroke="#000000" strokeWidth="3.14" d="M33.19 3.99v43a26.6 26.6 0 0 0-11.62 21.99 26.6 26.6 0 0 0 26.6 26.6 26.6 26.6 0 0 0 26.6-26.6 26.6 26.6 0 0 0-11.61-22v-43Z"/><text x="34.65" y="81.73" fill="#ffff00" fillOpacity="1" stroke="#000000" strokeWidth="1.66" direction="ltr" fontFamily="FreeSans" fontSize="37.54" fontWeight="bold" letterSpacing="-1.63" wordSpacing="0" writingMode="lr-tb"><tspan x="34.65" y="81.73" fill="#000000" fillOpacity="1" strokeWidth="1.66">C</tspan></text><path fill="#000000" stroke="#000000" strokeWidth="1.3" d="M35.61 3.76H66.14V47.07H35.61z" transform="translate(-2.7122 .0875)"/></g></>
+      <><g transform="translate(2.7122 -.0875)"><path fill="#ffff00" fillOpacity="1" stroke="#000000" strokeWidth="3.14" d="M33.19 3.99v43a26.6 26.6 0 0 0-11.62 21.99 26.6 26.6 0 0 0 26.6 26.6 26.6 26.6 0 0 0 26.6-26.6 26.6 26.6 0 0 0-11.61-22v-43Z"/><path stroke="#000000" strokeWidth="1.66" d="M54.74 63.63q-1.05-4.91-5.86-4.91-3.34 0-5.22 2.55t-1.87 7.1q0 4.46 1.8 6.98 1.84 2.51 5.1 2.51 2.63 0 4.2-1.43 1.58-1.42 1.85-4.05h5.48q-.27 4.7-3.42 7.47-3.15 2.74-8.26 2.74-5.7 0-9.04-3.83-3.35-3.86-3.35-10.47 0-6.65 3.38-10.51 3.38-3.87 9.16-3.87 4.85 0 7.92 2.6 3.12 2.58 3.5 7.12z" aria-label="C" fontFamily="FreeSans" fontSize="37.54" fontWeight="bold" letterSpacing="-1.63" wordSpacing="0"/><path fill="#000000" stroke="#000000" strokeWidth="1.3" d="M35.61 3.76H66.14V47.07H35.61z" transform="translate(-2.7122 .0875)"/></g></>
     ) }
   },
 };
