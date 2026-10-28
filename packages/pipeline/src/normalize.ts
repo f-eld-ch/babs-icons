@@ -42,7 +42,15 @@ const OUT_DIR = "./normalized";
 function cropToDrawing(svgPath: string): string | null {
   const result = spawnSync(
     "inkscape",
-    ["--export-area-drawing", "--export-plain-svg", "--export-filename=-", svgPath],
+    [
+      "--export-area-drawing",
+      // Outline text so icons don't depend on FreeSans / Nimbus Sans being installed.
+      // The UN-number templates (09b-*) keep live text (gen-un-signs.ts edits its tspans).
+      ...(/\/09b-/.test(svgPath) ? [] : ["--export-text-to-path"]),
+      "--export-plain-svg",
+      "--export-filename=-",
+      svgPath,
+    ],
     { encoding: "utf-8", timeout: 15_000 },
   );
   if (result.status !== 0 || !result.stdout?.trim()) return null;

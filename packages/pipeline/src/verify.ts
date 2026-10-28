@@ -511,6 +511,21 @@ if (!existsSync(iconsDir)) {
   }
 }
 
+// ── No live text in icon SVGs ─────────────────────────────────────────────────
+// Text depends on the viewer having the right font; it must be outlined to paths.
+// 2109b is the UN-number template, whose text is filled in by gen-un-signs.ts.
+{
+  const TEXT_EXEMPT = /^2109b(-[DFI])?\.svg$/;
+  const withText = readdirSync(SVG_DIR).filter(
+    (f) =>
+      f.endsWith(".svg") &&
+      !TEXT_EXEMPT.test(f) &&
+      /<text[\s>]/.test(readFileSync(join(SVG_DIR, f), "utf-8")),
+  );
+  if (withText.length === 0) pass("no live <text> in icon SVGs");
+  else fail(`icon SVGs with live text (run icons:outline-text): ${withText.join(", ")}`);
+}
+
 // ── Summary ────────────────────────────────────────────────────────────────────
 console.log("");
 if (failures === 0) {

@@ -10,7 +10,7 @@ export const babs1404: BabsIconDefinition = {
   displaySize: 32,
   graphics: {
     "de": { kind: "vector", body: (_ns: (localId: string) => string) => (
-      <><g transform="translate(-47.98 -47.5986)scale(2.03972)"><path fill="#ffff00" fillOpacity="1" stroke="#000000" strokeWidth="1.21" d="M48.12 27.25A14.92 15.1 0 0 0 33.2 42.17h29.84a14.92 15.1 0 0 0-14.92-14.92Z"/><path fill="#ffff00" fillOpacity="1" stroke="#000000" strokeWidth="1.3" d="M41.15 42.22H55.94V68.64H41.15z"/><text x="41.6" y="62.8" fill="#ffff00" fillOpacity="1" stroke="#000000" strokeWidth=".82" direction="ltr" fontFamily="FreeSans" fontSize="18.56" fontWeight="bold" letterSpacing="-.8" wordSpacing="0" writingMode="lr-tb"><tspan x="41.6" y="62.8" fill="#000000" fillOpacity="1" stroke="none" strokeWidth=".82">N</tspan></text></g></>
+      <><g transform="translate(-47.98 -47.5986)scale(2.03972)"><path fill="#ffff00" fillOpacity="1" stroke="#000000" strokeWidth="1.21" d="M48.12 27.25A14.92 15.1 0 0 0 33.2 42.17h29.84a14.92 15.1 0 0 0-14.92-14.92Z"/><path fill="#ffff00" fillOpacity="1" stroke="#000000" strokeWidth="1.3" d="M41.15 42.22H55.94V68.64H41.15z"/><path strokeWidth=".82" d="m51.3 62.8-5.43-9.35v9.35h-2.79V49.27h2.86l5.37 9.2v-9.2h2.78V62.8z" aria-label="N" fontFamily="FreeSans" fontSize="18.56" fontWeight="bold" letterSpacing="-.8" wordSpacing="0"/></g></>
     ) }
   },
 };
