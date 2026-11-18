@@ -177,10 +177,7 @@ export function isBabsIconId(v: unknown): v is BabsIconId {
 }
 
 export function findIcons(query: string, lang?: string): readonly BabsIconMeta[] {
-  const q = query
-    .normalize("NFD")
-    .replace(/[̀-ͯ]/g, "")
-    .toLowerCase();
+  const q = query.normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase();
   const l = resolveBabsLang(lang);
   return listIcons().filter((meta) => {
     const label = (meta.labels[l] ?? meta.labels.de ?? "")
