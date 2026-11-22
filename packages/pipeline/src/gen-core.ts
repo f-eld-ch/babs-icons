@@ -12,6 +12,7 @@ const ROOT = join(dirname(fileURLToPath(import.meta.url)), "../../../");
 const SVG_INDEX = join(ROOT, "packages/svg/index.json");
 const CORRECTIONS = join(ROOT, "corrections/labels.json");
 const ALIAS_PINS = join(ROOT, "corrections/aliases.json");
+const KEYWORDS = join(ROOT, "corrections/keywords.json");
 const NAMES_LOCK = join(ROOT, "corrections/names.lock.json");
 const SVG_DIR = join(ROOT, "packages/svg/svg");
 const CORE_GEN = join(ROOT, "packages/core/src/generated");
@@ -357,6 +358,38 @@ ${entries.join(",\n")}
 `;
 }
 
+// ── Generate keywords.ts ──────────────────────────────────────────────────────
+// Words people use for a symbol that its name does not contain, per language. Curated in
+// corrections/keywords.json; only used for searching.
+function genKeywords(): string {
+  const keywords = existsSync(KEYWORDS)
+    ? (JSON.parse(readFileSync(KEYWORDS, "utf8")) as Record<
+        string,
+        Partial<Record<Lang, string[]>>
+      >)
+    : {};
+  const known = new Set(icons.map((ic) => ic.id));
+  const entries = Object.keys(keywords)
+    .filter((id) => known.has(id))
+    .sort(compareNumeric)
+    .map((id) => {
+      const words = keywords[id] ?? {};
+      const perLang = LANGS.filter((l) => (words[l] ?? []).length > 0).map(
+        (l) => `${l}: [${(words[l] ?? []).map(q).join(", ")}]`,
+      );
+      return `  ${q(id)}: { ${perLang.join(", ")} }`;
+    });
+  return `${HEADER}
+import type { BabsLang } from "./ids.js";
+
+export const BABS_KEYWORDS: Readonly<
+  Record<string, Partial<Record<BabsLang, readonly string[]>>>
+> = {
+${entries.join(",\n")}
+};
+`;
+}
+
 // ── Write or check ────────────────────────────────────────────────────────────
 function writeOrCheck(path: string, content: string, label: string): boolean {
   if (CHECK) {
@@ -391,6 +424,7 @@ ok = writeOrCheck(join(CORE_GEN, "ids.ts"), genIds(), "ids.ts") && ok;
 ok = writeOrCheck(join(CORE_GEN, "meta.ts"), genMeta(), "meta.ts") && ok;
 ok = writeOrCheck(join(CORE_GEN, "tree.ts"), genTree(), "tree.ts") && ok;
 ok = writeOrCheck(join(CORE_GEN, "markers.ts"), genMarkers(), "markers.ts") && ok;
+ok = writeOrCheck(join(CORE_GEN, "keywords.ts"), genKeywords(), "keywords.ts") && ok;
 for (const lang of LANGS) {
   ok =
     writeOrCheck(join(CORE_GEN, `labels/${lang}.ts`), genLabels(lang), `labels/${lang}.ts`) && ok;

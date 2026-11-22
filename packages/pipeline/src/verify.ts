@@ -14,6 +14,7 @@ const SPRITES_DIST = join(ROOT, "packages/sprites/dist");
 const CORRECTIONS = join(ROOT, "corrections/labels.json");
 const ALIAS_PINS = join(ROOT, "corrections/aliases.json");
 const NAMES_LOCK = join(ROOT, "corrections/names.lock.json");
+const KEYWORDS = join(ROOT, "corrections/keywords.json");
 const REACT_NAMED = join(ROOT, "packages/react/src/named.ts");
 
 let failures = 0;
@@ -67,6 +68,26 @@ if (existsSync(CORRECTIONS)) {
     }
   }
   pass(`corrections orphan check (${Object.keys(corrections).length} entries)`);
+}
+
+// ── Keywords orphan check ─────────────────────────────────────────────────────
+if (existsSync(KEYWORDS)) {
+  const keywords = JSON.parse(readFileSync(KEYWORDS, "utf8")) as Record<
+    string,
+    Record<string, string[]>
+  >;
+  for (const [id, perLang] of Object.entries(keywords)) {
+    if (!allIds.has(id)) fail(`corrections/keywords.json: "${id}" not found in index.json`);
+    for (const [lang, words] of Object.entries(perLang)) {
+      if (!["de", "fr", "it"].includes(lang)) {
+        fail(`corrections/keywords.json: "${id}" has unknown language "${lang}"`);
+      }
+      if (words.some((w) => w.trim() === "")) {
+        fail(`corrections/keywords.json: "${id}.${lang}" has an empty keyword`);
+      }
+    }
+  }
+  pass(`keywords orphan check (${Object.keys(keywords).length} entries)`);
 }
 
 // ── generated/meta.ts exists ─────────────────────────────────────────────────

@@ -1,0 +1,203 @@
+{
+  "1101": {
+    "de": ["kaputt", "defekt", "beschädigt", "schaden"]
+  },
+  "1102": {
+    "de": ["kaputt", "zerstört", "teilweise", "einsturz"]
+  },
+  "1103": {
+    "de": ["kaputt", "zerstört", "eingestürzt", "komplett"]
+  },
+  "1104": {
+    "de": ["feuer", "flamme", "gebäudebrand", "hausbrand"]
+  },
+  "1301": {
+    "de": ["verwundet", "verletzt", "schwerverletzt", "patient", "patienten"]
+  },
+  "1302": {
+    "de": ["vermisst", "abgängig", "gesucht"]
+  },
+  "1303": {
+    "de": ["evakuiert", "notunterkunft", "unterkunft"]
+  },
+  "1304": {
+    "de": ["eingeklemmt", "verschüttet", "verschüttete", "gefangen"]
+  },
+  "1305": {
+    "de": ["leiche", "leichen", "todesopfer", "verstorben", "gestorben"]
+  },
+  "2101": {
+    "de": ["gefahrgut", "chemie", "gift"]
+  },
+  "2102": {
+    "de": ["strom", "stromschlag", "hochspannung"]
+  },
+  "2103": {
+    "de": ["knall", "detonation", "sprengung"]
+  },
+  "2104": {
+    "de": ["gasleck", "gasaustritt", "erdgas"]
+  },
+  "2105": {
+    "de": ["verkehrsunfall", "crash"]
+  },
+  "2107": {
+    "de": ["strahlung", "atom", "radioaktiv"]
+  },
+  "3101": {
+    "de": ["el", "leitung", "führung", "kommando"]
+  },
+  "3103": {
+    "de": ["kp front", "kommandoposten", "führungsstelle"]
+  },
+  "3105": {
+    "de": ["zentrale", "leitstelle"]
+  },
+  "5101": {
+    "de": ["verkehr", "verkehrsdienst", "regelung", "posten"]
+  },
+  "5103": {
+    "de": ["treffpunkt", "sammelplatz", "besammlung"]
+  },
+  "5105": {
+    "de": ["pasa", "verletztensammelstelle", "sanität"]
+  },
+  "5111": {
+    "de": ["leichen", "tote", "tote sammeln"]
+  },
+  "5112": {
+    "de": ["essen", "verpflegung", "küche"]
+  },
+  "5120": {
+    "de": ["wasserverteilung", "trinkwasser", "wasser"]
+  },
+  "5123": {
+    "de": ["umfahrung", "ableitung", "umleiten"]
+  },
+  "5125": {
+    "de": ["gesperrt", "strassensperre", "sperrung", "absperren"]
+  },
+  "5127": {
+    "de": ["gesperrt", "absperrung", "barriere", "sperrung"]
+  },
+  "5129": {
+    "de": ["heli", "landeplatz", "hubschrauber", "rega"]
+  },
+  "5131": {
+    "de": ["lager", "depot", "material"]
+  },
+  "6104": {
+    "de": ["suche", "absuchen", "durchkämmen"]
+  },
+  "6106": {
+    "de": ["zufahrt", "anfahrt", "rettungsweg"]
+  },
+  "6108": {
+    "de": ["bergung", "retten"]
+  },
+  "7101": {
+    "de": ["töff", "motorrad"]
+  },
+  "7102": {
+    "de": ["schiff", "kahn", "wasserfahrzeug"]
+  },
+  "7105": {
+    "de": ["lkw", "camion", "lastwagen"]
+  },
+  "7113": {
+    "de": ["heli", "hubschrauber", "rega", "luftrettung"]
+  },
+  "7114": {
+    "de": ["sanität", "rettung", "krankenwagen", "rettungswagen", "sanka"]
+  },
+  "7116": {
+    "de": ["drehleiter", "hubretter", "leiter"]
+  },
+  "7117": {
+    "de": ["drehleiter", "adl", "leiter"]
+  },
+  "7118": {
+    "de": ["tlf", "feuerwehr", "löschfahrzeug", "tanklöscher"]
+  },
+  "8101": {
+    "de": ["unwetter", "wind", "orkan", "gewitter"]
+  },
+  "8102": {
+    "de": ["regen", "unwetter", "hagel", "gewitter", "wolkenbruch"]
+  },
+  "8103": {
+    "de": ["hochwasser", "flut", "überflutung", "überflutet", "wasser"]
+  },
+  "8104": {
+    "de": ["hangrutsch", "rutschung", "murgang", "erdrutsch"]
+  },
+  "8105": {
+    "de": ["schnee", "lawinenniedergang"]
+  },
+  "8106": {
+    "de": ["beben", "erschütterung"]
+  },
+  "8201": {
+    "de": ["feuer", "flamme", "flammen", "brandausbruch"]
+  },
+  "8202": {
+    "de": ["knall", "detonation", "sprengung"]
+  },
+  "8203": {
+    "de": ["verkehrsstau", "kolonne", "stockender verkehr"]
+  },
+  "8204": {
+    "de": ["unfall", "verkehrsunfall", "crash", "kollision"]
+  },
+  "8205": {
+    "de": ["bahn", "zug", "zugunglück", "entgleisung", "bahnunfall"]
+  },
+  "8207": {
+    "de": ["stromausfall", "blackout", "strom"]
+  },
+  "8209": {
+    "de": ["wasser", "wasserausfall", "trinkwasser"]
+  },
+  "8210": {
+    "de": ["abwasser", "kanal", "kanalisation"]
+  },
+  "8211": {
+    "de": ["strahlung", "atom", "kernkraftwerk"]
+  },
+  "8213": {
+    "de": ["gefahrgut", "chemikalien", "austritt", "chemie"]
+  },
+  "8214": {
+    "de": ["öl", "ölunfall", "gewässerverschmutzung"]
+  },
+  "8219": {
+    "de": ["einsturz", "eingestürzt", "haus", "gebäude"]
+  },
+  "8222": {
+    "de": ["fischsterben", "verschmutzung", "wasser"]
+  },
+  "8308": {
+    "de": ["prügelei", "streit", "gewalt"]
+  },
+  "8321": {
+    "de": ["schüsse", "schusswaffe", "schiessen"]
+  },
+  "8322": {
+    "de": ["amoklauf", "amokläufer"]
+  },
+  "8323": {
+    "de": ["terror", "anschlag"]
+  },
+  "8327": {
+    "de": ["feuer", "brandstiftung", "anschlag"]
+  },
+  "8333": {
+    "de": ["absturz", "flugzeug", "flieger"]
+  },
+  "1105a": {
+    "de": ["detonation", "knall"]
+  },
+  "9101b": {
+    "de": ["a1", "nationalstrasse", "autobahnsperre", "gesperrt"]
+  }
+}
