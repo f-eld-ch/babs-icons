@@ -13,6 +13,7 @@ const SVG_INDEX = join(ROOT, "packages/svg/index.json");
 const CORRECTIONS = join(ROOT, "corrections/labels.json");
 const ALIAS_PINS = join(ROOT, "corrections/aliases.json");
 const KEYWORDS = join(ROOT, "corrections/keywords.json");
+const USAGE = join(ROOT, "corrections/usage.json");
 const NAMES_LOCK = join(ROOT, "corrections/names.lock.json");
 const SVG_DIR = join(ROOT, "packages/svg/svg");
 const CORE_GEN = join(ROOT, "packages/core/src/generated");
@@ -390,6 +391,29 @@ ${entries.join(",\n")}
 `;
 }
 
+// ── Generate usage.ts ─────────────────────────────────────────────────────────
+// How a symbol is used on a map where it is not a plain point symbol (corrections/usage.json).
+function genUsage(): string {
+  const usage = JSON.parse(readFileSync(USAGE, "utf8")) as Record<string, string[] | string>;
+  const known = new Set(icons.map((ic) => ic.id));
+  const entries: [string, string][] = [];
+  for (const kind of ["zone", "line", "illustration"]) {
+    for (const id of (usage[kind] as string[]) ?? []) {
+      if (!known.has(id))
+        throw new Error(`corrections/usage.json: "${id}" not found in index.json`);
+      entries.push([id, kind]);
+    }
+  }
+  entries.sort(([a], [b]) => compareNumeric(a, b));
+  return `${HEADER}
+export type BabsIconUsage = "point" | "line" | "zone" | "illustration";
+
+export const BABS_USAGE: Readonly<Record<string, Exclude<BabsIconUsage, "point">>> = {
+${entries.map(([id, kind]) => `  ${q(id)}: ${q(kind)}`).join(",\n")}
+};
+`;
+}
+
 // ── Write or check ────────────────────────────────────────────────────────────
 function writeOrCheck(path: string, content: string, label: string): boolean {
   if (CHECK) {
@@ -425,6 +449,7 @@ ok = writeOrCheck(join(CORE_GEN, "meta.ts"), genMeta(), "meta.ts") && ok;
 ok = writeOrCheck(join(CORE_GEN, "tree.ts"), genTree(), "tree.ts") && ok;
 ok = writeOrCheck(join(CORE_GEN, "markers.ts"), genMarkers(), "markers.ts") && ok;
 ok = writeOrCheck(join(CORE_GEN, "keywords.ts"), genKeywords(), "keywords.ts") && ok;
+ok = writeOrCheck(join(CORE_GEN, "usage.ts"), genUsage(), "usage.ts") && ok;
 for (const lang of LANGS) {
   ok =
     writeOrCheck(join(CORE_GEN, `labels/${lang}.ts`), genLabels(lang), `labels/${lang}.ts`) && ok;

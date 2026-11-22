@@ -1,0 +1,20 @@
+{
+  "_comment": "How a symbol is used on a map, where it is not a plain point symbol: 'zone' symbols are drawn as the interior or marker of an area, 'line' symbols as a styled line, 'illustration' entries show how a signature is used and are documentation, not something to place. Every symbol of category 6 (Bewegungen) is a line symbol without being listed. Anything not listed here is a point symbol.",
+  "zone": [
+    "1110",
+    "1112",
+    "1114",
+    "1115",
+    "5126",
+    "1401",
+    "1401b",
+    "1402",
+    "1402b",
+    "1403",
+    "1403b",
+    "1404",
+    "1404b"
+  ],
+  "line": ["1113", "1201", "1202", "1203", "1111a", "1111b", "1116a", "1116b"],
+  "illustration": ["1105b", "1106a", "1106b", "1107a", "1107b", "1108", "1109", "2109b"]
+}

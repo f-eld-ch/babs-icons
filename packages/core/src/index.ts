@@ -174,3 +174,44 @@ export type {
   BabsSearchRange,
 } from "./search.js";
 export { BABS_KEYWORDS } from "./generated/keywords.js";
+
+// ── Usage and identifiers ─────────────────────────────────────────────────────
+
+import { BABS_USAGE, type BabsIconUsage } from "./generated/usage.js";
+export type { BabsIconUsage };
+
+/**
+ * How a symbol is used on a map: a plain `point` symbol, a `line` or `zone` symbol (drawn as a
+ * styled line or the interior of an area, never placed on its own), or an `illustration` that
+ * only shows how a signature is used. Everything in category 6 (Bewegungen) is a line symbol.
+ */
+export function getIconUsage(id: BabsIconId): BabsIconUsage {
+  return BABS_USAGE[id] ?? (getIcon(id).category === "6" ? "line" : "point");
+}
+
+/** True for a symbol that can be placed on its own, at a point. */
+export function isPointIcon(id: BabsIconId): boolean {
+  return getIconUsage(id) === "point";
+}
+
+/** True for a category that has at least one symbol to place at a point. */
+export function isPointCategory(n: BabsCategoryNumber): boolean {
+  return listIcons({ category: n }).some((meta) => isPointIcon(meta.id));
+}
+
+const ID_BY_NAME = new Map<string, BabsIconId>();
+for (const meta of Object.values(BABS_ICONS)) {
+  ID_BY_NAME.set(meta.alias, meta.id);
+  ID_BY_NAME.set(meta.export, meta.id);
+}
+
+/**
+ * Resolves what an application stored for a symbol to its catalogue id: the id itself
+ * (`"1101"`), the alias (`"babsBeschaedigung"`) or the export name (`"babs1101"`).
+ * Returns `undefined` for anything else.
+ */
+export function resolveIconId(value: string | undefined): BabsIconId | undefined {
+  if (!value) return undefined;
+  if (isBabsIconId(value)) return value;
+  return ID_BY_NAME.get(value);
+}

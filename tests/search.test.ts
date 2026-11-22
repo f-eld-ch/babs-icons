@@ -3,6 +3,10 @@ import {
   BABS_ICONS,
   BABS_KEYWORDS,
   createIconSearch,
+  getIconUsage,
+  isPointCategory,
+  isPointIcon,
+  resolveIconId,
   foldSearchText as fold,
   searchIcons,
 } from "../packages/core/src/index.ts";
@@ -159,6 +163,22 @@ describe("what is shown", () => {
 });
 
 describe("keywords", () => {
+  it("exist in every language for every symbol that has any", () => {
+    const incomplete = Object.entries(BABS_KEYWORDS)
+      .filter(([, words]) => !words.de?.length || !words.fr?.length || !words.it?.length)
+      .map(([id]) => id);
+    expect(incomplete).toEqual([]);
+  });
+
+  it("find a symbol by a word of the interface language", () => {
+    const fr = createIconSearch({ lang: "fr" });
+    const it_ = createIconSearch({ lang: "it" });
+    expect(fr("coulée de boue").map((h) => h.id)).toContain("8104");
+    expect(it_("colata di fango").map((h) => h.id)).toContain("8104");
+    expect(fr("panne de courant").map((h) => h.id)).toContain("8207");
+    expect(it_("mancanza di corrente").map((h) => h.id)).toContain("8207");
+  });
+
   it("name only symbols the catalogue has", () => {
     expect(Object.keys(BABS_KEYWORDS).filter((id) => !(id in BABS_ICONS))).toEqual([]);
   });
@@ -178,5 +198,30 @@ describe("options", () => {
 
   it("searches once without building an index by hand", () => {
     expect(searchIcons("brand", { lang: "de", limit: 3 }).length).toBeLessThanOrEqual(3);
+  });
+});
+
+describe("usage and identifiers", () => {
+  it("tells point symbols from line, zone and illustration ones", () => {
+    expect(getIconUsage("4103")).toBe("point");
+    expect(getIconUsage("1113")).toBe("line");
+    expect(getIconUsage("1114")).toBe("zone");
+    expect(getIconUsage("1106b")).toBe("illustration");
+    // every Bewegungen symbol is a line symbol, listed or not
+    expect(getIconUsage("6102a")).toBe("line");
+  });
+
+  it("knows which categories have anything to place", () => {
+    expect(isPointCategory("4")).toBe(true);
+    expect(isPointCategory("6")).toBe(false);
+    expect(isPointIcon("1203")).toBe(false);
+  });
+
+  it("resolves id, alias and export name to the id", () => {
+    expect(resolveIconId("1101")).toBe("1101");
+    expect(resolveIconId("babsBeschaedigung")).toBe("1101");
+    expect(resolveIconId("babs1101")).toBe("1101");
+    expect(resolveIconId("Beschaedigung")).toBeUndefined();
+    expect(resolveIconId(undefined)).toBeUndefined();
   });
 });
