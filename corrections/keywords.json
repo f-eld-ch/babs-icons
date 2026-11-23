@@ -1,0 +1,343 @@
+{
+  "1101": {
+    "de": ["kaputt", "defekt", "beschädigt", "schaden"],
+    "fr": ["endommagé", "abîmé", "dommage", "dégâts", "cassé", "en panne"],
+    "it": ["danneggiato", "guasto", "rotto", "danno", "danni"]
+  },
+  "1102": {
+    "de": ["kaputt", "zerstört", "teilweise", "einsturz"],
+    "fr": ["détruit", "partiellement", "effondrement partiel"],
+    "it": ["distrutto", "parzialmente", "crollo parziale"]
+  },
+  "1103": {
+    "de": ["kaputt", "zerstört", "eingestürzt", "komplett"],
+    "fr": ["détruit", "complètement", "effondré", "ruine"],
+    "it": ["distrutto", "completamente", "crollato", "rovina"]
+  },
+  "1104": {
+    "de": ["feuer", "flamme", "gebäudebrand", "hausbrand"],
+    "fr": ["feu", "flamme", "incendie de bâtiment", "feu de maison"],
+    "it": ["fuoco", "fiamma", "incendio edificio", "incendio casa"]
+  },
+  "1301": {
+    "de": ["verwundet", "verletzt", "schwerverletzt", "patient", "patienten"],
+    "fr": ["blessé", "grièvement blessé", "patient", "patients", "victime"],
+    "it": ["ferito", "gravemente ferito", "paziente", "pazienti", "vittima"]
+  },
+  "1302": {
+    "de": ["vermisst", "abgängig", "gesucht"],
+    "fr": ["manquant", "porté disparu", "recherché", "personnes disparues"],
+    "it": ["scomparso", "mancante", "ricercato", "persone scomparse"]
+  },
+  "1303": {
+    "de": ["evakuiert", "notunterkunft", "unterkunft"],
+    "fr": ["évacué", "hébergement", "abri", "sinistré", "sans domicile"],
+    "it": ["evacuato", "alloggio", "rifugio", "sfollato", "sfollati"]
+  },
+  "1304": {
+    "de": ["eingeklemmt", "verschüttet", "verschüttete", "gefangen"],
+    "fr": ["coincé", "pris au piège", "enseveli", "emmuré", "prisonnier"],
+    "it": ["intrappolato", "bloccato", "sepolto", "sotto le macerie"]
+  },
+  "1305": {
+    "de": ["leiche", "leichen", "todesopfer", "verstorben", "gestorben"],
+    "fr": ["mort", "décédé", "cadavre", "cadavres", "victimes"],
+    "it": ["morto", "deceduto", "salma", "salme", "cadavere", "vittime"]
+  },
+  "2101": {
+    "de": ["gefahrgut", "chemie", "gift"],
+    "fr": ["matières dangereuses", "chimie", "produit chimique", "toxique", "poison", "hazmat"],
+    "it": ["merci pericolose", "chimica", "prodotto chimico", "tossico", "veleno"]
+  },
+  "2102": {
+    "de": ["strom", "stromschlag", "hochspannung"],
+    "fr": ["courant", "électricité", "électrocution", "haute tension"],
+    "it": ["corrente", "elettricità", "folgorazione", "alta tensione"]
+  },
+  "2103": {
+    "de": ["knall", "detonation", "sprengung"],
+    "fr": ["explosion", "détonation", "déflagration", "dynamitage"],
+    "it": ["scoppio", "detonazione", "deflagrazione", "brillamento"]
+  },
+  "2104": {
+    "de": ["gasleck", "gasaustritt", "erdgas"],
+    "fr": ["fuite de gaz", "gaz naturel", "émanation de gaz"],
+    "it": ["fuga di gas", "gas naturale", "perdita di gas"]
+  },
+  "2105": {
+    "de": ["verkehrsunfall", "crash"],
+    "fr": ["accident de la route", "accident de circulation", "collision"],
+    "it": ["incidente stradale", "incidente della circolazione", "scontro"]
+  },
+  "2107": {
+    "de": ["strahlung", "atom", "radioaktiv"],
+    "fr": ["rayonnement", "radiation", "nucléaire", "radioactivité"],
+    "it": ["radiazione", "radiazioni", "nucleare", "radioattività"]
+  },
+  "3101": {
+    "de": ["el", "leitung", "führung", "kommando"],
+    "fr": ["conduite", "commandement", "chef d'intervention", "état-major"],
+    "it": ["comando", "conduzione", "capo intervento", "stato maggiore"]
+  },
+  "3103": {
+    "de": ["kp front", "kommandoposten", "führungsstelle"],
+    "fr": ["poste de commandement", "pc avant", "pc front", "poste de conduite"],
+    "it": ["posto comando", "posto comando avanzato", "pc fronte", "posto di condotta"]
+  },
+  "3105": {
+    "de": ["zentrale", "leitstelle"],
+    "fr": ["centrale", "centrale d'alarme", "centre d'engagement", "central"],
+    "it": ["centrale", "centrale operativa", "centrale d'allarme", "sala operativa"]
+  },
+  "5101": {
+    "de": ["verkehr", "verkehrsdienst", "regelung", "posten"],
+    "fr": ["circulation", "régulation du trafic", "régulation", "poste"],
+    "it": ["traffico", "regolazione del traffico", "regolazione", "posto"]
+  },
+  "5103": {
+    "de": ["treffpunkt", "sammelplatz", "besammlung"],
+    "fr": ["point de rassemblement", "lieu de rassemblement", "point de rencontre", "rendez-vous"],
+    "it": ["punto di raccolta", "luogo di raccolta", "punto d'incontro", "ritrovo"]
+  },
+  "5105": {
+    "de": ["pasa", "verletztensammelstelle", "sanität"],
+    "fr": ["point de rassemblement des blessés", "ppa", "poste sanitaire", "sanitaire"],
+    "it": ["punto di raccolta dei feriti", "posto sanitario", "sanitario", "raccolta feriti"]
+  },
+  "5111": {
+    "de": ["leichen", "tote", "tote sammeln"],
+    "fr": ["morts", "cadavres", "rassemblement des morts", "morgue"],
+    "it": ["morti", "salme", "raccolta delle salme", "camera mortuaria"]
+  },
+  "5112": {
+    "de": ["essen", "verpflegung", "küche"],
+    "fr": ["nourriture", "repas", "ravitaillement", "cuisine", "restauration"],
+    "it": ["cibo", "pasti", "vettovagliamento", "cucina", "sussistenza"]
+  },
+  "5120": {
+    "de": ["wasserverteilung", "trinkwasser", "wasser"],
+    "fr": ["distribution d'eau", "eau potable", "eau"],
+    "it": ["distribuzione dell'acqua", "acqua potabile", "acqua"]
+  },
+  "5123": {
+    "de": ["umfahrung", "ableitung", "umleiten"],
+    "fr": ["déviation", "détour", "dévier"],
+    "it": ["deviazione", "percorso alternativo", "deviare"]
+  },
+  "5125": {
+    "de": ["gesperrt", "strassensperre", "sperrung", "absperren"],
+    "fr": ["fermé", "route barrée", "barrage routier", "fermeture", "barrer"],
+    "it": ["chiuso", "strada chiusa", "blocco stradale", "chiusura", "sbarrare"]
+  },
+  "5127": {
+    "de": ["gesperrt", "absperrung", "barriere", "sperrung"],
+    "fr": ["fermé", "barrage", "barrière", "fermeture", "bloqué"],
+    "it": ["chiuso", "sbarramento", "barriera", "chiusura", "bloccato"]
+  },
+  "5129": {
+    "de": ["heli", "landeplatz", "hubschrauber", "rega"],
+    "fr": ["hélico", "hélicoptère", "atterrissage", "rega", "héliport"],
+    "it": ["elicottero", "atterraggio", "eliporto", "rega", "elisuperficie"]
+  },
+  "5131": {
+    "de": ["lager", "depot", "material"],
+    "fr": ["dépôt", "stock", "entrepôt", "matériel", "logistique"],
+    "it": ["deposito", "magazzino", "materiale", "scorte", "logistica"]
+  },
+  "6104": {
+    "de": ["suche", "absuchen", "durchkämmen"],
+    "fr": ["recherche", "chercher", "ratisser", "fouille"],
+    "it": ["ricerca", "cercare", "rastrellare", "perquisizione"]
+  },
+  "6106": {
+    "de": ["zufahrt", "anfahrt", "rettungsweg"],
+    "fr": ["accès", "voie d'accès", "chemin de secours", "route de sauvetage"],
+    "it": ["accesso", "via d'accesso", "via di soccorso", "strada di soccorso"]
+  },
+  "6108": {
+    "de": ["bergung", "retten"],
+    "fr": ["sauvetage", "sauver", "récupération", "évacuer"],
+    "it": ["salvataggio", "salvare", "recupero", "soccorso"]
+  },
+  "7101": {
+    "de": ["töff", "motorrad"],
+    "fr": ["moto", "motocyclette", "scooter"],
+    "it": ["moto", "motocicletta", "scooter"]
+  },
+  "7102": {
+    "de": ["schiff", "kahn", "wasserfahrzeug"],
+    "fr": ["bateau", "navire", "barque", "canot"],
+    "it": ["barca", "battello", "nave", "natante"]
+  },
+  "7105": {
+    "de": ["lkw", "camion", "lastwagen"],
+    "fr": ["camion", "poids lourd", "véhicule lourd"],
+    "it": ["camion", "autocarro", "mezzo pesante"]
+  },
+  "7113": {
+    "de": ["heli", "hubschrauber", "rega", "luftrettung"],
+    "fr": ["hélico", "hélicoptère", "rega", "sauvetage aérien"],
+    "it": ["elicottero", "elicottero di soccorso", "rega", "soccorso aereo"]
+  },
+  "7114": {
+    "de": ["sanität", "rettung", "krankenwagen", "rettungswagen", "sanka"],
+    "fr": ["ambulance", "sanitaire", "sauvetage", "véhicule sanitaire"],
+    "it": ["ambulanza", "sanitario", "soccorso", "mezzo sanitario"]
+  },
+  "7116": {
+    "de": ["drehleiter", "hubretter", "leiter"],
+    "fr": ["échelle", "nacelle", "élévateur", "plateforme élévatrice"],
+    "it": ["scala", "piattaforma aerea", "autoscala", "cestello"]
+  },
+  "7117": {
+    "de": ["drehleiter", "adl", "leiter"],
+    "fr": ["échelle", "échelle pivotante", "camion échelle", "tourelle"],
+    "it": ["scala", "autoscala", "scala aerea", "scala girevole"]
+  },
+  "7118": {
+    "de": ["tlf", "feuerwehr", "löschfahrzeug", "tanklöscher"],
+    "fr": ["pompiers", "camion de pompiers", "tonne-pompe", "véhicule d'extinction"],
+    "it": ["pompieri", "autopompa", "autobotte", "mezzo antincendio"]
+  },
+  "8101": {
+    "de": ["unwetter", "wind", "orkan", "gewitter"],
+    "fr": ["intempéries", "vent", "ouragan", "orage", "tornade"],
+    "it": ["maltempo", "vento", "uragano", "temporale", "tornado"]
+  },
+  "8102": {
+    "de": ["regen", "unwetter", "hagel", "gewitter", "wolkenbruch"],
+    "fr": ["pluie", "intempéries", "grêle", "orage", "pluie torrentielle", "averse"],
+    "it": ["pioggia", "maltempo", "grandine", "temporale", "nubifragio", "acquazzone"]
+  },
+  "8103": {
+    "de": ["hochwasser", "flut", "überflutung", "überflutet", "wasser"],
+    "fr": ["crue", "inondé", "débordement", "eau", "submersion"],
+    "it": ["alluvione", "inondazione", "esondazione", "acqua", "allagato"]
+  },
+  "8104": {
+    "de": ["hangrutsch", "rutschung", "murgang", "erdrutsch"],
+    "fr": [
+      "glissement",
+      "éboulement",
+      "coulée de boue",
+      "lave torrentielle",
+      "mouvement de terrain"
+    ],
+    "it": ["smottamento", "frana", "colata di fango", "colata detritica", "scivolamento"]
+  },
+  "8105": {
+    "de": ["schnee", "lawinenniedergang"],
+    "fr": ["neige", "avalanche", "coulée de neige"],
+    "it": ["neve", "valanga", "slavina", "distacco di neve"]
+  },
+  "8106": {
+    "de": ["beben", "erschütterung"],
+    "fr": ["séisme", "secousse", "tremblement"],
+    "it": ["sisma", "scossa", "terremoto", "movimento tellurico"]
+  },
+  "8201": {
+    "de": ["feuer", "flamme", "flammen", "brandausbruch"],
+    "fr": ["feu", "flamme", "flammes", "départ de feu", "sinistre"],
+    "it": ["fuoco", "fiamma", "fiamme", "principio d'incendio", "rogo"]
+  },
+  "8202": {
+    "de": ["knall", "detonation", "sprengung"],
+    "fr": ["explosion", "détonation", "déflagration", "dynamitage"],
+    "it": ["esplosione", "detonazione", "deflagrazione", "scoppio"]
+  },
+  "8203": {
+    "de": ["verkehrsstau", "kolonne", "stockender verkehr"],
+    "fr": ["bouchon", "embouteillage", "colonne", "trafic dense", "ralentissement"],
+    "it": ["coda", "ingorgo", "colonna", "traffico intenso", "rallentamento"]
+  },
+  "8204": {
+    "de": ["unfall", "verkehrsunfall", "crash", "kollision"],
+    "fr": ["accident", "accident de la route", "collision", "carambolage"],
+    "it": ["incidente", "incidente stradale", "scontro", "tamponamento"]
+  },
+  "8205": {
+    "de": ["bahn", "zug", "zugunglück", "entgleisung", "bahnunfall"],
+    "fr": ["train", "chemin de fer", "déraillement", "accident de train"],
+    "it": ["treno", "ferrovia", "deragliamento", "incidente del treno"]
+  },
+  "8207": {
+    "de": ["stromausfall", "blackout", "strom"],
+    "fr": ["panne de courant", "coupure d'électricité", "blackout", "électricité"],
+    "it": ["blackout", "mancanza di corrente", "interruzione di corrente", "elettricità"]
+  },
+  "8209": {
+    "de": ["wasser", "wasserausfall", "trinkwasser"],
+    "fr": ["eau", "panne d'eau", "eau potable", "coupure d'eau"],
+    "it": ["acqua", "mancanza d'acqua", "acqua potabile", "interruzione dell'acqua"]
+  },
+  "8210": {
+    "de": ["abwasser", "kanal", "kanalisation"],
+    "fr": ["eaux usées", "canalisation", "égouts", "assainissement"],
+    "it": ["acque di scarico", "canalizzazione", "fognatura", "depurazione"]
+  },
+  "8211": {
+    "de": ["strahlung", "atom", "kernkraftwerk"],
+    "fr": ["radiation", "nucléaire", "centrale nucléaire", "accident atomique"],
+    "it": ["radiazione", "nucleare", "centrale nucleare", "incidente atomico"]
+  },
+  "8213": {
+    "de": ["gefahrgut", "chemikalien", "austritt", "chemie"],
+    "fr": ["matières dangereuses", "produits chimiques", "fuite", "chimie", "hazmat"],
+    "it": ["merci pericolose", "prodotti chimici", "perdita", "chimica", "fuoriuscita"]
+  },
+  "8214": {
+    "de": ["öl", "ölunfall", "gewässerverschmutzung"],
+    "fr": ["pétrole", "mazout", "pollution", "hydrocarbures", "marée noire"],
+    "it": ["petrolio", "olio", "nafta", "inquinamento", "idrocarburi"]
+  },
+  "8219": {
+    "de": ["einsturz", "eingestürzt", "haus", "gebäude"],
+    "fr": ["effondrement", "effondré", "maison", "bâtiment", "écroulement"],
+    "it": ["crollo", "crollato", "casa", "edificio", "cedimento"]
+  },
+  "8222": {
+    "de": ["fischsterben", "verschmutzung", "wasser"],
+    "fr": ["mortalité de poissons", "pollution", "eau", "cours d'eau"],
+    "it": ["moria di pesci", "inquinamento", "acqua", "corso d'acqua"]
+  },
+  "8308": {
+    "de": ["prügelei", "streit", "gewalt"],
+    "fr": ["bagarre", "dispute", "violence", "rixe"],
+    "it": ["rissa", "lite", "violenza", "zuffa"]
+  },
+  "8321": {
+    "de": ["schüsse", "schusswaffe", "schiessen"],
+    "fr": ["coups de feu", "arme à feu", "tirs", "tireur"],
+    "it": ["colpi d'arma da fuoco", "arma da fuoco", "spari", "sparatoria"]
+  },
+  "8322": {
+    "de": ["amoklauf", "amokläufer"],
+    "fr": ["tireur fou", "forcené", "amok"],
+    "it": ["folle armato", "amok", "attentatore"]
+  },
+  "8323": {
+    "de": ["terror", "anschlag"],
+    "fr": ["terreur", "attaque", "attentat", "terrorisme"],
+    "it": ["terrore", "attacco", "attentato", "terrorismo"]
+  },
+  "8327": {
+    "de": ["feuer", "brandstiftung", "anschlag"],
+    "fr": ["feu", "incendie volontaire", "pyromane", "attentat"],
+    "it": ["fuoco", "incendio doloso", "piromane", "attentato"]
+  },
+  "8333": {
+    "de": ["absturz", "flugzeug", "flieger"],
+    "fr": ["chute", "avion", "crash", "aéronef"],
+    "it": ["caduta", "aereo", "schianto", "velivolo"]
+  },
+  "1105a": {
+    "de": ["detonation", "knall"],
+    "fr": ["détonation", "déflagration", "explosion"],
+    "it": ["detonazione", "deflagrazione", "esplosione"]
+  },
+  "9101b": {
+    "de": ["a1", "nationalstrasse", "autobahnsperre", "gesperrt"],
+    "fr": ["a1", "route nationale", "autoroute fermée", "fermé", "fermeture"],
+    "it": ["a1", "strada nazionale", "autostrada chiusa", "chiuso", "chiusura"]
+  }
+}
